@@ -52,7 +52,12 @@ class ExerciseViewModel(
     private val engine = ExerciseEngine()
 
     init {
-        viewModelScope.launch { yukle() }
+        viewModelScope.launch {
+            try { yukle() } catch (e: Exception) {
+                e.printStackTrace()
+                _uiState.value = _uiState.value.copy(yukleniyor = false)
+            }
+        }
     }
 
     private suspend fun yukle() {

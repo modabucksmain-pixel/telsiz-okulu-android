@@ -1,6 +1,7 @@
 package com.telsizokulu.app.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavType
@@ -19,8 +20,8 @@ fun AppNavGraph(audioEngine: AudioEngine) {
     val navController = rememberNavController()
     val context = LocalContext.current
 
-    val curriculumRepo = CurriculumRepository(context)
-    val progressRepo = ProgressRepository(context)
+    val curriculumRepo = remember { CurriculumRepository(context) }
+    val progressRepo = remember { ProgressRepository(context) }
 
     NavHost(
         navController = navController,
@@ -34,6 +35,9 @@ fun AppNavGraph(audioEngine: AudioEngine) {
             )
             HomeScreen(
                 viewModel = vm,
+                onDersClick = { bolumId, altBolumId, dersNo ->
+                    navController.navigate(Screen.Ders.createRoute(bolumId, altBolumId, dersNo))
+                },
                 onBolumClick = { bolumId ->
                     navController.navigate(Screen.Bolum.createRoute(bolumId))
                 },

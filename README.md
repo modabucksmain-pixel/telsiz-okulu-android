@@ -1,84 +1,51 @@
-# Telsiz Okulu — Native Android Projesi
+# Telsiz Okulu
 
-Bu klasör, Telsiz Okulu web uygulamasının **tamamen Native Android** portudur.
-Kotlin + Jetpack Compose + Material Design 3 kullanılarak sıfırdan yazılmıştır.
+Türk amatör telsiz operatörü sınav hazırlık uygulaması. NATO fonetik alfabe, Q kodları, elektronik, frekans bantları ve telsiz prosedürlerini kapsayan oyunlaştırılmış kart + egzersiz sistemi.
 
-## Teknoloji Yığını
+## İndir
 
-- **Dil**: Kotlin
-- **UI**: Jetpack Compose + Material Design 3
-- **Tema**: Premium Koyu Mod (Slate `#0F172A`, Blue `#2563EB`, Purple `#7C3AED`)
-- **Veri**: Jetpack DataStore (Preferences) — İlerleme; Assets JSON — Müfredat
-- **Ses**: Android SoundPool + TextToSpeech API
-- **Navigasyon**: Compose Navigation
-- **Mimari**: MVVM (ViewModel + StateFlow)
+[Son APK → Releases](../../releases/latest)
 
-## Proje Yapısı
+## Özellikler
 
-```
-android_native/
-├── app/
-│   ├── src/main/
-│   │   ├── assets/
-│   │   │   ├── data/           ← 8 JSON veri dosyası (NATO, QCode, Elektronik, vb.)
-│   │   │   ├── img/svg/        ← 32 SVG ikonu
-│   │   │   └── sounds/         ← Telsiz ses efektleri (.wav) — EKLENMELI
-│   │   └── java/com/telsizokulu/app/
-│   │       ├── MainActivity.kt
-│   │       ├── TelsizOkuluApp.kt
-│   │       ├── data/
-│   │       │   ├── model/      ← Tüm veri sınıfları
-│   │       │   └── repository/ ← CurriculumRepository, ProgressRepository
-│   │       ├── engine/
-│   │       │   ├── AudioEngine.kt      ← SoundPool + TTS
-│   │       │   ├── GamificationEngine.kt ← XP, Rozet, Seviye
-│   │       │   └── ExerciseEngine.kt   ← Soru seçimi ve filtreleme
-│   │       └── ui/
-│   │           ├── theme/      ← Color, Type, Theme
-│   │           ├── navigation/ ← Screen, AppNavGraph
-│   │           ├── screens/    ← Tüm ekranlar
-│   │           └── viewmodel/  ← HomeViewModel, ExerciseViewModel, ProfileViewModel
-```
+- **Bölüm haritası** — sıralı kilit açma, XP + seri sistemi
+- **Ders modu** — teori flip kartları → egzersizler
+- **Sınavlar** — alt bölüm, bölüm ve genel TRAC sınav modları
+- **Pratik** — yanlış yapılan kartlara ağırlıklı alıştırma
+- **Kütüphane** — öğrenme durumuna göre tüm kartlara göz at
+- **Rozetler** — 20+ başarı rozeti
 
-## Kurulum
+## Teknoloji
 
-### 1. Android Studio'da Aç
-`android_native` klasörünü Android Studio'da aç:
-**File → Open → `android_native` klasörünü seç**
+| | |
+|---|---|
+| Dil | Kotlin 2.1.21 |
+| UI | Jetpack Compose + Material Design 3 |
+| Mimari | MVVM + StateFlow |
+| Veri Kalıcılığı | Jetpack DataStore |
+| İçerik | JSON assets (ağ bağlantısı yok) |
+| Min SDK | Android 8.0 (API 26) |
 
-### 2. Ses Dosyaları Ekle (Gerekli)
-`app/src/main/assets/sounds/` klasörüne şu ses dosyalarını ekle:
-- `squelch_open.wav` — Telsiz açma sesi (kısa cızırtı, ~80ms)
-- `squelch_close.wav` — Telsiz kapama sesi (~60ms)
-- `roger_beep.wav` — Roger Beep 880Hz sine tonu (~110ms)
-- `dogru.wav` — Doğru cevap sesi (C5→E5 yükselen ton)
-- `yanlis.wav` — Yanlış cevap sesi (düşen ton)
-- `bolum_tamamlandi.wav` — Bölüm tamamlama fanfarı
+## Derleme
 
-### 3. Derle ve Çalıştır
-```
+```bash
 ./gradlew :app:assembleDebug
+./gradlew :app:installDebug
 ```
-veya Android Studio'da `Run` düğmesine bas.
 
-## Ekranlar
+JDK 17+ gerektirir (JDK 25 ile test edildi). C: diski doluysa `GRADLE_USER_HOME` ortam değişkenini başka bir diske ayarla.
 
-| Ekran | Açıklama |
-|-------|----------|
-| **Ana Sayfa** | Bölüm haritası, XP/Streak/Rozet istatistikleri, Günlük Hedef |
-| **Bölüm Detay** | Alt bölüm listesi, sıralı ders kilitleri, Alt Bölüm/Bölüm sınavları |
-| **Ders/Egzersiz** | Çoktan Seçmeli, Doğru/Yanlış, Boşluk Doldur, Sayısal sorular |
-| **Sınav** | Tüm sınav tipleri (Alt Bölüm, Bölüm, Genel TRAC) |
-| **Kütüphane** | Tüm teori kartları ve konu özetleri |
-| **Profil** | Seviye ilerleme, Bölüm ilerlemeleri, Rozet vitrini, Öğrenme durumu |
+## İçerik Dosyaları
 
-## Web'den Port Edilen Özellikler
+`app/src/main/assets/data/` dizininde:
+- `curriculum.json` — bölüm/ders yapısı
+- `nato.json`, `qcodes.json`, `elektronik.json`, `bantlar.json`, `prosedurler.json` — kart + egzersizler
+- `sinav_sorulari.json` — genel sınav havuzu
+- `rozetler.json` — rozet tanımları
 
-| Web Özelliği | Android Karşılığı |
-|-------------|------------------|
-| `localStorage` (TelsizProgress) | Jetpack DataStore |
-| `SesYoneticisi` + `WebAudioSynth` | `AudioEngine` (SoundPool + TTS) |
-| `Gamification` JS sınıfı | `GamificationEngine` Kotlin object |
-| `EgzersizMotoru` JS sınıfı | `ExerciseEngine` Kotlin class |
-| Flask Jinja2 Templates | Jetpack Compose Screens |
-| CSS Koyu Mod | Material3 Dark Color Scheme |
+## Ses Dosyaları
+
+`app/src/main/assets/sounds/` dizinine ekle (isteğe bağlı):
+`squelch_open.wav`, `squelch_close.wav`, `roger_beep.wav`, `dogru.wav`, `yanlis.wav`, `bolum_tamamlandi.wav`
+
+NATO ses dosyaları (`alpha.mp3` vb.) → `app/src/main/assets/audio/nato/`
