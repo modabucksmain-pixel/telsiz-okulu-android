@@ -76,10 +76,30 @@ fun ExerciseScreen(
     val egzersiz = oturum.mevcutEgzersiz
     if (egzersiz == null) {
         Box(Modifier.fillMaxSize().background(Slate950), contentAlignment = Alignment.Center) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.padding(24.dp).verticalScroll(rememberScrollState())
+            ) {
                 Text("🎓", fontSize = 48.sp)
                 Spacer(Modifier.height(16.dp))
                 Text("Bu ders için içerik bulunamadı.", color = Slate400, textAlign = TextAlign.Center)
+                if (uiState.hata != null) {
+                    Spacer(Modifier.height(16.dp))
+                    Text(
+                        text = "HATA:\n${uiState.hata}",
+                        color = RedError,
+                        fontSize = 11.sp,
+                        textAlign = TextAlign.Start
+                    )
+                } else {
+                    Spacer(Modifier.height(8.dp))
+                    Text(
+                        text = "mod=${uiState.mod} bolum=${uiState.bolumId} alt=${uiState.altBolumId} ders=${uiState.dersNo}\nkart=${uiState.icerik.kartlar.size} egz=${uiState.oturum.egzersizler.size}",
+                        color = Slate400,
+                        fontSize = 11.sp,
+                        textAlign = TextAlign.Center
+                    )
+                }
                 Spacer(Modifier.height(24.dp))
                 Button(onClick = onGeri) { Text("Geri Dön") }
             }

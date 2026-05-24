@@ -33,7 +33,8 @@ data class ExerciseUiState(
     val teoriKartlari: List<Kart> = emptyList(),
     val mevcutTeoriIndex: Int = 0,
     val teoriModu: Boolean = false,
-    val kartCevrildi: Boolean = false
+    val kartCevrildi: Boolean = false,
+    val hata: String? = null
 )
 
 class ExerciseViewModel(
@@ -53,9 +54,13 @@ class ExerciseViewModel(
 
     init {
         viewModelScope.launch {
-            try { yukle() } catch (e: Exception) {
+            try { yukle() } catch (e: Throwable) {
                 e.printStackTrace()
-                _uiState.value = _uiState.value.copy(yukleniyor = false)
+                val trace = e.stackTrace.take(4).joinToString("\n") { "  at $it" }
+                _uiState.value = _uiState.value.copy(
+                    yukleniyor = false,
+                    hata = "${e::class.java.simpleName}: ${e.message}\n$trace"
+                )
             }
         }
     }
