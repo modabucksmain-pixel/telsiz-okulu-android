@@ -125,8 +125,13 @@ fun ExerciseScreen(
                 Icon(Icons.Filled.Close, contentDescription = "Çık", tint = Slate400)
             }
             Spacer(Modifier.width(8.dp))
+            val animProgress by animateFloatAsState(
+                targetValue = oturum.ilerlemeYuzdesi,
+                animationSpec = tween(durationMillis = 450, easing = FastOutSlowInEasing),
+                label = "progress"
+            )
             LinearProgressIndicator(
-                progress = { oturum.ilerlemeYuzdesi },
+                progress = { animProgress },
                 modifier = Modifier
                     .weight(1f)
                     .height(14.dp)
@@ -196,10 +201,22 @@ private fun EgzersizKarti(
     var mevcutCevap by remember(egzersiz.id) { mutableStateOf("") }
     var cevapGonderildi by remember(egzersiz.id) { mutableStateOf(false) }
 
+    var girisGorunur by remember(egzersiz.id) { mutableStateOf(false) }
+    LaunchedEffect(egzersiz.id) { girisGorunur = true }
+    val girisAlpha by animateFloatAsState(
+        targetValue = if (girisGorunur) 1f else 0f,
+        animationSpec = tween(360), label = "girisAlpha"
+    )
+    val girisKayma by animateFloatAsState(
+        targetValue = if (girisGorunur) 0f else 48f,
+        animationSpec = tween(360, easing = FastOutSlowInEasing), label = "girisKayma"
+    )
+
     Box(modifier = Modifier.fillMaxSize()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .graphicsLayer { alpha = girisAlpha; translationY = girisKayma }
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 20.dp)
             .padding(bottom = if (geribildirımGoruntu) 220.dp else 24.dp)

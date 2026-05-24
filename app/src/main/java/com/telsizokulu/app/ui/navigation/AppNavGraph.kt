@@ -1,5 +1,10 @@
 package com.telsizokulu.app.ui.navigation
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
@@ -25,7 +30,19 @@ fun AppNavGraph(audioEngine: AudioEngine) {
 
     NavHost(
         navController = navController,
-        startDestination = Screen.Home.route
+        startDestination = Screen.Home.route,
+        enterTransition = {
+            slideInHorizontally(animationSpec = tween(280)) { it / 4 } + fadeIn(tween(280))
+        },
+        exitTransition = {
+            slideOutHorizontally(animationSpec = tween(220)) { -it / 8 } + fadeOut(tween(180))
+        },
+        popEnterTransition = {
+            slideInHorizontally(animationSpec = tween(280)) { -it / 4 } + fadeIn(tween(280))
+        },
+        popExitTransition = {
+            slideOutHorizontally(animationSpec = tween(220)) { it / 4 } + fadeOut(tween(180))
+        }
     ) {
 
         // ── Ana Sayfa ──────────────────────────────────────────
