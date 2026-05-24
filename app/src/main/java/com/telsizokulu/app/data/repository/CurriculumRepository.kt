@@ -39,11 +39,66 @@ class CurriculumRepository(private val context: Context) {
                 etiketler = (k.etiketler as? List<String>) ?: emptyList()
             )
         }
+        val egzersizler = injectTipVeOnarim(raw).toMutableMap()
+
+        // NATO kartları için inandırıcı çoktan seçmeli sorular üret (harf→kod ve kod→harf).
+        val uretilen = natoSecmeliUret(temizKartlar)
+        if (uretilen.isNotEmpty()) {
+            egzersizler["coktan_secmeli"] = (egzersizler["coktan_secmeli"] ?: emptyList()) + uretilen
+        }
+
         return IcerikDosyasi(
             baslik = (raw.baslik as? String) ?: "",
             kartlar = temizKartlar,
-            egzersizler = injectTipVeOnarim(raw)
+            egzersizler = egzersizler
         )
+    }
+
+    /**
+     * NATO kartlarından çoktan seçmeli soru üret.
+     * Dağıtıcılar aynı harfle başlayan, kulağa NATO gibi gelen sahte kelimeler (sinsi tuzak).
+     */
+    private fun natoSecmeliUret(kartlar: List<Kart>): List<Egzersiz> {
+        val natoKartlar = kartlar.filter {
+            it.id.startsWith("nato_") && !it.arka.isNullOrEmpty() && !it.on.isNullOrEmpty()
+        }
+        if (natoKartlar.isEmpty()) return emptyList()
+
+        val tumHarfler = natoKartlar.mapNotNull { it.on?.uppercase() }.distinct()
+        val sonuc = mutableListOf<Egzersiz>()
+
+        natoKartlar.forEach { k ->
+            val harf = (k.on ?: "").uppercase()
+            val kod  = k.arka ?: ""
+            val ab   = k.altBolum ?: ""
+
+            // İleri: "B" harfinin kodu? → Bravo / Beta / Bordon / Bistra
+            val havuz = NATO_DISTRAKTOR[harf]
+            if (!havuz.isNullOrEmpty() && havuz.size >= 3) {
+                val secenekler = (listOf(kod) + havuz.shuffled().take(3)).shuffled()
+                sonuc.add(Egzersiz(
+                    id = "ks_${k.id}", tip = "coktan_secmeli",
+                    soru = "\"$harf\" harfinin NATO kodu hangisidir?",
+                    cevap = kod, secenekler = secenekler,
+                    kartId = k.id, altBolum = ab, zorluk = "kolay",
+                    aciklama = "$harf = $kod"
+                ))
+            }
+
+            // Ters: "Bravo" hangi harf? → diğer harfler dağıtıcı
+            val yanlisHarfler = tumHarfler.filter { it != harf }.shuffled().take(3)
+            if (yanlisHarfler.size == 3) {
+                val secenekler = (listOf(harf) + yanlisHarfler).shuffled()
+                sonuc.add(Egzersiz(
+                    id = "hs_${k.id}", tip = "coktan_secmeli",
+                    soru = "\"$kod\" hangi harfe karşılık gelir?",
+                    cevap = harf, secenekler = secenekler,
+                    kartId = k.id, altBolum = ab, zorluk = "kolay",
+                    aciklama = "$kod = $harf"
+                ))
+            }
+        }
+        return sonuc
     }
 
     /**
@@ -171,5 +226,53 @@ class CurriculumRepository(private val context: Context) {
             e.printStackTrace()
             null
         }
+    }
+
+    companion object {
+        /**
+         * NATO çoktan seçmeli dağıtıcı havuzu.
+         * Hepsi doğru harfle başlar + kulağa NATO gibi gelir = inandırıcı tuzak.
+         * Karışım: sahte-fonetik, yazım varyantı (Alfa/Juliett/Fokstrot), eski/ulusal
+         * fonetik (Coca/Boston/Easy/Niner), Türkçe tanıdık (Bursa/Ankara).
+         */
+        private val NATO_DISTRAKTOR: Map<String, List<String>> = mapOf(
+            "A" to listOf("Alfa", "Atlas", "Ankara", "Apollo", "Anna"),
+            "B" to listOf("Beta", "Bordon", "Bingo", "Bursa", "Boston"),
+            "C" to listOf("Cesar", "Cobra", "Coca", "Carlos", "Ceyhan"),
+            "D" to listOf("Denver", "Diana", "Dakota", "Delfin", "Dingo"),
+            "E" to listOf("Easy", "Edison", "Ekko", "Empire", "Edirne"),
+            "F" to listOf("Falcon", "Fokstrot", "Fiesta", "Fethiye", "Frodo"),
+            "G" to listOf("Gamma", "Gallo", "Gustav", "Genova", "Gebze"),
+            "H" to listOf("Havana", "Hanover", "Henry", "Hilton", "Hatay"),
+            "I" to listOf("Italy", "Indigo", "Isaac", "Iglo", "Igloo"),
+            "J" to listOf("Juliett", "Jupiter", "Jersey", "Jumbo", "Java"),
+            "K" to listOf("Kilogram", "Kenya", "Kappa", "Karma", "Konya"),
+            "L" to listOf("Lambda", "London", "Luna", "Lotus", "Lima Peru"),
+            "M" to listOf("Metro", "Mango", "Madrid", "Morse", "Mersin"),
+            "N" to listOf("Norway", "Nectar", "Nevada", "Niagara", "Nazar"),
+            "O" to listOf("Omega", "Oslo", "Orion", "Otto", "Ordu"),
+            "P" to listOf("Pluto", "Panter", "Prag", "Pizza", "Polo"),
+            "Q" to listOf("Quito", "Quasar", "Quartz", "Queen", "Quad"),
+            "R" to listOf("Radio", "Rocket", "Roma", "Rambo", "Rize"),
+            "S" to listOf("Sigma", "Santos", "Saturn", "Sofya", "Samsun"),
+            "T" to listOf("Titan", "Tahoe", "Tokyo", "Tonga", "Trabzon"),
+            "U" to listOf("Union", "Ural", "Utah", "Ultra", "Uşak"),
+            "V" to listOf("Vektor", "Venus", "Vienna", "Volga", "Van"),
+            "W" to listOf("Wilson", "Wave", "Winter", "Wagon", "Walter"),
+            "X" to listOf("Xenon", "Xander", "Xerox", "Xylo", "Xena"),
+            "Y" to listOf("Yale", "Yukon", "Yoga", "Yeti", "Yalova"),
+            "Z" to listOf("Zebra", "Zorro", "Zeus", "Zenith", "Zonguldak"),
+            // Rakamlar (havacılık varyantları gerçek tuzak: Niner/Fife/Tree)
+            "0" to listOf("Ziro", "Nought", "Null", "Nil"),
+            "1" to listOf("Won", "Uno", "Wun", "Ein"),
+            "2" to listOf("Too", "Twin", "Duo", "Tu"),
+            "3" to listOf("Tree", "Tri", "Free", "Thri"),
+            "4" to listOf("For", "Fower", "Quad", "Fawer"),
+            "5" to listOf("Fife", "Penta", "Faiv", "Quint"),
+            "6" to listOf("Sics", "Hex", "Saks", "Sixer"),
+            "7" to listOf("Sevn", "Hepta", "Sefen", "Sven"),
+            "8" to listOf("Ait", "Octa", "Eit", "Ate"),
+            "9" to listOf("Niner", "Nain", "Nona", "Nyne")
+        )
     }
 }
