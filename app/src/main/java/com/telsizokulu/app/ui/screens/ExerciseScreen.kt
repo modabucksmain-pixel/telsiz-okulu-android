@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -28,6 +29,7 @@ import com.telsizokulu.app.data.model.Kart
 import com.telsizokulu.app.data.model.DiyalogSatiri
 import com.telsizokulu.app.data.model.HizliTurSoruTanim
 import com.telsizokulu.app.engine.GamificationEngine
+import com.telsizokulu.app.ui.components.NatoMonogram
 import com.telsizokulu.app.ui.theme.*
 import com.telsizokulu.app.ui.viewmodel.ExerciseViewModel
 
@@ -245,6 +247,12 @@ private fun EgzersizKarti(
                     val dogru = geribildirımGoruntu && secenek == egzersiz.cevap
                     val yanlis = geribildirımGoruntu && secildi && !dogru
 
+                    val vurguRenk = when {
+                        dogru -> GreenSuccess
+                        yanlis -> RedError
+                        secildi && !geribildirımGoruntu -> Blue60
+                        else -> null
+                    }
                     Button(
                         onClick = {
                             if (!cevapGonderildi) {
@@ -256,6 +264,11 @@ private fun EgzersizKarti(
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 5.dp)
+                            .then(
+                                if (vurguRenk != null)
+                                    Modifier.neonGlow(vurguRenk, cornerRadius = 18.dp, elevation = 10.dp, borderWidth = 2.dp)
+                                else Modifier
+                            )
                             .heightIn(min = 72.dp),
                         contentPadding = PaddingValues(horizontal = 20.dp, vertical = 14.dp),
                         colors = ButtonDefaults.buttonColors(
@@ -266,15 +279,7 @@ private fun EgzersizKarti(
                                 else -> Slate900
                             }
                         ),
-                        border = BorderStroke(
-                            2.dp,
-                            when {
-                                dogru -> GreenSuccess
-                                yanlis -> RedError
-                                secildi && !geribildirımGoruntu -> Blue60
-                                else -> Slate700
-                            }
-                        ),
+                        border = if (vurguRenk == null) BorderStroke(2.dp, Slate700) else null,
                         shape = RoundedCornerShape(18.dp)
                     ) {
                         Row(
@@ -490,6 +495,7 @@ private fun EgzersizKarti(
                         AsyncImage(
                             model = feedbackImg,
                             contentDescription = null,
+                            contentScale = ContentScale.Fit,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .heightIn(max = 180.dp)
@@ -645,14 +651,18 @@ fun TeoriEkrani(
                 modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight(0.85f)
+                    .neonGlow(
+                        color = if (kartCevrildi) Purple60 else Blue60,
+                        cornerRadius = 24.dp,
+                        elevation = 20.dp,
+                    )
                     .clickable { onTeoriCevir() }
                     .graphicsLayer {
                         rotationY = rotation
                         cameraDistance = 8 * density
                     },
                 shape = RoundedCornerShape(24.dp),
-                colors = CardDefaults.cardColors(containerColor = Slate900),
-                border = BorderStroke(1.5.dp, if (kartCevrildi) Purple60 else Blue60)
+                colors = CardDefaults.cardColors(containerColor = Slate900)
             ) {
                 if (rotation <= 90f) {
                     // Front Face
@@ -663,22 +673,28 @@ fun TeoriEkrani(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
                     ) {
-                        // Visual
-                        val gorsel = getTeoriKartGorselYolu(kart.id, kart.on ?: "", kart.arka ?: "")
-                        Box(
-                            modifier = Modifier
-                                .size(140.dp)
-                                .background(Slate950, shape = RoundedCornerShape(20.dp))
-                                .border(1.dp, Slate800, shape = RoundedCornerShape(20.dp)),
-                            contentAlignment = Alignment.Center
-                        ) {
-                            AsyncImage(
-                                model = gorsel,
-                                contentDescription = kart.on ?: "",
+                        // Visual — NATO harfleri için özgün monogram, diğerleri için konu görseli
+                        if (kart.id.startsWith("nato_") && !kart.on.isNullOrEmpty()) {
+                            NatoMonogram(harf = kart.on ?: "", accent = Blue60)
+                        } else {
+                            val gorsel = getTeoriKartGorselYolu(kart.id, kart.on ?: "", kart.arka ?: "")
+                            Box(
                                 modifier = Modifier
-                                    .size(110.dp)
-                                    .padding(8.dp)
-                            )
+                                    .size(140.dp)
+                                    .neonGlow(Blue60, cornerRadius = 20.dp, elevation = 12.dp, glowAlpha = 0.35f, borderAlpha = 0.4f)
+                                    .clip(RoundedCornerShape(20.dp))
+                                    .background(Slate950),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                AsyncImage(
+                                    model = gorsel,
+                                    contentDescription = kart.on ?: "",
+                                    contentScale = ContentScale.Fit,
+                                    modifier = Modifier
+                                        .size(110.dp)
+                                        .padding(8.dp)
+                                )
+                            }
                         }
 
                         Spacer(Modifier.height(24.dp))
