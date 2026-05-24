@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="lg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#EC4899"/>
+    </linearGradient>
+  </defs>
+  <!-- Kupa gövdesi -->
+  <path d="M30 25 L70 25 L65 60 Q50 70 35 60 Z" fill="url(#lg)" opacity="0.9"/>
+  <!-- Kupa şeklini düzelt -->
+  <path d="M30 25 L70 25 L65 60 Q57 68 50 70 Q43 68 35 60 Z" fill="url(#lg)"/>
+  <!-- İç parlaklık -->
+  <path d="M37 30 L63 30 L59 57 Q50 63 41 57 Z" fill="white" opacity="0.15"/>
+  <!-- Sol tutamak -->
+  <path d="M30 30 Q15 35 18 48 Q20 57 30 55" fill="none" stroke="url(#lg)" stroke-width="4" stroke-linecap="round"/>
+  <!-- Sağ tutamak -->
+  <path d="M70 30 Q85 35 82 48 Q80 57 70 55" fill="none" stroke="url(#lg)" stroke-width="4" stroke-linecap="round"/>
+  <!-- Kaide -->
+  <rect x="42" y="70" width="16" height="8" rx="2" fill="url(#lg)" opacity="0.7"/>
+  <rect x="35" y="77" width="30" height="5" rx="2.5" fill="url(#lg)" opacity="0.8"/>
+  <!-- Yıldız -->
+  <text x="50" y="51" font-family="sans-serif" font-size="20" text-anchor="middle" fill="white" opacity="0.9">★</text>
+</svg>

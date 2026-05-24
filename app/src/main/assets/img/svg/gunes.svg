@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="og" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B"/>
+      <stop offset="100%" style="stop-color:#EF4444"/>
+    </linearGradient>
+  </defs>
+  <!-- Güneş merkezi -->
+  <circle cx="50" cy="50" r="18" fill="url(#og)"/>
+  <!-- Güneş ışınları -->
+  <line x1="50" y1="12" x2="50" y2="22" stroke="url(#og)" stroke-width="4" stroke-linecap="round"/>
+  <line x1="50" y1="78" x2="50" y2="88" stroke="url(#og)" stroke-width="4" stroke-linecap="round"/>
+  <line x1="12" y1="50" x2="22" y2="50" stroke="url(#og)" stroke-width="4" stroke-linecap="round"/>
+  <line x1="78" y1="50" x2="88" y2="50" stroke="url(#og)" stroke-width="4" stroke-linecap="round"/>
+  <!-- Köşegen ışınlar -->
+  <line x1="23" y1="23" x2="30" y2="30" stroke="url(#og)" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  <line x1="70" y1="70" x2="77" y2="77" stroke="url(#og)" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  <line x1="77" y1="23" x2="70" y2="30" stroke="url(#og)" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  <line x1="23" y1="77" x2="30" y2="70" stroke="url(#og)" stroke-width="3" stroke-linecap="round" opacity="0.8"/>
+  <!-- İç parlama -->
+  <circle cx="44" cy="44" r="6" fill="white" opacity="0.3"/>
+</svg>

@@ -1,0 +1,677 @@
+{
+  "kartlar": [
+    {
+      "id": "bn_hertz",
+      "harf": "Hz",
+      "kod": "Hertz",
+      "telaffuz": "FREKANS BİRİMİ",
+      "alt_bolum": "4_1",
+      "aciklama": "Frekansın temel birimidir. Saniyedeki titreşim / çevrim sayısını gösterir. Amatör telsizcilikte genellikle kHz (kilohertz) ve MHz (megahertz) kullanılır."
+    },
+    {
+      "id": "bn_dalgaboyu",
+      "harf": "λ",
+      "kod": "Dalga Boyu",
+      "telaffuz": "LAMBDA",
+      "alt_bolum": "4_1",
+      "aciklama": "Bir elektromanyetik dalganın ardışık iki tepe noktası arasındaki mesafedir. Formülü λ = 300 / f (MHz) olarak hesaplanır ve metre cinsinden ifade edilir."
+    },
+    {
+      "id": "bn_80m",
+      "harf": "80m",
+      "kod": "3.5 - 3.8 MHz",
+      "telaffuz": "HF BANDI",
+      "alt_bolum": "4_2",
+      "aciklama": "80 metre bandı (3.5 - 3.8 MHz), özellikle geceleri yakın mesafe yurt içi haberleşme için çok elverişli olan bir HF bandıdır."
+    },
+    {
+      "id": "bn_40m",
+      "harf": "40m",
+      "kod": "7.0 - 7.2 MHz",
+      "telaffuz": "HF BANDI",
+      "alt_bolum": "4_2",
+      "aciklama": "40 metre bandı (7.0 - 7.2 MHz), Türkiye içi ve Avrupa genelinde gün boyu en aktif kullanılan amatör telsiz HF frekans bandıdır."
+    },
+    {
+      "id": "bn_20m",
+      "harf": "20m",
+      "kod": "14.0 - 14.35 MHz",
+      "telaffuz": "HF BANDI",
+      "alt_bolum": "4_2",
+      "aciklama": "20 metre bandı (14.0 - 14.35 MHz), iyonosfer yansıması ile kıtalararası (DX) uzak mesafe haberleşmede en popüler HF bandıdır."
+    },
+    {
+      "id": "bn_2m",
+      "harf": "2m",
+      "kod": "144 - 146 MHz",
+      "telaffuz": "VHF BANDI",
+      "alt_bolum": "4_3",
+      "aciklama": "2 metre bandı (144 - 146 MHz), VHF frekansında yer alır. Genellikle görüş mesafesi (line-of-sight) ve röleler üzerinden yerel haberleşme için kullanılır."
+    },
+    {
+      "id": "bn_70cm",
+      "harf": "70cm",
+      "kod": "430 - 440 MHz",
+      "telaffuz": "UHF BANDI",
+      "alt_bolum": "4_3",
+      "aciklama": "70 santimetre bandı (430 - 440 MHz), UHF frekansındadır. Binaların içinden ve şehir içi engellerden kolayca geçebildiği için el telsizlerinde çok tercih edilir."
+    },
+    {
+      "id": "bn_iyonosfer",
+      "harf": "Yansıma",
+      "kod": "İyonosfer Yayılımı",
+      "telaffuz": "GÖK DALGASI",
+      "alt_bolum": "4_3",
+      "aciklama": "HF (Kısa dalga) sinyalleri, atmosferin iyonosfer tabakasından yeryüzüne geri yansıyarak (skywave) çok uzak mesafelerle görüşme imkanı sağlar."
+    },
+    {
+      "id": "bn_trac_tahsis",
+      "harf": "TRAC",
+      "kod": "Türkiye Frekans Tahsisleri",
+      "telaffuz": "TÜRKİYE BANTPLANI",
+      "alt_bolum": "4_4",
+      "aciklama": "Türkiye'de amatör telsizcilik frekansları BTK tarafından belirlenir ve TRAC bandplanına uygun olarak kullanılır. Belirli lisans sınıfları belirli frekans aralıklarında yayın hakkına sahiptir."
+    },
+    {
+      "id": "bn_lisans_sinif",
+      "harf": "Lisans",
+      "kod": "A/B/C Sınıfı Yetkiler",
+      "telaffuz": "LİSANS SINIFLARI",
+      "alt_bolum": "4_4",
+      "aciklama": "A Sınıfı lisans sahipleri tüm amatör bantlarda tam yetkilidir. B Sınıfı lisans sahipleri HF bantlarında sınırlı yetkiye sahipken, C Sınıfı sadece VHF/UHF bantlarında düşük güçle çalışabilir."
+    }
+  ],
+  "egzersizler": {
+    "anlam_bul": [
+      {
+        "id": "bna_01",
+        "soru": "Frekansın temel birimi nedir?",
+        "dog": "Hertz",
+        "dogru": "Hertz",
+        "secenekler": [
+          "Hertz",
+          "Watt",
+          "Ohm",
+          "Metre"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "4_1",
+        "aciklama": "Hertz, saniyedeki titreşim sayısını ifade eden frekans birimidir.<br><img src='/static/img/rf_spectrum.png' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "bn_hertz"
+      },
+      {
+        "id": "bna_02",
+        "soru": "40 metre amatör telsiz bandının frekans aralığı nedir?",
+        "dog": "7.000 - 7.200 MHz",
+        "dogru": "7.000 - 7.200 MHz",
+        "secenekler": [
+          "7.000 - 7.200 MHz",
+          "3.500 - 3.800 MHz",
+          "14.000 - 14.350 MHz",
+          "144 - 146 MHz"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_2",
+        "kart": "bn_40m"
+      },
+      {
+        "id": "bna_03",
+        "soru": "Kıtalararası en aktif uzak mesafe (DX) haberleşme HF bandı hangisidir?",
+        "dog": "20m (14 MHz)",
+        "dogru": "20m (14 MHz)",
+        "secenekler": [
+          "20m (14 MHz)",
+          "80m (3.5 MHz)",
+          "2m (144 MHz)",
+          "70cm (430 MHz)"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_2",
+        "aciklama": "20m (14 MHz) bandı uzak mesafe için idealdir. Bu bantta genellikle Yagi Antenler kullanılır.<br><img src='/static/img/anten_tipleri.svg' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "bn_20m"
+      },
+      {
+        "id": "bna_04",
+        "soru": "144 - 146 MHz frekans aralığı amatör telsizcilikte hangi bant olarak adlandırılır?",
+        "dog": "2 metre bandı",
+        "dogru": "2 metre bandı",
+        "secenekler": [
+          "2 metre bandı",
+          "40 metre bandı",
+          "20 metre bandı",
+          "70 santimetre bandı"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "4_3",
+        "kart": "bn_2m"
+      },
+      {
+        "id": "bna_05",
+        "soru": "Sinyallerin gökyüzüne doğru yayılarak iyonosfer tabakasından yeryüzüne geri yansıması (skywave) telsizde hangi bantta gerçekleşir?",
+        "dog": "HF",
+        "dogru": "HF",
+        "secenekler": [
+          "HF",
+          "VHF",
+          "UHF",
+          "SHF"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_3",
+        "aciklama": "HF (Kısa Dalga) sinyalleri İyonosfer tabakasından yansıyarak binlerce kilometre öteye ulaşabilir.<br><img src='/static/img/skywave.svg' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "bn_iyonosfer"
+      },
+      {
+        "id": "bna_06",
+        "soru": "1 MHz kaç kHz'dir?",
+        "dog": "1000 kHz",
+        "dogru": "1000 kHz",
+        "secenekler": [
+          "1000 kHz",
+          "100 kHz",
+          "10000 kHz",
+          "10 kHz"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "4_1",
+        "kart": "bn_hertz"
+      },
+      {
+        "id": "bna_07",
+        "soru": "El telsizlerinde en yaygın kullanılan iki frekans bandı hangisidir?",
+        "dog": "VHF ve UHF",
+        "dogru": "VHF ve UHF",
+        "secenekler": [
+          "VHF ve UHF",
+          "HF ve VHF",
+          "LF ve MF",
+          "SHF ve EHF"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "4_3",
+        "kart": "bn_2m"
+      },
+      {
+        "id": "bna_08",
+        "soru": "Geceleri en iyi çalışan ve yurt içi yakın mesafe haberleşme için tercih edilen HF bandı hangisidir?",
+        "dog": "80 metre (3.5 MHz)",
+        "dogru": "80 metre (3.5 MHz)",
+        "secenekler": [
+          "80 metre (3.5 MHz)",
+          "20 metre (14 MHz)",
+          "2 metre (144 MHz)",
+          "10 metre (28 MHz)"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_2",
+        "kart": "bn_20m"
+      },
+      {
+        "id": "bna_09",
+        "soru": "Elektromanyetik dalgaların boşluktaki yayılma hızı yaklaşık kaç km/s'dir?",
+        "dog": "300.000 km/s",
+        "dogru": "300.000 km/s",
+        "secenekler": [
+          "300.000 km/s",
+          "150.000 km/s",
+          "30.000 km/s",
+          "1.000.000 km/s"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_1",
+        "kart": "bn_hertz"
+      },
+      {
+        "id": "bna_10",
+        "soru": "Frekans arttığında dalga boyuna ne olur?",
+        "dog": "Dalga boyu kısalır",
+        "dogru": "Dalga boyu kısalır",
+        "secenekler": [
+          "Dalga boyu kısalır",
+          "Dalga boyu uzar",
+          "Dalga boyu değişmez",
+          "Sinyal güçlenir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_1",
+        "kart": "bn_dalgaboyu"
+      },
+      {
+        "id": "bna_11",
+        "soru": "Telsizde 'Simplex' çalışma modu ne anlama gelir?",
+        "dog": "Aynı frekans üzerinden TX ve RX",
+        "dogru": "Aynı frekans üzerinden TX ve RX",
+        "secenekler": [
+          "Aynı frekans üzerinden TX ve RX",
+          "Farklı frekanslardan TX ve RX",
+          "Yalnızca dinleme modu",
+          "Dijital haberleşme modu"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_3",
+        "kart": "bn_2m"
+      },
+      {
+        "id": "bna_12",
+        "soru": "Telsizde 'Duplex' veya röle (repeater) çalışmasında TX ve RX frekansları arasındaki farka ne denir?",
+        "dog": "Offset (Frekans Kayması)",
+        "dogru": "Offset (Frekans Kayması)",
+        "secenekler": [
+          "Offset (Frekans Kayması)",
+          "Squelch Değeri",
+          "Modülasyon İndeksi",
+          "Bant Genişliği"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "4_3",
+        "kart": "bn_2m"
+      },
+      {
+        "id": "bna_13",
+        "soru": "VHF sinyalleri esas olarak nasıl yayılır?",
+        "dog": "Görüş hattı (Line of Sight)",
+        "dogru": "Görüş hattı (Line of Sight)",
+        "secenekler": [
+          "Görüş hattı (Line of Sight)",
+          "İyonosfer yansıması",
+          "Yer dalgası yayılımı",
+          "Troposfer saçılması"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_3",
+        "kart": "bn_2m"
+      },
+      {
+        "id": "bna_14",
+        "soru": "Amatör telsiz bandplanında FM (Frekans Modülasyonu) ses yayını ağırlıklı olarak hangi bantlarda yapılır?",
+        "dog": "VHF ve UHF",
+        "dogru": "VHF ve UHF",
+        "secenekler": [
+          "VHF ve UHF",
+          "HF",
+          "LF ve MF",
+          "SHF"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_3",
+        "kart": "bn_2m"
+      }
+    ],
+    "kodu_bul": [
+      {
+        "id": "bnk_01",
+        "soru": "7 MHz frekans hangi dalga boyuna denk gelir?",
+        "dog": "40m",
+        "dogru": "40m",
+        "secenekler": [
+          "40m",
+          "80m",
+          "20m",
+          "10m"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "4_2",
+        "kart": "bn_40m"
+      },
+      {
+        "id": "bnk_02",
+        "soru": "14 MHz frekans hangi dalga boyuna denk gelir?",
+        "dog": "20m",
+        "dogru": "20m",
+        "secenekler": [
+          "20m",
+          "40m",
+          "80m",
+          "15m"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "4_2",
+        "kart": "bn_20m"
+      },
+      {
+        "id": "bnk_03",
+        "soru": "430 - 440 MHz frekans aralığı hangi telsiz bandını temsil eder?",
+        "dog": "70cm bandı",
+        "dogru": "70cm bandı",
+        "secenekler": [
+          "70cm bandı",
+          "2m bandı",
+          "6m bandı",
+          "10m bandı"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "4_3",
+        "kart": "bn_70cm"
+      },
+      {
+        "id": "bnk_04",
+        "soru": "3.5 MHz frekans hangi dalga boyuna denk gelir?",
+        "dog": "80m",
+        "dogru": "80m",
+        "secenekler": [
+          "80m",
+          "40m",
+          "20m",
+          "160m"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "4_2",
+        "kart": "bn_80m"
+      },
+      {
+        "id": "bnk_05",
+        "soru": "HF kısaltması neyin frekans bandını ifade eder?",
+        "dog": "High Frequency (3-30 MHz)",
+        "dogru": "High Frequency (3-30 MHz)",
+        "secenekler": [
+          "High Frequency (3-30 MHz)",
+          "Hyper Frequency (>30 GHz)",
+          "Half Frequency",
+          "Heavy Frequency"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_2",
+        "kart": "bn_20m"
+      },
+      {
+        "id": "bnk_06",
+        "soru": "VHF frekans bandının aralığı nedir?",
+        "dog": "30 - 300 MHz",
+        "dogru": "30 - 300 MHz",
+        "secenekler": [
+          "30 - 300 MHz",
+          "3 - 30 MHz",
+          "300 - 3000 MHz",
+          "0.3 - 3 MHz"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_3",
+        "kart": "bn_2m"
+      },
+      {
+        "id": "bnk_07",
+        "soru": "UHF frekans bandının aralığı nedir?",
+        "dog": "300 - 3000 MHz",
+        "dogru": "300 - 3000 MHz",
+        "secenekler": [
+          "300 - 3000 MHz",
+          "30 - 300 MHz",
+          "3 - 30 MHz",
+          "3000+ MHz"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "4_3",
+        "kart": "bn_70cm"
+      }
+    ],
+    "hesapla": [
+      {
+        "id": "bnh_01",
+        "soru": "Frekansı f = 30 MHz olan bir radyo dalgasının dalga boyu (λ) kaç metredir?",
+        "gosterilen": "f = 30 MHz → λ = ?",
+        "beklenen": "10",
+        "birim": "m",
+        "zorluk": "kolay",
+        "alt_bolum": "4_1",
+        "aciklama": "λ = 300 / f → λ = 300 / 30 = 10 metredir.<br><img src='/static/img/dalga_boyu.svg' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "bn_hertz"
+      },
+      {
+        "id": "bnh_02",
+        "soru": "Frekansı f = 150 MHz olan 2 metre VHF bandında dalga boyu (λ) kaç metredir?",
+        "gosterilen": "f = 150 MHz → λ = ?",
+        "beklenen": "2",
+        "birim": "m",
+        "zorluk": "kolay",
+        "alt_bolum": "4_1",
+        "aciklama": "λ = 300 / f → λ = 300 / 150 = 2 metredir.<br><img src='/static/img/dalga_boyu.svg' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "bn_hertz"
+      },
+      {
+        "id": "bnh_03",
+        "soru": "Dalga boyu λ = 20 metre olan bir HF sinyalinin frekansı (f) kaç MHz'dir?",
+        "gosterilen": "λ = 20m → f = ?",
+        "beklenen": "15",
+        "birim": "MHz",
+        "zorluk": "orta",
+        "alt_bolum": "4_1",
+        "aciklama": "f = 300 / λ → f = 300 / 20 = 15 MHz.",
+        "kart": "bn_hertz"
+      },
+      {
+        "id": "bnh_04",
+        "soru": "Dalga boyu λ = 40 metre ise frekans kaç MHz'dir?",
+        "gosterilen": "λ = 40m → f = ?",
+        "beklenen": "7.5",
+        "birim": "MHz",
+        "zorluk": "orta",
+        "alt_bolum": "4_1",
+        "aciklama": "f = 300 / λ → f = 300 / 40 = 7.5 MHz.",
+        "kart": "bn_hertz"
+      },
+      {
+        "id": "bnh_05",
+        "soru": "Frekansı 435 MHz olan bir UHF sinyalinin dalga boyu yaklaşık kaç cm'dir?",
+        "gosterilen": "f = 435 MHz → λ = ?",
+        "beklenen": "69",
+        "birim": "cm",
+        "zorluk": "zor",
+        "alt_bolum": "4_1",
+        "aciklama": "λ = 300 / 435 ≈ 0.69 m = 69 cm.",
+        "kart": "bn_hertz"
+      },
+      {
+        "id": "bnh_06",
+        "soru": "Yarım dalga (λ/2) dipol anten için 144 MHz'de anten boyu kaç metredir?",
+        "gosterilen": "f = 144 MHz, λ/2 = ?",
+        "beklenen": "1.04",
+        "birim": "m",
+        "zorluk": "zor",
+        "alt_bolum": "4_1",
+        "aciklama": "λ = 300/144 = 2.08m → λ/2 = 1.04 m.",
+        "kart": "bn_hertz"
+      },
+      {
+        "id": "bnh_07",
+        "soru": "Frekansı 50 MHz olan 6m bandında dalga boyu kaç metredir?",
+        "gosterilen": "f = 50 MHz → λ = ?",
+        "beklenen": "6",
+        "birim": "m",
+        "zorluk": "kolay",
+        "alt_bolum": "4_1",
+        "aciklama": "λ = 300 / 50 = 6 metre.",
+        "kart": "bn_hertz"
+      }
+    ],
+    "dogru_yanlis": [
+      {
+        "id": "bndy_01",
+        "soru": "VHF ve UHF telsiz sinyalleri iyonosferden yansıyarak binlerce kilometre uzağa kolayca ulaşabilir.",
+        "dogru": "Yanlış",
+        "zorluk": "kolay",
+        "alt_bolum": "4_3",
+        "aciklama": "Yanlış! VHF ve UHF sinyalleri iyonosfer tabakasını delip uzaya geçer, geri yansımaz. Uzak mesafe iyonosferik yansıma HF bandında gerçekleşir.",
+        "kart": "bn_iyonosfer"
+      },
+      {
+        "id": "bndy_02",
+        "soru": "UHF sinyalleri, betonarme binaların ve engellerin içinden geçebilme yeteneği VHF sinyallerine göre daha yüksektir.",
+        "dogru": "Doğru",
+        "zorluk": "orta",
+        "alt_bolum": "4_3",
+        "aciklama": "Doğru! UHF'in yüksek frekansı ve kısa dalga boyu binalardan ve pencerelerden daha kolay sızmasını sağlar.",
+        "kart": "bn_2m"
+      },
+      {
+        "id": "bndy_03",
+        "soru": "A Sınıfı amatör telsiz lisansına sahip bir operatör, Türkiye bandplanındaki tüm amatör frekansları kullanabilir.",
+        "dogru": "Doğru",
+        "zorluk": "kolay",
+        "alt_bolum": "4_4",
+        "aciklama": "Doğru! A sınıfı lisans, amatörlere ayrılan tüm bant ve güç limitlerini kullanma hakkı verir.",
+        "kart": "bn_lisans_sinif"
+      },
+      {
+        "id": "bndy_04",
+        "soru": "C Sınıfı telsiz lisansı olan bir amatör telsizci HF (Kısa Dalga) bantlarında serbestçe çalışabilir.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "4_4",
+        "aciklama": "Yanlış! C sınıfı telsiz lisansına sahip operatörlerin HF bantlarında çalışma yetkisi yoktur, yalnızca VHF ve UHF bantlarını kullanabilirler.",
+        "kart": "bn_lisans_sinif"
+      },
+      {
+        "id": "bndy_05",
+        "soru": "Dalga boyu kısaldıkça frekans da düşer.",
+        "dogru": "Yanlış",
+        "zorluk": "kolay",
+        "alt_bolum": "4_1",
+        "aciklama": "Yanlış! λ = c/f olduğundan dalga boyu kısaldıkça frekans yükselir.",
+        "kart": "bn_dalgaboyu"
+      },
+      {
+        "id": "bndy_06",
+        "soru": "Röle (repeater) istasyonları, VHF/UHF bandında görüş mesafesi sınırını aşmak için kullanılır.",
+        "dogru": "Doğru",
+        "zorluk": "kolay",
+        "alt_bolum": "4_3",
+        "aciklama": "Doğru! Röleler yüksek noktalara kurularak kapsama alanını genişletir.",
+        "kart": "bn_2m"
+      },
+      {
+        "id": "bndy_07",
+        "soru": "80 metre bandı gündüz saatlerinde kıtalararası DX haberleşme için en uygun banttır.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "4_2",
+        "aciklama": "Yanlış! 80m bandı geceleri yakın mesafe için iyidir. DX için 20m bandı tercih edilir.",
+        "kart": "bn_80m"
+      },
+      {
+        "id": "bndy_08",
+        "soru": "Amatör telsiz frekanslarında ticari yayın yapılması yasaktır.",
+        "dogru": "Doğru",
+        "zorluk": "kolay",
+        "alt_bolum": "4_4",
+        "aciklama": "Doğru! Amatör telsiz frekansları yalnızca kişisel teknik gelişim ve acil durum haberleşmesi içindir, ticari amaçla kullanılamaz.",
+        "kart": "bn_trac_tahsis"
+      },
+      {
+        "id": "bndy_09",
+        "soru": "HF bandında gündüz ve gece arasında yayılım koşulları değişmez.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "4_2",
+        "aciklama": "Yanlış! İyonosfer tabakası güneş ışığından etkilendiğinden, HF propagasyonu gece ile gündüz arasında önemli ölçüde farklılık gösterir.",
+        "kart": "bn_20m"
+      },
+      {
+        "id": "bndy_10",
+        "soru": "Amatör telsizde CTCSS tonu, belirli bir rölenin yalnızca o tonu gönderen telsizlere açılmasını sağlayan bir alt ses tonudur.",
+        "dogru": "Doğru",
+        "zorluk": "zor",
+        "alt_bolum": "4_3",
+        "aciklama": "Doğru! CTCSS (Continuous Tone-Coded Squelch System) röle erişimini kontrol eden düşük frekanslı bir ton sinyalidir.",
+        "kart": "bn_2m"
+      }
+    ],
+    "eslestir": [
+      {
+        "id": "bne_01",
+        "soru": "Frekansları dalga boylarıyla eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "4_1",
+        "cifler": [
+          {
+            "sol": "3.5 MHz",
+            "sag": "80 metre"
+          },
+          {
+            "sol": "7 MHz",
+            "sag": "40 metre"
+          },
+          {
+            "sol": "14 MHz",
+            "sag": "20 metre"
+          },
+          {
+            "sol": "144 MHz",
+            "sag": "2 metre"
+          },
+          {
+            "sol": "430 MHz",
+            "sag": "70 santimetre"
+          }
+        ],
+        "kart": "bn_dalgaboyu"
+      },
+      {
+        "id": "bne_02",
+        "soru": "Lisans sınıflarını telsiz bandı yetkileriyle eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "4_4",
+        "cifler": [
+          {
+            "sol": "A Sınıfı",
+            "sag": "Tüm frekanslar"
+          },
+          {
+            "sol": "B Sınıfı",
+            "sag": "Sınırlı HF yetkisi"
+          },
+          {
+            "sol": "C Sınıfı",
+            "sag": "Yalnızca VHF/UHF yetkisi"
+          }
+        ],
+        "kart": "bn_lisans_sinif"
+      },
+      {
+        "id": "bne_03",
+        "soru": "Frekans bandlarını kısaltmalarıyla eşleştirin",
+        "zorluk": "kolay",
+        "alt_bolum": "4_1",
+        "cifler": [
+          {
+            "sol": "HF",
+            "sag": "3 - 30 MHz"
+          },
+          {
+            "sol": "VHF",
+            "sag": "30 - 300 MHz"
+          },
+          {
+            "sol": "UHF",
+            "sag": "300 - 3000 MHz"
+          }
+        ],
+        "kart": "bn_dalgaboyu"
+      },
+      {
+        "id": "bne_04",
+        "soru": "Bantların tipik kullanım alanlarını eşleştirin",
+        "zorluk": "zor",
+        "alt_bolum": "4_3",
+        "cifler": [
+          {
+            "sol": "80m bandı",
+            "sag": "Gece yakın mesafe"
+          },
+          {
+            "sol": "20m bandı",
+            "sag": "Kıtalararası DX"
+          },
+          {
+            "sol": "2m bandı",
+            "sag": "Röle üzerinden yerel"
+          },
+          {
+            "sol": "70cm bandı",
+            "sag": "Şehir içi el telsizi"
+          }
+        ],
+        "kart": "bn_2m"
+      }
+    ]
+  }
+}

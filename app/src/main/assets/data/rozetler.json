@@ -1,0 +1,124 @@
+{
+  "rozetler": [
+    {
+      "id": "nato_caylagi",
+      "isim": "NATO Çaylağı",
+      "ikon": "🔤",
+      "aciklama": "İlk NATO dersini tamamla",
+      "kosul": {
+        "tip": "ders_tamamla",
+        "bolum": "bolum_1",
+        "adet": 1
+      }
+    },
+    {
+      "id": "nato_ustasi",
+      "isim": "NATO Ustası",
+      "ikon": "🔤",
+      "aciklama": "Tüm NATO bölümünü geç",
+      "kosul": {
+        "tip": "bolum_tamamla",
+        "bolum": "bolum_1"
+      }
+    },
+    {
+      "id": "q_kodu_bilgesi",
+      "isim": "Q Kodu Bilgesi",
+      "ikon": "📡",
+      "aciklama": "Tüm Q kodlarını öğren",
+      "kosul": {
+        "tip": "bolum_tamamla",
+        "bolum": "bolum_2"
+      }
+    },
+    {
+      "id": "elektronik_dehasi",
+      "isim": "Elektronik Dehası",
+      "ikon": "⚡",
+      "aciklama": "Elektronik bölümünü hatasız geç",
+      "kosul": {
+        "tip": "bolum_hatasiz",
+        "bolum": "bolum_3"
+      }
+    },
+    {
+      "id": "7_gun_seri",
+      "isim": "7 Günlük Seri",
+      "ikon": "🔥",
+      "aciklama": "7 gün üst üste çalış",
+      "kosul": {
+        "tip": "streak",
+        "gun": 7
+      }
+    },
+    {
+      "id": "30_gun_seri",
+      "isim": "30 Günlük Seri",
+      "ikon": "🔥",
+      "aciklama": "30 gün üst üste çalış",
+      "kosul": {
+        "tip": "streak",
+        "gun": 30
+      }
+    },
+    {
+      "id": "mukemmeliyetci",
+      "isim": "Mükemmeliyetçi",
+      "ikon": "⭐",
+      "aciklama": "5 dersi üst üste hatasız bitir",
+      "kosul": {
+        "tip": "art_arda_hatasiz",
+        "adet": 5
+      }
+    },
+    {
+      "id": "trac_adayi",
+      "isim": "TRAC Adayı",
+      "ikon": "🏆",
+      "aciklama": "Tüm bölümleri tamamla",
+      "kosul": {
+        "tip": "tum_bolumler"
+      }
+    },
+    {
+      "id": "tam_telsizci",
+      "isim": "Tam Telsizci",
+      "ikon": "📻",
+      "aciklama": "Her şeyi %100 öğren",
+      "kosul": {
+        "tip": "yuzde_yuz"
+      }
+    },
+    {
+      "id": "frekans_avcisi",
+      "isim": "Frekans Avcısı",
+      "ikon": "📻",
+      "aciklama": "Frekans ve Bantlar bölümünü tamamla",
+      "kosul": {
+        "tip": "bolum_tamamla",
+        "bolum": "bolum_4"
+      }
+    },
+    {
+      "id": "prosedur_ustasi",
+      "isim": "Prosedür Ustası",
+      "ikon": "🎙️",
+      "aciklama": "Telsiz Prosedürleri bölümünü tamamla",
+      "kosul": {
+        "tip": "bolum_tamamla",
+        "bolum": "bolum_5"
+      }
+    },
+    {
+      "id": "ilk_adim",
+      "isim": "İlk Adım",
+      "ikon": "👣",
+      "aciklama": "İlk dersini tamamla",
+      "kosul": {
+        "tip": "ders_tamamla",
+        "bolum": null,
+        "adet": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,727 @@
+{
+  "kartlar": [
+    {
+      "id": "pr_over",
+      "harf": "Over",
+      "kod": "Over (Tamam)",
+      "telaffuz": "TAMAM",
+      "alt_bolum": "5_1",
+      "aciklama": "Over, 'Konuşmam bitti, mikrofon sende, cevap bekliyorum' anlamına gelen telsiz terimidir. Türkçe telsiz görüşmelerinde 'Tamam' veya 'Dinlemede' denebilir."
+    },
+    {
+      "id": "pr_out",
+      "harf": "Out",
+      "kod": "Out (Tamam, Sonu)",
+      "telaffuz": "SONU",
+      "alt_bolum": "5_1",
+      "aciklama": "Out, 'Konuşmam bitti, telsiz bağlantısını sonlandırıyorum, cevap beklemiyorum' anlamına gelir. Türkçe karşılığı genellikle 'Görüşmek üzere' veya 'Anlaşıldı, sonu' şeklindedir."
+    },
+    {
+      "id": "pr_roger",
+      "harf": "Roger",
+      "kod": "Roger (Anlaşıldı)",
+      "telaffuz": "ANLAŞILDI",
+      "alt_bolum": "5_1",
+      "aciklama": "Roger, 'Söylediğiniz tüm mesajı aldım ve anladım' anlamına gelen uluslararası telsiz terimidir."
+    },
+    {
+      "id": "pr_break",
+      "harf": "Break",
+      "kod": "Break (Araya Girme)",
+      "telaffuz": "ARAYA GİRME",
+      "alt_bolum": "5_1",
+      "aciklama": "Break, iki istasyon konuşurken acil bir durum veya önemli bir mesaj bildirmek için araya girmek amacıyla söylenir."
+    },
+    {
+      "id": "pr_callsign",
+      "harf": "TA1A",
+      "kod": "Çağrı İşareti",
+      "telaffuz": "ÇAĞRI İŞARETİ",
+      "alt_bolum": "5_2",
+      "aciklama": "Amatör telsizcilerin benzersiz kimliğidir. Türkiye'de prefixler TA (A Sınıfı), TB (B/C Sınıfı), TC (Özel/Etkinlik) olarak verilir."
+    },
+    {
+      "id": "pr_prefix",
+      "harf": "Ön Ek (Prefix)",
+      "kod": "Bölge ve Lisans Prefiksleri",
+      "telaffuz": "PREFİKS",
+      "alt_bolum": "5_2",
+      "aciklama": "Çağrı işaretinin başındaki harflerdir. Türkiye'de TA (A Sınıfı), TB (B/C Sınıfı), TC (Özel istasyonlar ve etkinlikler), YM (Kulüp istasyonları) olarak belirlenmiştir."
+    },
+    {
+      "id": "pr_suffix",
+      "harf": "Son Ek (Suffix)",
+      "kod": "İstasyon Son Eki",
+      "telaffuz": "SUFİKS",
+      "alt_bolum": "5_2",
+      "aciklama": "Ön ek ve bölge numarasından sonra gelen 1-3 harfli benzersiz kısımdır. Operatörün kişisel kimliğini temsil eder."
+    },
+    {
+      "id": "pr_cq",
+      "harf": "CQ",
+      "kod": "Genel Çağrı (CQ)",
+      "telaffuz": "Cİ-KÜ",
+      "alt_bolum": "5_3",
+      "aciklama": "CQ, 'Herhangi bir istasyonla görüşmek istiyorum' anlamına gelen genel çağrıdır. Genellikle 'CQ CQ CQ de TA1A' şeklinde üçer kez tekrarlanarak anons edilir."
+    },
+    {
+      "id": "pr_qso_proc",
+      "harf": "QSO",
+      "kod": "Görüşme Sıralaması",
+      "telaffuz": "BAĞLANTI ADIMLARI",
+      "alt_bolum": "5_3",
+      "aciklama": "Görüşme sırası: Genel çağrı yapılması, çağrı işaretlerinin karşılıkli teyit edilmesi, sinyal raporu (RST), konum (QTH) ve isim bilgisi verilmesi, ardından 73 dilekleriyle bitirilmesi adımlarını içerir."
+    },
+    {
+      "id": "pr_mayday",
+      "harf": "MAYDAY",
+      "kod": "Acil Durum (Tehlike)",
+      "telaffuz": "ACİL TEHLİKE",
+      "alt_bolum": "5_4",
+      "aciklama": "MAYDAY, can kaybı tehlikesi olan, acil ve en üst düzey kurtarma durumlarında (geminin batması, uçak düşmesi vb.) kullanılan tehlike çağrısıdır."
+    },
+    {
+      "id": "pr_panpan",
+      "harf": "PAN-PAN",
+      "kod": "Acele Durum",
+      "telaffuz": "ACELE DURUM",
+      "alt_bolum": "5_4",
+      "aciklama": "PAN-PAN, can güvenliğini doğrudan tehlikeye atmayan ancak acil yardım gerektiren durumlarda (motor arızası, tıbbi danışma vb.) kullanılan acele çağrısıdır."
+    }
+  ],
+  "egzersizler": {
+    "anlam_bul": [
+      {
+        "id": "pra_01",
+        "soru": "Telsizde konuşmanın bittiğini ve karşı taraftan cevap beklendiğini bildiren terim hangisidir?",
+        "dog": "Over",
+        "dogru": "Over",
+        "secenekler": [
+          "Over",
+          "Out",
+          "Roger",
+          "Wilco"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_1",
+        "aciklama": "Over, 'Konuşmam bitti, cevap bekliyorum' anlamına gelir. PTT (Push To Talk) tuşu bırakılırken söylenir.<br><img src='/static/img/el_telsizi.svg' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "pr_over"
+      },
+      {
+        "id": "pra_02",
+        "soru": "Konuşmanın bittiğini ve görüşmenin sonlandırıldığını bildiren telsiz terimi hangisidir?",
+        "dog": "Out",
+        "dogru": "Out",
+        "secenekler": [
+          "Out",
+          "Over",
+          "Roger",
+          "Break"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_1",
+        "kart": "pr_out"
+      },
+      {
+        "id": "pra_03",
+        "soru": "Telsizde 'Break' (veya Brek) kelimesi ne amaçla söylenir?",
+        "dog": "Konuşan istasyonların arasına girmek için",
+        "dogru": "Konuşan istasyonların arasına girmek için",
+        "secenekler": [
+          "Konuşan istasyonların arasına girmek için",
+          "Telsizi kapatmak için",
+          "Karşı tarafı onaylamak için",
+          "Çağrı işareti sormak için"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "5_1",
+        "kart": "pr_break"
+      },
+      {
+        "id": "pra_04",
+        "soru": "Türkiye'de B Sınıfı amatör telsiz lisansına sahip bir operatörün çağrı işareti ön eki (prefix) ne ile başlar?",
+        "dog": "TB",
+        "dogru": "TB",
+        "secenekler": [
+          "TB",
+          "TA",
+          "TC",
+          "YM"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "5_2",
+        "kart": "pr_prefix"
+      },
+      {
+        "id": "pra_05",
+        "soru": "Can güvenliğini doğrudan tehlikeye atmayan ama acil müdahale gerektiren durumlarda hangi çağrı yapılır?",
+        "dog": "PAN-PAN",
+        "dogru": "PAN-PAN",
+        "secenekler": [
+          "PAN-PAN",
+          "MAYDAY",
+          "CQ",
+          "BREAK"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "5_4",
+        "kart": "pr_mayday"
+      },
+      {
+        "id": "pra_06",
+        "soru": "Telsizde herhangi bir istasyonla görüşme başlatmak amacıyla yapılan genel çağrı koduna ne denir?",
+        "dog": "CQ",
+        "dogru": "CQ",
+        "secenekler": [
+          "CQ",
+          "SOS",
+          "QRZ",
+          "73"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_3",
+        "kart": "pr_cq"
+      },
+      {
+        "id": "pra_07",
+        "soru": "Telsiz görüşmesinde '73' ifadesi ne anlama gelir?",
+        "dog": "En iyi dilekler / Saygılar",
+        "dogru": "En iyi dilekler / Saygılar",
+        "secenekler": [
+          "En iyi dilekler / Saygılar",
+          "Acil durum",
+          "Frekans meşgul",
+          "Sinyal zayıf"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_1",
+        "kart": "pr_roger"
+      },
+      {
+        "id": "pra_08",
+        "soru": "Türkiye'de TRAC sınavını başarıyla geçen kişiye verilen resmi belge hangisidir?",
+        "dog": "Amatör Telsiz Belgesi (Lisans)",
+        "dogru": "Amatör Telsiz Belgesi (Lisans)",
+        "secenekler": [
+          "Amatör Telsiz Belgesi (Lisans)",
+          "Denizci Karnesi",
+          "Telsiz Ehliyet Diploması",
+          "ICAO Sertifikası"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_2",
+        "kart": "pr_callsign"
+      },
+      {
+        "id": "pra_09",
+        "soru": "Amatör telsizde sinyal raporu (RST) sisteminde 'S' harfi neyi ifade eder?",
+        "dog": "Strength (Sinyal Gücü)",
+        "dogru": "Strength (Sinyal Gücü)",
+        "secenekler": [
+          "Strength (Sinyal Gücü)",
+          "Speed (Hız)",
+          "Signal (Sinyal)",
+          "Squelch (Sessizlik)"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "5_3",
+        "kart": "pr_qso_proc"
+      },
+      {
+        "id": "pra_10",
+        "soru": "Telsizde çağrı işaretini söylerken harf karışıklığını önlemek için hangi alfabe kullanılır?",
+        "dog": "NATO Fonetik Alfabesi",
+        "dogru": "NATO Fonetik Alfabesi",
+        "secenekler": [
+          "NATO Fonetik Alfabesi",
+          "Mors Alfabesi",
+          "Braille Alfabesi",
+          "Türk Harf Kodları"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_2",
+        "kart": "pr_callsign"
+      },
+      {
+        "id": "pra_11",
+        "soru": "Bir amatör telsiz istasyonu her ne kadar süre yayın yaparsa yapsın, belirli aralıklarla ne yapmalıdır?",
+        "dog": "Çağrı işaretini söylemeli",
+        "dogru": "Çağrı işaretini söylemeli",
+        "secenekler": [
+          "Çağrı işaretini söylemeli",
+          "Telsizi kapatmalı",
+          "Frekans değiştirmeli",
+          "Güç artırmalı"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "5_2",
+        "kart": "pr_callsign"
+      },
+      {
+        "id": "pra_12",
+        "soru": "Telsizde 'Wilco' terimi ne anlama gelir?",
+        "dog": "Mesajınızı aldım ve uygulayacağım",
+        "dogru": "Mesajınızı aldım ve uygulayacağım",
+        "secenekler": [
+          "Mesajınızı aldım ve uygulayacağım",
+          "Frekans meşgul",
+          "Sizi duyamıyorum",
+          "Tekrar edin"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "5_1",
+        "kart": "pr_roger"
+      },
+      {
+        "id": "pra_13",
+        "soru": "Türkiye'de A Sınıfı amatör telsiz lisansı için çağrı işareti ön eki hangisidir?",
+        "dog": "TA",
+        "dogru": "TA",
+        "secenekler": [
+          "TA",
+          "TB",
+          "TC",
+          "TD"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_2",
+        "kart": "pr_prefix"
+      },
+      {
+        "id": "pra_14",
+        "soru": "Amatör telsizde konuşma yaparken PTT tuşunu ne zaman basılı tutmalısınız?",
+        "dog": "Yalnızca konuşurken",
+        "dogru": "Yalnızca konuşurken",
+        "secenekler": [
+          "Yalnızca konuşurken",
+          "Sürekli",
+          "Yalnızca dinlerken",
+          "Hiçbir zaman"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_1",
+        "kart": "pr_roger"
+      }
+    ],
+    "diyalog_tamamla": [
+      {
+        "id": "prd_01",
+        "soru": "Diyalogda TA1A istasyonuna mesajı aldığını teyit etmek için boşluğa hangi terim gelmelidir?",
+        "diyalog": [
+          {
+            "kisi": "TA1A",
+            "metin": "Röle üzerinden görüşme yapalım. Frekansım 145.600 MHz. Over."
+          },
+          {
+            "kisi": "TA2B",
+            "metin": "________, 145.600 MHz frekansına geçiyorum. Görüşmek üzere, out."
+          }
+        ],
+        "dog": "Roger",
+        "dogru": "Roger",
+        "secenekler": [
+          "Roger",
+          "Break",
+          "Over",
+          "Mayday"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_1",
+        "aciklama": "Roger, mesajın alındığını ve anlaşıldığını teyit eder.<br><img src='/static/img/repeater.svg' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "pr_roger"
+      },
+      {
+        "id": "prd_02",
+        "soru": "Görüşmede konuşma sırasını karşı tarafa vermek için telsiz jargonunda boşluğa hangi kelime gelmelidir?",
+        "diyalog": [
+          {
+            "kisi": "TA1A",
+            "metin": "Sinyal raporunuz 59. Benim konumum Ankara. Sizin konumunuz neresi? ________"
+          }
+        ],
+        "dog": "Over",
+        "dogru": "Over",
+        "secenekler": [
+          "Over",
+          "Out",
+          "Roger",
+          "Wilco"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_1",
+        "aciklama": "Konuşma sırasını karşı tarafa devrederken 'Over' (Tamam) denir.",
+        "kart": "pr_over"
+      },
+      {
+        "id": "prd_03",
+        "soru": "Görüşmeyi sonlandırırken boşluğa ne gelmelidir?",
+        "diyalog": [
+          {
+            "kisi": "TA2B",
+            "metin": "Teşekkürler, güzel bir görüşme oldu. 73, TA1A de TA2B, ________."
+          }
+        ],
+        "dog": "Out",
+        "dogru": "Out",
+        "secenekler": [
+          "Out",
+          "Over",
+          "Roger",
+          "Break"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_1",
+        "aciklama": "Görüşme bitirilirken 'Out' (Sonu) denir, cevap beklenmez.",
+        "kart": "pr_out"
+      },
+      {
+        "id": "prd_04",
+        "soru": "Acil durumda boşluğa ne gelmelidir?",
+        "diyalog": [
+          {
+            "kisi": "TA3C",
+            "metin": "________ ________ ________, burası TA3C, motorumuz arızalandı, Marmara Denizi'nde sürükleniyoruz. Over."
+          }
+        ],
+        "dog": "PAN-PAN",
+        "dogru": "PAN-PAN",
+        "secenekler": [
+          "PAN-PAN",
+          "MAYDAY",
+          "BREAK",
+          "CQ"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "5_4",
+        "aciklama": "Motor arızası can tehlikesi yaratmıyorsa PAN-PAN (acele durum) çağrısı yapılır.",
+        "kart": "pr_panpan"
+      },
+      {
+        "id": "prd_05",
+        "soru": "Genel çağrı yapan istasyonun boşluğa ne yazması gerekir?",
+        "diyalog": [
+          {
+            "kisi": "TA7K",
+            "metin": "________ ________ ________ de TA7K TA7K TA7K, herhangi bir istasyon cevap versin. Over."
+          }
+        ],
+        "dog": "CQ",
+        "dogru": "CQ",
+        "secenekler": [
+          "CQ",
+          "SOS",
+          "QRZ",
+          "73"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_3",
+        "aciklama": "CQ, genel çağrı yapmak için üç kez söylenir.",
+        "kart": "pr_cq"
+      }
+    ],
+    "durum_sec": [
+      {
+        "id": "prds_01",
+        "soru": "Bir teknenin batmakta olduğu ve can güvenliğinin acil tehdit altında olduğu durumda yapılacak çağrı hangisidir?",
+        "dog": "MAYDAY",
+        "dogru": "MAYDAY",
+        "secenekler": [
+          "MAYDAY",
+          "PAN-PAN",
+          "BREAK",
+          "CQ"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_4",
+        "aciklama": "Can kaybı tehlikesinin olduğu bu durumda MAYDAY acil durum çağrısı yapılır.<br><img src='/static/img/mayday_boat.png' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "pr_mayday"
+      },
+      {
+        "id": "prds_02",
+        "soru": "Bir gemide bir yolcunun kalp krizi geçirdiği ve tıbbi acil yardıma ihtiyaç duyulduğu durumda hangi çağrı yapılmalıdır?",
+        "dog": "PAN-PAN",
+        "dogru": "PAN-PAN",
+        "secenekler": [
+          "PAN-PAN",
+          "MAYDAY",
+          "BREAK",
+          "CQ"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "5_4",
+        "kart": "pr_panpan"
+      },
+      {
+        "id": "prds_03",
+        "soru": "Frekans boş görünüyor ve herhangi bir amatör istasyonla sohbet etmek istiyorsunuz. Ne yaparsınız?",
+        "dog": "CQ çağrısı",
+        "dogru": "CQ çağrısı",
+        "secenekler": [
+          "CQ çağrısı",
+          "MAYDAY çağrısı",
+          "PAN-PAN çağrısı",
+          "Break çağrısı"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_3",
+        "kart": "pr_qso_proc"
+      },
+      {
+        "id": "prds_04",
+        "soru": "İki istasyon konuşuyor ve siz acil bir bilgi paylaşmak istiyorsunuz. Hangi terimi kullanırsınız?",
+        "dog": "Break",
+        "dogru": "Break",
+        "secenekler": [
+          "Break",
+          "Over",
+          "Out",
+          "Roger"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "5_1",
+        "kart": "pr_roger"
+      },
+      {
+        "id": "prds_05",
+        "soru": "Dağda mahsur kalan bir grup yardım istemek için telsizle çağrı yapıyor. Can tehlikesi var. Hangi çağrı yapılmalı?",
+        "dog": "MAYDAY",
+        "dogru": "MAYDAY",
+        "secenekler": [
+          "MAYDAY",
+          "PAN-PAN",
+          "CQ",
+          "QRT"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "5_4",
+        "kart": "pr_mayday"
+      },
+      {
+        "id": "prds_06",
+        "soru": "Aracınızın yakıtı bitmiş ve ıssız bir yolda kalmışsınız. Hayati tehlike yok ama yardım lazım. Hangi çağrıyı yaparsınız?",
+        "dog": "PAN-PAN",
+        "dogru": "PAN-PAN",
+        "secenekler": [
+          "PAN-PAN",
+          "MAYDAY",
+          "CQ",
+          "BREAK"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "5_4",
+        "kart": "pr_panpan"
+      },
+      {
+        "id": "prds_07",
+        "soru": "Karşı istasyon size sinyal raporunuzu sordu. 'Sinyaliniz çok net ve güçlü' demek istiyorsunuz. RST olarak ne söylersiniz?",
+        "dog": "59 (5 ve 9)",
+        "dogru": "59 (5 ve 9)",
+        "secenekler": [
+          "59 (5 ve 9)",
+          "11 (1 ve 1)",
+          "55 (5 ve 5)",
+          "99 (9 ve 9)"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "5_3",
+        "kart": "pr_qso_proc"
+      }
+    ],
+    "sirala": [
+      {
+        "id": "prs_01",
+        "soru": "Telsizde genel arama yapmak amacıyla kurulan CQ çağrısı adımlarını doğru sıraya diziniz.",
+        "zorluk": "zor",
+        "alt_bolum": "5_3",
+        "adimlar": [
+          "Frekansın boş olup olmadığını kontrol etmek için dinleme yapılır.",
+          "Boş görünüyorsa 'Frekans meşgul mü?' sorusu sorulur.",
+          "Cevap yoksa 'CQ CQ CQ de TA1A' çağrısı yapılır.",
+          "Çağrı sonunda konuşma sırasını devretmek için 'Over' denir."
+        ],
+        "aciklama": "CQ Çağrı Prosedürü: 1. Dinleme yap, 2. Frekans kontrol sorusu sor, 3. CQ çağrısı gönder, 4. Over de.",
+        "kart": "pr_cq"
+      },
+      {
+        "id": "prs_02",
+        "soru": "Telsizde acil durum tehlike çağrısı (Distress Message) yapma adımlarını sıraya diziniz.",
+        "zorluk": "zor",
+        "alt_bolum": "5_4",
+        "adimlar": [
+          "Mandal basılıp üç kez 'MAYDAY MAYDAY MAYDAY' söylenir.",
+          "Kendi istasyonunun çağrı işareti söylenir.",
+          "Mevcut konum (QTH) bildirilir.",
+          "Tehlikenin cinsi ve ihtiyaç duyulan yardım belirtilir.",
+          "Mesaj sonunda cevap beklemek için 'Over' denir."
+        ],
+        "aciklama": "Acil durum çağrısında sırasıyla: 1. Mayday kelimesi, 2. Çağrı işareti, 3. Konum, 4. Tehlikenin türü, 5. Over.",
+        "kart": "pr_mayday"
+      },
+      {
+        "id": "prs_03",
+        "soru": "Bir amatör telsiz görüşmesinin standart başlatma sırasını diziniz.",
+        "zorluk": "orta",
+        "alt_bolum": "5_3",
+        "adimlar": [
+          "Karşı istasyonun çağrı işareti söylenir (ör. TA1A).",
+          "'de' kelimesi eklenir.",
+          "Kendi çağrı işaretiniz söylenir (ör. TA2B).",
+          "Selamlama ve mesaj iletilir.",
+          "'Over' denerek söz karşı tarafa verilir."
+        ],
+        "aciklama": "Standart çağrı formatı: [Karşı Çağrı İşareti] de [Kendi Çağrı İşaretin], [Mesaj], Over.",
+        "kart": "pr_qso_proc"
+      }
+    ],
+    "dogru_yanlis": [
+      {
+        "id": "prdy_01",
+        "soru": "'Over' ve 'Out' telsizde aynı anda kullanılabilir.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "5_1",
+        "aciklama": "Yanlış! 'Over' cevap beklerken, 'Out' görüşmeyi sonlandırırken kullanılır. İkisi aynı anda söylenmez.",
+        "kart": "pr_out"
+      },
+      {
+        "id": "prdy_02",
+        "soru": "Amatör telsizde kişisel bilgiler (TC kimlik no, adres vb.) paylaşmak yasaktır.",
+        "dogru": "Doğru",
+        "zorluk": "kolay",
+        "alt_bolum": "5_2",
+        "aciklama": "Doğru! Amatör telsizcilikte kişisel gizlilik esastır, hassas bilgiler paylaşılmaz.",
+        "kart": "pr_callsign"
+      },
+      {
+        "id": "prdy_03",
+        "soru": "MAYDAY çağrısı yalnızca denizde kullanılır, karada kullanılamaz.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "5_4",
+        "aciklama": "Yanlış! MAYDAY uluslararası acil durum çağrısıdır ve kara, deniz, hava fark etmeksizin her yerde kullanılabilir.",
+        "kart": "pr_mayday"
+      },
+      {
+        "id": "prdy_04",
+        "soru": "Amatör telsiz istasyonları yayın sırasında belirli aralıklarla çağrı işaretlerini söylemek zorundadır.",
+        "dogru": "Doğru",
+        "zorluk": "kolay",
+        "alt_bolum": "5_2",
+        "aciklama": "Doğru! Mevzuata göre her 10 dakikada bir ve yayın başlangıcında/sonunda çağrı işareti söylenmelidir.",
+        "kart": "pr_callsign"
+      },
+      {
+        "id": "prdy_05",
+        "soru": "CQ çağrısı yapmadan önce frekansın meşgul olup olmadığını kontrol etmek gerekmez.",
+        "dogru": "Yanlış",
+        "zorluk": "kolay",
+        "alt_bolum": "5_3",
+        "aciklama": "Yanlış! Her zaman önce dinleme yapılmalı ve 'QRL?' sorusu sorulmalıdır.",
+        "kart": "pr_cq"
+      },
+      {
+        "id": "prdy_06",
+        "soru": "Amatör telsiz frekanslarında şifreli veya kodlu haberleşme yapmak serbesttir.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "5_2",
+        "aciklama": "Yanlış! Amatör telsiz yayınları açık ve anlaşılır olmalıdır, şifreli haberleşme yasaktır.",
+        "kart": "pr_callsign"
+      }
+    ],
+    "eslestir": [
+      {
+        "id": "pre_01",
+        "soru": "Telsiz terimlerini Türkçe karşılıklarıyla eşleştirin",
+        "zorluk": "kolay",
+        "alt_bolum": "5_1",
+        "cifler": [
+          {
+            "sol": "Over",
+            "sag": "Tamam / Söz sende"
+          },
+          {
+            "sol": "Out",
+            "sag": "Sonu / Kapatıyorum"
+          },
+          {
+            "sol": "Roger",
+            "sag": "Anlaşıldı / Mesaj alındı"
+          },
+          {
+            "sol": "Break",
+            "sag": "Araya girme"
+          }
+        ],
+        "kart": "pr_roger"
+      },
+      {
+        "id": "pre_02",
+        "soru": "Çağrı işareti ön eklerini lisans sınıflarıyla eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "5_2",
+        "cifler": [
+          {
+            "sol": "TA",
+            "sag": "A Sınıfı"
+          },
+          {
+            "sol": "TB",
+            "sag": "B / C Sınıfı"
+          },
+          {
+            "sol": "TC",
+            "sag": "Özel / Etkinlik"
+          }
+        ],
+        "kart": "pr_prefix"
+      },
+      {
+        "id": "pre_03",
+        "soru": "Acil durum çağrılarını öncelik sırasıyla eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "5_4",
+        "cifler": [
+          {
+            "sol": "MAYDAY",
+            "sag": "Can tehlikesi (1. öncelik)"
+          },
+          {
+            "sol": "PAN-PAN",
+            "sag": "Acele durum (2. öncelik)"
+          },
+          {
+            "sol": "SÉCURITÉ",
+            "sag": "Güvenlik uyarısı (3. öncelik)"
+          }
+        ],
+        "kart": "pr_panpan"
+      },
+      {
+        "id": "pre_04",
+        "soru": "Telsiz jargonundaki sayısal ifadeleri eşleştirin",
+        "zorluk": "zor",
+        "alt_bolum": "5_1",
+        "cifler": [
+          {
+            "sol": "73",
+            "sag": "En iyi dilekler"
+          },
+          {
+            "sol": "88",
+            "sag": "Sevgi ve öpücükler"
+          },
+          {
+            "sol": "59",
+            "sag": "Mükemmel sinyal"
+          },
+          {
+            "sol": "55",
+            "sag": "Orta seviye sinyal"
+          }
+        ],
+        "kart": "pr_roger"
+      }
+    ]
+  }
+}

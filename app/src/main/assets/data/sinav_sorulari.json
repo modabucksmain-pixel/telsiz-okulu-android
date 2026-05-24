@@ -1,0 +1,1725 @@
+{
+  "baslik": "TRAC Sınav Hazırlık",
+  "kartlar": [
+    {
+      "id": "sv_kanun",
+      "harf": "Yasal Çerçeve",
+      "kod": "5809 Sayılı Kanun",
+      "ikon": "⚖️",
+      "telaffuz": "ELEKTRONİK HABERLEŞME KANUNU",
+      "alt_bolum": "6_1",
+      "aciklama": "5809 Sayılı Elektronik Haberleşme Kanunu, Türkiye'deki tüm telsiz faaliyetlerinin yasal zeminidir. Amatör telsizcilikte ticari reklam ve kar amaçlı yayınlar kesinlikle yasaktır. İstasyon kimliğinin gizlenmesi (anonim/isimsiz yayın) yasaktır. Ruhsat sahibi operatör, telsizini başkasına kullandırırken istasyonun başında bizzat hazır bulunmak zorundadır. Kendi tasarlayıp yaptığınız ev yapımı (homebrew) cihazlar yasal haklara sahiptir ve kullanılabilir."
+    },
+    {
+      "id": "sv_btk",
+      "harf": "Düzenleyici Kurumlar",
+      "kod": "BTK, KEGM ve TRAC",
+      "ikon": "🏛️",
+      "telaffuz": "BİLGİ TEKNOLOJİLERİ VE İLETİŞİM KURUMU",
+      "alt_bolum": "6_1",
+      "aciklama": "BTK frekans planlama ve genel telsiz düzenlemelerini yapar. KEGM (Kıyı Emniyeti Genel Müdürlüğü) ise sınavları fiilen organize eden ve ruhsatları veren resmi kuruluştur. TRAC, Türkiye Radyo Amatörleri Cemiyeti'dir ve ulusal dernektir. IARU (Uluslararası Amatör Telsizciler Birliği) ise amatör telsizcileri uluslararası platformlarda temsil eden çatı kuruluşudur."
+    },
+    {
+      "id": "sv_sinav_kural",
+      "harf": "Sınav ve Ücretler",
+      "kod": "Barajlar, Yaş ve Harçlar",
+      "ikon": "🎓",
+      "telaffuz": "SINAV VE LİSANS BARAJLARI",
+      "alt_bolum": "6_1",
+      "aciklama": "Amatör telsizcilik sınavında tek test yapılır: A Sınıfı lisans için en az 75 puan, B Sınıfı için 60-74 puan gerekir. Asgari yaş sınırı 12'dir. Herhangi bir formal okul mezuniyeti (eğitim düzeyi) şartı bulunmamaktadır. Ruhsat ücreti tek seferlik ödenir, her yıl ayrıca telsiz frekans harcı veya kullanım ücreti ödenmesi gerekmez."
+    },
+    {
+      "id": "sv_cq_dx",
+      "harf": "Çağrı ve Kodlama",
+      "kod": "Çağrı İşaretleri ve Arama",
+      "ikon": "🎙️",
+      "telaffuz": "ÇAĞRI İŞARETLERİ VE GENEL ÇAĞRI",
+      "alt_bolum": "6_1",
+      "aciklama": "Türk amatör çağrı işaretleri TA, TB veya TC önekleriyle (prefix) başlar. İstasyon geçici olarak başka bir şehre taşındığında çağrı işaretinin sonuna '/' ve bölge numarası eklenir (Örn: TA1ABC/3). Kısa mesafe genel çağrı (CQ) ve testler için VHF (2 metre) bandında 144.300 MHz gibi uluslararası çağrı frekansları kullanılır. Fonetik kodlamada her harfin karşılığı hecelenir."
+    },
+    {
+      "id": "sv_mayday",
+      "harf": "Acil Çağrılar",
+      "kod": "MAYDAY, PAN-PAN, SÉCURITÉ",
+      "ikon": "🆘",
+      "telaffuz": "TEHLİKE VE ACELE ANONSLARI",
+      "alt_bolum": "6_2",
+      "aciklama": "MAYDAY: Can kaybı veya aracın tamamen kaybı gibi ciddi ve ani tehlikelerde kullanılır. PAN-PAN: Motor arızası veya yaralı gibi hayati tehlike içermeyen acil durumlarda kullanılır. SÉCURITÉ: Seyir güvenliği, deniz feneri arızası gibi genel güvenlik bildirilerinde kullanılır. Bu çağrılar yapıldığında frekanstaki tüm görüşmeler durdurulur ve öncelik acil duruma verilir."
+    },
+    {
+      "id": "sv_rst_raporu",
+      "harf": "Sinyal Raporu",
+      "kod": "RST Rapor Sistemi",
+      "ikon": "📊",
+      "telaffuz": "READABILITY STRENGTH TONE",
+      "alt_bolum": "6_2",
+      "aciklama": "RST, sinyal kalitesini tanımlar. R (Readability): 1-5 arasıdır, anlaşılabilirliktir. S (Strength): 1-9 arasıdır, sinyal gücüdür. T (Tone): 1-9 arasıdır, CW mors tonudur. Telefoni (SSB/FM) görüşmelerinde T raporu verilmez, sadece iki bileşen (RS) verilir. CW için en ideal rapor 599'dur, telefoni için ise 59'dur."
+    },
+    {
+      "id": "sv_q_kodlari",
+      "harf": "Q Kısaltmaları",
+      "kod": "Temel Q Kodları Anlamları",
+      "ikon": "📡",
+      "telaffuz": "ÜÇ HARFLİ TELSİZ KISALTMALARI",
+      "alt_bolum": "6_2",
+      "aciklama": "QSO: Doğrudan telsiz görüşmesi yapmak. QTH: İstasyonun konumu/bulunduğu yer. QRM: Yapay/başka telsiz istasyonlarından kaynaklanan girişim. QRN: Atmosferik gürültü/doğal parazit. QSY: Frekans değiştirmek. QSL: Mesaj alındı/onay kartı. QRT: Göndermeyi durdurmak/istasyonu kapatmak."
+    },
+    {
+      "id": "sv_hesaplama",
+      "harf": "Elektriksel Formüller",
+      "kod": "Ohm ve Güç Hesapları",
+      "ikon": "🔢",
+      "telaffuz": "V=IR VE P=VI UYGULAMALARI",
+      "alt_bolum": "6_3",
+      "aciklama": "Ohm Kanunu: V = I * R (Gerilim = Akım * Direnç). Örn: 24V gerilim ve 4A akım varsa direnç R = 24 / 4 = 6 Ohm'dur. Güç Formülü: P = V * I (Güç = Gerilim * Akım). Örn: 150W verici çıkış gücü ve 13.8V gerilimde akım I = 150 / 13.8 ≈ 10.9 Amper'dir. Bu formüller güç kaynağı ve sigorta hesapları için kritiktir."
+    },
+    {
+      "id": "sv_dalga_boyu",
+      "harf": "Dalga Boyu",
+      "kod": "Anten Boyu Hesaplama",
+      "ikon": "📏",
+      "telaffuz": "LAMBDA VE ANTEN BOYUTLARI",
+      "alt_bolum": "6_3",
+      "aciklama": "Dalga boyu formülü: λ = 300 / f (MHz). Frekans arttıkça dalga boyu ve anten boyu kısalır (ters orantılı). 144 MHz VHF bandında çeyrek dalga (λ/4) anten teorik boyu 2.08m / 4 = 52 cm'dir. 432 MHz UHF'te ise 69.4cm / 4 ≈ 17 cm'dir. 7 MHz HF bandında tam dalga anten boyu 300 / 7 ≈ 42.8 metredir."
+    },
+    {
+      "id": "sv_yayilim_modlari",
+      "harf": "Sinyal Yayılımı",
+      "kod": "Skywave ve Line-of-Sight",
+      "ikon": "🌐",
+      "telaffuz": "RADYO DALGASI YOLCULUĞU",
+      "alt_bolum": "6_3",
+      "aciklama": "Görüş hattı (Line-of-Sight) yayılımı: VHF/UHF sinyalleri iyonosferden yansımaz, düz ilerler, menzil yer eğriliğiyle sınırlıdır. Gökyüzü dalgası (skywave) yayılımı: HF (3-30 MHz) sinyalleri iyonosfer tabakasından yansıyarak kıtalararası haberleşme sağlar."
+    },
+    {
+      "id": "sv_swr",
+      "harf": "Duran Dalga Oranı",
+      "kod": "SWR ve Empedans Uyumu",
+      "ikon": "📉",
+      "telaffuz": "STAND-WAVE RATIO UYUMU",
+      "alt_bolum": "6_3",
+      "aciklama": "SWR, anten ile telsiz arasındaki empedans uyumunu gösterir. İdeal oran 1:1'dir, bu durumda yansıyan güç ve kayıp sıfırdır. Telsiz sistemleri 50 Ohm empedansa göre tasarlanır. Yüksek SWR vericinin PA (güç yükseltici) transistörlerine zarar verebilir."
+    },
+    {
+      "id": "sv_modlar",
+      "harf": "Modülasyon Modları",
+      "kod": "FM, SSB ve CW Farkları",
+      "ikon": "🎙️",
+      "telaffuz": "SES VE MORSE MODÜLASYONU",
+      "alt_bolum": "6_3",
+      "aciklama": "FM (Frekans Modülasyonu): VHF/UHF yerel görüşmelerde standarttır. SSB (Tek Yan Bant): HF bandında uzun mesafe görüşmeler için çok daha dar bant genişliği kullanır ve gürültüde daha verimlidir. CW (Mors Kodu): Çok dar bant genişliği sayesinde çok kötü koşullarda sesli modlara göre en büyük menzil avantajına sahiptir."
+    },
+    {
+      "id": "sv_antenler",
+      "harf": "Anten Teknolojisi",
+      "kod": "Anten Kazancı ve Hat Kaybı",
+      "ikon": "📡",
+      "telaffuz": "GAIN VE TRANSMISSION LOSS",
+      "alt_bolum": "6_3",
+      "aciklama": "Anten kazancı dBi (izotropik antene göre) veya dBd (dipol antene göre) ile ifade edilir. Kondansatör AC sinyali geçirirken DC'yi bloke eder, bobinle birlikte rezonans devresi oluşturarak frekans seçer. Kablo boyu uzadıkça hat kaybı artar; bu yüzden VHF/UHF anten kabloları mümkün olduğunca kısa tutulmalıdır."
+    },
+    {
+      "id": "sv_modern_dijital",
+      "harf": "Dijital Modlar",
+      "kod": "FT8, APRS ve Dijital Ses",
+      "ikon": "💻",
+      "telaffuz": "MODERN DIJITAL HABERLEŞME",
+      "alt_bolum": "6_4",
+      "aciklama": "FT8: Çok dar bant genişliğinde zayıf sinyallerin (weak signal) HF'te çözülmesini sağlayan popüler bir dijital moddur. APRS: Telsiz üzerinden konum ve durum bilgilerinin otomatik paketler halinde iletilmesini sağlar. D-STAR, DMR ve System Fusion dijital ses modlarıdır ve şifreli olmadıkları için kullanımı serbesttir."
+    },
+    {
+      "id": "sv_ileri_yayilim",
+      "harf": "İleri Yayılım",
+      "kod": "Sporadic-E, EME ve ISS",
+      "ikon": "☄️",
+      "telaffuz": "EZGİSEL VE UZAY HABERLEŞMESİ",
+      "alt_bolum": "6_4",
+      "aciklama": "Sporadic-E (Es): İyonosfer E tabakasında yaz (Mayıs-Ağustos) ve kış aylarında görülen ve VHF sinyallerinin anormal uzaklara ulaşmasını sağlayan yayılımdır. EME (Moonbounce): Sinyali Ay yüzeyinden yansıtarak yapılan haberleşmedir. ARISS ise Uluslararası Uzay İstasyonu (ISS) ile telsizcilerin el telsiziyle görüşmesini sağlar. Troposferik sapma (Tropo) da VHF/UHF'te menzili artırır."
+    },
+    {
+      "id": "sv_emniyet",
+      "harf": "İstasyon Emniyeti",
+      "kod": "RF Güvenliği ve Topraklama",
+      "ikon": "⚡",
+      "telaffuz": "İŞ GÜVENLİĞİ VE TOPRAKLAMA",
+      "alt_bolum": "6_4",
+      "aciklama": "Telsiz istasyonunda topraklama (grounding), cihaz şaselerindeki RF ve statik elektriğin toprağa akarak operatörün çarpılmasını veya RF yanıklarını önlemek için hayati önem taşır. Yüksek güçte çalışırken RF güvenliği kurallarına uyulmalı, antenlerden uzak durulmalıdır."
+    },
+    {
+      "id": "sv_gps_lokator",
+      "harf": "Çalışma Esasları",
+      "kod": "Maidenhead, Elmer ve Kurallar",
+      "ikon": "🗺️",
+      "telaffuz": "MAIDENHEAD LOCATOR VE ELMER",
+      "alt_bolum": "6_4",
+      "aciklama": "Maidenhead Locator (KN31BO gibi): Dünya üzerindeki konumu 6 karakterli ızgara koduyla belirtir. Elmer: Deneyimli amatörlerin yeni başlayanlara akıl hocalığı (mentorluk) yapması geleneğidir. Log tutma: Görüşmelerin kayıt altına alınmasıdır. CTCSS: Rölelerde paraziti önlemek için kullanılan alt ton susturma sistemidir. Contest: Yarışma kurallarıdır. QRP: Düşük güçle (<5W) çalışma tarzıdır."
+    },
+    {
+      "id": "sv_tekrar_ozet",
+      "harf": "Final Hazırlık Stratejisi",
+      "kod": "Mevzuat + Prosedür + Teknik = TRAC",
+      "ikon": "🏆",
+      "telaffuz": "SINAV STRATEJİSİ",
+      "alt_bolum": "6_4",
+      "aciklama": "TRAC sınavı 3 blokta değerlendirilir: (1) Mevzuat: 5809 Kanun, BTK/KEGM rolleri, lisans sınıfları (A≥75, B=60-74). (2) İşletme: Q kodları, fonetik alfabe, RST, MAYDAY/PAN-PAN, çağrı işareti kullanımı. (3) Teknik: Ohm kanunu, anten boyları, frekans bantları, yayılım modları. Her üç bloktan da sorular gelir!"
+    }
+  ],
+  "egzersizler": {
+    "anlam_bul": [
+      {
+        "id": "sva_m01",
+        "soru": "Türkiye'de amatör telsizcilik faaliyetlerini düzenleyen temel yasal çerçeve hangisidir?",
+        "dog": "5809 Sayılı Elektronik Haberleşme Kanunu",
+        "dogru": "5809 Sayılı Elektronik Haberleşme Kanunu",
+        "secenekler": [
+          "5809 Sayılı Elektronik Haberleşme Kanunu",
+          "2920 Sayılı Türk Sivil Havacılık Kanunu",
+          "6698 Sayılı Kişisel Verilerin Korunması Kanunu",
+          "3621 Sayılı Kıyı Kanunu"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "aciklama": "5809 Sayılı Elektronik Haberleşme Kanunu, 2008'de yürürlüğe girmiş ve amatör telsizcilik dahil tüm Türk radyo faaliyetlerinin yasal dayanağıdır.",
+        "kart": "sv_kanun"
+      },
+      {
+        "id": "sva_m02",
+        "soru": "TRAC sınavında A Sınıfı amatör telsiz belgesi almaya hak kazanmak için alınması gereken minimum puan nedir?",
+        "dog": "75",
+        "dogru": "75",
+        "secenekler": [
+          "75",
+          "60",
+          "70",
+          "80"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "aciklama": "A Sınıfı için minimum 75 puan gerekir. 60–74 arası puan B Sınıfı belgesi kazandırır. 60 altı başarısız sayılır ve herhangi bir belge verilmez.",
+        "kart": "sv_sinav_kural"
+      },
+      {
+        "id": "sva_m03",
+        "soru": "TRAC sınavından 67 puan alan bir aday hangi belgeyi almaya hak kazanır?",
+        "dog": "B Sınıfı Amatör Telsizcilik Belgesi",
+        "dogru": "B Sınıfı Amatör Telsizcilik Belgesi",
+        "secenekler": [
+          "B Sınıfı Amatör Telsizcilik Belgesi",
+          "A Sınıfı Amatör Telsizcilik Belgesi",
+          "C Sınıfı Amatör Telsizcilik Belgesi",
+          "Hiçbir belge alamaz, sınav tekrarlanmalıdır"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "aciklama": "67 puan, 60–74 aralığına girdiğinden B Sınıfı belgesine hak kazandırır. A Sınıfı için 75 puan eşiği aşılamamıştır.",
+        "kart": "sv_sinav_kural"
+      },
+      {
+        "id": "sva_m04",
+        "soru": "Amatör telsiz belgesi almak isteyen biri için yasal asgari yaş sınırı kaçtır?",
+        "dog": "12",
+        "dogru": "12",
+        "secenekler": [
+          "12",
+          "15",
+          "18",
+          "10"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_1",
+        "aciklama": "Türkiye'de amatör telsizcilik belgesi için yasal asgari yaş 12'dir. 12–18 yaş arasındaki adayların ebeveyn/vasi onayı gerekmektedir.",
+        "kart": "sv_sinav_kural"
+      },
+      {
+        "id": "sva_m05",
+        "soru": "Türkiye'de amatör telsizcilik sınavlarını fiilen düzenleyen resmi kuruluş hangisidir?",
+        "dog": "Kıyı Emniyeti Genel Müdürlüğü (KEGM)",
+        "dogru": "Kıyı Emniyeti Genel Müdürlüğü (KEGM)",
+        "secenekler": [
+          "Kıyı Emniyeti Genel Müdürlüğü (KEGM)",
+          "Bilgi Teknolojileri ve İletişim Kurumu (BTK)",
+          "Türkiye Radyo ve Televizyon Kurumu (TRT)",
+          "Aile ve Sosyal Hizmetler Bakanlığı"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_1",
+        "aciklama": "BTK genel frekans düzenlemesini yaparken, sınavları fiilen organize eden kurum KEGM'dir. TRAC (Türkiye Radyo Amatörleri Cemiyeti) ise süreci destekleyen sivil toplum kuruluşudur.",
+        "kart": "sv_btk"
+      },
+      {
+        "id": "sva_m06",
+        "soru": "Türk amatör telsizcilerinin çağrı işaretleri hangi öneklerle başlar?",
+        "dog": "TA, TB veya TC",
+        "dogru": "TA, TB veya TC",
+        "secenekler": [
+          "TA, TB veya TC",
+          "TK, TL veya TM",
+          "YA, YB veya YC",
+          "TR, TS veya TT"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "aciklama": "ITU tarafından Türkiye'ye tahsis edilen uluslararası çağrı işareti önek aralığı TA–TC'dir. Bu önekler Türk amatör ve ticari radyo istasyonlarını dünya genelinde tanımlar.",
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "sva_m07",
+        "soru": "Amatör telsizci, telsiz istasyonundan bir ticari işletme için reklam yayını yapabilir mi?",
+        "dog": "Hayır, amatör telsizcilik ticari faaliyetler için kullanılamaz",
+        "dogru": "Hayır, amatör telsizcilik ticari faaliyetler için kullanılamaz",
+        "secenekler": [
+          "Hayır, amatör telsizcilik ticari faaliyetler için kullanılamaz",
+          "Evet, yalnızca yerel işletmeler için izinlidir",
+          "Evet, BTK'dan özel izin alınırsa yapılabilir",
+          "Evet, ancak yalnızca haber niteliğinde olursa serbesttir"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "aciklama": "Amatör telsizcilik, tanımı gereği ticari olmayan ve kişisel teknik ilgi, eğitim ve afet haberleşmesi amaçlıdır. Ticari faaliyet kesinlikle yasaktır; bu 5809 sayılı Kanun'un temel ilkelerindendir.",
+        "kart": "sv_kanun"
+      },
+      {
+        "id": "sva_m08",
+        "soru": "Bir amatör telsizci, istasyonunu geçici olarak başka bir ile taşıdığında çağrı işaretini nasıl kullanmalıdır?",
+        "dog": "Orijinal çağrı işaretinin sonuna yeni bölgenin numarasını ekler (Örn: TA1ABC/3)",
+        "dogru": "Orijinal çağrı işaretinin sonuna yeni bölgenin numarasını ekler (Örn: TA1ABC/3)",
+        "secenekler": [
+          "Orijinal çağrı işaretinin sonuna yeni bölgenin numarasını ekler (Örn: TA1ABC/3)",
+          "Yeni şehirde geçerli tamamen farklı bir çağrı işareti almalıdır",
+          "Çağrı işaretini hiç değiştirmez, orijinal haliyle kullanmaya devam eder",
+          "İstasyon başka bir ilde çalıştırılamaz, kurulum yerine geri dönülmelidir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_1",
+        "aciklama": "Uluslararası kurala göre (ve Türk mevzuatı uyarınca) geçici taşınmada çağrı işaretinin sonuna '/' ve yeni bölge numarası eklenir. Bu, diğer istasyonların gerçek konumu bilmesini sağlar.",
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "sva_m09",
+        "soru": "Aşağıdakilerden hangisi amatör telsizcinin yasal olarak yapabileceği bir faaliyettir?",
+        "dog": "Deprem felaketi sırasında kamu kurumlarına haberleşme desteği vermek",
+        "dogru": "Deprem felaketi sırasında kamu kurumlarına haberleşme desteği vermek",
+        "secenekler": [
+          "Deprem felaketi sırasında kamu kurumlarına haberleşme desteği vermek",
+          "Çevresindeki komşuları için ücretli mesaj iletim hizmeti sunmak",
+          "Bir siyasi partinin mitingini kamuya yayın yapmak",
+          "Ulusal güvenlik frekanslarını dinleyerek yetkilileri bilgilendirmek"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_1",
+        "aciklama": "Afet ve acil haberleşme desteği amatör telsizciliğin en temel misyonlarından biridir. Türkiye'de TRAC bünyesindeki amatörler, AFAD ve diğer kurumlarla koordineli olarak afet haberleşmesi sağlar.",
+        "kart": "sv_kanun"
+      },
+      {
+        "id": "sva_m10",
+        "soru": "A Sınıfı ve B Sınıfı amatör telsiz lisansları arasındaki temel fark nedir?",
+        "dog": "A Sınıfı daha geniş frekans bandı ve daha yüksek çıkış gücü hakkına sahiptir",
+        "dogru": "A Sınıfı daha geniş frekans bandı ve daha yüksek çıkış gücü hakkına sahiptir",
+        "secenekler": [
+          "A Sınıfı daha geniş frekans bandı ve daha yüksek çıkış gücü hakkına sahiptir",
+          "A Sınıfı yalnızca VHF/UHF kullanabilirken B Sınıfı HF'e erişebilir",
+          "İkisi arasında teknik fark yoktur, sadece belge rengi farklıdır",
+          "B Sınıfı daha kapsamlı haklara sahiptir çünkü daha düşük barajla alınabilir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_1",
+        "aciklama": "A Sınıfı belgesi tüm amatör frekans bantlarına ve tam çıkış gücüne erişim hakkı tanırken, B Sınıfı kısıtlı bantlara ve daha düşük güç limitlerine sahiptir. A Sınıfı yüksek başarıyı ödüllendirir.",
+        "kart": "sv_sinav_kural"
+      },
+      {
+        "id": "sva_m11",
+        "soru": "Bir yabancı amatör telsizci Türkiye'ye geldiğinde telsizini çalıştırmak için ne yapmalıdır?",
+        "dog": "CEPT lisansı ya da Türk makamlarından misafir operatör izni almalıdır",
+        "dogru": "CEPT lisansı ya da Türk makamlarından misafir operatör izni almalıdır",
+        "secenekler": [
+          "CEPT lisansı ya da Türk makamlarından misafir operatör izni almalıdır",
+          "Kendi ülkesinin lisansı yeterlidir, ek izne gerek yoktur",
+          "Yabancı amatör telsizciler Türkiye'de hiçbir koşulda çalışamaz",
+          "Yalnızca sahil bölgelerinde çalışabilir, iç bölgelerde çalışamaz"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_1",
+        "aciklama": "Türkiye CEPT anlaşmasını kabul etmiştir. Avrupa ülkelerinden CEPT T/R 61-01 uyumlu lisans sahipleri, belirli koşullarla Türkiye'de çalışabilir. Diğer ülke vatandaşları için özel misafir operatör izni gerekmektedir.",
+        "kart": "sv_kanun"
+      },
+      {
+        "id": "sva_m12",
+        "soru": "Amatör telsizci, telsizini başka bir kişiye kullandırabilmek için asgari hangi koşul sağlanmalıdır?",
+        "dog": "Ruhsat sahibi amatör telsizci, istasyonunun başında bizzat hazır bulunmalıdır",
+        "dogru": "Ruhsat sahibi amatör telsizci, istasyonunun başında bizzat hazır bulunmalıdır",
+        "secenekler": [
+          "Ruhsat sahibi amatör telsizci, istasyonunun başında bizzat hazır bulunmalıdır",
+          "Herhangi bir yetkilendirme gerekmez, herkese bırakılabilir",
+          "Yalnızca belgesiz kişiler kullanamaz, belgeli her amatör telsizci kullanabilir",
+          "Eğitim belgesi olmak koşuluyla 16 yaş üstü herkes kullanabilir"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_1",
+        "aciklama": "Amatör telsizcilik mevzuatına göre, ruhsat sahibi operatör istasyonun başında hazır bulunmak kaydıyla başkasının da sistemi kullanmasına gözetim altında izin verebilir. Gözetimsiz kullandırmak yasaktır.",
+        "kart": "sv_kanun"
+      },
+      {
+        "id": "sva_m13",
+        "soru": "Amatör telsiz istasyonundan anonim (kimliği gizlenmiş) yayın yapılabilir mi?",
+        "dog": "Hayır, her yayında çağrı işareti açıkça bildirilmelidir",
+        "dogru": "Hayır, her yayında çağrı işareti açıkça bildirilmelidir",
+        "secenekler": [
+          "Hayır, her yayında çağrı işareti açıkça bildirilmelidir",
+          "Evet, mahremiyeti korumak için çağrı işareti saklanabilir",
+          "Yalnızca gece saatlerinde anonim yayın serbesttir",
+          "BTK'dan izin alınırsa takma ad kullanılabilir"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "aciklama": "Amatör telsizciler her görüşmenin başında, sonunda ve uzun görüşmelerde belirli aralıklarla çağrı işaretlerini vermelidir. Kimlik gizlemek mevzuata aykırıdır ve ruhsatın iptaline yol açabilir.",
+        "kart": "sv_kanun"
+      },
+      {
+        "id": "sva_m14",
+        "soru": "'TRAC' kısaltmasının açılımı nedir?",
+        "dog": "Türkiye Radyo Amatörleri Cemiyeti",
+        "dogru": "Türkiye Radyo Amatörleri Cemiyeti",
+        "secenekler": [
+          "Türkiye Radyo Amatörleri Cemiyeti",
+          "Türk Radyo ve Amatör Çalışmaları",
+          "Teknik Radyo Amatör Cemiyeti",
+          "Türkiye Resmi Amatör Çalışanları"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "aciklama": "TRAC, Türkiye'nin ulusal amatör telsizcilik derneğidir. IARU (International Amateur Radio Union) bünyesinde Türkiye'yi temsil eder ve sınav süreçlerinde KEGM ile koordineli çalışır.",
+        "kart": "sv_btk"
+      },
+      {
+        "id": "sva_m15",
+        "soru": "Hangi organizasyon amatör telsizcileri uluslararası arenada temsil eder?",
+        "dog": "IARU (International Amateur Radio Union)",
+        "dogru": "IARU (International Amateur Radio Union)",
+        "secenekler": [
+          "IARU (International Amateur Radio Union)",
+          "ITU (International Telecommunication Union)",
+          "ARRL (American Radio Relay League)",
+          "CEPT (Conférence Européenne des Postes et Télécommunications)"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_1",
+        "aciklama": "IARU, dünya genelinde 160'tan fazla ülkedeki amatör telsizcilik derneklerini bünyesinde toplayan uluslararası bir çatı örgütüdür. ITU ise tüm radyo haberleşmesini düzenleyen BM'nin özel ajansıdır.",
+        "kart": "sv_btk"
+      },
+      {
+        "id": "sva_m16",
+        "soru": "Bir amatör telsizci, kısa mesafe görüşme için aşağıdaki frekanslardan hangisini 'genel çağrı' (CQ) için kullanabilir?",
+        "dog": "144.300 MHz (2 metre SSB çağrı frekansı)",
+        "dogru": "144.300 MHz (2 metre SSB çağrı frekansı)",
+        "secenekler": [
+          "144.300 MHz (2 metre SSB çağrı frekansı)",
+          "156.800 MHz (Deniz acil/16. kanal)",
+          "121.5 MHz (Havacılık uluslararası acil)",
+          "27.065 MHz (CB — Sivil Bant)"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_1",
+        "aciklama": "144.300 MHz, Avrupa'da VHF bandında SSB için standart çağrı frekansıdır. Diğer seçenekler amatör telsizcilik dışı frekanslardır ve amatör telsizcilerin erişmesi yasaktır.",
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "sva_m17",
+        "soru": "Amatör telsizcilik belgesi sınavına girmek için hangi eğitim düzeyi zorunludur?",
+        "dog": "Herhangi bir formal eğitim düzeyi şartı yoktur",
+        "dogru": "Herhangi bir formal eğitim düzeyi şartı yoktur",
+        "secenekler": [
+          "Herhangi bir formal eğitim düzeyi şartı yoktur",
+          "En az ilkokul mezunu olmak gerekmektedir",
+          "En az lise mezunu olmak gerekmektedir",
+          "Elektronik veya haberleşme alanında diploma sahibi olmak gerekmektedir"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "aciklama": "TRAC sınavına girmek için herhangi bir formal eğitim düzeyi şartı bulunmamaktadır. Asgari yaş (12) ve kimlik koşulu sağlandığında herkes sınava girebilir.",
+        "kart": "sv_sinav_kural"
+      },
+      {
+        "id": "sva_m18",
+        "soru": "Bir amatör telsizci yıllık ödeme yapmak zorunda mıdır?",
+        "dog": "Hayır, ruhsat ücretini tek seferinde ödemiş olan telsizci yıllık harç ödemez",
+        "dogru": "Hayır, ruhsat ücretini tek seferinde ödemiş olan telsizci yıllık harç ödemez",
+        "secenekler": [
+          "Hayır, ruhsat ücretini tek seferinde ödemiş olan telsizci yıllık harç ödemez",
+          "Evet, her yıl BTK'ya lisans yenileme ücreti ödenmesi zorunludur",
+          "Evet, TRAC üyelik aidatı yasal zorunluluktur",
+          "Evet, frekans kullanım bedeli yıllık olarak alınır"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_1",
+        "aciklama": "Amatör telsizcilik lisansı belirli bir süre için (belge türüne göre) tek seferlik ücret karşılığında alınır ve her yıl için ayrıca harç ödenmesi zorunlu değildir. Belge yenileme ücretleri periyodik olarak ödenir.",
+        "kart": "sv_sinav_kural"
+      },
+      {
+        "id": "sva_p01",
+        "soru": "Uluslararası tehlike çağrısı 'MAYDAY' ne anlama gelir ve hangi koşullarda kullanılır?",
+        "dog": "Can veya araç için hayati tehlike var; derhal yardım talep edilmektedir",
+        "dogru": "Can veya araç için hayati tehlike var; derhal yardım talep edilmektedir",
+        "secenekler": [
+          "Can veya araç için hayati tehlike var; derhal yardım talep edilmektedir",
+          "Teknik bir arıza var ancak can tehlikesi henüz oluşmamıştır",
+          "Bir denizcilik güvenlik uyarısı yayınlanmaktadır",
+          "Başka bir istasyona öncelikli mesaj iletilecektir"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_2",
+        "aciklama": "MAYDAY, Fransızca 'm'aidez' (bana yardım et) ifadesinden türetilmiştir. Hayati tehlike olmaksızın kullanmak yasadışıdır. Gerçek MAYDAY çağrısı 3 kez tekrarlanır: 'MAYDAY MAYDAY MAYDAY'.",
+        "kart": "sv_mayday"
+      },
+      {
+        "id": "sva_p02",
+        "soru": "Bir tekne motorunun arızalandığını bildiren telsizci, can kaybı riski olmadığı hâlde hangi acil kod kullanmalıdır?",
+        "dog": "PAN-PAN",
+        "dogru": "PAN-PAN",
+        "secenekler": [
+          "PAN-PAN",
+          "MAYDAY",
+          "SÉCURITÉ",
+          "STANDBY"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "aciklama": "PAN-PAN (Fransızca 'panne' = arıza), hayati tehlike olmayan ancak acil yardım/dikkat gerektiren durumlarda kullanılır. MAYDAY'den bir derece daha düşük önceliğe sahiptir.",
+        "kart": "sv_mayday"
+      },
+      {
+        "id": "sva_p03",
+        "soru": "Aşağıdakilerden hangisi SÉCURITÉ çağrısının doğru kullanım örneğidir?",
+        "dog": "Boğaz girişindeki yakıt platformunun ışıklarının söndüğünü bildirmek",
+        "dogru": "Boğaz girişindeki yakıt platformunun ışıklarının söndüğünü bildirmek",
+        "secenekler": [
+          "Boğaz girişindeki yakıt platformunun ışıklarının söndüğünü bildirmek",
+          "Kurtarma botu bekleyen 3 yaralı için acil yardım çağırmak",
+          "Batmakta olan bir tekneden kurtarma talep etmek",
+          "Bir diğer istasyona öncelikli bir ticari mesaj iletmek"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_2",
+        "aciklama": "SÉCURITÉ, denizcilik veya havacılıkta güvenliği ilgilendiren önemli bildirimler (tehlikeli engel, hava durumu uyarısı, fener arızası vb.) için kullanılır. Doğrudan kişi/araç tehlikesi içermez.",
+        "kart": "sv_mayday"
+      },
+      {
+        "id": "sva_p04",
+        "soru": "RST raporunda 'R' ne anlama gelir ve en yüksek değeri kaçtır?",
+        "dog": "Readability (Anlaşılabilirlik); en yüksek değer 5'tir",
+        "dogru": "Readability (Anlaşılabilirlik); en yüksek değer 5'tir",
+        "secenekler": [
+          "Readability (Anlaşılabilirlik); en yüksek değer 5'tir",
+          "Reception (Alım Kalitesi); en yüksek değer 9'dur",
+          "Range (Menzil); en yüksek değer 10'dur",
+          "Radio (Radyo Frekansı); değer yoktur, semboliktir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "aciklama": "RST sisteminde R (Readability) 1–5 arasında değer alır; 5 mükemmel anlaşılabilirliği ifade eder. S (Signal Strength) ve T (Tone) 1–9 arasındadır. En iyi telefoni raporu 59, CW için 599'dur.",
+        "kart": "sv_rst_raporu"
+      },
+      {
+        "id": "sva_p05",
+        "soru": "Bir CW (Mors Kodu) görüşmesinde alınan '599' RST raporu ne anlama gelir?",
+        "dog": "Mükemmel anlaşılabilirlik, tam güçlü sinyal, kristal temiz ton",
+        "dogru": "Mükemmel anlaşılabilirlik, tam güçlü sinyal, kristal temiz ton",
+        "secenekler": [
+          "Mükemmel anlaşılabilirlik, tam güçlü sinyal, kristal temiz ton",
+          "Zayıf sinyal, yüksek gürültü, kötü ton",
+          "Orta düzey sinyal, kabul edilebilir ton",
+          "Bilinmeyen — 599 geçersiz bir RST değeridir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "aciklama": "599 = R5 (tamamen anlaşılır) + S9 (çok güçlü sinyal) + T9 (mükemmel kristal ton). CW görüşmelerinde ideal rapordur. Gerçek durumu yansıtmayan 599 raporları contest'lerde de yaygın kullanılır ama ideal değildir.",
+        "kart": "sv_rst_raporu"
+      },
+      {
+        "id": "sva_p06",
+        "soru": "Amatör telsizciler arasında 'CQ' ne anlama gelir?",
+        "dog": "Genel çağrı — Beni duyan herhangi bir istasyon lütfen yanıt versin",
+        "dogru": "Genel çağrı — Beni duyan herhangi bir istasyon lütfen yanıt versin",
+        "secenekler": [
+          "Genel çağrı — Beni duyan herhangi bir istasyon lütfen yanıt versin",
+          "Kanal değiştiriyorum, lütfen takip edin",
+          "Görüşmeyi kapatıyorum, iyi günler",
+          "Sinyal gücünüzü artırır mısınız?"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_2",
+        "aciklama": "CQ, 'Seek You' (Seni arıyorum) ifadesinden türemiştir. Herhangi bir istasyonla görüşmek isteyen amatör telsizci CQ çağrısı yaparak kendini duyurabilir. CQ DX ise uzak mesafeli istasyonları hedef alır.",
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "sva_p07",
+        "soru": "Telsiz haberleşmesinde '73' sayısı ne anlama gelir?",
+        "dog": "İyi dilekler / Görüşürüz",
+        "dogru": "İyi dilekler / Görüşürüz",
+        "secenekler": [
+          "İyi dilekler / Görüşürüz",
+          "Tekrar gönder / Anlamadım",
+          "Görüşmeyi bitiriyorum, frekansı serbest bırakıyorum",
+          "Sinyal raporunuz 73"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_2",
+        "aciklama": "73 amatör telsizciler arasında köklü geleneksel bir selamlama kodudur. 88 ise 'sevgi ve öpücükler' anlamına gelir. Bu kısaltmalar Mors dönemindereden günümüze gelmiştir.",
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "sva_p08",
+        "soru": "Amatör telsizci 'DX' derken neyi kasteder?",
+        "dog": "Uzak mesafedeki istasyon veya uluslararası görüşme",
+        "dogru": "Uzak mesafedeki istasyon veya uluslararası görüşme",
+        "secenekler": [
+          "Uzak mesafedeki istasyon veya uluslararası görüşme",
+          "Dijital telsiz standardı (Digital Exchange)",
+          "Belirli bir frekans aralığı",
+          "Güvenli ve şifreli haberleşme protokolü"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_2",
+        "aciklama": "DX (Distance eXchange veya Distance Unknown) uzak mesafeli, özellikle yabancı ülkelerle yapılan haberleşmeyi ifade eder. 'DX avcılığı' birçok ülkeyle görüşme yapma etkinliğidir.",
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "sva_p09",
+        "soru": "'QSO' Q kodunun anlamı nedir?",
+        "dog": "Doğrudan telsiz görüşmesi yapıyorum / yapabilir misiniz?",
+        "dogru": "Doğrudan telsiz görüşmesi yapıyorum / yapabilir misiniz?",
+        "secenekler": [
+          "Doğrudan telsiz görüşmesi yapıyorum / yapabilir misiniz?",
+          "Frekans değiştiriyorum / değiştirir misiniz?",
+          "Mesajınızı aldım / aldınız mı?",
+          "Konumunuz nedir / konumum şudur"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_2",
+        "aciklama": "QSO, iki istasyon arasındaki telsiz görüşmesini ifade eder. 'QSO yaptım' demek 'görüştüm' anlamındadır. QSL kartları ise bu görüşmelerin belgelenmesinde kullanılır.",
+        "kart": "sv_q_kodlari"
+      },
+      {
+        "id": "sva_p10",
+        "soru": "'QTH' Q kodunun anlamı nedir?",
+        "dog": "İstasyonun konumu / bulunduğu yer",
+        "dogru": "İstasyonun konumu / bulunduğu yer",
+        "secenekler": [
+          "İstasyonun konumu / bulunduğu yer",
+          "Görüşmeyi durdurun",
+          "Frekans paraziti var",
+          "Mesajı tekrar gönderin"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_2",
+        "aciklama": "QTH istasyonun fiziksel konumunu ifade eder. 'QTH'm İstanbul' demek, 'Konumum İstanbul' anlamındadır. Maidenhead ızgara referans sistemi (örn. KN31BO) çoğu zaman QTH ile birlikte kullanılır.",
+        "kart": "sv_q_kodlari"
+      },
+      {
+        "id": "sva_p11",
+        "soru": "'QRM' Q kodu neyi ifade eder?",
+        "dog": "Başka bir telsiz istasyonundan kaynaklanan karışma / girişim",
+        "dogru": "Başka bir telsiz istasyonundan kaynaklanan karışma / girişim",
+        "secenekler": [
+          "Başka bir telsiz istasyonundan kaynaklanan karışma / girişim",
+          "Atmosferik statik gürültü ve doğal parazit",
+          "Frekans değiştirme isteği",
+          "Sinyal alınamıyor, tekrar gönderin"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "aciklama": "QRM: Yapay kaynaklı (insan yapımı) girişim — başka istasyonlar, elektronik cihazlar. QRN ise doğal kaynaklı paraziti (şimşek, atmosferik statik) tanımlar. İkisi karıştırılmamalıdır!",
+        "kart": "sv_q_kodlari"
+      },
+      {
+        "id": "sva_p12",
+        "soru": "'QSY' Q kodu ne anlama gelir?",
+        "dog": "Frekans değiştir / Frekansımı değiştiriyorum",
+        "dogru": "Frekans değiştir / Frekansımı değiştiriyorum",
+        "secenekler": [
+          "Frekans değiştir / Frekansımı değiştiriyorum",
+          "Göndermeyi durdur / Duruyorum",
+          "Mesajın alındı / Mesajımı aldın mı?",
+          "Sinyal raporunu ver / Sinyal raporum şu"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "aciklama": "QSY'yi rakip bir frekansa geçmek veya frekans kalabalığından kaçınmak için kullanabilirsiniz. 'QSY 144.600' derseniz '144.600 MHz'e geçelim' anlamına gelir.",
+        "kart": "sv_q_kodlari"
+      },
+      {
+        "id": "sva_p13",
+        "soru": "NATO fonetik alfabesinde 'Sierra' hangi harfi temsil eder?",
+        "dog": "S",
+        "dogru": "S",
+        "secenekler": [
+          "S",
+          "C",
+          "Z",
+          "X"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "aciklama": "NATO fonetik alfabesinde her harf için özel bir kelime belirlenmiştir: S=Sierra, C=Charlie, Z=Zulu, X=X-ray. Bu kodlama haberleşmede harflerin karışmasını önler.",
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "sva_p14",
+        "soru": "Çağrı işaretini fonetik olarak okurken 'TA2ABC' nasıl söylenmelidir?",
+        "dog": "Tango Alfa İki Alfa Bravo Charlie",
+        "dogru": "Tango Alfa İki Alfa Bravo Charlie",
+        "secenekler": [
+          "Tango Alfa İki Alfa Bravo Charlie",
+          "Turkey Ankara İki Alfa Bravo Charlie",
+          "T A 2 A B C olarak harf harf söylenir",
+          "Tango Amsterdam İki Amsterdam Boston Copenhagen"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "aciklama": "Çağrı işaretleri NATO fonetik alfabesiyle hecelenir: T=Tango, A=Alfa, 2=İki (sayılar normal okunur), A=Alfa, B=Bravo, C=Charlie.",
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "sva_p15",
+        "soru": "SSB (Tek Yan Bant) telefoni görüşmelerinde kullanılan RST raporunda kaç bileşen vardır?",
+        "dog": "İki bileşen (R ve S), ton (T) raporu verilmez",
+        "dogru": "İki bileşen (R ve S), ton (T) raporu verilmez",
+        "secenekler": [
+          "İki bileşen (R ve S), ton (T) raporu verilmez",
+          "Üç bileşen (R, S ve T) eksiksiz verilir",
+          "Tek bileşen — yalnızca S (sinyal gücü) bildirilir",
+          "Dört bileşen — R, S, T ve frekans sapması"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_2",
+        "aciklama": "T (Tone — Ton) yalnızca CW (Mors kodu) görüşmelerinde anlamlıdır, çünkü CW sinyalinin tonu değerlendirilebilir. SSB, AM ve FM telefoni görüşmelerinde sadece RS (2 bileşen) kullanılır.",
+        "kart": "sv_rst_raporu"
+      },
+      {
+        "id": "sva_p16",
+        "soru": "Telsiz haberleşmesinde 'QSL' ne anlama gelir?",
+        "dog": "Mesajı onaylıyorum / Onaylıyor musunuz?",
+        "dogru": "Mesajı onaylıyorum / Onaylıyor musunuz?",
+        "secenekler": [
+          "Mesajı onaylıyorum / Onaylıyor musunuz?",
+          "Frekansı değiştirin",
+          "Tekrar gönderin",
+          "Görüşmeyi kapatıyorum"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_2",
+        "aciklama": "QSL hem alım onayı (acknowledgement) anlamına gelir hem de bu onayı belgeleyen kartın adıdır. Amatör telsizciler QSL kartlarını posta veya dijital olarak (eQSL, LoTW) birbirlerine göndererek görüşmeleri belgelerler.",
+        "kart": "sv_q_kodlari"
+      },
+      {
+        "id": "sva_p17",
+        "soru": "'QRT' Q kodu ne anlama gelir?",
+        "dog": "Göndermeyi durdur / Göndermeyi durduruyorum",
+        "dogru": "Göndermeyi durdur / Göndermeyi durduruyorum",
+        "secenekler": [
+          "Göndermeyi durdur / Göndermeyi durduruyorum",
+          "Frekans değiştir",
+          "Sinyal raporunu ver",
+          "Konumunu bildir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "aciklama": "QRT, bir istasyonun yayını kapatacağını bildirmek için kullanılır. 'Going QRT' ifadesi 'kapanıyorum' anlamındadır. QRX ise 'bir dakika bekleyin' demektir.",
+        "kart": "sv_q_kodlari"
+      },
+      {
+        "id": "sva_t01",
+        "soru": "144 MHz VHF bandında çalışacak bir telsiz için çeyrek dalga (λ/4) antenin teorik boyu yaklaşık kaçtır?",
+        "dog": "52 cm",
+        "dogru": "52 cm",
+        "secenekler": [
+          "52 cm",
+          "104 cm",
+          "26 cm",
+          "208 cm"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "λ = 300/144 ≈ 2.08 metre (tam dalga boyu). Çeyrek dalga = 2.08/4 ≈ 0.52 m = 52 cm. Pratikte kısaltma faktörü nedeniyle 48–50 cm olarak yapılır, ancak teorik yanıt 52 cm'dir.",
+        "kart": "sv_dalga_boyu"
+      },
+      {
+        "id": "sva_t02",
+        "soru": "432 MHz UHF bandında çeyrek dalga antenin boyu yaklaşık kaçtır?",
+        "dog": "17 cm",
+        "dogru": "17 cm",
+        "secenekler": [
+          "17 cm",
+          "34 cm",
+          "52 cm",
+          "8 cm"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_3",
+        "aciklama": "λ = 300/432 ≈ 0.694 m. Çeyrek dalga = 0.694/4 ≈ 0.17 m = 17 cm. 432 MHz UHF antenler 144 MHz'e kıyasla çok daha kısadır — frekans arttıkça anten boyu kısalır.",
+        "kart": "sv_dalga_boyu"
+      },
+      {
+        "id": "sva_t03",
+        "soru": "Bir vericinin çıkış gücü 150 Watt'tır. Besleme gerilimi 13.8 Volt ise bu verici kaç Amper akım çekmektedir? (Kayıplar ihmal edilmiştir.)",
+        "dog": "Yaklaşık 10.9 Amper",
+        "dogru": "Yaklaşık 10.9 Amper",
+        "secenekler": [
+          "Yaklaşık 10.9 Amper",
+          "150 Amper",
+          "Yaklaşık 20 Amper",
+          "Yaklaşık 5 Amper"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_3",
+        "aciklama": "P = V × I formülünden: I = P/V = 150/13.8 ≈ 10.87 Amper ≈ 10.9 Amper. Bu hesap güç kaynağı seçiminde kritiktir — 12A'lik sigorta ve kablo bu kurulum için yeterlidir.",
+        "kart": "sv_hesaplama"
+      },
+      {
+        "id": "sva_t04",
+        "soru": "Bir devrede gerilim 24 Volt, akım 4 Amper olarak ölçülmüştür. Devrenin direnci kaç Ohm'dur?",
+        "dog": "6 Ohm",
+        "dogru": "6 Ohm",
+        "secenekler": [
+          "6 Ohm",
+          "96 Ohm",
+          "28 Ohm",
+          "0.17 Ohm"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "Ohm Kanunu: V = I × R → R = V/I = 24/4 = 6 Ohm. Güç ise P = V × I = 24 × 4 = 96 Watt olur.",
+        "kart": "sv_hesaplama"
+      },
+      {
+        "id": "sva_t05",
+        "soru": "7 MHz HF bandındaki tam dalga antenin teorik uzunluğu yaklaşık kaçtır?",
+        "dog": "42.8 metre",
+        "dogru": "42.8 metre",
+        "secenekler": [
+          "42.8 metre",
+          "21.4 metre",
+          "10.7 metre",
+          "85.6 metre"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_3",
+        "aciklama": "λ = 300/7 ≈ 42.86 metre. Bu '40 metre bandı' olarak bilinir ve adını da dalga boyundan alır. Dipol anten ise yarım dalga = 21.4 m, çeyrek dalga yer düzlemi ise 10.7 m'dir.",
+        "kart": "sv_dalga_boyu"
+      },
+      {
+        "id": "sva_t06",
+        "soru": "SWR (Duran Dalga Oranı) 1:1 olması ne anlama gelir?",
+        "dog": "Anten tam empedans uyumundadır; kayıp minimumdur",
+        "dogru": "Anten tam empedans uyumundadır; kayıp minimumdur",
+        "secenekler": [
+          "Anten tam empedans uyumundadır; kayıp minimumdur",
+          "Anten tamamen bozuktur ve çalışmıyor",
+          "Verici kapasitesi aşılmıştır",
+          "Empedans uyumsuzluğu var, acil ayar gerekiyor"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "SWR 1:1, ideal anten empedans uyumunu ifade eder; hiç yansıyan dalga yoktur, tüm güç antene iletilir. Pratikte 1.5:1 veya altı genellikle kabul edilebilir. 3:1 ve üzeri SWR vericiye zarar verebilir.",
+        "kart": "sv_swr"
+      },
+      {
+        "id": "sva_t07",
+        "soru": "VHF ve UHF sinyalleri neden uzun mesafeye yayılmaz? (Normal koşullarda)",
+        "dog": "Düz çizgi (görüş hattı) yayılımı yaptıklarından yer eğriliği iletişimi sınırlar",
+        "dogru": "Düz çizgi (görüş hattı) yayılımı yaptıklarından yer eğriliği iletişimi sınırlar",
+        "secenekler": [
+          "Düz çizgi (görüş hattı) yayılımı yaptıklarından yer eğriliği iletişimi sınırlar",
+          "İyosferden yansıyarak geri döndükleri için kendi başlangıç noktasına giderler",
+          "Çok kısa dalga boyları nedeniyle atmosfer tarafından tamamen emilirler",
+          "Bu frekanslar yalnızca yer altında ilerleyebilir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "VHF/UHF frekanslar iyosferden normalde yansımaz (istisnai sporadic-E olayları hariç) ve düz ilerler. Bu nedenle menzilleri anten yüksekliğiyle doğrudan ilişkilidir. Röle sistemleri bu sınırlamayı aşmak için kullanılır.",
+        "kart": "sv_yayilim_modlari"
+      },
+      {
+        "id": "sva_t08",
+        "soru": "HF (Kısa Dalga) bantlarında kıtalararası haberleşme hangi mekanizma sayesinde mümkün olur?",
+        "dog": "İyonosfer tabakasından yansıma (Skywave — Gökyüzü dalgası)",
+        "dogru": "İyonosfer tabakasından yansıma (Skywave — Gökyüzü dalgası)",
+        "secenekler": [
+          "İyonosfer tabakasından yansıma (Skywave — Gökyüzü dalgası)",
+          "Güçlü verici gücüyle yer eğrisini aşma",
+          "Troposferdeki yoğun bulut katmanlarından yansıma",
+          "Deniz yüzeyinden ardışık yansımalar"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "İyonosfer (80–600 km yükseklikte) Güneş radyasyonuyla iyonlaşan gazlardan oluşur. Bu katman, belirli HF frekanslarını yansıtarak kıtalar arası iletişime olanak tanır. Geceleri F katmanı baskın hale gelir.",
+        "kart": "sv_yayilim_modlari"
+      },
+      {
+        "id": "sva_t09",
+        "soru": "Frekans ile dalga boyu arasındaki ilişki nedir?",
+        "dog": "Frekans arttıkça dalga boyu kısalır (ters orantılı)",
+        "dogru": "Frekans arttıkça dalga boyu kısalır (ters orantılı)",
+        "secenekler": [
+          "Frekans arttıkça dalga boyu kısalır (ters orantılı)",
+          "Frekans arttıkça dalga boyu uzar (doğru orantılı)",
+          "Frekans ve dalga boyu birbirinden bağımsızdır",
+          "Yalnızca aynı bant içinde ters orantı geçerlidir"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_3",
+        "aciklama": "λ = c/f (c = ışık hızı ≈ 300,000 km/s). Formülden görüldüğü gibi frekans (f) artarsa dalga boyu (λ) azalır. Bu yüzden 2.4 GHz WiFi antenleri milimetrik boyuttayken HF anten tellerinin uzunluğu onlarca metre olabilir.",
+        "kart": "sv_dalga_boyu"
+      },
+      {
+        "id": "sva_t10",
+        "soru": "Bir röle (repeater) istasyonu neden kullanılır?",
+        "dog": "VHF/UHF'te kısıtlı olan menzili artırmak; yüksek noktaya kurularak daha geniş alana hizmet vermek",
+        "dogru": "VHF/UHF'te kısıtlı olan menzili artırmak; yüksek noktaya kurularak daha geniş alana hizmet vermek",
+        "secenekler": [
+          "VHF/UHF'te kısıtlı olan menzili artırmak; yüksek noktaya kurularak daha geniş alana hizmet vermek",
+          "Şifreli haberleşme sağlamak ve güvenliği artırmak",
+          "Yalnızca acil durum frekanslarını izlemek",
+          "İki farklı ülkenin frekans bantları arasında çeviri yapmak"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "6_3",
+        "aciklama": "Röle istasyonları bir girişte sinyal alır, başka bir frekansta yayınlar. Genellikle dağ tepelerine veya yüksek binalara kurulur. El telsizleri ile yapılması imkânsız menzilleri mümkün kılar.",
+        "kart": "sv_yayilim_modlari"
+      },
+      {
+        "id": "sva_t11",
+        "soru": "Kondansatörün (kapasitörün) bir RF devresindeki temel işlevi nedir?",
+        "dog": "AC sinyali iletirken DC'yi bloke eder; frekans seçici devrelerde rezonans sağlar",
+        "dogru": "AC sinyali iletirken DC'yi bloke eder; frekans seçici devrelerde rezonans sağlar",
+        "secenekler": [
+          "AC sinyali iletirken DC'yi bloke eder; frekans seçici devrelerde rezonans sağlar",
+          "Elektrik enerjisini ısıya dönüştürerek sınırlar",
+          "Yalnızca DC depolama görevi görür, RF devresinde kullanılmaz",
+          "Sinyal gücünü yükseltir ve amplifikasyon sağlar"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "Kondansatör, AC'yi geçirirken DC'yi bloke eder (coupling). Bobin (endüktans) ile birlikte LC rezonans devresi oluşturarak frekans seçimi yapar — alıcı ve verici devrelerinin temeli budur.",
+        "kart": "sv_antenler"
+      },
+      {
+        "id": "sva_t12",
+        "soru": "FM (Frekans Modülasyon) ve SSB (Tek Yan Bant) modlarını karşılaştırdığımızda hangisi uzun mesafe HF haberleşmesi için uygundur?",
+        "dog": "SSB — daha dar bant genişliği kullanır ve daha az gürültüyle uzağa ulaşır",
+        "dogru": "SSB — daha dar bant genişliği kullanır ve daha az gürültüyle uzağa ulaşır",
+        "secenekler": [
+          "SSB — daha dar bant genişliği kullanır ve daha az gürültüyle uzağa ulaşır",
+          "FM — sürekli dalga daha iyi nüfuz eder ve HF'te standarttır",
+          "Her ikisi de eşit derecede uygundur, fark yoktur",
+          "AM — eski teknoloji olduğu için HF'te en verimli çalışır"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_3",
+        "aciklama": "SSB, taşıyıcıyı ve bir yan bandı kaldırarak AM'ye göre 4× daha verimli bir mod sunar. HF bantlarında standart ses modu SSB'dir. FM ise VHF/UHF yerel haberleşmede standarttır.",
+        "kart": "sv_modlar"
+      },
+      {
+        "id": "sva_t13",
+        "soru": "Bir telsiz sisteminde 'empedans uyumu' neden önemlidir?",
+        "dog": "Uyumsuzluk güç kaybına ve vericinin zarar görmesine yol açar",
+        "dogru": "Uyumsuzluk güç kaybına ve vericinin zarar görmesine yol açar",
+        "secenekler": [
+          "Uyumsuzluk güç kaybına ve vericinin zarar görmesine yol açar",
+          "Empedans uyumu yalnızca alıcı devrelerinde önemlidir, verici için fark etmez",
+          "Uyumsuz empedans sinyal kalitesini artırır",
+          "Empedans amatör radyo için teknik bir kavram değildir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "Tipik telsiz sistemi 50 Ohm empedansa göre tasarlanmıştır. Koaksiyel kablo, anten ve verici aynı empedansı paylaşmalıdır. Yüksek SWR (empedans uyumsuzluğu) yansıyan güç nedeniyle PA transistorlarını yakabilir.",
+        "kart": "sv_swr"
+      },
+      {
+        "id": "sva_t14",
+        "soru": "Amatör telsizcilik bağlamında 'QRP' operasyonu ne anlama gelir?",
+        "dog": "Düşük güçle (5W ve altı) çalışma",
+        "dogru": "Düşük güçle (5W ve altı) çalışma",
+        "secenekler": [
+          "Düşük güçle (5W ve altı) çalışma",
+          "Yüksek güçle (kilowatt sınıfı) çalışma",
+          "Dijital modlarla çalışma",
+          "Tekrarlayıcı (röle) aracılığıyla çalışma"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "QRP, genellikle 5W veya altında güçle çalışmayı ifade eder. 'QRO' ise yüksek güç demektir. QRP'ciler minimum güçle maksimum mesafeyi hedefler; bu ayrı bir hobi dalı olmuştur.",
+        "kart": "sv_modlar"
+      },
+      {
+        "id": "sva_t15",
+        "soru": "Bir VHF anten sisteminde koaksiyel kabloyu ne kadar kısa tutmak gerekir ve neden?",
+        "dog": "Olabildiğince kısa; çünkü kablo uzadıkça kayıp (dB cinsinden) artar",
+        "dogru": "Olabildiğince kısa; çünkü kablo uzadıkça kayıp (dB cinsinden) artar",
+        "secenekler": [
+          "Olabildiğince kısa; çünkü kablo uzadıkça kayıp (dB cinsinden) artar",
+          "Kablo uzunluğu performansı etkilemez, istediğiniz kadar uzatabilirsiniz",
+          "Kabloyu tam dalga boyunun katları kadar uzatmak gerekir",
+          "Uzun kablo güvenlik açısından daha iyidir, çünkü statik boşalımı azaltır"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "Koaksiyel kablo, frekansan bağlı kayıp (dB/m) üretir. 144 MHz'de standart RG-58 kablo 10m'de yaklaşık 3 dB kayıp verir — bu gücün yarısı demektir. VHF/UHF sistemlerde düşük kayıplı kablo (LMR-400 vb.) tercih edilir.",
+        "kart": "sv_antenler"
+      },
+      {
+        "id": "sva_t16",
+        "soru": "CW (Mors Kodu) modunun FM veya SSB sesli iletişime kıyasla temel avantajı nedir?",
+        "dog": "Çok daha dar bant genişliği kullanır ve zayıf sinyallerde bile anlaşılabilir",
+        "dogru": "Çok daha dar bant genişliği kullanır ve zayıf sinyallerde bile anlaşılabilir",
+        "secenekler": [
+          "Çok daha dar bant genişliği kullanır ve zayıf sinyallerde bile anlaşılabilir",
+          "Daha hızlı iletim hızı sağlar ve veri transferi yapılabilir",
+          "Şifreli olduğundan gizliliği garantiler",
+          "Ses gerektirmediğinden gürültülü ortamlarda çalışır"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_3",
+        "aciklama": "CW sinyali sadece 100–150 Hz bant genişliği kullanırken SSB 2400 Hz, FM ise 15 kHz kullanır. Bu dar bant özelliği sayesinde CW, alıcının gürültü eşiğinin çok altındaki sinyalleri bile tespit edebilir.",
+        "kart": "sv_modlar"
+      },
+      {
+        "id": "sva_t17",
+        "soru": "Telsiz devrelerinde 'rezonans' kavramı ne anlama gelir?",
+        "dog": "Bobinin endüktif reaktansının kondansatörün kapasitif reaktansına eşit olduğu frekans noktası",
+        "dogru": "Bobinin endüktif reaktansının kondansatörün kapasitif reaktansına eşit olduğu frekans noktası",
+        "secenekler": [
+          "Bobinin endüktif reaktansının kondansatörün kapasitif reaktansına eşit olduğu frekans noktası",
+          "Devredeki maksimum gerilim ve minimum akım durumu",
+          "Vericinin tam güçle çalışması için gereken minimum gerilim",
+          "Anten ve kablo arasındaki empedans farkının sıfır olduğu durum"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_3",
+        "aciklama": "LC devresinde rezonans frekansında endüktif reaktans (XL=2πfL) kapasitif reaktansa (XC=1/2πfC) eşit olur. Bu noktada devre yalnızca direnç gösterir ve maksimum akım geçer. Alıcı ve verici anten devreleri buna göre ayarlanır.",
+        "kart": "sv_antenler"
+      },
+      {
+        "id": "sva_t18",
+        "soru": "Bir anten kazancını ifade eden 'dBd' birimi neyi temsil eder?",
+        "dog": "Dipol antene göre kazanç (Dipol referans alınmıştır)",
+        "dogru": "Dipol antene göre kazanç (Dipol referans alınmıştır)",
+        "secenekler": [
+          "Dipol antene göre kazanç (Dipol referans alınmıştır)",
+          "Desibel mutlak değeri (absolüt ölçek)",
+          "İzotropik yayıcıya göre kazanç",
+          "Belirli bir bandta watt başına desibel"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_3",
+        "aciklama": "dBd: Dipol'e göre kazanç. dBi: İzotropik (her yöne eşit yayan teorik) antene göre kazanç. dBi = dBd + 2.15. Satıcılar genellikle daha yüksek görünen dBi değerini kullanır; karşılaştırırken dikkat edin!",
+        "kart": "sv_antenler"
+      },
+      {
+        "id": "sva_k01",
+        "soru": "Sporadic-E (Es) yayılımı nedir ve hangi frekanslarda görülür?",
+        "dog": "İyonosferde anlık oluşan yoğun E katmanından yansıma; VHF dahil 10–144 MHz'de görülür",
+        "dogru": "İyonosferde anlık oluşan yoğun E katmanından yansıma; VHF dahil 10–144 MHz'de görülür",
+        "secenekler": [
+          "İyonosferde anlık oluşan yoğun E katmanından yansıma; VHF dahil 10–144 MHz'de görülür",
+          "Troposferde sıcaklık inversiyonundan kaynaklanan sapma; yalnızca mikrodalga'da olur",
+          "Güneş fırtınasının neden olduğu sürekli yayılım türü",
+          "Deniz yüzeyinden yansıma; yalnızca kıyı bölgelerinde görülür"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_4",
+        "aciklama": "Sporadic-E (Es), E katmanında lokal yoğunlaşmadan kaynaklanır. Genellikle Mayıs-Ağustos ve Aralık-Ocak aylarında olur. 144 MHz'de bile binlerce km mesafeye ulaşmayı sağlar ve tahmin edilemez doğasıyla DX avcılarını heyecanlandırır.",
+        "kart": "sv_ileri_yayilim"
+      },
+      {
+        "id": "sva_k02",
+        "soru": "Güneş lekeleri (sunspot) döngüsü HF yayılımını nasıl etkiler?",
+        "dog": "Güneş leke sayısı artınca F katmanı yoğunlaşır ve daha yüksek HF frekansları yansıtılabilir hale gelir",
+        "dogru": "Güneş leke sayısı artınca F katmanı yoğunlaşır ve daha yüksek HF frekansları yansıtılabilir hale gelir",
+        "secenekler": [
+          "Güneş leke sayısı artınca F katmanı yoğunlaşır ve daha yüksek HF frekansları yansıtılabilir hale gelir",
+          "Güneş lekeleri HF yayılımını her zaman olumsuz etkiler; aktif dönemde bant kapalıdır",
+          "Güneş aktivitesinin HF yayılımıyla doğrudan ilgisi yoktur",
+          "Güneş leke döngüsü yalnızca UHF bantları etkiler"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_4",
+        "aciklama": "11 yıllık güneş döngüsünün maximum döneminde F katmanı iyonlaşması artar, 10-28 MHz arası bantlar çok daha iyi performans gösterir. Güneş fırtınaları ise kısa süreli kara-out'a (D katmanı soğurması) neden olabilir.",
+        "kart": "sv_ileri_yayilim"
+      },
+      {
+        "id": "sva_k03",
+        "soru": "APRS (Automatic Packet Reporting System) amatör telsizcilik bağlamında ne işe yarar?",
+        "dog": "GPS konum, hava durumu ve telemetri verilerini paket radyo üzerinden yayınlar",
+        "dogru": "GPS konum, hava durumu ve telemetri verilerini paket radyo üzerinden yayınlar",
+        "secenekler": [
+          "GPS konum, hava durumu ve telemetri verilerini paket radyo üzerinden yayınlar",
+          "Şifreli ses haberleşmesi sağlayan dijital bir codec protokolüdür",
+          "Otomatik olarak frekans tarar ve yayın yapan istasyonları listeler",
+          "Yalnızca arama-kurtarma ekiplerinin kullandığı askeri bir sistemdir"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_4",
+        "aciklama": "APRS, 144.800 MHz (Avrupa'da) üzerinde çalışır. Araç takibi, hava balonu izleme, afet haberleşmesi ve ağ üzerinden konum paylaşımı (aprs.fi) için kullanılır. Ham telsizcilik ve modern teknolojinin buluşma noktasıdır.",
+        "kart": "sv_modern_dijital"
+      },
+      {
+        "id": "sva_k04",
+        "soru": "FT8 dijital modu neden kısa dalga (HF) amatör telsizcilik dünyasında bu kadar popüler olmuştur?",
+        "dog": "Son derece zayıf sinyalleri bile (S/N oranı -24 dB) decode edebildiğinden düşük güçle kıtalararası haberleşme mümkün olur",
+        "dogru": "Son derece zayıf sinyalleri bile (S/N oranı -24 dB) decode edebildiğinden düşük güçle kıtalararası haberleşme mümkün olur",
+        "secenekler": [
+          "Son derece zayıf sinyalleri bile (S/N oranı -24 dB) decode edebildiğinden düşük güçle kıtalararası haberleşme mümkün olur",
+          "Ses kalitesi diğer tüm modlardan çok daha iyi olduğundan tercih edilir",
+          "Tamamen şifreli haberleşme sağladığından popülerdir",
+          "Yalnızca tam otomatik mod olduğundan kullanıcı müdahalesi gerekmez"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_4",
+        "aciklama": "FT8, Nobel ödüllü fizikçi Joe Taylor (K1JT) tarafından geliştirilmiştir. 15 saniyelik mesaj pencereleri ve güçlü hata düzeltme algoritmasıyla gürültülü bandlarda bile DX yapmayı mümkün kılar.",
+        "kart": "sv_modern_dijital"
+      },
+      {
+        "id": "sva_k05",
+        "soru": "EME (Earth-Moon-Earth veya Moonbounce) haberleşme tekniği neden özeldir?",
+        "dog": "Ay'ı pasif yansıtıcı olarak kullanarak binlerce km mesafeye VHF/UHF sinyali iletebilir",
+        "dogru": "Ay'ı pasif yansıtıcı olarak kullanarak binlerce km mesafeye VHF/UHF sinyali iletebilir",
+        "secenekler": [
+          "Ay'ı pasif yansıtıcı olarak kullanarak binlerce km mesafeye VHF/UHF sinyali iletebilir",
+          "Uzay istasyonuyla doğrudan iletişim kurmak için kullanılır",
+          "Güneş'i amplifikatör olarak kullanan bir yayılım tekniğidir",
+          "EME yalnızca askeri amaçlı kullanılır, amatörler için yasaktır"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_4",
+        "aciklama": "EME, Ay'ın yüzeyini pasif yansıtıcı olarak kullanır. Sinyal gidip gelirken yaklaşık 2.5 saniye geçer ve büyük miktarda yol kaybı oluşur. Büyük Yagi dizileri ve güçlü vericiler gerektirir. Amatörler 2m, 70cm ve daha yüksek frekanslarda EME bağlantısı kurar.",
+        "kart": "sv_ileri_yayilim"
+      },
+      {
+        "id": "sva_k06",
+        "soru": "Bir amatör telsizci yarışması (Contest) sırasında hangi temel kural geçerlidir?",
+        "dog": "Her bağlantıda çağrı işareti ve exchange bilgisi değiştirilmeli; günlük (log) tutulmalıdır",
+        "dogru": "Her bağlantıda çağrı işareti ve exchange bilgisi değiştirilmeli; günlük (log) tutulmalıdır",
+        "secenekler": [
+          "Her bağlantıda çağrı işareti ve exchange bilgisi değiştirilmeli; günlük (log) tutulmalıdır",
+          "Contest'te normal kurallar askıya alınır, istasyonlar anonim çalışabilir",
+          "Yalnızca A Sınıfı belgesi olanlar contest'e katılabilir",
+          "Contest'te güç sınırı yoktur, her güç düzeyinde çalışılabilir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_4",
+        "aciklama": "Contest'lerde de temel telsizcilik kuralları geçerlidir: çağrı işareti bildirilmeli, log tutulmalı, müsabaka kurallarında belirtilen exchange (seri no, rapor, ızgara vb.) doğru iletilmelidir.",
+        "kart": "sv_gps_lokator"
+      },
+      {
+        "id": "sva_k07",
+        "soru": "Ham telsizcilik dünyasında 'Elmer' terimi ne anlama gelir?",
+        "dog": "Yeni başlayan amatör telsizciye rehberlik eden deneyimli mentor",
+        "dogru": "Yeni başlayan amatör telsizciye rehberlik eden deneyimli mentor",
+        "secenekler": [
+          "Yeni başlayan amatör telsizciye rehberlik eden deneyimli mentor",
+          "Belirli bir frekans bandının koordinatörü",
+          "QRP (düşük güç) operasyonu yapan amatör",
+          "Lisanssız bir kişinin telsiz kullanması"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_4",
+        "aciklama": "Amatör telsizcilikte 'Elmer' kültürü, deneyimlilerin yeni başlayanlara elden eğitim vermesini teşvik eder. Bu gelenek, amatör topluluğun büyümesinde ve kalitesinin korunmasında kritik rol oynar.",
+        "kart": "sv_gps_lokator"
+      },
+      {
+        "id": "sva_k08",
+        "soru": "D-STAR, System Fusion ve DMR gibi sistemler arasındaki ortak özellik nedir?",
+        "dog": "Hepsi amatör telsizciliğe yönelik dijital ses ve veri iletim sistemleridir",
+        "dogru": "Hepsi amatör telsizciliğe yönelik dijital ses ve veri iletim sistemleridir",
+        "secenekler": [
+          "Hepsi amatör telsizciliğe yönelik dijital ses ve veri iletim sistemleridir",
+          "Hepsi yalnızca HF bandında çalışan mors kodu türevleridir",
+          "Hepsi uydu haberleşmesi protokolüdür",
+          "Hepsi şifreli haberleşme sağladığından yasaktır"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_4",
+        "aciklama": "D-STAR (Icom), System Fusion (Yaesu), DMR (üretici bağımsız) ve P.25 modern dijital ses modlarıdır. Ağ üzerinden (internet gateway) dünyanın herhangi bir yerine bağlanmayı sağlar; sesler net ve gürültüsüz duyulur.",
+        "kart": "sv_modern_dijital"
+      },
+      {
+        "id": "sva_k09",
+        "soru": "Bir amatör telsizci telsiz operasyonu sırasında kişisel güvenlik için elektriksel açıdan hangi temel kurala uymalıdır?",
+        "dog": "Verici çalışırken anten konektörlerine asla dokunulmamalı; RF radyasyonu deri ve göz hasarına yol açabilir",
+        "dogru": "Verici çalışırken anten konektörlerine asla dokunulmamalı; RF radyasyonu deri ve göz hasarına yol açabilir",
+        "secenekler": [
+          "Verici çalışırken anten konektörlerine asla dokunulmamalı; RF radyasyonu deri ve göz hasarına yol açabilir",
+          "Vericinin arka panelindeki fanı kapatmak soğutma için faydalıdır",
+          "Anten çıkışına topraklama kablosu bağlamak verimliliği artırır",
+          "Operasyon sırasında devre şemalarını incelemek güvenlidir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_4",
+        "aciklama": "Yüksek güçlü (100W+) sistemlerde anten bağlantı noktasındaki RF voltajı hayati tehlike oluşturabilir. Ayrıca yakın mesafede uzun süreli maruz kalmak SAR (Specific Absorption Rate) değerini aşabilir. Tüm ayarlamalar verici kapalıyken yapılmalıdır.",
+        "kart": "sv_emniyet"
+      },
+      {
+        "id": "sva_k10",
+        "soru": "Bir amatör telsizci istasyonunda topraklama (grounding) neden kritik önem taşır?",
+        "dog": "Yıldırım çarpmalarına karşı koruma ve RF gürültüsünün azaltılması için şarttır",
+        "dogru": "Yıldırım çarpmalarına karşı koruma ve RF gürültüsünün azaltılması için şarttır",
+        "secenekler": [
+          "Yıldırım çarpmalarına karşı koruma ve RF gürültüsünün azaltılması için şarttır",
+          "Topraklama yalnızca yasal bir zorunluluktur, teknik faydası yoktur",
+          "Topraklama yalnızca yüksek güçlü (kilowatt) sistemlerde gereklidir",
+          "İyi topraklama sinyal gücünü artırır ve SWR'yi düşürür"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_4",
+        "aciklama": "Uygun topraklama: (1) Yıldırım indüksiyon akımlarının güvenli şekilde toprağa iletilmesini sağlar, (2) Ortak mod RF akımlarını bastırarak girişimi azaltır, (3) Elektrik güvenliğini garanti eder. Topraklama kablosu kısa ve düz olmalıdır.",
+        "kart": "sv_emniyet"
+      },
+      {
+        "id": "sva_k11",
+        "soru": "Amatör telsizcilikte 'Maidenhead Locator' sistemi (örn: KN31BO) ne için kullanılır?",
+        "dog": "Dünya genelinde standart kısa ızgara referansı ile istasyon konumunu belirtmek için",
+        "dogru": "Dünya genelinde standart kısa ızgara referansı ile istasyon konumunu belirtmek için",
+        "secenekler": [
+          "Dünya genelinde standart kısa ızgara referansı ile istasyon konumunu belirtmek için",
+          "Telsiz ekipmanlarının model numarasını kodlamak için",
+          "Frekans ofset değerini hesaplamak için",
+          "Lisans başvurularında kullanılan resmi kayıt numarasıdır"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_4",
+        "aciklama": "Maidenhead (grid square) sistemi, dünyayı 2°×1° 'square' (kareler) ve daha küçük alt bölümlere böler. VHF/UHF ve mikrodalga contest'lerde mesafe hesabı için standarttır. İstanbul yaklaşık KN31BO grid karesindedir.",
+        "kart": "sv_gps_lokator"
+      },
+      {
+        "id": "sva_k12",
+        "soru": "Bir amatör telsizci kendi tasarladığı ve inşa ettiği vericiyi kullanabilir mi?",
+        "dog": "Evet, amatör telsizcilik lisansı ev yapımı ekipman kullanımına ve deneyine izin verir",
+        "dogru": "Evet, amatör telsizcilik lisansı ev yapımı ekipman kullanımına ve deneyine izin verir",
+        "secenekler": [
+          "Evet, amatör telsizcilik lisansı ev yapımı ekipman kullanımına ve deneyine izin verir",
+          "Hayır, yalnızca CE belgeli ticari cihazlar kullanılabilir",
+          "Evet, ancak BTK'dan özel onay alınması zorunludur",
+          "Hayır, ev yapımı verici kullanmak her koşulda yasaktır"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_4",
+        "aciklama": "Amatör telsizcilik, 'deneysel teknik' özünde yer alır. Lisanslı amatörler kendi tasarımlarını inşa edebilir ve deneyebilir. Koşul: bandı ve güç limitlerini aşmamak, lisanssız kişilere kiraya veya satışa sunmamak.",
+        "kart": "sv_gps_lokator"
+      },
+      {
+        "id": "sva_k13",
+        "soru": "CTCSS (Continuous Tone-Coded Squelch System) rölede nasıl kullanılır?",
+        "dog": "Belirli bir ses altı ton gönderen istasyonlar röleyi aktive eder; diğer sinyaller geçmez",
+        "dogru": "Belirli bir ses altı ton gönderen istasyonlar röleyi aktive eder; diğer sinyaller geçmez",
+        "secenekler": [
+          "Belirli bir ses altı ton gönderen istasyonlar röleyi aktive eder; diğer sinyaller geçmez",
+          "Şifreli haberleşme için kullanılan bir kod sistemidir",
+          "Ses kalitesini iyileştiren bir kompresör teknolojisidir",
+          "Sadece dijital rölelerde kullanılan bir protokoldür"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_4",
+        "aciklama": "CTCSS, 67–254.1 Hz arasındaki ses-altı (sub-audible) tonlar kullanır. Röle, doğru CTCSS tonunu gönderen istasyona yanıt verir; diğer sinyalleri engeller. Bu sayede farklı gruplar aynı röleyi paylaşabilir.",
+        "kart": "sv_gps_lokator"
+      },
+      {
+        "id": "sva_k14",
+        "soru": "Bir ham telsizci faaliyetini kayıt altında tutmalı mıdır (log tutma)?",
+        "dog": "Mevzuat ülkeye göre değişir; Türkiye'de tavsiye edilir ve bazı frekans kullanımlarında zorunludur",
+        "dogru": "Mevzuat ülkeye göre değişir; Türkiye'de tavsiye edilir ve bazı frekans kullanımlarında zorunludur",
+        "secenekler": [
+          "Mevzuat ülkeye göre değişir; Türkiye'de tavsiye edilir ve bazı frekans kullanımlarında zorunludur",
+          "Log tutmak tamamen isteğe bağlıdır ve hiçbir yerde zorunlu değildir",
+          "Tüm dünyada her görüşmenin loglanması yasal zorunluluktur",
+          "Log tutmak yasaktır; frekans müdüriyetini karmaşıklaştırır"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_4",
+        "aciklama": "Pek çok ülkede logbook zorunluluğu kaldırılmıştır, ancak iyi uygulama olarak hâlâ önerilir. Türkiye'de bazı bant ve işletme türleri için kayıt zorunluluğu olabilir. Dijital log yazılımları (Ham Radio Deluxe, WSJT-X vb.) bu süreci kolaylaştırır.",
+        "kart": "sv_gps_lokator"
+      },
+      {
+        "id": "sva_k15",
+        "soru": "Troposferik sapma (Tropo scatter veya troposcatter) yayılımı ne anlama gelir?",
+        "dog": "VHF/UHF sinyallerinin troposfer katmanındaki nem/sıcaklık değişimlerinden saçılarak beklenmedik uzak noktalara ulaşması",
+        "dogru": "VHF/UHF sinyallerinin troposfer katmanındaki nem/sıcaklık değişimlerinden saçılarak beklenmedik uzak noktalara ulaşması",
+        "secenekler": [
+          "VHF/UHF sinyallerinin troposfer katmanındaki nem/sıcaklık değişimlerinden saçılarak beklenmedik uzak noktalara ulaşması",
+          "İyonosferden yansıma ile oluşan ve her mevsim görülen düzenli bir yayılım türü",
+          "Yüksek güçlü vericilerin enerji yoğunlaştırarak uzak noktaya odaklaması",
+          "Deniz yüzeyinden ardışık yansımalarla oluşan kıyıya özgü bir yayılım"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "6_4",
+        "aciklama": "Troposferik yayılım (Tropo) özellikle yüksek nem dönemlerinde veya sıcaklık inversiyonu sırasında ortaya çıkar. 144 MHz'de normalde 50–100 km olan menzil, Tropo koşullarında 500–1000 km'ye çıkabilir.",
+        "kart": "sv_ileri_yayilim"
+      },
+      {
+        "id": "sva_k16",
+        "soru": "ISS (Uluslararası Uzay İstasyonu) üzerindeki amatör telsiz modülü ARISS nedir?",
+        "dog": "ISS'teki amatör radyo sistemi; okul öğrencileriyle doğrudan görüşme ve paket/APRS hizmeti sunar",
+        "dogru": "ISS'teki amatör radyo sistemi; okul öğrencileriyle doğrudan görüşme ve paket/APRS hizmeti sunar",
+        "secenekler": [
+          "ISS'teki amatör radyo sistemi; okul öğrencileriyle doğrudan görüşme ve paket/APRS hizmeti sunar",
+          "NASA'nın ISS ile resmi haberleşme sistemi, amatörlere kapalıdır",
+          "Uydu interneti sağlayan ticari bir iletişim ağıdır",
+          "Askeri amaçlı gözlem sistemi, frekansları gizlidir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_4",
+        "aciklama": "ARISS (Amateur Radio on the International Space Station), ISS'te hem sabit ekipman hem de astronotların şahsi telsizlerini içerir. 144.490 MHz uplink, 145.800 MHz downlink (Avrupa/Asya) üzerinden el telsizleriyle bile ISS'i dinlemek mümkündür.",
+        "kart": "sv_ileri_yayilim"
+      },
+      {
+        "id": "sva_k17",
+        "soru": "Amatör telsizcilik neden teknik ilerlemeye katkı sağlar?",
+        "dog": "Önceden lisanslı amatörler FM, SSB, yayılım spektrumu gibi teknolojilerin geliştirilmesinde rol oynamıştır",
+        "dogru": "Önceden lisanslı amatörler FM, SSB, yayılım spektrumu gibi teknolojilerin geliştirilmesinde rol oynamıştır",
+        "secenekler": [
+          "Önceden lisanslı amatörler FM, SSB, yayılım spektrumu gibi teknolojilerin geliştirilmesinde rol oynamıştır",
+          "Amatör telsizcilik ticari değeri olmayan bir hobiden ibarettir, teknik katkısı yoktur",
+          "Amatörler yalnızca ticari cihaz kullanabildiğinden yenilik yapamaz",
+          "Teknik gelişme yalnızca büyük şirketlerin araştırma departmanlarında gerçekleşir"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "6_4",
+        "aciklama": "FM'i icat eden Edwin Armstrong (W2XMN), CW tekniklerini standardize eden Hiram Percy Maxim (1AW), EME'yi kanitlayan (K1JT) Joe Taylor — amatör telsizciler tarih boyunca teknolojiyi ilerletmiştir. Bugün SDR, FT8 ve yeni anten tasarımları da amatörler tarafından geliştirilmektedir.",
+        "kart": "sv_tekrar_ozet"
+      }
+    ],
+    "dogru_yanlis": [
+      {
+        "id": "svdy_m01",
+        "soru": "TRAC sınavında 62 puan alan bir aday A Sınıfı amatör telsizcilik belgesi almaya hak kazanır.",
+        "dogru": "Yanlış",
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "aciklama": "A Sınıfı için minimum 75 puan gerekmektedir. 62 puan 60–74 aralığına girdiğinden yalnızca B Sınıfı belgesi kazandırır. A Sınıfı ile B Sınıfı arasındaki fark, erişilebilen bantlar ve izin verilen güç seviyeleridir.",
+        "kart": "sv_sinav_kural"
+      },
+      {
+        "id": "svdy_m02",
+        "soru": "Amatör telsiz istasyonu, ücret karşılığı komşu çiftçilerin haberleşmesine aracılık edebilir.",
+        "dogru": "Yanlış",
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "aciklama": "Amatör telsizcilik kanunen ticari amaçlarla kullanılamaz. Ücret karşılığı üçüncü şahıslar adına mesaj iletmek veya hizmet sunmak, lisansın iptali dahil ağır yaptırımlara yol açar.",
+        "kart": "sv_kanun"
+      },
+      {
+        "id": "svdy_m03",
+        "soru": "Türkiye'de amatör telsizcilik ruhsatı başvurusu için asgari yaş sınırı 18'dir.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "6_1",
+        "aciklama": "Türkiye'de asgari yaş 12'dir. 12–18 yaş arası adaylar ebeveyn veya yasal vasi onayı ile başvurabilir. Bu düzenlenme gençlerin teknolojiyle erken tanışmasını teşvik etmektedir.",
+        "kart": "sv_sinav_kural"
+      },
+      {
+        "id": "svdy_m04",
+        "soru": "Türk amatör telsizcilerin çağrı işaretleri TA, TB veya TC önekleriyle başlar.",
+        "dogru": "Doğru",
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "aciklama": "ITU, Türkiye'ye TA–TC aralığını tahsis etmiştir. Bu önek aralığı Türk amatör ve ticari radyo istasyonlarını uluslararası arenada tanımlar. Örneğin TA1AXQ, TA3BO gibi çağrı işaretleri geçerlidir.",
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "svdy_m05",
+        "soru": "Amatör telsiz istasyonları kendi tasarımı ve inşası olan ekipmanı kullanamaz; yalnızca CE sertifikalı cihazlar izinlidir.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "6_1",
+        "aciklama": "Amatör telsizcilik tanımının merkezinde 'teknik deney ve öğrenme' vardır. Lisanslı amatörler kendi tasarladıkları ekipmanı inşa edebilir ve kullanabilir. Ancak bu cihazları ticari olarak satmaları yasaktır.",
+        "kart": "sv_kanun"
+      },
+      {
+        "id": "svdy_p01",
+        "soru": "PAN-PAN çağrısı MAYDAY'den daha acil bir tehlike durumunu ifade eder.",
+        "dogru": "Yanlış",
+        "zorluk": "kolay",
+        "alt_bolum": "6_2",
+        "aciklama": "Öncelik sırası: MAYDAY (en yüksek, hayati tehlike) > PAN-PAN (acele, hayati tehlike yok) > SÉCURITÉ (güvenlik bildirisi). PAN-PAN daha düşük önceliğe sahiptir. Bu sıralamayı tersine karıştırmak sınav hatalarının başında gelir.",
+        "kart": "sv_mayday"
+      },
+      {
+        "id": "svdy_p02",
+        "soru": "RST sisteminde alınan en yüksek CW sinyal raporu '999'dir.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "aciklama": "R maksimum 5 değer alır (1–5), S ve T maksimum 9 değer alır (1–9). Bu nedenle en iyi CW raporu 599'dur. Telefoni (SSB, FM) için ise T yoktur ve en iyi rapor 59'dur.",
+        "kart": "sv_rst_raporu"
+      },
+      {
+        "id": "svdy_p03",
+        "soru": "Q kodları yalnızca Mors kodu (CW) haberleşmesinde kullanılır ve sesli görüşmelerde geçersizdir.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "aciklama": "Q kodları başlangıçta CW için geliştirilmiş olsa da günümüzde tüm modlarda (SSB, FM, dijital) yaygın biçimde kullanılmaktadır. 'QTH nedir?' demek sesli görüşmede de standart ve anlaşılır bir ifadedir.",
+        "kart": "sv_q_kodlari"
+      },
+      {
+        "id": "svdy_p04",
+        "soru": "Telsizde '73' ifadesi 'İyi dilekler' anlamında kullanılmaktadır.",
+        "dogru": "Doğru",
+        "zorluk": "kolay",
+        "alt_bolum": "6_2",
+        "aciklama": "73, 19. yüzyıldan beri kullanılan geleneksel bir amatör telsizcilik selamlama kodudur. 88 ise 'Sevgi ve öpücükler' anlamına gelir. Bu sayı kodları Mors telgraf döneminden kalma bir gelenektir.",
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "svdy_p05",
+        "soru": "Bir görüşme sırasında karşı taraf çağrı işaretini doğru telaffuz etmek için NATO fonetik alfabesini kullanmak zorundadır.",
+        "dogru": "Yanlış",
+        "zorluk": "zor",
+        "alt_bolum": "6_2",
+        "aciklama": "NATO fonetik alfabesi standart ve tavsiye edilen yöntemdir, ancak hukuki bir zorunluluk değildir. Önemli olan çağrı işaretinin karşı tarafça doğru anlaşılmasıdır. Pratikte her zaman NATO alfabesi kullanılması şiddetle önerilir.",
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "svdy_t01",
+        "soru": "VHF sinyalleri (144 MHz) normal koşullarda iyosferden yansıyarak kıtalararası mesafeye ulaşabilir.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "Normal koşullarda F katmanı VHF'i yansıtamaz; bu frekanslar iyonosferi geçer. Ancak Sporadic-E gibi istisnai olaylar 50–144 MHz'de beklenmedik DX yaptırabilir. Genel kural: VHF = görüş hattı + röle.",
+        "kart": "sv_yayilim_modlari"
+      },
+      {
+        "id": "svdy_t02",
+        "soru": "Anten uzunluğu frekansla ters orantılıdır: frekans arttıkça anten kısalır.",
+        "dogru": "Doğru",
+        "zorluk": "kolay",
+        "alt_bolum": "6_3",
+        "aciklama": "λ = 300/f formülünden doğrudan çıkar. 7 MHz antenin yarım dalgası ≈21 m, 144 MHz antenin yarım dalgası ≈1 m, 432 MHz'de ≈33 cm olur. Bu yüzden telefon modemleri küçük antenle yetinirken HF istasyonları dev antenler gerektirir.",
+        "kart": "sv_dalga_boyu"
+      },
+      {
+        "id": "svdy_t03",
+        "soru": "SWR değeri 1:1 iken anten sisteminden herhangi bir güç kaybı yaşanmaz.",
+        "dogru": "Doğru",
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "SWR 1:1 mükemmel empedans uyumunu gösterir; yansıyan dalga yoktur. Ancak gerçek sistemlerde kablo kaybı (iletim kaybı) hep var olduğundan sıfır kayıp sadece teorik. SWR kaynaklı ek kayıp ise yoktur.",
+        "kart": "sv_swr"
+      },
+      {
+        "id": "svdy_t04",
+        "soru": "Yüksek SWR değerleri vericinin PA (güç yükseltici) transistörlerine zarar verebilir.",
+        "dogru": "Doğru",
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "aciklama": "Yüksek SWR'de yansıyan güç PA çıkışına geri döner. Modern vericilerin çoğu dahili SWR koruma devresi içerir ve SWR aşımında gücü azaltır. Eski veya korumasız modeller ise yüksek SWR'de hasar görebilir.",
+        "kart": "sv_swr"
+      },
+      {
+        "id": "svdy_t05",
+        "soru": "FM modu, SSB'ye kıyasla HF bandında bant genişliği açısından daha verimlidir.",
+        "dogru": "Yanlış",
+        "zorluk": "zor",
+        "alt_bolum": "6_3",
+        "aciklama": "SSB yaklaşık 2.4 kHz bant genişliği kullanırken FM ~15 kHz kullanır. Bu nedenle HF'de SSB çok daha verimlidir ve standarddır. FM'in görüntü bastırma ve gürültü azaltma avantajları VHF/UHF yerel haberleşmede öne çıkar.",
+        "kart": "sv_modlar"
+      },
+      {
+        "id": "svdy_k01",
+        "soru": "Sporadic-E yayılım olayları, yazın (Mayıs–Ağustos) ve kışın (Aralık–Ocak) daha sık görülür.",
+        "dogru": "Doğru",
+        "zorluk": "zor",
+        "alt_bolum": "6_4",
+        "aciklama": "İstatistiksel olarak Sporadic-E olayları yaz ortasında ve kış başında doruk yapar. Mekanizması tam olarak anlaşılamamıştır; meteor etkisi, rüzgar kesme, elektrojet akımları gibi çeşitli teoriler öne sürülmektedir.",
+        "kart": "sv_ileri_yayilim"
+      },
+      {
+        "id": "svdy_k02",
+        "soru": "Amatör telsizciler Uluslararası Uzay İstasyonu (ISS) ile el telsizleri ile görüşme yapabilir.",
+        "dogru": "Doğru",
+        "zorluk": "orta",
+        "alt_bolum": "6_4",
+        "aciklama": "ISS yaklaşık 10 dakika görüş alanında olduğunda, frekansı (145.800 MHz) sayan el telsizi ile duyulabilir ve iletişim kurulabilir. ARISS programı kapsamında okul grupları astronotlarla doğrudan görüşme yapabilmektedir.",
+        "kart": "sv_ileri_yayilim"
+      },
+      {
+        "id": "svdy_k03",
+        "soru": "D-STAR, DMR ve System Fusion gibi dijital ses modları, amatör telsiz mevzuatına göre şifreli haberleşme olarak kabul edildiğinden yasaktır.",
+        "dogru": "Yanlış",
+        "zorluk": "zor",
+        "alt_bolum": "6_4",
+        "aciklama": "Bu sistemler şifreleme değil dijital ses kodlama (codec) kullanır. İçerikleri üçüncü taraflarca deşifre edilebilir. Amatör telsizde mesaj içeriğini kasıtlı gizlemek (şifrelemek) yasaktır, ancak dijital modlar serbest.",
+        "kart": "sv_modern_dijital"
+      },
+      {
+        "id": "svdy_k04",
+        "soru": "Ev yapımı (homebrew) bir anten ve verici kombinasyonu, ticari ekipmanla aynı yasal haklara sahiptir.",
+        "dogru": "Doğru",
+        "zorluk": "orta",
+        "alt_bolum": "6_4",
+        "aciklama": "Lisanslı amatörler kendi tasarladıkları ekipmanları inşa edip kullanabilir. Koşul: yasal bant sınırları ve güç limitleri içinde çalışmak. Homebrew ekipman ticari satışa sunulamaz, ancak kişisel kullanım serbesttir.",
+        "kart": "sv_gps_lokator"
+      },
+      {
+        "id": "svdy_k05",
+        "soru": "QRP operasyonu, yüksek güçle (100W ve üstü) çalışmayı ifade eder.",
+        "dogru": "Yanlış",
+        "zorluk": "kolay",
+        "alt_bolum": "6_4",
+        "aciklama": "QRP düşük güç demektir — genellikle 5W veya altı kabul edilir. Aksi olan 'QRO' ise yüksek güç çalışmayı ifade eder. QRP, batarya ve taşınabilirlik avantajıyla farklı bir hobi dalı oluşturmuştur.",
+        "kart": "sv_gps_lokator"
+      }
+    ],
+    "eslestir": [
+      {
+        "id": "sve_01",
+        "soru": "Q kodlarını Türkçe anlamlarıyla eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "6_1",
+        "cifler": [
+          {
+            "sol": "QRM",
+            "sag": "İnsan yapımı girişim/parazit"
+          },
+          {
+            "sol": "QRN",
+            "sag": "Atmosferik/doğal parazit"
+          },
+          {
+            "sol": "QSO",
+            "sag": "Telsiz görüşmesi"
+          },
+          {
+            "sol": "QTH",
+            "sag": "İstasyon konumu"
+          }
+        ],
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "sve_02",
+        "soru": "Uluslararası acil çağrıları öncelik sırasına göre eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "cifler": [
+          {
+            "sol": "MAYDAY",
+            "sag": "Hayati tehlike — en yüksek öncelik"
+          },
+          {
+            "sol": "PAN-PAN",
+            "sag": "Acele durum — hayati tehlike yok"
+          },
+          {
+            "sol": "SÉCURITÉ",
+            "sag": "Güvenlik bildirisi — en düşük öncelik"
+          },
+          {
+            "sol": "CQ DX",
+            "sag": "Uzak istasyonlara genel çağrı"
+          }
+        ],
+        "kart": "sv_mayday"
+      },
+      {
+        "id": "sve_03",
+        "soru": "Frekans bantlarını yayılım türleriyle eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "cifler": [
+          {
+            "sol": "HF (3–30 MHz)",
+            "sag": "İyosferden yansıma — skywave"
+          },
+          {
+            "sol": "VHF (144 MHz)",
+            "sag": "Görüş hattı + röle"
+          },
+          {
+            "sol": "MF (300–3000 kHz)",
+            "sag": "Yüzey dalgası"
+          },
+          {
+            "sol": "UHF (432 MHz)",
+            "sag": "Uydu ve yerel haberleşme"
+          }
+        ],
+        "kart": "sv_yayilim_modlari"
+      },
+      {
+        "id": "sve_04",
+        "soru": "Telsiz kurumlarını görevleriyle eşleştirin",
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "cifler": [
+          {
+            "sol": "KEGM",
+            "sag": "Amatör telsizcilik sınavlarını yürütür"
+          },
+          {
+            "sol": "BTK",
+            "sag": "Frekans planlama ve genel düzenleme"
+          },
+          {
+            "sol": "TRAC",
+            "sag": "Türk amatörlerin ulusal derneği"
+          },
+          {
+            "sol": "IARU",
+            "sag": "Amatörlerin uluslararası çatı örgütü"
+          }
+        ],
+        "kart": "sv_btk"
+      },
+      {
+        "id": "sve_05",
+        "soru": "NATO fonetik alfabesinde zor harfleri eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "cifler": [
+          {
+            "sol": "X",
+            "sag": "X-ray"
+          },
+          {
+            "sol": "Q",
+            "sag": "Quebec"
+          },
+          {
+            "sol": "Y",
+            "sag": "Yankee"
+          },
+          {
+            "sol": "J",
+            "sag": "Juliett"
+          }
+        ],
+        "kart": "sv_cq_dx"
+      },
+      {
+        "id": "sve_06",
+        "soru": "Formülleri hesapladıkları büyüklükle eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "cifler": [
+          {
+            "sol": "V = I × R",
+            "sag": "Gerilim (Volt)"
+          },
+          {
+            "sol": "P = V × I",
+            "sag": "Güç (Watt)"
+          },
+          {
+            "sol": "λ = 300 / f",
+            "sag": "Dalga boyu (metre)"
+          },
+          {
+            "sol": "I = V / R",
+            "sag": "Akım (Amper)"
+          }
+        ],
+        "kart": "sv_hesaplama"
+      },
+      {
+        "id": "sve_07",
+        "soru": "Dijital modları özelliğiyle eşleştirin",
+        "zorluk": "zor",
+        "alt_bolum": "6_4",
+        "cifler": [
+          {
+            "sol": "FT8",
+            "sag": "Çok zayıf sinyal, 15 saniyelik pencere"
+          },
+          {
+            "sol": "APRS",
+            "sag": "GPS konum ve telemetri yayını"
+          },
+          {
+            "sol": "D-STAR",
+            "sag": "Dijital ses + veri, Icom sistemi"
+          },
+          {
+            "sol": "CW (Mors)",
+            "sag": "En dar bant genişliği, köklü mod"
+          }
+        ],
+        "kart": "sv_modern_dijital"
+      },
+      {
+        "id": "sve_08",
+        "soru": "Frekans bantlarını dalga boylarıyla eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "6_3",
+        "cifler": [
+          {
+            "sol": "144 MHz",
+            "sag": "2 metre"
+          },
+          {
+            "sol": "432 MHz",
+            "sag": "70 santimetre"
+          },
+          {
+            "sol": "7 MHz",
+            "sag": "40 metre"
+          },
+          {
+            "sol": "28 MHz",
+            "sag": "10 metre"
+          }
+        ],
+        "kart": "sv_dalga_boyu"
+      },
+      {
+        "id": "sve_09",
+        "soru": "Lisans sınıflarını puan aralıklarıyla eşleştirin (TRAC sınavı)",
+        "zorluk": "kolay",
+        "alt_bolum": "6_1",
+        "cifler": [
+          {
+            "sol": "A Sınıfı",
+            "sag": "75 puan ve üzeri"
+          },
+          {
+            "sol": "B Sınıfı",
+            "sag": "60–74 arası puan"
+          },
+          {
+            "sol": "Başarısız",
+            "sag": "60 puan altı"
+          },
+          {
+            "sol": "Asgari yaş",
+            "sag": "12 yaş"
+          }
+        ],
+        "kart": "sv_sinav_kural"
+      },
+      {
+        "id": "sve_10",
+        "soru": "RST sisteminin bileşenlerini açıklamalarıyla eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "6_2",
+        "cifler": [
+          {
+            "sol": "R (1–5)",
+            "sag": "Anlaşılabilirlik (Readability)"
+          },
+          {
+            "sol": "S (1–9)",
+            "sag": "Sinyal Gücü (Signal Strength)"
+          },
+          {
+            "sol": "T (1–9)",
+            "sag": "Ses Tonu (Tone) — yalnızca CW"
+          },
+          {
+            "sol": "59",
+            "sag": "Telefoni için en iyi rapor"
+          }
+        ],
+        "kart": "sv_rst_raporu"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="pg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <!-- Kullanıcı profil çemberi -->
+  <circle cx="50" cy="38" r="20" fill="url(#pg)"/>
+  <!-- Yüz ifadesi -->
+  <circle cx="44" cy="34" r="2.5" fill="white" opacity="0.9"/>
+  <circle cx="56" cy="34" r="2.5" fill="white" opacity="0.9"/>
+  <path d="M43 43 Q50 49 57 43" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Üst parlaklık -->
+  <ellipse cx="43" cy="28" rx="8" ry="5" fill="white" opacity="0.2"/>
+  <!-- Gövde / Vücut -->
+  <path d="M15 88 Q15 68 50 65 Q85 68 85 88" fill="url(#pg)" opacity="0.8"/>
+  <!-- Gömlek detayı -->
+  <path d="M42 65 L50 72 L58 65" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+</svg>

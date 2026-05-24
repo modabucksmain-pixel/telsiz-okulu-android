@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E3A8A"/>
+      <stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="sg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#60A5FA"/>
+      <stop offset="100%" style="stop-color:#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <!-- Kitap gövdesi -->
+  <rect x="15" y="18" width="70" height="65" rx="5" fill="url(#bg)"/>
+  <!-- Cilt ortası çizgisi -->
+  <rect x="48" y="18" width="4" height="65" fill="#1E3A8A" opacity="0.6"/>
+  <!-- Sol sayfa -->
+  <rect x="18" y="22" width="28" height="58" rx="2" fill="#0F172A" opacity="0.5"/>
+  <!-- Sağ sayfa -->
+  <rect x="54" y="22" width="28" height="58" rx="2" fill="#0F172A" opacity="0.5"/>
+  <!-- Sol sayfa yazıları -->
+  <line x1="21" y1="30" x2="43" y2="30" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+  <line x1="21" y1="36" x2="43" y2="36" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="21" y1="42" x2="38" y2="42" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <line x1="21" y1="48" x2="43" y2="48" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="21" y1="54" x2="40" y2="54" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <!-- Sağ sayfa (kod/formül) -->
+  <rect x="57" y="28" width="22" height="16" rx="3" fill="url(#sg)" opacity="0.3"/>
+  <text x="68" y="40" font-family="monospace" font-size="9" text-anchor="middle" fill="#60A5FA" font-weight="bold">I=V/R</text>
+  <line x1="57" y1="52" x2="79" y2="52" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="57" y1="58" x2="75" y2="58" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+  <line x1="57" y1="64" x2="79" y2="64" stroke="#60A5FA" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <!-- Yer işareti -->
+  <path d="M78 18 L84 18 L84 35 L81 31 L78 35 Z" fill="#F59E0B"/>
+</svg>

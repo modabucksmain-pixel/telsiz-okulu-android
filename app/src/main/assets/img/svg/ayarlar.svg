@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="cog" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#64748B"/>
+      <stop offset="100%" style="stop-color:#94A3B8"/>
+    </linearGradient>
+  </defs>
+  <!-- Büyük dişli -->
+  <circle cx="50" cy="50" r="18" fill="url(#cog)" opacity="0.9"/>
+  <circle cx="50" cy="50" r="10" fill="#0B1120"/>
+  <circle cx="50" cy="50" r="5" fill="url(#cog)"/>
+  <!-- Dişli dişleri büyük -->
+  <rect x="46" y="18" width="8" height="10" rx="2" fill="url(#cog)"/>
+  <rect x="46" y="72" width="8" height="10" rx="2" fill="url(#cog)"/>
+  <rect x="18" y="46" width="10" height="8" rx="2" fill="url(#cog)"/>
+  <rect x="72" y="46" width="10" height="8" rx="2" fill="url(#cog)"/>
+  <!-- Köşegen dişler -->
+  <rect x="26" y="26" width="8" height="8" rx="2" fill="url(#cog)" transform="rotate(45 30 30)"/>
+  <rect x="66" y="26" width="8" height="8" rx="2" fill="url(#cog)" transform="rotate(45 70 30)"/>
+  <rect x="26" y="66" width="8" height="8" rx="2" fill="url(#cog)" transform="rotate(45 30 70)"/>
+  <rect x="66" y="66" width="8" height="8" rx="2" fill="url(#cog)" transform="rotate(45 70 70)"/>
+  <!-- Küçük dişli sağ alt -->
+  <circle cx="73" cy="73" r="10" fill="url(#cog)" opacity="0.7"/>
+  <circle cx="73" cy="73" r="5" fill="#0B1120"/>
+  <rect x="70" y="60" width="6" height="7" rx="2" fill="url(#cog)" opacity="0.7"/>
+  <rect x="70" y="79" width="6" height="7" rx="2" fill="url(#cog)" opacity="0.7"/>
+  <rect x="60" y="70" width="7" height="6" rx="2" fill="url(#cog)" opacity="0.7"/>
+  <rect x="79" y="70" width="7" height="6" rx="2" fill="url(#cog)" opacity="0.7"/>
+</svg>

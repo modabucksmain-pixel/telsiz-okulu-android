@@ -1,0 +1,1114 @@
+{
+  "bolumler": [
+    {
+      "id": "bolum_1",
+      "baslik": "NATO Alfabesi",
+      "ikon": "🔤",
+      "renk": "#2563EB",
+      "aciklama": "Uluslararası fonetik alfabe ve NATO kodlaması. Telsiz iletişiminin temel taşı.",
+      "veri_dosyasi": "nato.json",
+      "siralama": 1,
+      "alt_bolumler": [
+        {
+          "id": "1_1",
+          "baslik": "A'dan G'ye",
+          "aciklama": "Alpha, Bravo, Charlie, Delta, Echo, Foxtrot, Golf",
+          "harfler": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ],
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Alpha, Bravo, Charlie",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_alpha",
+                "nato_bravo",
+                "nato_charlie"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Delta, Echo, Foxtrot",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_delta",
+                "nato_echo",
+                "nato_foxtrot"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Golf + Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_alpha",
+                "nato_bravo",
+                "nato_charlie",
+                "nato_delta",
+                "nato_echo",
+                "nato_foxtrot",
+                "nato_golf"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "1_2",
+          "baslik": "H'den N'ye",
+          "aciklama": "Hotel, India, Juliet, Kilo, Lima, Mike, November",
+          "harfler": [
+            "H",
+            "I",
+            "J",
+            "K",
+            "L",
+            "M",
+            "N"
+          ],
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Hotel, India, Juliet",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_hotel",
+                "nato_india",
+                "nato_juliet"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Kilo, Lima, Mike",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_kilo",
+                "nato_lima",
+                "nato_mike"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "November + Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_hotel",
+                "nato_india",
+                "nato_juliet",
+                "nato_kilo",
+                "nato_lima",
+                "nato_mike",
+                "nato_november"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "1_3",
+          "baslik": "O'dan U'ya",
+          "aciklama": "Oscar, Papa, Quebec, Romeo, Sierra, Tango, Uniform",
+          "harfler": [
+            "O",
+            "P",
+            "Q",
+            "R",
+            "S",
+            "T",
+            "U"
+          ],
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Oscar, Papa, Quebec",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_oscar",
+                "nato_papa",
+                "nato_quebec"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Romeo, Sierra, Tango",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_romeo",
+                "nato_sierra",
+                "nato_tango"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Uniform + Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_oscar",
+                "nato_papa",
+                "nato_quebec",
+                "nato_romeo",
+                "nato_sierra",
+                "nato_tango",
+                "nato_uniform"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "1_4",
+          "baslik": "V'den Z'ye + Rakamlar",
+          "aciklama": "Victor, Whiskey, X-ray, Yankee, Zulu ve 0-9 rakamları",
+          "harfler": [
+            "V",
+            "W",
+            "X",
+            "Y",
+            "Z",
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"
+          ],
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Victor, Whiskey, X-ray",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_victor",
+                "nato_whiskey",
+                "nato_xray"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Yankee, Zulu",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_yankee",
+                "nato_zulu"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Rakamlar + Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "nato_0",
+                "nato_1",
+                "nato_2",
+                "nato_3",
+                "nato_4",
+                "nato_5",
+                "nato_6",
+                "nato_7",
+                "nato_8",
+                "nato_9"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        }
+      ],
+      "gecme_sinavi": {
+        "soru_sayisi": 20,
+        "gecme_puani": 70
+      }
+    },
+    {
+      "id": "bolum_2",
+      "baslik": "Q Kodları",
+      "ikon": "📡",
+      "renk": "#7C3AED",
+      "aciklama": "Telsiz iletişiminde kullanılan uluslararası Q kodu kısaltmaları.",
+      "veri_dosyasi": "qcodes.json",
+      "siralama": 2,
+      "alt_bolumler": [
+        {
+          "id": "2_1",
+          "baslik": "Temel Q Kodları",
+          "aciklama": "QRZ, QSL, QSO, QTH, QRM, QRN",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "QRZ, QSL, QSO",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qrz",
+                "q_qsl",
+                "q_qso"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "QTH, QRM, QRN",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qth",
+                "q_qrm",
+                "q_qrn"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qrz",
+                "q_qsl",
+                "q_qso",
+                "q_qth",
+                "q_qrm",
+                "q_qrn"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "2_2",
+          "baslik": "İletişim Kodları",
+          "aciklama": "QRB, QRG, QRK, QRL, QRP, QRS, QRT",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "QRB, QRG, QRK",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qrb",
+                "q_qrg",
+                "q_qrk"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "QRL, QRP, QRS, QRT",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qrl",
+                "q_qrp",
+                "q_qrs",
+                "q_qrt"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qrb",
+                "q_qrg",
+                "q_qrk",
+                "q_qrl",
+                "q_qrp",
+                "q_qrs",
+                "q_qrt"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "2_3",
+          "baslik": "Teknik Kodlar",
+          "aciklama": "QSB, QSK, QSX, QSY, QRO, QRQ",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "QSB, QSK, QSX",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qsb",
+                "q_qsk",
+                "q_qsx"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "QSY, QRO, QRQ",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qsy",
+                "q_qro",
+                "q_qrq"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qsb",
+                "q_qsk",
+                "q_qsx",
+                "q_qsy",
+                "q_qro",
+                "q_qrq"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "2_4",
+          "baslik": "Cümle İçinde Kullanım",
+          "aciklama": "Q kodlarını diyaloglarda kullanma alıştırmaları",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Temel Diyaloglar",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qsl",
+                "q_qso",
+                "q_qth"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "İleri Diyaloglar",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qrz",
+                "q_qrm",
+                "q_qrt"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "q_qrz",
+                "q_qsl",
+                "q_qso",
+                "q_qth",
+                "q_qrm",
+                "q_qrt"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        }
+      ],
+      "gecme_sinavi": {
+        "soru_sayisi": 20,
+        "gecme_puani": 70
+      }
+    },
+    {
+      "id": "bolum_3",
+      "baslik": "Elektronik Temeller",
+      "ikon": "⚡",
+      "renk": "#DC2626",
+      "aciklama": "Temel elektronik kavramları, Ohm kanunu, devre elemanları ve yarı iletkenler.",
+      "veri_dosyasi": "elektronik.json",
+      "siralama": 3,
+      "alt_bolumler": [
+        {
+          "id": "3_1",
+          "baslik": "Temel Kavramlar",
+          "aciklama": "Volt, Amper, Ohm, Watt",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Volt ve Amper",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_volt",
+                "el_amper"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Ohm ve Watt",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_ohm",
+                "el_watt"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_volt",
+                "el_amper",
+                "el_ohm",
+                "el_watt"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "3_2",
+          "baslik": "Ohm Kanunu",
+          "aciklama": "V=IR hesaplamaları",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "V=IR Temeli",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_ohm_law"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Hesaplama Alıştırmaları",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_ohm_calc"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Problemler",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_ohm_law",
+                "el_ohm_calc"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "3_3",
+          "baslik": "Güç ve Devre",
+          "aciklama": "P=VI, devre elemanları",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Güç Hesaplama",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_guc"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Devre Elemanları",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_direnc",
+                "el_kondansator",
+                "el_bobin"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_guc",
+                "el_direnc",
+                "el_kondansator",
+                "el_bobin"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "3_4",
+          "baslik": "Yarı İletkenler",
+          "aciklama": "Diyot, transistör temelleri",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Diyot",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_diyot"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Transistör",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_transistor"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "el_diyot",
+                "el_transistor"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        }
+      ],
+      "gecme_sinavi": {
+        "soru_sayisi": 20,
+        "gecme_puani": 70
+      }
+    },
+    {
+      "id": "bolum_4",
+      "baslik": "Frekans ve Bantlar",
+      "ikon": "📻",
+      "renk": "#0891B2",
+      "aciklama": "Frekans kavramları, HF/VHF/UHF bantları ve Türkiye bandplanı.",
+      "veri_dosyasi": "bantlar.json",
+      "siralama": 4,
+      "alt_bolumler": [
+        {
+          "id": "4_1",
+          "baslik": "Temel Kavramlar",
+          "aciklama": "MHz, kHz, dalga boyu",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Frekans Nedir?",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_hertz"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Dalga Boyu",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_dalgaboyu"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_hertz",
+                "bn_dalgaboyu"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "4_2",
+          "baslik": "HF Bantları",
+          "aciklama": "80m, 40m, 20m, 15m, 10m bantları",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "80m ve 40m",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_80m",
+                "bn_40m"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "20m, 15m, 10m",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_20m"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_80m",
+                "bn_40m",
+                "bn_20m"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "4_3",
+          "baslik": "VHF/UHF ve Yayılım",
+          "aciklama": "2m, 70cm bantları ve iyonosfer yayılımı",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "VHF ve UHF",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_2m",
+                "bn_70cm"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "İyonosfer Yayılımı",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_iyonosfer"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_2m",
+                "bn_70cm",
+                "bn_iyonosfer"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "4_4",
+          "baslik": "Türkiye Bandplanı",
+          "aciklama": "TRAC frekans tahsisleri",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Türkiye Tahsisleri",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_trac_tahsis"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Lisans Sınıfları ve Frekanslar",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_lisans_sinif"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "bn_trac_tahsis",
+                "bn_lisans_sinif"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        }
+      ],
+      "gecme_sinavi": {
+        "soru_sayisi": 20,
+        "gecme_puani": 70
+      }
+    },
+    {
+      "id": "bolum_5",
+      "baslik": "Telsiz Prosedürleri",
+      "ikon": "🎙️",
+      "renk": "#059669",
+      "aciklama": "Telsiz konuşma prosedürleri, çağrı işaretleri ve acil durum iletişimi.",
+      "veri_dosyasi": "prosedurler.json",
+      "siralama": 5,
+      "alt_bolumler": [
+        {
+          "id": "5_1",
+          "baslik": "Temel İfadeler",
+          "aciklama": "Over, Roger, Copy, Wilco, Break",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Over, Out, Roger",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_over",
+                "pr_out",
+                "pr_roger"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Copy, Wilco, Break",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_break"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_over",
+                "pr_out",
+                "pr_roger",
+                "pr_break"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "5_2",
+          "baslik": "Çağrı İşaretleri",
+          "aciklama": "TA, TB, TC prefix sistemi",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Çağrı İşareti Yapısı",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_callsign"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Türkiye Çağrı İşaretleri",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_prefix",
+                "pr_suffix"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_callsign",
+                "pr_prefix",
+                "pr_suffix"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "5_3",
+          "baslik": "CQ ve QSO",
+          "aciklama": "Nasıl bağlantı kurulur",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "CQ Çağrısı",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_cq"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "QSO Yapma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_qso_proc"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_cq",
+                "pr_qso_proc"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "5_4",
+          "baslik": "Acil Durum",
+          "aciklama": "MAYDAY, Pan-Pan, log tutma",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "MAYDAY ve Pan-Pan",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_mayday",
+                "pr_panpan"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Acil Durum Prosedürleri",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_mayday",
+                "pr_panpan"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 8,
+              "kartlar": [
+                "pr_mayday",
+                "pr_panpan"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        }
+      ],
+      "gecme_sinavi": {
+        "soru_sayisi": 20,
+        "gecme_puani": 70
+      }
+    },
+    {
+      "id": "bolum_6",
+      "baslik": "TRAC Sınav Hazırlık",
+      "ikon": "🏆",
+      "renk": "#D97706",
+      "aciklama": "Türkiye amatör telsizcilik sınavına özel hazırlık. Mevzuat ve çıkmış sorular.",
+      "veri_dosyasi": "sinav_sorulari.json",
+      "siralama": 6,
+      "alt_bolumler": [
+        {
+          "id": "6_1",
+          "baslik": "Mevzuat",
+          "aciklama": "Telsiz kanunu, lisans sınıfları A/B/C",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Telsiz Kanunu",
+              "egzersiz_sayisi": 10,
+              "kartlar": [
+                "sv_kanun"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Lisans Sınıfları",
+              "egzersiz_sayisi": 10,
+              "kartlar": [
+                "sv_btk",
+                "sv_sinav_kural"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Karışık Alıştırma",
+              "egzersiz_sayisi": 10,
+              "kartlar": [
+                "sv_kanun",
+                "sv_btk",
+                "sv_sinav_kural",
+                "sv_cq_dx"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "6_2",
+          "baslik": "Çıkmış Sorular Set 1",
+          "aciklama": "TRAC sınavından çıkmış sorular — Set 1",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Set 1 — Bölüm A",
+              "egzersiz_sayisi": 10,
+              "kartlar": [
+                "sv_mayday",
+                "sv_rst_raporu"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Set 1 — Bölüm B",
+              "egzersiz_sayisi": 10,
+              "kartlar": [
+                "sv_q_kodlari",
+                "sv_cq_dx"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Set 1 — Karışık",
+              "egzersiz_sayisi": 15,
+              "kartlar": [
+                "sv_mayday",
+                "sv_rst_raporu",
+                "sv_q_kodlari",
+                "sv_cq_dx"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "6_3",
+          "baslik": "Çıkmış Sorular Set 2",
+          "aciklama": "TRAC sınavından çıkmış sorular — Set 2",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Set 2 — Bölüm A",
+              "egzersiz_sayisi": 10,
+              "kartlar": [
+                "sv_hesaplama",
+                "sv_dalga_boyu",
+                "sv_swr"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Set 2 — Bölüm B",
+              "egzersiz_sayisi": 10,
+              "kartlar": [
+                "sv_yayilim_modlari",
+                "sv_modlar",
+                "sv_antenler"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Set 2 — Karışık",
+              "egzersiz_sayisi": 15,
+              "kartlar": [
+                "sv_hesaplama",
+                "sv_dalga_boyu",
+                "sv_swr",
+                "sv_yayilim_modlari",
+                "sv_modlar",
+                "sv_antenler"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        },
+        {
+          "id": "6_4",
+          "baslik": "Zayıf Nokta Tekrarı",
+          "aciklama": "Spaced repetition ile zayıf noktaları tekrarla",
+          "dersler": [
+            {
+              "no": 1,
+              "baslik": "Tekrar Turu 1",
+              "egzersiz_sayisi": 15,
+              "kartlar": [
+                "sv_modern_dijital",
+                "sv_emniyet"
+              ]
+            },
+            {
+              "no": 2,
+              "baslik": "Tekrar Turu 2",
+              "egzersiz_sayisi": 15,
+              "kartlar": [
+                "sv_ileri_yayilim",
+                "sv_gps_lokator"
+              ]
+            },
+            {
+              "no": 3,
+              "baslik": "Final Hazırlık",
+              "egzersiz_sayisi": 20,
+              "kartlar": [
+                "sv_modern_dijital",
+                "sv_emniyet",
+                "sv_ileri_yayilim",
+                "sv_gps_lokator",
+                "sv_tekrar_ozet"
+              ]
+            }
+          ],
+          "sinav": {
+            "soru_sayisi": 15,
+            "gecme_puani": 60
+          }
+        }
+      ],
+      "gecme_sinavi": {
+        "soru_sayisi": 50,
+        "gecme_puani": 70
+      }
+    }
+  ]
+}

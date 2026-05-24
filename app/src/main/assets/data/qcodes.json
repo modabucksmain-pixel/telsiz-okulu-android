@@ -1,0 +1,503 @@
+{
+  "kartlar": [
+    {
+      "id": "q_qrz",
+      "kod": "QRZ",
+      "harf": "Beni kim çağırıyor?",
+      "telaffuz": "KİM ÇAĞIRIYOR",
+      "alt_bolum": "2_1",
+      "aciklama": "QRZ, 'Beni kim çağırıyor?' anlamına gelir. Genellikle çağrı yapan istasyonun çağrı işaretinin tam anlaşılmadığı durumlarda kullanılır."
+    },
+    {
+      "id": "q_qsl",
+      "kod": "QSL",
+      "harf": "Alındı / Doğrulandı",
+      "telaffuz": "ALINDI",
+      "alt_bolum": "2_1",
+      "aciklama": "QSL, 'Mesajı aldım, onaylıyorum' demektir. Ayrıca amatör telsizciler arasındaki bağlantıyı belgeleyen kartlara da 'QSL Kartı' denir."
+    },
+    {
+      "id": "q_qso",
+      "kod": "QSO",
+      "harf": "Telsiz Görüşmesi",
+      "telaffuz": "GÖRÜŞME",
+      "alt_bolum": "2_1",
+      "aciklama": "QSO, iki amatör telsiz istasyonu arasındaki telsiz görüşmesi / bağlantısı anlamına gelir."
+    },
+    {
+      "id": "q_qth",
+      "kod": "QTH",
+      "harf": "Konum / Mevki",
+      "telaffuz": "KONUM",
+      "alt_bolum": "2_1",
+      "aciklama": "QTH, telsiz operatörünün bulunduğu yer, koordinat veya şehir gibi coğrafi konumu ifade eder."
+    },
+    {
+      "id": "q_qrm",
+      "kod": "QRM",
+      "harf": "İnsan kaynaklı parazit",
+      "telaffuz": "PARAZİT İNSAN",
+      "alt_bolum": "2_1",
+      "aciklama": "QRM, başka istasyonlar veya insan kaynaklı yapay cihazlardan kaynaklanan sinyal karışması / parazit anlamına gelir."
+    },
+    {
+      "id": "q_qrn",
+      "kod": "QRN",
+      "harf": "Doğal/Atmosferik gürültü",
+      "telaffuz": "PARAZİT DOĞAL",
+      "alt_bolum": "2_1",
+      "aciklama": "QRN, yıldırım, iyonosferik gürültü veya statik elektrik gibi doğal kaynaklı arka plan parazitidir."
+    },
+    {
+      "id": "q_qrb",
+      "kod": "QRB",
+      "harf": "İstasyonlar arası mesafe",
+      "telaffuz": "MESAFE",
+      "alt_bolum": "2_2",
+      "aciklama": "QRB, iki telsiz istasyonu arasındaki coğrafi uzaklığı / mesafeyi ifade eder."
+    },
+    {
+      "id": "q_qrg",
+      "kod": "QRG",
+      "harf": "Çalışma frekansı",
+      "telaffuz": "FREKANS",
+      "alt_bolum": "2_2",
+      "aciklama": "QRG, görüşme yapılan veya yapılması planlanan telsiz frekansıdır."
+    },
+    {
+      "id": "q_qrk",
+      "kod": "QRK",
+      "harf": "Sinyal anlaşılabilirlik derecesi",
+      "telaffuz": "ANLAŞILABİLİRLİK",
+      "alt_bolum": "2_2",
+      "aciklama": "QRK, karşı tarafın sinyalinin ses olarak ne kadar net anlaşıldığının (1-5 arası) derecelendirmesidir."
+    },
+    {
+      "id": "q_qrl",
+      "kod": "QRL",
+      "harf": "Meşgulüm / Frekans meşgul",
+      "telaffuz": "MEŞGUL FREKANS",
+      "alt_bolum": "2_2",
+      "aciklama": "QRL, 'Meşgulüm' veya 'Bu frekans meşgul, lütfen mandallamayın' anlamındadır. Görüşmeye başlamadan önce 'Frekans meşgul mü?' diye sormak için de 'QRL?' denir."
+    },
+    {
+      "id": "q_qrp",
+      "kod": "QRP",
+      "harf": "Düşük güçte çalışma",
+      "telaffuz": "DÜŞÜK GÜÇ",
+      "alt_bolum": "2_2",
+      "aciklama": "QRP, telsiz görüşmesini düşük güçle (genellikle 5 Watt veya daha az) gerçekleştirme tekniğidir."
+    },
+    {
+      "id": "q_qrs",
+      "kod": "QRS",
+      "harf": "Daha yavaş gönderme yapın",
+      "telaffuz": "YAVAŞ GÖNDER",
+      "alt_bolum": "2_2",
+      "aciklama": "QRS, özellikle Mors (CW) kodlamasında 'Lütfen daha yavaş yazın / gönderin' ricasıdır."
+    },
+    {
+      "id": "q_qrt",
+      "kod": "QRT",
+      "harf": "Yayını kesiyorum / Kapatıyorum",
+      "telaffuz": "KAPATIYORUM",
+      "alt_bolum": "2_2",
+      "aciklama": "QRT, telsiz cihazını kapatıp yayını / çalışmayı sonlandırma durumudur."
+    },
+    {
+      "id": "q_qsb",
+      "kod": "QSB",
+      "harf": "Sinyal sönümlenmesi (fading)",
+      "telaffuz": "SÖNÜMLENME",
+      "alt_bolum": "2_3",
+      "aciklama": "QSB, iyonosferik dalgalanmalar nedeniyle sinyal gücünün periyodik olarak azalıp çoğalması (fading) durumudur."
+    },
+    {
+      "id": "q_qsk",
+      "kod": "QSK",
+      "harf": "Full break-in çalışma",
+      "telaffuz": "BREAK-IN",
+      "alt_bolum": "2_3",
+      "aciklama": "QSK, Mors görüşmelerinde harf aralarında bile karşı istasyonun sinyalini duyabilme yeteneğidir."
+    },
+    {
+      "id": "q_qsx",
+      "kod": "QSX",
+      "harf": "Belirtilen frekansı dinliyorum",
+      "telaffuz": "DİNLİYORUM",
+      "alt_bolum": "2_3",
+      "aciklama": "QSX, operatörün farklı veya belirtilen belirli bir frekansta dinlemede olduğunu bildirir."
+    },
+    {
+      "id": "q_qsy",
+      "kod": "QSY",
+      "harf": "Başka frekansa geçiş",
+      "telaffuz": "FREKANS DEĞİŞTİR",
+      "alt_bolum": "2_3",
+      "aciklama": "QSY, görüşmeyi başka bir frekansa aktarmak veya frekans değiştirmek anlamına gelir."
+    },
+    {
+      "id": "q_qro",
+      "kod": "QRO",
+      "harf": "Gücü artırın",
+      "telaffuz": "YÜKSEK GÜÇ",
+      "alt_bolum": "2_3",
+      "aciklama": "QRO, 'Çıkış gücünü artırın' veya 'Yüksek güçte çalışıyorum' anlamına gelir."
+    },
+    {
+      "id": "q_qrq",
+      "kod": "QRQ",
+      "harf": "Daha hızlı gönderme yapın",
+      "telaffuz": "HIZLI GÖNDER",
+      "alt_bolum": "2_3",
+      "aciklama": "QRQ, 'Lütfen daha hızlı yazın / gönderin' demektir."
+    }
+  ],
+  "egzersizler": {
+    "anlam_bul": [
+      {
+        "id": "qa_01",
+        "soru": "QRZ kodunun anlamı nedir?",
+        "dogru": "Beni kim çağırıyor?",
+        "secenekler": [
+          "Beni kim çağırıyor?",
+          "Konumunuz nedir?",
+          "Görüşmeyi bitiriyorum.",
+          "Sinyaliniz çok parazitli."
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "2_1",
+        "aciklama": "QRZ, 'Beni kim çağırıyor?' anlamına gelir. Çağrı yapan istasyonun çağrı işaretinin tam anlaşılmadığı durumlarda sorulur.<br><img src='/static/img/ham_shack.png' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "q_qrz"
+      },
+      {
+        "id": "qa_02",
+        "soru": "QSL kodunun anlamı nedir?",
+        "dogru": "Alındı / Doğrulandı",
+        "secenekler": [
+          "Alındı / Doğrulandı",
+          "Frekans değiştirin.",
+          "Konumunuz nedir?",
+          "Düşük güçle çalışın."
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "2_1",
+        "aciklama": "QSL, 'Mesajı aldım, onaylıyorum' demektir. Görüşmeyi teyit etmek için gönderilen fiziki kartlara da QSL kartı denir.<br><img src='/static/img/qsl_card.png' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "q_qsl"
+      },
+      {
+        "id": "qa_03",
+        "soru": "QTH kodunun anlamı nedir?",
+        "dogru": "Konum / Mevki",
+        "secenekler": [
+          "Konum / Mevki",
+          "Telsiz görüşmesi",
+          "Sinyal anlaşılırlığı",
+          "Diyot elemanı"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "2_1",
+        "kart": "q_qth"
+      },
+      {
+        "id": "qa_04",
+        "soru": "QRM ne tür bir gürültüyü ifade eder?",
+        "dogru": "İnsan kaynaklı parazit",
+        "secenekler": [
+          "İnsan kaynaklı parazit",
+          "Doğal/Atmosferik gürültü",
+          "Yıldırım gürültüsü",
+          "Sinyal sönümlenmesi"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "2_1",
+        "kart": "q_qrm"
+      },
+      {
+        "id": "qa_05",
+        "soru": "QRP kodunun anlamı nedir?",
+        "dogru": "Düşük güçte çalışma",
+        "secenekler": [
+          "Düşük güçle çalışma",
+          "Gücü artırma",
+          "Yavaş yazma",
+          "Frekans değiştirme"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "2_2",
+        "kart": "q_qrp"
+      },
+      {
+        "id": "qa_06",
+        "soru": "QSY kodunun anlamı nedir?",
+        "dogru": "Başka frekansa geçiş",
+        "secenekler": [
+          "Başka frekansa geçiş",
+          "Yayını kesmek",
+          "Mesafe ölçümü",
+          "Konum bilgisi"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "2_3",
+        "kart": "q_qsy"
+      },
+      {
+        "id": "qa_07",
+        "soru": "QSB telsizde hangi durumu ifade eder?",
+        "dogru": "Sinyal sönümlenmesi (fading)",
+        "secenekler": [
+          "Sinyal sönümlenmesi (fading)",
+          "Full break-in",
+          "Atmosferik çıtırtı",
+          "Frekans değişimi"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "2_3",
+        "kart": "q_qsb"
+      }
+    ],
+    "kodu_bul": [
+      {
+        "id": "qk_01",
+        "soru": "'Telsiz görüşmesi / bağlantısı' anlamına gelen Q kodu hangisidir?",
+        "dogru": "QSO",
+        "secenekler": [
+          "QSO",
+          "QSL",
+          "QTH",
+          "QRZ"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "2_1",
+        "kart": "q_qso"
+      },
+      {
+        "id": "qk_02",
+        "soru": "'Doğal/Atmosferik gürültü' anlamına gelen Q kodu hangisidir?",
+        "dogru": "QRN",
+        "secenekler": [
+          "QRN",
+          "QRM",
+          "QSB",
+          "QRP"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "2_1",
+        "kart": "q_qrn"
+      },
+      {
+        "id": "qk_03",
+        "soru": "'Lütfen daha yavaş yazın' anlamına gelen Q kodu hangisidir?",
+        "dogru": "QRS",
+        "secenekler": [
+          "QRS",
+          "QRQ",
+          "QRT",
+          "QRG"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "2_2",
+        "aciklama": "QRS, Mors (CW) kodlamasında 'Lütfen daha yavaş gönderin' ricasıdır.<br><img src='/static/img/telegraph_key.png' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "q_qrs"
+      },
+      {
+        "id": "qk_04",
+        "soru": "'Yayını kesiyorum, telsizi kapatıyorum' anlamına gelen Q kodu hangisidir?",
+        "dogru": "QRT",
+        "secenekler": [
+          "QRT",
+          "QRL",
+          "QRP",
+          "QRO"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "2_2",
+        "kart": "q_qrt"
+      },
+      {
+        "id": "qk_05",
+        "soru": "'Frekans meşgul mü?' sorusunu veya 'Meşgulüm' ifadesini gösteren kod hangisidir?",
+        "dogru": "QRL",
+        "secenekler": [
+          "QRL",
+          "QRK",
+          "QRG",
+          "QRB"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "2_2",
+        "kart": "q_qrl"
+      }
+    ],
+    "cumle_tamamla": [
+      {
+        "id": "qc_01",
+        "soru": "Karşı istasyondan gelen mesajı tam olarak aldığınızda onay vermek için hangi Q kodunu yazarsınız?",
+        "beklenen": "QSL",
+        "zorluk": "kolay",
+        "alt_bolum": "2_1",
+        "aciklama": "QSL 'Alındı / Doğrulandı' anlamına gelir.",
+        "kart": "q_qsl"
+      },
+      {
+        "id": "qc_02",
+        "soru": "Bulunduğunuz şehir veya koordinat telsiz dilinde sizin ________ bilginizdir.",
+        "beklenen": "QTH",
+        "zorluk": "kolay",
+        "alt_bolum": "2_1",
+        "aciklama": "QTH 'Konum / Mevki' bilgisini ifade eder.<br><img src='/static/img/ham_shack.png' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "q_qrz"
+      },
+      {
+        "id": "qc_03",
+        "soru": "Elektrik motorları veya diğer cihazların yaydığı insan yapımı parazite telsizde ________ denir.",
+        "beklenen": "QRM",
+        "zorluk": "orta",
+        "alt_bolum": "2_1",
+        "aciklama": "QRM 'İnsan kaynaklı parazit' anlamına gelir.",
+        "kart": "q_qrz"
+      },
+      {
+        "id": "qc_04",
+        "soru": "5 Watt veya altındaki düşük çıkış güçleriyle telsiz çalışması yapmaya ________ denir.",
+        "beklenen": "QRP",
+        "zorluk": "kolay",
+        "alt_bolum": "2_2",
+        "aciklama": "QRP 'Düşük güçte çalışma' tekniğidir.",
+        "kart": "q_qrp"
+      }
+    ],
+    "diyalog": [
+      {
+        "id": "qd_01",
+        "soru": "Konuşmada TA1A istasyonuna verilen cevapta konum sormak için boşluğa hangi kod gelmelidir?",
+        "diyalog": [
+          {
+            "kisi": "TA1A",
+            "metin": "TA2B de TA1A, iyi akşamlar. Sinyaliniz çok net."
+          },
+          {
+            "kisi": "TA2B",
+            "metin": "TA1A de TA2B, teşekkürler. Sizin ________ neresidir? Ben İstanbul'dayım."
+          }
+        ],
+        "dog": "QTH",
+        "dogru": "QTH",
+        "secenekler": [
+          "QTH",
+          "QSL",
+          "QSO",
+          "QRM"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "2_4",
+        "aciklama": "Konum sorusu için QTH kodu kullanılır (QTH? = Konumunuz neresidir?).",
+        "kart": "q_qth"
+      },
+      {
+        "id": "qd_02",
+        "soru": "Görüşmeyi tamamlayıp telsizi kapatacağını söyleyen TA1A hangi kodu kullanmalıdır?",
+        "diyalog": [
+          {
+            "kisi": "TA1A",
+            "metin": "Benim tarafımda durumlar böyle. Şimdi telsizi kapatıp ayrılıyorum. Herkese 73, ________."
+          }
+        ],
+        "dog": "QRT",
+        "dogru": "QRT",
+        "secenekler": [
+          "QRT",
+          "QRL",
+          "QRP",
+          "QSY"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "2_4",
+        "aciklama": "Görüşmeyi bitirip telsizi kapatırken QRT olunur.",
+        "kart": "q_qrz"
+      },
+      {
+        "id": "qd_03",
+        "soru": "Parazit durumunu bildirmek için diyalogtaki boşluğa hangi kod gelmelidir?",
+        "diyalog": [
+          {
+            "kisi": "TA2B",
+            "metin": "TA2B, arkadan bir elektrik süpürgesi sesi geliyor, çok yüksek ________ var, sizi duyamıyorum."
+          }
+        ],
+        "dog": "QRM",
+        "dogru": "QRM",
+        "secenekler": [
+          "QRM",
+          "QRN",
+          "QSB",
+          "QSL"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "2_4",
+        "aciklama": "Elektrik süpürgesi gibi elektrikli aletlerden kaynaklanan yapay gürültü QRM (insan kaynaklı parazit) olarak tanımlanır.",
+        "kart": "q_qrz"
+      }
+    ],
+    "eslestir": [
+      {
+        "id": "qe_01",
+        "soru": "Q kodlarını telsizdeki anlamlarıyla eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "2_1",
+        "cifler": [
+          {
+            "sol": "QRZ",
+            "sag": "Beni kim çağırıyor?"
+          },
+          {
+            "sol": "QSL",
+            "sag": "Alındı / Doğrulandı"
+          },
+          {
+            "sol": "QSO",
+            "sag": "Telsiz Görüşmesi"
+          },
+          {
+            "sol": "QTH",
+            "sag": "Konum / Mevki"
+          },
+          {
+            "sol": "QRM",
+            "sag": "Yapaysal Parazit"
+          }
+        ],
+        "kart": "q_qrn"
+      },
+      {
+        "id": "qe_02",
+        "soru": "Q kodlarını telsizdeki anlamlarıyla eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "2_2",
+        "cifler": [
+          {
+            "sol": "QRP",
+            "sag": "Düşük Güç"
+          },
+          {
+            "sol": "QRO",
+            "sag": "Yüksek Güç"
+          },
+          {
+            "sol": "QRT",
+            "sag": "Kapatıyorum"
+          },
+          {
+            "sol": "QRS",
+            "sag": "Daha Yavaş"
+          },
+          {
+            "sol": "QSY",
+            "sag": "Frekans Değişimi"
+          }
+        ],
+        "kart": "q_qrt"
+      }
+    ]
+  }
+}

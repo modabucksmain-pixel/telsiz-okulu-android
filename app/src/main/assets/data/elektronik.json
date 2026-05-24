@@ -1,0 +1,806 @@
+{
+  "kartlar": [
+    {
+      "id": "el_volt",
+      "harf": "V",
+      "kod": "Volt",
+      "telaffuz": "GERİLİM BİRİMİ",
+      "alt_bolum": "3_1",
+      "aciklama": "Volt, elektrik devresindeki potansiyel farkı veya elektromotor kuvvetini (gerilimi) ölçen birimdir. V simgesi ile gösterilir."
+    },
+    {
+      "id": "el_amper",
+      "harf": "I",
+      "kod": "Amper",
+      "telaffuz": "AKIM BİRİMİ",
+      "alt_bolum": "3_1",
+      "aciklama": "Amper, elektrik devresinden birim zamanda geçen elektrik yükü miktarını (akımı) ölçen birimdir. A simgesiyle yazılır, formüllerde I olarak gösterilir."
+    },
+    {
+      "id": "el_ohm",
+      "harf": "R",
+      "kod": "Ohm",
+      "telaffuz": "DİRENÇ BİRİMİ",
+      "alt_bolum": "3_1",
+      "aciklama": "Ohm, elektrik akımına karşı gösterilen zorluğu (direnci) ölçen birimdir. Ω simgesiyle gösterilir, formüllerde R harfi ile temsil edilir."
+    },
+    {
+      "id": "el_watt",
+      "harf": "P",
+      "kod": "Watt",
+      "telaffuz": "GÜÇ BİRİMİ",
+      "alt_bolum": "3_1",
+      "aciklama": "Watt, birim zamanda harcanan veya üretilen elektriksel enerjiyi (gücü) ölçen birimdir. W simgesiyle yazılır, formüllerde P harfi ile gösterilir."
+    },
+    {
+      "id": "el_direnc",
+      "harf": "Resistor",
+      "kod": "Direnç",
+      "telaffuz": "DİRENÇ ELEMANI",
+      "alt_bolum": "3_3",
+      "aciklama": "Direnç, elektrik akımını sınırlayan ve enerjiyi ısıya dönüştüren pasif bir devre elemanıdır. Birimi Ohm'dur."
+    },
+    {
+      "id": "el_kondansator",
+      "harf": "Capacitor",
+      "kod": "Kondansatör",
+      "telaffuz": "KAPASİTÖR",
+      "alt_bolum": "3_3",
+      "aciklama": "Kondansatör, elektrik enerjisini elektrostatik alanda depolayan elemandır. AC akımı geçirirken, DC akımı bloke eder (geçirmez)."
+    },
+    {
+      "id": "el_bobin",
+      "harf": "Inductor",
+      "kod": "Bobin",
+      "telaffuz": "İNDÜKTÖR",
+      "alt_bolum": "3_3",
+      "aciklama": "Bobin, üzerinden akım geçtiğinde manyetik alan depolayan sarımlı bir elemandır. AC akıma karşı zorluk çıkarırken, DC akımı kolayca geçirir."
+    },
+    {
+      "id": "el_diyot",
+      "harf": "Diode",
+      "kod": "Diyot",
+      "telaffuz": "DİYOT",
+      "alt_bolum": "3_4",
+      "aciklama": "Diyot, elektrik akımının yalnızca tek bir yönde geçmesine izin veren yarı iletken bir devre elemanıdır."
+    },
+    {
+      "id": "el_transistor",
+      "harf": "Transistor",
+      "kod": "Transistör",
+      "telaffuz": "TRANSİSTÖR",
+      "alt_bolum": "3_4",
+      "aciklama": "Transistör, küçük bir giriş akımı veya gerilimi ile büyük bir akımı kontrol etmeye (yükseltmeye veya anahtarlamaya) yarayan yarı iletken elemandır."
+    },
+    {
+      "id": "el_ohm_law",
+      "harf": "V = I × R",
+      "kod": "Ohm Kanunu",
+      "telaffuz": "OHM KANUNU",
+      "alt_bolum": "3_2",
+      "aciklama": "Gerilim (V), Akım (I) ve Direnç (R) arasındaki ilişkiyi tanımlar. Formül: V = I × R (Gerilim = Akım × Direnç). Bu ilişkiyi hatırlamak için Ohm Üçgeni kullanılır."
+    },
+    {
+      "id": "el_ohm_calc",
+      "harf": "Hesaplama",
+      "kod": "Kanun Uygulamaları",
+      "telaffuz": "HESAPLAMA",
+      "alt_bolum": "3_2",
+      "aciklama": "Akımı bulmak için I = V / R, direnci bulmak için R = V / I formülü kullanılır. Örneğin 12V gerilimde 4Ω dirençten 3 Amper akım geçer."
+    },
+    {
+      "id": "el_guc",
+      "harf": "P = V × I",
+      "kod": "Elektriksel Güç",
+      "telaffuz": "GÜÇ FORMÜLÜ",
+      "alt_bolum": "3_3",
+      "aciklama": "Güç (P), gerilim (V) ve akımın (I) çarpımıdır. Birimi Watt'tır. Telsizlerin çıkış güçleri de Watt olarak ölçülür."
+    }
+  ],
+  "egzersizler": {
+    "anlam_bul": [
+      {
+        "id": "ela_01",
+        "soru": "Elektrik devresindeki gerilimin birimi nedir?",
+        "dog": "Volt",
+        "dogru": "Volt",
+        "secenekler": [
+          "Volt",
+          "Amper",
+          "Ohm",
+          "Watt"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "3_1",
+        "kart": "el_volt"
+      },
+      {
+        "id": "ela_02",
+        "soru": "Elektrik devresindeki akım şiddetinin birimi nedir?",
+        "dog": "Amper",
+        "dogru": "Amper",
+        "secenekler": [
+          "Amper",
+          "Volt",
+          "Ohm",
+          "Watt"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "3_1",
+        "kart": "el_amper"
+      },
+      {
+        "id": "ela_03",
+        "soru": "Telsiz çıkış gücü hangi birim ile ifade edilir?",
+        "dog": "Watt",
+        "dogru": "Watt",
+        "secenekler": [
+          "Watt",
+          "Ohm",
+          "Volt",
+          "Amper"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "3_1",
+        "kart": "el_volt"
+      },
+      {
+        "id": "ela_04",
+        "soru": "Akımın yalnızca tek yönde akmasını sağlayan devre elemanı hangisidir?",
+        "dog": "Diyot",
+        "dogru": "Diyot",
+        "secenekler": [
+          "Diyot",
+          "Direnç",
+          "Kondansatör",
+          "Bobin"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "3_4",
+        "kart": "el_diyot"
+      },
+      {
+        "id": "ela_05",
+        "soru": "Telsiz alıcı ve vericilerinde sinyal yükseltme veya anahtarlama amacıyla yaygın olarak kullanılan yarı iletken eleman hangisidir?",
+        "dog": "Transistör",
+        "dogru": "Transistör",
+        "secenekler": [
+          "Transistör",
+          "Diyot",
+          "Kondansatör",
+          "Direnç"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "3_4",
+        "kart": "el_transistor"
+      },
+      {
+        "id": "ela_06",
+        "soru": "Elektrik devresinde akım akışını sınırlayarak enerjiyi ısıya dönüştüren pasif eleman hangisidir?",
+        "dog": "Direnç",
+        "dogru": "Direnç",
+        "secenekler": [
+          "Direnç",
+          "Kondansatör",
+          "Bobin",
+          "Transistör"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "3_3",
+        "kart": "el_direnc"
+      },
+      {
+        "id": "ela_07",
+        "soru": "Elektrik enerjisini elektrostatik alanda depolayan, DC akımı bloke eden eleman hangisidir?",
+        "dog": "Kondansatör",
+        "dogru": "Kondansatör",
+        "secenekler": [
+          "Kondansatör",
+          "Bobin",
+          "Direnç",
+          "Diyot"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "3_3",
+        "kart": "el_kondansator"
+      },
+      {
+        "id": "ela_08",
+        "soru": "Manyetik alanda enerji depolayan ve üzerinden akım geçtiğinde elektromanyetik alan oluşturan sarımlı eleman hangisidir?",
+        "dog": "Bobin",
+        "dogru": "Bobin",
+        "secenekler": [
+          "Bobin",
+          "Kondansatör",
+          "Direnç",
+          "Diyot"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "3_3",
+        "kart": "el_bobin"
+      },
+      {
+        "id": "ela_09",
+        "soru": "Devrede akım ile gerilim arasındaki oranı ifade eden fiziksel büyüklük hangisidir?",
+        "dog": "Direnç",
+        "dogru": "Direnç",
+        "secenekler": [
+          "Direnç",
+          "Güç",
+          "Frekans",
+          "Kapasite"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "3_1",
+        "kart": "el_volt"
+      },
+      {
+        "id": "ela_10",
+        "soru": "Bir telsizin güç kaynağından çektiği enerji miktarı hangi büyüklükle ölçülür?",
+        "dog": "Güç (Watt)",
+        "dogru": "Güç (Watt)",
+        "secenekler": [
+          "Güç (Watt)",
+          "Akım (Amper)",
+          "Gerilim (Volt)",
+          "Frekans (Hz)"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "3_1",
+        "kart": "el_watt"
+      },
+      {
+        "id": "ela_11",
+        "soru": "Bir AC güç kaynağından gelen alternatif akımı doğru akıma (DC) çevirmek için hangi devre elemanı kullanılır?",
+        "dog": "Diyot (Doğrultucu)",
+        "dogru": "Diyot (Doğrultucu)",
+        "secenekler": [
+          "Diyot (Doğrultucu)",
+          "Bobin",
+          "Kondansatör",
+          "Direnç"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "3_4",
+        "kart": "el_diyot"
+      },
+      {
+        "id": "ela_12",
+        "soru": "Bir RF filtre devresinde istenmeyen frekansları süzmek için genellikle hangi iki eleman birlikte kullanılır?",
+        "dog": "Bobin ve Kondansatör",
+        "dogru": "Bobin ve Kondansatör",
+        "secenekler": [
+          "Bobin ve Kondansatör",
+          "Direnç ve Diyot",
+          "Transistör ve Direnç",
+          "Diyot ve Kondansatör"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "kart": "el_direnc"
+      },
+      {
+        "id": "ela_13",
+        "soru": "Formüllerde 'I' harfi ile gösterilen elektriksel büyüklük hangisidir?",
+        "dog": "Akım",
+        "dogru": "Akım",
+        "secenekler": [
+          "Akım",
+          "Gerilim",
+          "Güç",
+          "Endüktans"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "3_1",
+        "kart": "el_volt"
+      },
+      {
+        "id": "ela_14",
+        "soru": "Kondansatörün kapasitesini ifade eden birim hangisidir?",
+        "dog": "Farad (F)",
+        "dogru": "Farad (F)",
+        "secenekler": [
+          "Farad (F)",
+          "Henry (H)",
+          "Ohm (Ω)",
+          "Hertz (Hz)"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "3_3",
+        "kart": "el_kondansator"
+      },
+      {
+        "id": "ela_15",
+        "soru": "Bobinin endüktansını ifade eden birim hangisidir?",
+        "dog": "Henry (H)",
+        "dogru": "Henry (H)",
+        "secenekler": [
+          "Henry (H)",
+          "Farad (F)",
+          "Ohm (Ω)",
+          "Watt (W)"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "3_3",
+        "kart": "el_bobin"
+      },
+      {
+        "id": "ela_16",
+        "soru": "Diyotun ileri yönde iletim başlatması için gereken minimum gerilim değerine ne denir?",
+        "dog": "Eşik Gerilimi (≈0.7V)",
+        "dogru": "Eşik Gerilimi (≈0.7V)",
+        "secenekler": [
+          "Eşik Gerilimi (≈0.7V)",
+          "Empedans Eşiği",
+          "Rezonans Frekansı",
+          "Kırılma Gerilimi"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "3_4",
+        "kart": "el_diyot"
+      },
+      {
+        "id": "ela_17",
+        "soru": "Telsiz devresinde empedans uyumu sağlamak için kullanılan cihaz hangisidir?",
+        "dog": "Anten Tüner",
+        "dogru": "Anten Tüner",
+        "secenekler": [
+          "Anten Tüner",
+          "SWR Metre",
+          "Wattmetre",
+          "Frekans Sayıcı"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "Anten tüner, verici ile anten sistemi arasındaki empedans uyumsuzluğunu giderir. SWR (Standing Wave Ratio) değeri ise SWR Metre ile ölçülür.<br><img src='/static/img/swr_meter.png' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "el_direnc"
+      }
+    ],
+    "formul_tamamla": [
+      {
+        "id": "elf_01",
+        "soru": "Ohm Kanunu formülünü tamamlayın: V = I × ?",
+        "beklenen": "R",
+        "zorluk": "kolay",
+        "alt_bolum": "3_2",
+        "aciklama": "Ohm Kanunu: Voltaj (V) = Akım (I) × Direnç (R)<br><img src='/static/img/ohm_ucgeni.svg' style='width:100%; max-width:400px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "el_ohm_law"
+      },
+      {
+        "id": "elf_02",
+        "soru": "Ohm Kanununa göre Akımı bulma formülü: I = V / ?",
+        "beklenen": "R",
+        "zorluk": "kolay",
+        "alt_bolum": "3_2",
+        "aciklama": "I = V / R (Akım = Voltaj / Direnç)<br><img src='/static/img/ohm_ucgeni.svg' style='width:100%; max-width:400px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "el_ohm_law"
+      },
+      {
+        "id": "elf_03",
+        "soru": "Elektriksel Güç formülünü tamamlayın: P = V × ?",
+        "beklenen": "I",
+        "zorluk": "orta",
+        "alt_bolum": "3_3",
+        "aciklama": "Güç (P) = Voltaj (V) × Akım (I)",
+        "kart": "el_guc"
+      },
+      {
+        "id": "elf_04",
+        "soru": "Ohm Kanununa göre Direnci bulma formülü: R = V / ?",
+        "beklenen": "I",
+        "zorluk": "kolay",
+        "alt_bolum": "3_2",
+        "aciklama": "R = V / I (Direnç = Voltaj / Akım)",
+        "kart": "el_ohm_law"
+      },
+      {
+        "id": "elf_05",
+        "soru": "Güç formülünü direnç cinsinden yazın: P = I² × ?",
+        "beklenen": "R",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "P = I² × R (Güç = Akımın karesi × Direnç)",
+        "kart": "el_direnc"
+      },
+      {
+        "id": "elf_06",
+        "soru": "Kondansatörün kapasitif reaktansı: XC = 1 / (2π × f × ?)",
+        "beklenen": "C",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "XC = 1 / (2πfC) — Frekans arttıkça kondansatörün reaktansı azalır.",
+        "kart": "el_kondansator"
+      },
+      {
+        "id": "elf_07",
+        "soru": "Bobinin endüktif reaktansı: XL = 2π × f × ?",
+        "beklenen": "L",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "XL = 2πfL — Frekans arttıkça bobinin reaktansı artar.",
+        "kart": "el_bobin"
+      },
+      {
+        "id": "elf_08",
+        "soru": "Güç formülünü gerilim cinsinden yazın: P = V² / ?",
+        "beklenen": "R",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "P = V² / R (Güç = Gerilimin karesi / Direnç)",
+        "kart": "el_guc"
+      }
+    ],
+    "hesapla": [
+      {
+        "id": "elh_01",
+        "soru": "Bir devrede gerilim V = 12 V, direnç R = 4 Ω ise akım (I) kaç Amperdir?",
+        "gosterilen": "V = 12V, R = 4Ω → I = ?",
+        "beklenen": "3",
+        "birim": "A",
+        "zorluk": "kolay",
+        "alt_bolum": "3_2",
+        "aciklama": "I = V / R → I = 12 / 4 = 3 Amper.",
+        "kart": "el_ohm_law"
+      },
+      {
+        "id": "elh_02",
+        "soru": "Bir devrede akım I = 2 A, direnç R = 6 Ω ise gerilim (V) kaç Volttur?",
+        "gosterilen": "I = 2A, R = 6Ω → V = ?",
+        "beklenen": "12",
+        "birim": "V",
+        "zorluk": "kolay",
+        "alt_bolum": "3_2",
+        "aciklama": "V = I × R → V = 2 × 6 = 12 Volt.",
+        "kart": "el_ohm_law"
+      },
+      {
+        "id": "elh_03",
+        "soru": "Bir devrede gerilim V = 24 V, akım I = 2 A ise direnç (R) kaç Ohmdur?",
+        "gosterilen": "V = 24V, I = 2A → R = ?",
+        "beklenen": "12",
+        "birim": "Ω",
+        "zorluk": "orta",
+        "alt_bolum": "3_2",
+        "aciklama": "R = V / I → R = 24 / 2 = 12 Ohm.",
+        "kart": "el_ohm_law"
+      },
+      {
+        "id": "elh_04",
+        "soru": "Bir telsiz 13.8 V gerilim altında çalışırken 10 A akım çekmektedir. Bu telsizin çektiği güç (P) kaç Watt'tır?",
+        "gosterilen": "V = 13.8V, I = 10A → P = ?",
+        "beklenen": "138",
+        "birim": "W",
+        "zorluk": "orta",
+        "alt_bolum": "3_3",
+        "aciklama": "P = V × I → P = 13.8 × 10 = 138 Watt.",
+        "kart": "el_guc"
+      },
+      {
+        "id": "elh_05",
+        "soru": "Bir devrede direnç R = 10 Ω, gerilim V = 12 V ise akım (I) kaç Amperdir?",
+        "gosterilen": "V = 12V, R = 10Ω → I = ?",
+        "beklenen": "1.2",
+        "birim": "A",
+        "zorluk": "zor",
+        "alt_bolum": "3_2",
+        "aciklama": "I = V / R → I = 12 / 10 = 1.2 Amper.",
+        "kart": "el_ohm_law"
+      },
+      {
+        "id": "elh_06",
+        "soru": "Bir el telsizi 7.4 V pil gerilimi ile çalışıyor ve 3 A akım çekiyor. Telsizin gücü kaç Watt?",
+        "gosterilen": "V = 7.4V, I = 3A → P = ?",
+        "beklenen": "22.2",
+        "birim": "W",
+        "zorluk": "orta",
+        "alt_bolum": "3_3",
+        "aciklama": "P = V × I → P = 7.4 × 3 = 22.2 Watt.",
+        "kart": "el_guc"
+      },
+      {
+        "id": "elh_07",
+        "soru": "50 Watt gücündeki bir telsiz 13.8 V ile çalışıyorsa, yaklaşık kaç Amper akım çeker?",
+        "gosterilen": "P = 50W, V = 13.8V → I = ?",
+        "beklenen": "3.6",
+        "birim": "A",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "I = P / V → I = 50 / 13.8 ≈ 3.6 Amper.",
+        "kart": "el_guc"
+      },
+      {
+        "id": "elh_08",
+        "soru": "Seri bağlı 3 Ω ve 9 Ω dirençlerin toplam direnci kaç Ohm'dur?",
+        "gosterilen": "R1 = 3Ω, R2 = 9Ω (seri) → Rtop = ?",
+        "beklenen": "12",
+        "birim": "Ω",
+        "zorluk": "orta",
+        "alt_bolum": "3_2",
+        "aciklama": "Seri bağlı dirençler toplanır: Rtop = R1 + R2 = 3 + 9 = 12 Ohm.",
+        "kart": "el_ohm_calc"
+      },
+      {
+        "id": "elh_09",
+        "soru": "Bir devrede V = 9V ve R = 3Ω ise devrenin harcadığı güç (P) kaç Watt'tır?",
+        "gosterilen": "V = 9V, R = 3Ω → P = ?",
+        "beklenen": "27",
+        "birim": "W",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "P = V² / R → P = 81 / 3 = 27 Watt.",
+        "kart": "el_guc"
+      },
+      {
+        "id": "elh_10",
+        "soru": "100 Watt çıkış gücündeki bir HF telsiz 50 Ω empedanslı antene bağlıysa, anten ucundaki gerilim yaklaşık kaç Volttur?",
+        "gosterilen": "P = 100W, R = 50Ω → V = ?",
+        "beklenen": "70.7",
+        "birim": "V",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "V = √(P × R) → V = √(100 × 50) = √5000 ≈ 70.7 Volt.",
+        "kart": "el_guc"
+      },
+      {
+        "id": "elh_11",
+        "soru": "Bir devrede akım I = 5 A ve direnç R = 8 Ω ise devredeki gerilim kaç Volt'tur?",
+        "gosterilen": "I = 5A, R = 8Ω → V = ?",
+        "beklenen": "40",
+        "birim": "V",
+        "zorluk": "kolay",
+        "alt_bolum": "3_2",
+        "aciklama": "V = I × R → V = 5 × 8 = 40 Volt.",
+        "kart": "el_ohm_law"
+      },
+      {
+        "id": "elh_12",
+        "soru": "Bir araç telsizi 12V akü ile çalışıyor ve 25 Watt güç tüketiyor. Çektiği akım kaç Amperdir?",
+        "gosterilen": "P = 25W, V = 12V → I = ?",
+        "beklenen": "2.08",
+        "birim": "A",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "I = P / V → I = 25 / 12 ≈ 2.08 Amper.",
+        "kart": "el_guc"
+      }
+    ],
+    "dogru_yanlis": [
+      {
+        "id": "eldy_01",
+        "soru": "Kondansatörler doğru akımı (DC) geçirirken, alternatif akımı (AC) engeller.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "3_3",
+        "aciklama": "Yanlış! Kondansatörler alternatif akımı (AC) geçirir, doğru akımı (DC) bloke eder (geçirmez).",
+        "kart": "el_kondansator"
+      },
+      {
+        "id": "eldy_02",
+        "soru": "Bobinler doğru akımı (DC) kolayca geçirir, alternatif akıma (AC) karşı zorluk çıkarır.",
+        "dogru": "Doğru",
+        "zorluk": "orta",
+        "alt_bolum": "3_3",
+        "aciklama": "Doğru! Bobinin üzerinden geçen DC akımına karşı direnci çok düşüktür ancak AC sinyallere karşı yüksek empedans gösterir.",
+        "kart": "el_bobin"
+      },
+      {
+        "id": "eldy_03",
+        "soru": "Diyot, akımın her iki yönde de kolayca akmasını sağlayan yarı iletken bir elemandır.",
+        "dogru": "Yanlış",
+        "zorluk": "kolay",
+        "alt_bolum": "3_4",
+        "aciklama": "Yanlış! Diyot akımı yalnızca tek bir yönde geçirir.",
+        "kart": "el_diyot"
+      },
+      {
+        "id": "eldy_04",
+        "soru": "Watt, harcanan veya üretilen elektriksel gücün birimidir.",
+        "dogru": "Doğru",
+        "zorluk": "kolay",
+        "alt_bolum": "3_1",
+        "aciklama": "Doğru! Watt elektriksel gücün (P) birimidir.",
+        "kart": "el_watt"
+      },
+      {
+        "id": "eldy_05",
+        "soru": "Ohm Kanununa göre, gerilim sabitken direnç artarsa akım da artar.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "3_2",
+        "aciklama": "Yanlış! I = V / R formülüne göre, gerilim sabitken direnç artarsa akım azalır.",
+        "kart": "el_ohm_law"
+      },
+      {
+        "id": "eldy_06",
+        "soru": "Transistör, hem sinyal yükselteci hem de elektronik anahtar olarak kullanılabilir.",
+        "dogru": "Doğru",
+        "zorluk": "orta",
+        "alt_bolum": "3_4",
+        "aciklama": "Doğru! Transistörler telsiz devrelerinde hem amplifikatör hem de switch (anahtar) olarak görev yapar.",
+        "kart": "el_transistor"
+      },
+      {
+        "id": "eldy_07",
+        "soru": "Seri bağlı dirençlerin toplam direnci, her bir dirençten daha küçüktür.",
+        "dogru": "Yanlış",
+        "zorluk": "orta",
+        "alt_bolum": "3_2",
+        "aciklama": "Yanlış! Seri bağlamada toplam direnç, bileşen dirençlerin toplamıdır ve her birinden büyüktür.",
+        "kart": "el_ohm_calc"
+      },
+      {
+        "id": "eldy_08",
+        "soru": "Paralel bağlı dirençlerin toplam direnci, en küçük dirençten bile daha düşük olabilir.",
+        "dogru": "Doğru",
+        "zorluk": "zor",
+        "alt_bolum": "3_2",
+        "aciklama": "Doğru! Paralel bağlamada toplam direnç her zaman en küçük bireysel dirençten az olur.",
+        "kart": "el_ohm_calc"
+      },
+      {
+        "id": "eldy_09",
+        "soru": "Bir devredeki güç, akımın karesiyle orantılıdır (P = I² × R).",
+        "dogru": "Doğru",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "Doğru! Bu Joule Kanununun temel formülüdür.",
+        "kart": "el_guc"
+      },
+      {
+        "id": "eldy_10",
+        "soru": "Kondansatörün kapasitif reaktansı (XC), frekans arttıkça artar.",
+        "dogru": "Yanlış",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "Yanlış! XC = 1/(2πfC) olduğundan, frekans arttıkça XC azalır.",
+        "kart": "el_kondansator"
+      },
+      {
+        "id": "eldy_11",
+        "soru": "Bobin ve kondansatör bir arada kullanılarak rezonans devresi oluşturulabilir.",
+        "dogru": "Doğru",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "aciklama": "Doğru! LC rezonans devresi, belirli bir frekansta maksimum enerji aktarımı sağlar. Telsiz alıcılarında istasyon seçimi için kullanılır.",
+        "kart": "el_kondansator"
+      },
+      {
+        "id": "eldy_12",
+        "soru": "Volt birimi, İtalyan fizikçi Alessandro Volta'nın adından gelir.",
+        "dogru": "Doğru",
+        "zorluk": "kolay",
+        "alt_bolum": "3_1",
+        "aciklama": "Doğru! Volta, ilk elektrik pilini icat etmiştir.",
+        "kart": "el_volt"
+      }
+    ],
+    "eslestir": [
+      {
+        "id": "ele_01",
+        "soru": "Elektriksel büyüklükleri birimleriyle eşleştirin",
+        "zorluk": "kolay",
+        "alt_bolum": "3_1",
+        "cifler": [
+          {
+            "sol": "Gerilim",
+            "sag": "Volt"
+          },
+          {
+            "sol": "Akım",
+            "sag": "Amper"
+          },
+          {
+            "sol": "Direnç",
+            "sag": "Ohm"
+          },
+          {
+            "sol": "Güç",
+            "sag": "Watt"
+          }
+        ],
+        "kart": "el_volt"
+      },
+      {
+        "id": "ele_02",
+        "soru": "Devre elemanlarını temel görevleriyle eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "3_3",
+        "cifler": [
+          {
+            "sol": "Direnç",
+            "sag": "Akımı sınırlar"
+          },
+          {
+            "sol": "Kondansatör",
+            "sag": "DC'yi bloke eder"
+          },
+          {
+            "sol": "Bobin",
+            "sag": "Manyetik alan depolar"
+          },
+          {
+            "sol": "Diyot",
+            "sag": "Tek yönlü geçiş sağlar"
+          }
+        ],
+        "aciklama": "Harika! İşte devre elemanlarının standart sembolleri:<br><img src='/static/img/devre_elemanlari.svg' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>",
+        "kart": "el_direnc"
+      },
+      {
+        "id": "ele_03",
+        "soru": "Formül sembollerini büyüklükleriyle eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "3_2",
+        "cifler": [
+          {
+            "sol": "V",
+            "sag": "Gerilim (Volt)"
+          },
+          {
+            "sol": "I",
+            "sag": "Akım (Amper)"
+          },
+          {
+            "sol": "R",
+            "sag": "Direnç (Ohm)"
+          },
+          {
+            "sol": "P",
+            "sag": "Güç (Watt)"
+          }
+        ],
+        "kart": "el_ohm_calc"
+      },
+      {
+        "id": "ele_04",
+        "soru": "Devre elemanlarının birimlerini eşleştirin",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "cifler": [
+          {
+            "sol": "Kondansatör",
+            "sag": "Farad (F)"
+          },
+          {
+            "sol": "Bobin",
+            "sag": "Henry (H)"
+          },
+          {
+            "sol": "Direnç",
+            "sag": "Ohm (Ω)"
+          },
+          {
+            "sol": "Transistör",
+            "sag": "Yarı iletken"
+          }
+        ],
+        "kart": "el_direnc"
+      },
+      {
+        "id": "ele_05",
+        "soru": "AC ve DC akıma karşı elemanların davranışlarını eşleştirin",
+        "zorluk": "zor",
+        "alt_bolum": "3_3",
+        "cifler": [
+          {
+            "sol": "Kondansatör + DC",
+            "sag": "Bloke eder"
+          },
+          {
+            "sol": "Kondansatör + AC",
+            "sag": "Geçirir"
+          },
+          {
+            "sol": "Bobin + DC",
+            "sag": "Geçirir"
+          },
+          {
+            "sol": "Bobin + AC",
+            "sag": "Kısıtlar"
+          }
+        ],
+        "kart": "el_direnc"
+      }
+    ]
+  }
+}

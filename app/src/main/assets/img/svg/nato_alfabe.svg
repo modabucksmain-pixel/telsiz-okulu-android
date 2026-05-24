@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="ngg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8FAFC"/>
+      <stop offset="100%" style="stop-color:#E2E8F0"/>
+    </linearGradient>
+  </defs>
+  <!-- Arka plan koyu -->
+  <rect x="5" y="5" width="90" height="90" rx="10" fill="#0B1120" opacity="0.6"/>
+  <!-- NATO alfabe kartları -->
+  <!-- Alpha -->
+  <rect x="10" y="12" width="24" height="30" rx="4" fill="url(#ngg)" opacity="0.95"/>
+  <text x="22" y="27" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1E3A8A">A</text>
+  <text x="22" y="38" font-family="sans-serif" font-size="7" text-anchor="middle" fill="#3B82F6">Alpha</text>
+  <!-- Bravo -->
+  <rect x="38" y="12" width="24" height="30" rx="4" fill="url(#ngg)" opacity="0.95"/>
+  <text x="50" y="27" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1E3A8A">B</text>
+  <text x="50" y="38" font-family="sans-serif" font-size="7" text-anchor="middle" fill="#3B82F6">Bravo</text>
+  <!-- Charlie -->
+  <rect x="66" y="12" width="24" height="30" rx="4" fill="url(#ngg)" opacity="0.95"/>
+  <text x="78" y="27" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1E3A8A">C</text>
+  <text x="78" y="38" font-family="sans-serif" font-size="7" text-anchor="middle" fill="#3B82F6">Charlie</text>
+  <!-- Alt satır -->
+  <rect x="10" y="46" width="24" height="30" rx="4" fill="url(#ngg)" opacity="0.8"/>
+  <text x="22" y="61" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1E3A8A">D</text>
+  <text x="22" y="72" font-family="sans-serif" font-size="7" text-anchor="middle" fill="#3B82F6">Delta</text>
+  <rect x="38" y="46" width="24" height="30" rx="4" fill="url(#ngg)" opacity="0.8"/>
+  <text x="50" y="61" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="#1E3A8A">E</text>
+  <text x="50" y="72" font-family="sans-serif" font-size="7" text-anchor="middle" fill="#3B82F6">Echo</text>
+  <!-- Kalan kart gri -->
+  <rect x="66" y="46" width="24" height="30" rx="4" fill="#334155" opacity="0.5"/>
+  <text x="78" y="65" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#60A5FA" opacity="0.7">...</text>
+  <!-- Başlık -->
+  <text x="50" y="92" font-family="sans-serif" font-size="9" text-anchor="middle" fill="#94A3B8">NATO Alfabesi</text>
+</svg>
