@@ -25,8 +25,23 @@ class CurriculumRepository(private val context: Context) {
     /** Belirli bir bölümün içerik verilerini (nato.json vb.) yükle */
     fun loadIcerik(dosyaAdi: String): IcerikDosyasi {
         val raw = loadJson("data/$dosyaAdi", IcerikDosyasi::class.java) ?: return IcerikDosyasi()
-        return raw.copy(
-            kartlar = raw.kartlar.map { it.copy(ses = normalizeSes(it.ses)) },
+        // Gson, JSON'da olmayan non-null alanlara null enjekte eder; copy() öncesi temizle.
+        @Suppress("SENSELESS_COMPARISON", "USELESS_CAST")
+        val temizKartlar = (raw.kartlar ?: emptyList()).map { k ->
+            Kart(
+                id        = (k.id as? String) ?: "",
+                on        = k.on,
+                arka      = k.arka,
+                ikon      = k.ikon,
+                ses       = normalizeSes(k.ses),
+                kategori  = k.kategori,
+                altBolum  = k.altBolum,
+                etiketler = (k.etiketler as? List<String>) ?: emptyList()
+            )
+        }
+        return IcerikDosyasi(
+            baslik = (raw.baslik as? String) ?: "",
+            kartlar = temizKartlar,
             egzersizler = injectTipVeOnarim(raw)
         )
     }
@@ -36,7 +51,11 @@ class CurriculumRepository(private val context: Context) {
      * Gson non-null String alanların default değerlerini bypass ettiği için bu adım zorunlu.
      */
     private fun injectTipVeOnarim(raw: IcerikDosyasi): Map<String, List<Egzersiz>> {
-        return raw.egzersizler.mapValues { (tipKey, liste) ->
+        @Suppress("SENSELESS_COMPARISON")
+        val rawKartlar = raw.kartlar ?: emptyList()
+        @Suppress("SENSELESS_COMPARISON")
+        val rawEgzersizler = raw.egzersizler ?: emptyMap()
+        return rawEgzersizler.mapValues { (tipKey, liste) ->
             liste.map { e ->
                 var fixed = e
 
@@ -71,8 +90,8 @@ class CurriculumRepository(private val context: Context) {
 
                 // 2. dinle_sec: dogru_kart'tan cevap + kartId + secenekler üret
                 if (fixed.tip == "dinle_sec" && fixed.dogruKart.isNotEmpty() && fixed.secenekler.isEmpty()) {
-                    val dogru = raw.kartlar.find { it.id == fixed.dogruKart }?.on ?: ""
-                    val distracters = raw.kartlar
+                    val dogru = rawKartlar.find { it.id == fixed.dogruKart }?.on ?: ""
+                    val distracters = rawKartlar
                         .filter {
                             it.id != fixed.dogruKart &&
                             !it.on.isNullOrEmpty() &&
