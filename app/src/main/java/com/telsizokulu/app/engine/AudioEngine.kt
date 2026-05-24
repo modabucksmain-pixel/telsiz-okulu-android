@@ -88,19 +88,19 @@ class AudioEngine(private val context: Context) {
      */
     fun oynatNATO(kelime: String) {
         if (!sesAcik) return
-        // Squelch open sesi
-        soundPool?.play(squelchOpenId, 0.4f, 0.4f, 1, 0, 1f)
+        // Squelch open (PTT bas → cızırtı)
+        RadioSfx.squelchOpen()
 
-        // ~80ms bekle sonra TTS'i başlat
+        // ~150ms bekle sonra TTS'i başlat
         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
             konus(kelime, onBitti = {
                 // TTS bitince: squelch close + roger beep
-                soundPool?.play(squelchCloseId, 0.3f, 0.3f, 1, 0, 1f)
+                RadioSfx.squelchClose()
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                    soundPool?.play(rogerBeepId, 0.25f, 0.25f, 1, 0, 1f)
-                }, 80)
+                    RadioSfx.rogerBeep()
+                }, 90)
             })
-        }, 100)
+        }, 160)
     }
 
     /**
@@ -108,13 +108,11 @@ class AudioEngine(private val context: Context) {
      */
     fun oynatEfekt(tip: String) {
         if (!sesAcik) return
-        val soundId = when (tip) {
-            "dogru"   -> dogruSesId
-            "yanlis"  -> yanliseSesId
-            "bolum", "rozet" -> bolumSesId
-            else -> return
+        when (tip) {
+            "dogru"   -> RadioSfx.dogru()
+            "yanlis"  -> RadioSfx.yanlis()
+            "bolum", "rozet" -> RadioSfx.bolum()
         }
-        soundPool?.play(soundId, 0.7f, 0.7f, 1, 0, 1f)
     }
 
     /**
@@ -124,17 +122,17 @@ class AudioEngine(private val context: Context) {
         if (!sesAcik || !ttsHazir) return
         val locale = if (lang.startsWith("tr", ignoreCase = true)) Locale("tr", "TR") else Locale.US
 
-        // Squelch open sesi
-        soundPool?.play(squelchOpenId, 0.4f, 0.4f, 1, 0, 1f)
+        // Squelch open (PTT cızırtısı)
+        RadioSfx.squelchOpen()
 
         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
             konus(text, locale, onBitti = {
-                soundPool?.play(squelchCloseId, 0.3f, 0.3f, 1, 0, 1f)
+                RadioSfx.squelchClose()
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                    soundPool?.play(rogerBeepId, 0.25f, 0.25f, 1, 0, 1f)
-                }, 80)
+                    RadioSfx.rogerBeep()
+                }, 90)
             })
-        }, 100)
+        }, 160)
     }
 
     /**
