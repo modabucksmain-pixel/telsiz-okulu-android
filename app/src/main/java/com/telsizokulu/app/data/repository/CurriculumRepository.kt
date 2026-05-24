@@ -41,8 +41,8 @@ class CurriculumRepository(private val context: Context) {
         }
         val egzersizler = injectTipVeOnarim(raw).toMutableMap()
 
-        // NATO kartları için inandırıcı çoktan seçmeli sorular üret (harf→kod ve kod→harf).
-        val uretilen = natoSecmeliUret(temizKartlar)
+        // NATO + Q kodu kartları için inandırıcı çoktan seçmeli sorular üret.
+        val uretilen = natoSecmeliUret(temizKartlar) + qKoduSecmeliUret(temizKartlar)
         if (uretilen.isNotEmpty()) {
             egzersizler["coktan_secmeli"] = (egzersizler["coktan_secmeli"] ?: emptyList()) + uretilen
         }
@@ -95,6 +95,56 @@ class CurriculumRepository(private val context: Context) {
                     cevap = harf, secenekler = secenekler,
                     kartId = k.id, altBolum = ab, zorluk = "kolay",
                     aciklama = "$kod = $harf"
+                ))
+            }
+        }
+        return sonuc
+    }
+
+    /**
+     * Q kodu kartlarından çoktan seçmeli soru üret.
+     * Q kodları birbirine çok benzer (QRM/QRN/QRT/QRS) → diğer gerçek kodlar doğal tuzak.
+     * Gson alan belirsizliğine karşı kod regex ile tespit edilir, anlam diğer alandan alınır.
+     */
+    private fun qKoduSecmeliUret(kartlar: List<Kart>): List<Egzersiz> {
+        val qRegex = Regex("^Q[A-Z]{2,3}$")
+        fun kodMu(s: String?) = s != null && qRegex.matches(s.trim())
+
+        data class QKart(val id: String, val kod: String, val anlam: String, val ab: String)
+        val qKartlar = kartlar.filter { it.id.startsWith("q_") }.mapNotNull { k ->
+            val kod = listOf(k.on, k.arka).firstOrNull { kodMu(it) }?.trim()
+            val anlam = listOf(k.on, k.arka).firstOrNull { !kodMu(it) && !it.isNullOrBlank() }?.trim()
+            if (kod != null && anlam != null) QKart(k.id, kod, anlam, k.altBolum ?: "") else null
+        }
+        if (qKartlar.size < 4) return emptyList()
+
+        val tumKodlar = qKartlar.map { it.kod }.distinct()
+        val tumAnlamlar = qKartlar.map { it.anlam }.distinct()
+        val sonuc = mutableListOf<Egzersiz>()
+
+        qKartlar.forEach { q ->
+            // İleri: anlam → kod (benzer Q kodları tuzak)
+            val yanlisKodlar = tumKodlar.filter { it != q.kod }.shuffled().take(3)
+            if (yanlisKodlar.size == 3) {
+                val secenekler = (listOf(q.kod) + yanlisKodlar).shuffled()
+                sonuc.add(Egzersiz(
+                    id = "qks_${q.id}", tip = "coktan_secmeli",
+                    soru = "\"${q.anlam}\" karşılığı hangi Q kodudur?",
+                    cevap = q.kod, secenekler = secenekler,
+                    kartId = q.id, altBolum = q.ab, zorluk = "orta",
+                    aciklama = "${q.kod} = ${q.anlam}"
+                ))
+            }
+            // Ters: kod → anlam
+            val yanlisAnlamlar = tumAnlamlar.filter { it != q.anlam }.shuffled().take(3)
+            if (yanlisAnlamlar.size == 3) {
+                val secenekler = (listOf(q.anlam) + yanlisAnlamlar).shuffled()
+                sonuc.add(Egzersiz(
+                    id = "qas_${q.id}", tip = "coktan_secmeli",
+                    soru = "\"${q.kod}\" ne anlama gelir?",
+                    cevap = q.anlam, secenekler = secenekler,
+                    kartId = q.id, altBolum = q.ab, zorluk = "orta",
+                    aciklama = "${q.kod} = ${q.anlam}"
                 ))
             }
         }
