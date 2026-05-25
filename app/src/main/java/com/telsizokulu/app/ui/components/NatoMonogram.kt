@@ -23,10 +23,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.Text
-import com.telsizokulu.app.ui.theme.Blue60
-import com.telsizokulu.app.ui.theme.MonoFamily
-import com.telsizokulu.app.ui.theme.Slate950
-import com.telsizokulu.app.ui.theme.neonGlow
+import com.telsizokulu.app.ui.theme.*
 import kotlin.math.sin
 
 /**
@@ -36,7 +33,7 @@ import kotlin.math.sin
 @Composable
 fun NatoMonogram(
     harf: String,
-    accent: Color = Blue60,
+    accent: Color = SpektrumAccent,
     modifier: Modifier = Modifier,
     size: androidx.compose.ui.unit.Dp = 140.dp,
 ) {
@@ -47,7 +44,7 @@ fun NatoMonogram(
             .clip(RoundedCornerShape(20.dp))
             .background(
                 Brush.verticalGradient(
-                    listOf(Slate950, accent.copy(alpha = 0.10f))
+                    listOf(SpektrumBg, accent.copy(alpha = 0.10f))
                 )
             ),
         contentAlignment = Alignment.Center,

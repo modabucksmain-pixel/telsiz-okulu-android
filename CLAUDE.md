@@ -66,6 +66,7 @@ com.telsizokulu.app/
 │       └── ProgressRepository.kt    # DataStore-backed user progress; XP, streak, level
 ├── engine/
 │   ├── AudioEngine.kt           # SoundPool (squelch, roger beep, correct/wrong) + TTS
+│   ├── RadioSfx.kt              # Procedural PCM sound generator (no asset files needed) — squelch, static bed, roger beep, correct/wrong tones
 │   ├── ExerciseEngine.kt        # Filters, shuffles, and does weighted selection of exercises
 │   └── GamificationEngine.kt   # XP table, level names, badge award conditions
 └── ui/
@@ -77,13 +78,27 @@ com.telsizokulu.app/
     │   ├── BolumScreen.kt       # Chapter detail — sub-chapters and lessons
     │   ├── ExerciseScreen.kt    # Hosts lesson, exercise, exam, and practice modes
     │   ├── KutuphaneScreen.kt   # Theory card library browser
+    │   ├── SinavMenuScreen.kt   # Exam hub — 5 exam type rows + T-90 hero card (some rows stub onClick={})
     │   └── ProfileScreen.kt     # User stats, badges, JSON import/export
+    ├── components/
+    │   ├── GrillMeBottomSheet.kt  # Quick-drill modal; hardcoded question pools (NOT from curriculum JSON)
+    │   ├── OnboardingOverlay.kt   # First-launch walkthrough overlay
+    │   ├── TelsizBottomNav.kt     # Bottom navigation bar
+    │   ├── ChapterSelector.kt     # Chapter picker sheet
+    │   ├── ChapterShowcase.kt     # Hero chapter display on HomeScreen
+    │   ├── HomeLessonRow.kt       # Lesson row in home chapter list
+    │   ├── SpectrumBackground.kt  # Animated spectrum waveform canvas background
+    │   ├── CompactStatsStrip.kt   # XP/streak/badge summary strip
+    │   ├── StatChip.kt            # Single stat chip (XP / streak / level)
+    │   ├── BadgeIcon.kt           # Badge display with glow
+    │   └── NatoMonogram.kt        # NATO phonetic letter monogram
     ├── viewmodel/
     │   ├── HomeViewModel.kt     # Loads curriculum + progress for HomeScreen
     │   └── ExerciseViewModel.kt # Drives exercise/exam sessions; owns EgzersizOturumu state
     └── theme/
-        ├── Color.kt             # Slate (#0F172A bg), Blue (#2563EB primary), Purple (#7C3AED accent)
-        ├── Type.kt              # Typography
+        ├── Color.kt             # SpektrumBg (#0B1020), BolumColors object, legacy Slate/Blue/Purple tokens
+        ├── Type.kt              # MonoFamily, SansFamily; named styles: EyebrowMono, LessonTitle, ChapterName, NumeralMono, BodySmall, MutedMono
+        ├── GlowModifiers.kt     # neonGlow() Modifier extension — colored shadow (API 28+) + accent border
         └── Theme.kt             # TelsizOkuluTheme composable
 ```
 
@@ -152,9 +167,20 @@ Exercises are defined in the JSON files with a `type` field:
 
 ### Sound Assets
 
-Sound files must be placed in `app/src/main/assets/sounds/`:
-`squelch_open.wav`, `squelch_close.wav`, `roger_beep.wav`, `dogru.wav`, `yanlis.wav`, `bolum_tamamlandi.wav`
+`RadioSfx` generates all UI sound effects (squelch, roger beep, correct/wrong, step-up, chapter complete) procedurally via PCM — no `.wav` files required for SFX. `AudioEngine` still loads `.wav` files from `app/src/main/assets/sounds/` via SoundPool as an alternative path; if those files are absent the app still works.
 
-NATO audio files (e.g. `alpha.mp3`) go in `app/src/main/assets/audio/nato/`. The `Kart.ses` field stores the web path (e.g. `/static/audio/nato/alpha.mp3`); `CurriculumRepository.normalizeSes()` strips it to just the filename stem (`alpha`).
+NATO audio files (e.g. `alpha.mp3`) go in `app/src/main/assets/audio/nato/`. The `Kart.ses` field stores the web path (e.g. `/static/audio/nato/alpha.mp3`); `CurriculumRepository.normalizeSes()` strips it to just the filename stem (`alpha`). TTS is used as fallback when the audio asset is absent.
 
-The app runs without any sound files but audio feedback will be absent.
+### Theme and Colors
+
+Two color layers exist in `Color.kt`:
+- **Legacy tokens** (`Blue60`, `Slate950`, `GreenSuccess`, etc.) — still referenced by some screens; do not remove.
+- **Spektrum v2 tokens** (`SpektrumBg`, `SpektrumSurface`, `SpektrumAccent`, `SpektrumStreak`, etc.) — new dark theme palette used by all post-v2 screens.
+
+`BolumColors` maps `bolum_1`–`bolum_6` to per-chapter accent colors (`Nato`, `QCode`, `Elektronik`, `Frekans`, `Prosedur`, `Trac`). Use `BolumColors.fromId(id)` and `BolumColors.kodFromId(id)` rather than hardcoding colors or labels in new screens.
+
+`neonGlow()` in `GlowModifiers.kt` applies colored shadow + accent border. On API 26/27 the shadow color is ignored (elevation renders grey); the border still shows.
+
+### GrillMe Quick Drill
+
+`GrillMeBottomSheet` in `components/GrillMeBottomSheet.kt` serves quick 4-choice questions. Question pools are **hardcoded** in `generateGrillQuestion()` — they are not loaded from curriculum JSON. Adding new questions requires editing that function directly.

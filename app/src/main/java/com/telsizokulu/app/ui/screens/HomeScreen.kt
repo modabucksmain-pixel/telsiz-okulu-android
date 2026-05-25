@@ -4,6 +4,8 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -44,7 +46,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
@@ -68,10 +72,13 @@ import com.telsizokulu.app.ui.theme.BolumColors
 import com.telsizokulu.app.ui.theme.EyebrowMono
 import com.telsizokulu.app.ui.theme.LessonTitle
 import com.telsizokulu.app.ui.theme.MonoFamily
+import com.telsizokulu.app.ui.theme.BodySmall
 import com.telsizokulu.app.ui.theme.MutedMono
 import com.telsizokulu.app.ui.theme.SpektrumAccent
 import com.telsizokulu.app.ui.theme.SpektrumBg
 import com.telsizokulu.app.ui.theme.SpektrumMuted
+import com.telsizokulu.app.ui.theme.SpektrumOnSurface
+import com.telsizokulu.app.ui.theme.SpektrumSurface
 import com.telsizokulu.app.ui.theme.neonGlow
 import com.telsizokulu.app.ui.viewmodel.HomeViewModel
 import kotlinx.coroutines.delay
@@ -263,6 +270,9 @@ fun HomeScreen(
                         }
                     }
                 }
+
+                // ── Daily Morse ──────────────────────────────────────
+                item { DailyMorseCard() }
 
                 item { Spacer(Modifier.height(24.dp)) }
             }
@@ -548,4 +558,86 @@ private fun buildLessonItems(bolum: Bolum, ilerleme: KullaniciIlerleme): List<Le
     result.add(LessonItem.Sinav(null, "Bölüm Final Sınavı", finalStatus))
 
     return result
+}
+
+// ── Daily Morse ───────────────────────────────────────────────────────────
+
+private data class GununBilgisi(val kod: String, val metin: String)
+
+private val GUNUN_BILGISI = listOf(
+    GununBilgisi("QSY", "QSY = \"Frekans değiştir\". QSO ortasında uzlaşılan yeni frekansa geçişte kullanılır."),
+    GununBilgisi("73",  "73 = \"İyi şanslar / selamlar\". QSO sonunda kullanılan en yaygın kapanış kodudur."),
+    GununBilgisi("CQ",  "CQ = \"Genel çağrı\". Cevap verebilecek herhangi bir istasyona yapılan açık davet."),
+    GununBilgisi("SOS", "SOS Morse: ··· ——— ··· — Üç kısa, üç uzun, üç kısa; aralıksız okunur."),
+)
+
+private val MORSE_LETTERS = mapOf(
+    'A' to ".-",   'B' to "-...", 'C' to "-.-.", 'D' to "-..",  'E' to ".",
+    'F' to "..-.", 'G' to "--.",  'H' to "....", 'I' to "..",   'J' to ".---",
+    'K' to "-.-",  'L' to ".-..", 'M' to "--",   'N' to "-.",   'O' to "---",
+    'P' to ".--.", 'Q' to "--.-", 'R' to ".-.",  'S' to "...",  'T' to "-",
+    'U' to "..-",  'V' to "...-", 'W' to ".--",  'X' to "-..-", 'Y' to "-.--",
+    'Z' to "--..",
+    '0' to "-----", '1' to ".----", '2' to "..---", '3' to "...--", '4' to "....-",
+    '5' to ".....", '6' to "-....", '7' to "--...", '8' to "---..", '9' to "----.",
+)
+
+private fun morseEncode(text: String): String =
+    text.uppercase().map { c ->
+        when {
+            c == ' ' -> " "
+            MORSE_LETTERS.containsKey(c) -> MORSE_LETTERS[c]!!
+            else -> "?"
+        }
+    }.joinToString(" / ")
+
+@Composable
+private fun DailyMorseCard() {
+    val dayIndex = java.util.Calendar.getInstance().get(java.util.Calendar.DAY_OF_MONTH) % GUNUN_BILGISI.size
+    val bilgi    = GUNUN_BILGISI[dayIndex]
+    val morse    = morseEncode(bilgi.kod)
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .neonGlow(SpektrumAccent, cornerRadius = 14.dp, elevation = 8.dp, glowAlpha = 0.25f, borderAlpha = 0.4f)
+            .clip(RoundedCornerShape(14.dp))
+            .background(SpektrumSurface)
+            .padding(16.dp),
+    ) {
+        // Eyebrow
+        Text(
+            text  = "GÜNÜN BİLGİSİ · ${bilgi.kod}",
+            style = EyebrowMono,
+            color = SpektrumMuted,
+        )
+        Spacer(Modifier.height(8.dp))
+        // Morse encoding box
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(RoundedCornerShape(8.dp))
+                .background(SpektrumBg)
+                .padding(vertical = 12.dp, horizontal = 8.dp),
+            contentAlignment = Alignment.Center,
+        ) {
+            Text(
+                text        = morse,
+                fontFamily  = MonoFamily,
+                fontWeight  = FontWeight.Bold,
+                fontSize    = 20.sp,
+                letterSpacing = 2.sp,
+                color       = SpektrumAccent,
+                textAlign   = TextAlign.Center,
+            )
+        }
+        Spacer(Modifier.height(8.dp))
+        // Description
+        Text(
+            text  = bilgi.metin,
+            style = BodySmall,
+            color = SpektrumOnSurface.copy(alpha = 0.75f),
+        )
+    }
 }

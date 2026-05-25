@@ -55,8 +55,8 @@ fun ExerciseScreen(
     }
 
     if (uiState.yukleniyor) {
-        Box(Modifier.fillMaxSize().background(Slate950), contentAlignment = Alignment.Center) {
-            CircularProgressIndicator(color = Blue60)
+        Box(Modifier.fillMaxSize().background(SpektrumBg), contentAlignment = Alignment.Center) {
+            CircularProgressIndicator(color = SpektrumAccent)
         }
         return
     }
@@ -79,19 +79,19 @@ fun ExerciseScreen(
 
     val egzersiz = oturum.mevcutEgzersiz
     if (egzersiz == null) {
-        Box(Modifier.fillMaxSize().background(Slate950), contentAlignment = Alignment.Center) {
+        Box(Modifier.fillMaxSize().background(SpektrumBg), contentAlignment = Alignment.Center) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.padding(24.dp).verticalScroll(rememberScrollState())
             ) {
                 Text("🎓", fontSize = 48.sp)
                 Spacer(Modifier.height(16.dp))
-                Text("Bu ders için içerik bulunamadı.", color = Slate400, textAlign = TextAlign.Center)
+                Text("Bu ders için içerik bulunamadı.", color = SpektrumMuted, textAlign = TextAlign.Center)
                 if (uiState.hata != null) {
                     Spacer(Modifier.height(16.dp))
                     Text(
                         text = "HATA:\n${uiState.hata}",
-                        color = RedError,
+                        color = Danger,
                         fontSize = 11.sp,
                         textAlign = TextAlign.Start
                     )
@@ -99,7 +99,7 @@ fun ExerciseScreen(
                     Spacer(Modifier.height(8.dp))
                     Text(
                         text = "mod=${uiState.mod} bolum=${uiState.bolumId} alt=${uiState.altBolumId} ders=${uiState.dersNo}\nkart=${uiState.icerik.kartlar.size} egz=${uiState.oturum.egzersizler.size}",
-                        color = Slate400,
+                        color = SpektrumMuted,
                         fontSize = 11.sp,
                         textAlign = TextAlign.Center
                     )
@@ -114,7 +114,7 @@ fun ExerciseScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Slate950)
+            .background(SpektrumBg)
     ) {
         // ── Üst Bar (İlerleme + Kapat) ─────────────────────────
         Row(
@@ -124,7 +124,7 @@ fun ExerciseScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = onGeri) {
-                Icon(Icons.Filled.Close, contentDescription = "Çık", tint = Slate400)
+                Icon(Icons.Filled.Close, contentDescription = "Çık", tint = SpektrumMuted)
             }
             Spacer(Modifier.width(8.dp))
             val animProgress by animateFloatAsState(
@@ -138,26 +138,26 @@ fun ExerciseScreen(
                     .weight(1f)
                     .height(14.dp)
                     .clip(RoundedCornerShape(7.dp)),
-                color = GreenSuccess,
-                trackColor = Slate800
+                color = Success,
+                trackColor = SpektrumOutline2
             )
             Spacer(Modifier.width(10.dp))
             Text(
                 text = "✓ ${oturum.dogruSayisi}",
                 style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.ExtraBold),
-                color = GreenSuccess
+                color = Success
             )
             Spacer(Modifier.width(8.dp))
             Text(
                 text = "✗ ${oturum.yanlisSayisi}",
                 style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.ExtraBold),
-                color = RedError
+                color = Danger
             )
             Spacer(Modifier.width(10.dp))
             Text(
                 text = "${oturum.mevcutIndex + 1}/${oturum.egzersizler.size}",
                 style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
-                color = Slate400
+                color = SpektrumMuted
             )
         }
 
@@ -173,11 +173,11 @@ fun ExerciseScreen(
             ) {
                 Surface(
                     shape = RoundedCornerShape(20.dp),
-                    color = GoldXP.copy(alpha = 0.15f)
+                    color = SpektrumStreak.copy(alpha = 0.15f)
                 ) {
                     Text(
                         text = "+${uiState.xpKazanildi} XP",
-                        color = GoldXP,
+                        color = SpektrumStreak,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp)
                     )
@@ -243,14 +243,14 @@ private fun EgzersizKarti(
         Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
             Text(
                 text = "📻  ${getTipEtiketi(egzersiz.tip)}",
-                color = Blue60,
+                color = SpektrumAccent,
                 fontWeight = FontWeight.ExtraBold,
                 fontSize = 12.sp,
                 letterSpacing = 1.5.sp,
                 modifier = Modifier
                     .clip(RoundedCornerShape(50))
-                    .background(Blue60.copy(alpha = 0.12f))
-                    .border(1.dp, Blue60.copy(alpha = 0.4f), RoundedCornerShape(50))
+                    .background(SpektrumAccent.copy(alpha = 0.12f))
+                    .border(1.dp, SpektrumAccent.copy(alpha = 0.4f), RoundedCornerShape(50))
                     .padding(horizontal = 16.dp, vertical = 7.dp)
             )
         }
@@ -269,9 +269,9 @@ private fun EgzersizKarti(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(132.dp)
-                    .neonGlow(Purple60, cornerRadius = 18.dp, elevation = 10.dp, glowAlpha = 0.32f, borderAlpha = 0.4f)
+                    .neonGlow(SpektrumAccent, cornerRadius = 18.dp, elevation = 10.dp, glowAlpha = 0.32f, borderAlpha = 0.4f)
                     .clip(RoundedCornerShape(18.dp))
-                    .background(Brush.verticalGradient(listOf(Slate900, Slate950)))
+                    .background(Brush.verticalGradient(listOf(SpektrumSurface, SpektrumBg)))
                     .padding(12.dp),
                 contentAlignment = Alignment.Center
             ) {
@@ -289,10 +289,10 @@ private fun EgzersizKarti(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .neonGlow(Blue60, cornerRadius = 20.dp, elevation = 14.dp, glowAlpha = 0.4f, borderAlpha = 0.45f)
+                .neonGlow(SpektrumAccent, cornerRadius = 20.dp, elevation = 14.dp, glowAlpha = 0.4f, borderAlpha = 0.45f)
                 .clip(RoundedCornerShape(20.dp))
                 .background(
-                    Brush.verticalGradient(listOf(Slate900, Slate800.copy(alpha = 0.6f)))
+                    Brush.verticalGradient(listOf(SpektrumSurface, SpektrumOutline2.copy(alpha = 0.6f)))
                 )
                 .padding(horizontal = 22.dp, vertical = 26.dp),
             contentAlignment = Alignment.Center
@@ -302,7 +302,7 @@ private fun EgzersizKarti(
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold,
                 lineHeight = 30.sp,
-                color = SlateWhite,
+                color = SpektrumOnSurface,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth()
             )
@@ -318,9 +318,9 @@ private fun EgzersizKarti(
                 modifier = Modifier
                     .fillMaxWidth()
                     .heightIn(min = 84.dp)
-                    .neonGlow(Blue60, cornerRadius = 18.dp, elevation = 12.dp, borderWidth = 2.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Blue60.copy(alpha = 0.18f)),
-                border = BorderStroke(2.dp, Blue60),
+                    .neonGlow(SpektrumAccent, cornerRadius = 18.dp, elevation = 12.dp, borderWidth = 2.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = SpektrumAccent.copy(alpha = 0.18f)),
+                border = BorderStroke(2.dp, SpektrumAccent),
                 shape = RoundedCornerShape(18.dp)
             ) {
                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -328,7 +328,7 @@ private fun EgzersizKarti(
                     Spacer(Modifier.height(4.dp))
                     Text(
                         "SESİ TEKRAR DİNLE",
-                        color = SlateWhite,
+                        color = SpektrumOnSurface,
                         fontWeight = FontWeight.ExtraBold,
                         fontSize = 14.sp,
                         letterSpacing = 1.sp
@@ -348,9 +348,9 @@ private fun EgzersizKarti(
                     val yanlis = geribildirımGoruntu && secildi && !dogru
 
                     val vurguRenk = when {
-                        dogru -> GreenSuccess
-                        yanlis -> RedError
-                        secildi && !geribildirımGoruntu -> Blue60
+                        dogru -> Success
+                        yanlis -> Danger
+                        secildi && !geribildirımGoruntu -> SpektrumAccent
                         else -> null
                     }
                     Button(
@@ -373,13 +373,13 @@ private fun EgzersizKarti(
                         contentPadding = PaddingValues(horizontal = 20.dp, vertical = 14.dp),
                         colors = ButtonDefaults.buttonColors(
                             containerColor = when {
-                                dogru -> GreenSuccess.copy(alpha = 0.25f)
-                                yanlis -> RedError.copy(alpha = 0.25f)
-                                secildi && !geribildirımGoruntu -> Blue60.copy(alpha = 0.2f)
-                                else -> Slate900
+                                dogru -> Success.copy(alpha = 0.25f)
+                                yanlis -> Danger.copy(alpha = 0.25f)
+                                secildi && !geribildirımGoruntu -> SpektrumAccent.copy(alpha = 0.2f)
+                                else -> SpektrumSurface
                             }
                         ),
-                        border = if (vurguRenk == null) BorderStroke(2.dp, Slate700) else null,
+                        border = if (vurguRenk == null) BorderStroke(2.dp, SpektrumOutline) else null,
                         shape = RoundedCornerShape(18.dp)
                     ) {
                         Row(
@@ -392,10 +392,10 @@ private fun EgzersizKarti(
                                     .clip(CircleShape)
                                     .background(
                                         when {
-                                            dogru -> GreenSuccess.copy(alpha = 0.3f)
-                                            yanlis -> RedError.copy(alpha = 0.3f)
-                                            secildi && !geribildirımGoruntu -> Blue60.copy(alpha = 0.3f)
-                                            else -> Slate800
+                                            dogru -> Success.copy(alpha = 0.3f)
+                                            yanlis -> Danger.copy(alpha = 0.3f)
+                                            secildi && !geribildirımGoruntu -> SpektrumAccent.copy(alpha = 0.3f)
+                                            else -> SpektrumOutline2
                                         }
                                     ),
                                 contentAlignment = Alignment.Center
@@ -403,10 +403,10 @@ private fun EgzersizKarti(
                                 Text(
                                     text = numLabels.getOrNull(i) ?: "•",
                                     color = when {
-                                        dogru -> GreenSuccess
-                                        yanlis -> RedError
-                                        secildi && !geribildirımGoruntu -> Blue60
-                                        else -> Slate400
+                                        dogru -> Success
+                                        yanlis -> Danger
+                                        secildi && !geribildirımGoruntu -> SpektrumAccent
+                                        else -> SpektrumMuted
                                     },
                                     fontWeight = FontWeight.ExtraBold,
                                     fontSize = 13.sp
@@ -416,10 +416,10 @@ private fun EgzersizKarti(
                             Text(
                                 text = secenek,
                                 color = when {
-                                    dogru -> GreenSuccess
-                                    yanlis -> RedError
-                                    secildi && !geribildirımGoruntu -> Blue60
-                                    else -> SlateWhite
+                                    dogru -> Success
+                                    yanlis -> Danger
+                                    secildi && !geribildirımGoruntu -> SpektrumAccent
+                                    else -> SpektrumOnSurface
                                 },
                                 fontWeight = FontWeight.SemiBold,
                                 fontSize = 16.sp,
@@ -455,17 +455,17 @@ private fun EgzersizKarti(
                             contentPadding = PaddingValues(vertical = 16.dp),
                             colors = ButtonDefaults.buttonColors(
                                 containerColor = when {
-                                    dogru -> GreenSuccess.copy(alpha = 0.2f)
-                                    yanlis -> RedError.copy(alpha = 0.2f)
-                                    secildi && !geribildirımGoruntu -> Blue60.copy(alpha = 0.2f)
-                                    else -> Slate900
+                                    dogru -> Success.copy(alpha = 0.2f)
+                                    yanlis -> Danger.copy(alpha = 0.2f)
+                                    secildi && !geribildirımGoruntu -> SpektrumAccent.copy(alpha = 0.2f)
+                                    else -> SpektrumSurface
                                 }
                             ),
                             border = BorderStroke(2.dp, when {
-                                dogru -> GreenSuccess
-                                yanlis -> RedError
-                                secildi && !geribildirımGoruntu -> Blue60
-                                else -> Slate700
+                                dogru -> Success
+                                yanlis -> Danger
+                                secildi && !geribildirımGoruntu -> SpektrumAccent
+                                else -> SpektrumOutline
                             }),
                             shape = RoundedCornerShape(18.dp)
                         ) {
@@ -477,7 +477,7 @@ private fun EgzersizKarti(
                                 Spacer(Modifier.height(6.dp))
                                 Text(
                                     text = label,
-                                    color = when { dogru -> GreenSuccess; yanlis -> RedError; else -> SlateWhite },
+                                    color = when { dogru -> Success; yanlis -> Danger; else -> SpektrumOnSurface },
                                     fontWeight = FontWeight.Bold,
                                     fontSize = 16.sp
                                 )
@@ -496,15 +496,15 @@ private fun EgzersizKarti(
                             .fillMaxWidth()
                             .padding(bottom = 12.dp)
                             .clip(RoundedCornerShape(12.dp))
-                            .background(Blue60.copy(alpha = 0.1f))
-                            .border(1.dp, Blue60.copy(alpha = 0.3f), RoundedCornerShape(12.dp))
+                            .background(SpektrumAccent.copy(alpha = 0.1f))
+                            .border(1.dp, SpektrumAccent.copy(alpha = 0.3f), RoundedCornerShape(12.dp))
                             .padding(horizontal = 14.dp, vertical = 10.dp)
                     ) {
                         Text("💡", fontSize = 15.sp)
                         Spacer(Modifier.width(8.dp))
                         Text(
                             text = ipucu,
-                            color = Slate400,
+                            color = SpektrumMuted,
                             fontSize = 13.sp,
                             lineHeight = 18.sp
                         )
@@ -518,12 +518,12 @@ private fun EgzersizKarti(
                     singleLine = true,
                     enabled = !cevapGonderildi,
                     colors = OutlinedTextFieldDefaults.colors(
-                        focusedBorderColor = Blue60,
-                        unfocusedBorderColor = Slate700,
-                        focusedLabelColor = Blue60,
-                        cursorColor = Blue60,
-                        focusedTextColor = SlateWhite,
-                        unfocusedTextColor = SlateWhite
+                        focusedBorderColor = SpektrumAccent,
+                        unfocusedBorderColor = SpektrumOutline,
+                        focusedLabelColor = SpektrumAccent,
+                        cursorColor = SpektrumAccent,
+                        focusedTextColor = SpektrumOnSurface,
+                        unfocusedTextColor = SpektrumOnSurface
                     ),
                     shape = RoundedCornerShape(12.dp)
                 )
@@ -537,7 +537,7 @@ private fun EgzersizKarti(
                     },
                     enabled = !cevapGonderildi && mevcutCevap.isNotBlank(),
                     modifier = Modifier.fillMaxWidth().height(60.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Blue60),
+                    colors = ButtonDefaults.buttonColors(containerColor = SpektrumAccent),
                     shape = RoundedCornerShape(18.dp)
                 ) {
                     Text("CEVABI GÖNDER  ›", fontWeight = FontWeight.ExtraBold, fontSize = 16.sp, letterSpacing = 1.sp)
@@ -590,7 +590,7 @@ private fun EgzersizKarti(
             Surface(
                 modifier = Modifier.fillMaxWidth(),
                 shape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp),
-                color = if (sonCevapDogru == true) GreenSuccess.copy(alpha = 0.12f) else RedError.copy(alpha = 0.12f),
+                color = if (sonCevapDogru == true) Success.copy(alpha = 0.12f) else Danger.copy(alpha = 0.12f),
                 tonalElevation = 8.dp
             ) {
                 Column(modifier = Modifier.padding(24.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -598,7 +598,7 @@ private fun EgzersizKarti(
                         text = if (sonCevapDogru == true) "✅  Harika!" else "❌  Yanlış Cevap!",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.ExtraBold,
-                        color = if (sonCevapDogru == true) GreenSuccess else RedError
+                        color = if (sonCevapDogru == true) Success else Danger
                     )
                     val aciklama = egzersiz.aciklama.ifEmpty {
                         val dogruCevap = egzersiz.cevap
@@ -608,7 +608,7 @@ private fun EgzersizKarti(
                         Text(
                             text = aciklama.replace("<br>", "\n").replace(Regex("<[^>]*>"), ""),
                             fontSize = 15.sp,
-                            color = SlateWhite.copy(alpha = 0.85f)
+                            color = SpektrumOnSurface.copy(alpha = 0.85f)
                         )
                     }
                     val feedbackImg = remember(egzersiz.aciklama) { getFeedbackImage(egzersiz.aciklama) }
@@ -621,7 +621,7 @@ private fun EgzersizKarti(
                                 .fillMaxWidth()
                                 .heightIn(max = 180.dp)
                                 .clip(RoundedCornerShape(12.dp))
-                                .background(Slate950)
+                                .background(SpektrumBg)
                                 .padding(8.dp)
                         )
                     }
@@ -629,7 +629,7 @@ private fun EgzersizKarti(
                         onClick = onDevamEt,
                         modifier = Modifier.fillMaxWidth().height(60.dp),
                         colors = ButtonDefaults.buttonColors(
-                            containerColor = if (sonCevapDogru == true) GreenSuccess else Blue60
+                            containerColor = if (sonCevapDogru == true) Success else SpektrumAccent
                         ),
                         shape = RoundedCornerShape(16.dp)
                     ) {
@@ -638,7 +638,7 @@ private fun EgzersizKarti(
                             fontWeight = FontWeight.ExtraBold,
                             fontSize = 16.sp,
                             letterSpacing = 1.sp,
-                            color = SlateWhite
+                            color = SpektrumOnSurface
                         )
                     }
                 }
@@ -653,8 +653,8 @@ fun DiyalogKutusu(diyalog: List<DiyalogSatiri>) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = 12.dp)
-            .background(Slate900, shape = RoundedCornerShape(16.dp))
-            .border(1.dp, Slate800, shape = RoundedCornerShape(16.dp))
+            .background(SpektrumSurface, shape = RoundedCornerShape(16.dp))
+            .border(1.dp, SpektrumOutline2, shape = RoundedCornerShape(16.dp))
             .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp)
     ) {
@@ -668,7 +668,7 @@ fun DiyalogKutusu(diyalog: List<DiyalogSatiri>) {
                     modifier = Modifier
                         .fillMaxWidth(0.85f)
                         .background(
-                            color = if (isAlici) Slate800 else Blue60.copy(alpha = 0.2f),
+                            color = if (isAlici) SpektrumOutline2 else SpektrumAccent.copy(alpha = 0.2f),
                             shape = RoundedCornerShape(
                                 topStart = 14.dp,
                                 topEnd = 14.dp,
@@ -678,7 +678,7 @@ fun DiyalogKutusu(diyalog: List<DiyalogSatiri>) {
                         )
                         .border(
                             1.dp,
-                            color = if (isAlici) Slate700 else Blue60.copy(alpha = 0.5f),
+                            color = if (isAlici) SpektrumOutline else SpektrumAccent.copy(alpha = 0.5f),
                             shape = RoundedCornerShape(
                                 topStart = 14.dp,
                                 topEnd = 14.dp,
@@ -690,14 +690,14 @@ fun DiyalogKutusu(diyalog: List<DiyalogSatiri>) {
                 ) {
                     Text(
                         text = "📻 ${satir.kisi}:",
-                        color = if (isAlici) SlateWhite else Blue60,
+                        color = if (isAlici) SpektrumOnSurface else SpektrumAccent,
                         fontWeight = FontWeight.Bold,
                         style = MaterialTheme.typography.labelSmall
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
                         text = satir.metin,
-                        color = SlateWhite,
+                        color = SpektrumOnSurface,
                         style = MaterialTheme.typography.bodyMedium
                     )
                 }
@@ -728,7 +728,7 @@ fun TeoriEkrani(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Slate950)
+            .background(SpektrumBg)
     ) {
         // Üst Bar
         Row(
@@ -738,7 +738,7 @@ fun TeoriEkrani(
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = onGeri) {
-                Icon(Icons.Filled.Close, contentDescription = "Kapat", tint = Slate400)
+                Icon(Icons.Filled.Close, contentDescription = "Kapat", tint = SpektrumMuted)
             }
             Spacer(Modifier.width(8.dp))
             LinearProgressIndicator(
@@ -747,14 +747,14 @@ fun TeoriEkrani(
                     .weight(1f)
                     .height(8.dp)
                     .clip(RoundedCornerShape(4.dp)),
-                color = Blue60,
-                trackColor = Slate800
+                color = SpektrumAccent,
+                trackColor = SpektrumOutline2
             )
             Spacer(Modifier.width(8.dp))
             Text(
                 text = "${mevcutTeoriIndex + 1}/${teoriKartlari.size} Bilgi",
                 style = MaterialTheme.typography.labelLarge,
-                color = Slate400
+                color = SpektrumMuted
             )
         }
 
@@ -773,7 +773,7 @@ fun TeoriEkrani(
                     .fillMaxWidth()
                     .fillMaxHeight(0.85f)
                     .neonGlow(
-                        color = if (kartCevrildi) Purple60 else Blue60,
+                        color = if (kartCevrildi) SpektrumAccent else SpektrumAccent,
                         cornerRadius = 24.dp,
                         elevation = 20.dp,
                     )
@@ -783,7 +783,7 @@ fun TeoriEkrani(
                         cameraDistance = 8 * density
                     },
                 shape = RoundedCornerShape(24.dp),
-                colors = CardDefaults.cardColors(containerColor = Slate900)
+                colors = CardDefaults.cardColors(containerColor = SpektrumSurface)
             ) {
                 if (rotation <= 90f) {
                     // Front Face
@@ -796,15 +796,15 @@ fun TeoriEkrani(
                     ) {
                         // Visual — NATO harfleri için özgün monogram, diğerleri için konu görseli
                         if (kart.id.startsWith("nato_") && !kart.on.isNullOrEmpty()) {
-                            NatoMonogram(harf = kart.on ?: "", accent = Blue60)
+                            NatoMonogram(harf = kart.on ?: "", accent = SpektrumAccent)
                         } else {
                             val gorsel = getTeoriKartGorselYolu(kart.id, kart.on ?: "", kart.arka ?: "")
                             Box(
                                 modifier = Modifier
                                     .size(140.dp)
-                                    .neonGlow(Blue60, cornerRadius = 20.dp, elevation = 12.dp, glowAlpha = 0.35f, borderAlpha = 0.4f)
+                                    .neonGlow(SpektrumAccent, cornerRadius = 20.dp, elevation = 12.dp, glowAlpha = 0.35f, borderAlpha = 0.4f)
                                     .clip(RoundedCornerShape(20.dp))
-                                    .background(Slate950),
+                                    .background(SpektrumBg),
                                 contentAlignment = Alignment.Center
                             ) {
                                 AsyncImage(
@@ -829,7 +829,7 @@ fun TeoriEkrani(
                             Text(
                                 text = kart.on ?: "",
                                 style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.ExtraBold),
-                                color = SlateWhite,
+                                color = SpektrumOnSurface,
                                 textAlign = TextAlign.Center
                             )
                             Spacer(Modifier.width(8.dp))
@@ -837,7 +837,7 @@ fun TeoriEkrani(
                                 onClick = { onSeslendir() },
                                 modifier = Modifier
                                     .size(36.dp)
-                                    .background(Blue60.copy(alpha = 0.15f), shape = RoundedCornerShape(10.dp))
+                                    .background(SpektrumAccent.copy(alpha = 0.15f), shape = RoundedCornerShape(10.dp))
                             ) {
                                 Text("🔊", fontSize = 16.sp)
                             }
@@ -848,7 +848,7 @@ fun TeoriEkrani(
                         Text(
                             text = kart.arka ?: "",
                             style = MaterialTheme.typography.bodyLarge,
-                            color = Slate400,
+                            color = SpektrumMuted,
                             textAlign = TextAlign.Center
                         )
 
@@ -861,7 +861,7 @@ fun TeoriEkrani(
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 13.sp,
                                 letterSpacing = 1.sp,
-                                color = Blue60,
+                                color = SpektrumAccent,
                                 textAlign = TextAlign.Center
                             )
                         }
@@ -869,10 +869,10 @@ fun TeoriEkrani(
                         Spacer(Modifier.height(24.dp))
                         Text(
                             text = "Detayları ve Notları Göster 🔄",
-                            color = Blue60,
+                            color = SpektrumAccent,
                             style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
                             modifier = Modifier
-                                .background(Blue60.copy(alpha = 0.1f), shape = RoundedCornerShape(12.dp))
+                                .background(SpektrumAccent.copy(alpha = 0.1f), shape = RoundedCornerShape(12.dp))
                                 .padding(horizontal = 14.dp, vertical = 8.dp)
                         )
                     }
@@ -891,10 +891,10 @@ fun TeoriEkrani(
                             Text(
                                 text = "${kart.on ?: ""} — Önemli Notlar",
                                 style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
-                                color = Purple60
+                                color = SpektrumAccent
                             )
                             Spacer(Modifier.height(8.dp))
-                            HorizontalDivider(color = Slate800, thickness = 2.dp)
+                            HorizontalDivider(color = SpektrumOutline2, thickness = 2.dp)
                             Spacer(Modifier.height(16.dp))
 
                             // Bullet points — önce karta özel gerçek açıklama, sonra genel sınav notları
@@ -909,11 +909,11 @@ fun TeoriEkrani(
                                         modifier = Modifier.fillMaxWidth(),
                                         verticalAlignment = Alignment.Top
                                     ) {
-                                        Text("⚡", color = Purple60, modifier = Modifier.padding(end = 8.dp))
+                                        Text("⚡", color = SpektrumAccent, modifier = Modifier.padding(end = 8.dp))
                                         Text(
                                             text = madde,
                                             style = MaterialTheme.typography.bodyMedium,
-                                            color = SlateWhite
+                                            color = SpektrumOnSurface
                                         )
                                     }
                                 }
@@ -926,10 +926,10 @@ fun TeoriEkrani(
                             ) {
                                 Text(
                                     text = "Ön Yüzü Göster 🔄",
-                                    color = Purple60,
+                                    color = SpektrumAccent,
                                     style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
                                     modifier = Modifier
-                                        .background(Purple60.copy(alpha = 0.1f), shape = RoundedCornerShape(12.dp))
+                                        .background(SpektrumAccent.copy(alpha = 0.1f), shape = RoundedCornerShape(12.dp))
                                         .padding(horizontal = 14.dp, vertical = 8.dp)
                                 )
                             }
@@ -953,9 +953,9 @@ fun TeoriEkrani(
                 modifier = Modifier
                     .weight(1f)
                     .height(52.dp),
-                border = BorderStroke(1.5.dp, Slate800),
+                border = BorderStroke(1.5.dp, SpektrumOutline2),
                 shape = RoundedCornerShape(14.dp),
-                colors = ButtonDefaults.outlinedButtonColors(contentColor = Slate400)
+                colors = ButtonDefaults.outlinedButtonColors(contentColor = SpektrumMuted)
             ) {
                 Text("Egzersizlere Geç ⏭️", fontWeight = FontWeight.Bold)
             }
@@ -967,9 +967,9 @@ fun TeoriEkrani(
                     .weight(1.2f)
                     .height(52.dp),
                 shape = RoundedCornerShape(14.dp),
-                colors = ButtonDefaults.buttonColors(containerColor = Blue60)
+                colors = ButtonDefaults.buttonColors(containerColor = SpektrumAccent)
             ) {
-                Text(sonrakiMetin, fontWeight = FontWeight.Bold, color = SlateWhite)
+                Text(sonrakiMetin, fontWeight = FontWeight.Bold, color = SpektrumOnSurface)
             }
         }
         Spacer(Modifier.height(8.dp))
@@ -983,7 +983,7 @@ fun EslestirmeSoru(
 ) {
     val cifler = egzersiz.cifler
     if (cifler.isEmpty()) {
-        Text("Hata: Çiftler bulunamadı.", color = RedError)
+        Text("Hata: Çiftler bulunamadı.", color = Danger)
         return
     }
 
@@ -1036,24 +1036,24 @@ fun EslestirmeSoru(
                     shape = RoundedCornerShape(12.dp),
                     colors = CardDefaults.cardColors(
                         containerColor = when {
-                            eslesmis -> GreenSuccess.copy(alpha = 0.25f)
-                            secilimi -> Blue60.copy(alpha = 0.2f)
-                            else -> Slate900
+                            eslesmis -> Success.copy(alpha = 0.25f)
+                            secilimi -> SpektrumAccent.copy(alpha = 0.2f)
+                            else -> SpektrumSurface
                         }
                     ),
                     border = BorderStroke(
                         1.5.dp,
                         when {
-                            eslesmis -> GreenSuccess
-                            secilimi -> Blue60
-                            else -> Slate800
+                            eslesmis -> Success
+                            secilimi -> SpektrumAccent
+                            else -> SpektrumOutline2
                         }
                     )
                 ) {
                     Box(Modifier.fillMaxSize().padding(8.dp), contentAlignment = Alignment.Center) {
                         Text(
                             text = item,
-                            color = if (eslesmis) GreenSuccess else SlateWhite,
+                            color = if (eslesmis) Success else SpektrumOnSurface,
                             fontWeight = FontWeight.Bold,
                             textAlign = TextAlign.Center,
                             fontSize = 14.sp
@@ -1092,24 +1092,24 @@ fun EslestirmeSoru(
                     shape = RoundedCornerShape(12.dp),
                     colors = CardDefaults.cardColors(
                         containerColor = when {
-                            eslesmis -> GreenSuccess.copy(alpha = 0.25f)
-                            secilimi -> Blue60.copy(alpha = 0.2f)
-                            else -> Slate900
+                            eslesmis -> Success.copy(alpha = 0.25f)
+                            secilimi -> SpektrumAccent.copy(alpha = 0.2f)
+                            else -> SpektrumSurface
                         }
                     ),
                     border = BorderStroke(
                         1.5.dp,
                         when {
-                            eslesmis -> GreenSuccess
-                            secilimi -> Blue60
-                            else -> Slate800
+                            eslesmis -> Success
+                            secilimi -> SpektrumAccent
+                            else -> SpektrumOutline2
                         }
                     )
                 ) {
                     Box(Modifier.fillMaxSize().padding(8.dp), contentAlignment = Alignment.Center) {
                         Text(
                             text = item,
-                            color = if (eslesmis) GreenSuccess else SlateWhite,
+                            color = if (eslesmis) Success else SpektrumOnSurface,
                             fontWeight = FontWeight.Medium,
                             textAlign = TextAlign.Center,
                             fontSize = 13.sp
@@ -1128,7 +1128,7 @@ fun SıralamaSoru(
 ) {
     val dogruSira = egzersiz.adimlar
     if (dogruSira.isEmpty()) {
-        Text("Hata: Adımlar bulunamadı.", color = RedError)
+        Text("Hata: Adımlar bulunamadı.", color = Danger)
         return
     }
 
@@ -1145,9 +1145,9 @@ fun SıralamaSoru(
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .border(1.dp, Slate800, shape = RoundedCornerShape(12.dp)),
+                    .border(1.dp, SpektrumOutline2, shape = RoundedCornerShape(12.dp)),
                 shape = RoundedCornerShape(12.dp),
-                colors = CardDefaults.cardColors(containerColor = Slate900)
+                colors = CardDefaults.cardColors(containerColor = SpektrumSurface)
             ) {
                 Row(
                     modifier = Modifier
@@ -1157,13 +1157,13 @@ fun SıralamaSoru(
                 ) {
                     Text(
                         text = "☰",
-                        color = Slate400,
+                        color = SpektrumMuted,
                         fontSize = 18.sp,
                         modifier = Modifier.padding(end = 12.dp)
                     )
                     Text(
                         text = adim,
-                        color = SlateWhite,
+                        color = SpektrumOnSurface,
                         fontWeight = FontWeight.Medium,
                         style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier.weight(1f)
@@ -1186,7 +1186,7 @@ fun SıralamaSoru(
                             modifier = Modifier.size(28.dp),
                             enabled = index > 0 && !kontrolEdildi
                         ) {
-                            Text("▲", color = if (index > 0 && !kontrolEdildi) Blue60 else Slate700, fontSize = 12.sp)
+                            Text("▲", color = if (index > 0 && !kontrolEdildi) SpektrumAccent else SpektrumOutline, fontSize = 12.sp)
                         }
                         IconButton(
                             onClick = {
@@ -1201,7 +1201,7 @@ fun SıralamaSoru(
                             modifier = Modifier.size(28.dp),
                             enabled = index < mevcutSira.size - 1 && !kontrolEdildi
                         ) {
-                            Text("▼", color = if (index < mevcutSira.size - 1 && !kontrolEdildi) Blue60 else Slate700, fontSize = 12.sp)
+                            Text("▼", color = if (index < mevcutSira.size - 1 && !kontrolEdildi) SpektrumAccent else SpektrumOutline, fontSize = 12.sp)
                         }
                     }
                 }
@@ -1224,7 +1224,7 @@ fun SıralamaSoru(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(52.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Blue60),
+            colors = ButtonDefaults.buttonColors(containerColor = SpektrumAccent),
             shape = RoundedCornerShape(14.dp)
         ) {
             Text("Sıralamayı Kontrol Et ›", fontWeight = FontWeight.Bold)
@@ -1318,7 +1318,7 @@ fun HizliTurSoru(
 ) {
     val sorular = egzersiz.sorular
     if (sorular.isEmpty()) {
-        Text("Hata: Hızlı tur soruları bulunamadı.", color = RedError)
+        Text("Hata: Hızlı tur soruları bulunamadı.", color = Danger)
         return
     }
 
@@ -1359,12 +1359,12 @@ fun HizliTurSoru(
         ) {
             Surface(
                 shape = RoundedCornerShape(12.dp),
-                color = if (sureSol <= 3) RedError.copy(alpha = 0.15f) else Slate900,
-                border = BorderStroke(1.5.dp, if (sureSol <= 3) RedError else Slate800)
+                color = if (sureSol <= 3) Danger.copy(alpha = 0.15f) else SpektrumSurface,
+                border = BorderStroke(1.5.dp, if (sureSol <= 3) Danger else SpektrumOutline2)
             ) {
                 Text(
                     text = "⏱️ Süre: $sureSol sn",
-                    color = if (sureSol <= 3) RedError else SlateWhite,
+                    color = if (sureSol <= 3) Danger else SpektrumOnSurface,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(horizontal = 14.dp, vertical = 8.dp)
                 )
@@ -1372,12 +1372,12 @@ fun HizliTurSoru(
 
             Surface(
                 shape = RoundedCornerShape(12.dp),
-                color = Blue60.copy(alpha = 0.15f),
-                border = BorderStroke(1.5.dp, Blue60)
+                color = SpektrumAccent.copy(alpha = 0.15f),
+                border = BorderStroke(1.5.dp, SpektrumAccent)
             ) {
                 Text(
                     text = "🎯 Skor: $skor",
-                    color = Blue60,
+                    color = SpektrumAccent,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier.padding(horizontal = 14.dp, vertical = 8.dp)
                 )
@@ -1389,14 +1389,14 @@ fun HizliTurSoru(
             Box(
                 modifier = Modifier
                     .size(100.dp)
-                    .background(Slate900, shape = CircleShape)
-                    .border(2.dp, Blue60, shape = CircleShape),
+                    .background(SpektrumSurface, shape = CircleShape)
+                    .border(2.dp, SpektrumAccent, shape = CircleShape),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
                     text = mevcutSoru.gosterilen,
                     style = MaterialTheme.typography.displayMedium.copy(fontWeight = FontWeight.ExtraBold),
-                    color = SlateWhite
+                    color = SpektrumOnSurface
                 )
             }
 
@@ -1422,8 +1422,8 @@ fun HizliTurSoru(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(52.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = Slate900),
-                        border = BorderStroke(1.dp, Slate800),
+                        colors = ButtonDefaults.buttonColors(containerColor = SpektrumSurface),
+                        border = BorderStroke(1.dp, SpektrumOutline2),
                         shape = RoundedCornerShape(12.dp)
                     ) {
                         Row(
@@ -1432,13 +1432,13 @@ fun HizliTurSoru(
                         ) {
                             Text(
                                 text = numLabels.getOrNull(i) ?: "•",
-                                color = Blue60,
+                                color = SpektrumAccent,
                                 fontWeight = FontWeight.Bold,
                                 modifier = Modifier.padding(end = 12.dp)
                             )
                             Text(
                                 text = secenek,
-                                color = SlateWhite,
+                                color = SpektrumOnSurface,
                                 fontWeight = FontWeight.Medium
                             )
                         }
@@ -1455,7 +1455,7 @@ fun HizliTurSoru(
                 Text(
                     text = if (skor > 0) "⚡ Hızlı Tur Bitti! Skorunuz: $skor" else "⏱️ Süre Doldu!",
                     style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
-                    color = if (skor > 0) GreenSuccess else RedError
+                    color = if (skor > 0) Success else Danger
                 )
             }
         }
@@ -1588,7 +1588,7 @@ private fun OzetEkrani(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Slate950)
+            .background(SpektrumBg)
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -1604,7 +1604,7 @@ private fun OzetEkrani(
                 else     -> if (gecti) "Sınavı Geçtiniz!" else "Sınav Tamamlandı"
             },
             style = MaterialTheme.typography.displayMedium.copy(fontWeight = FontWeight.ExtraBold),
-            color = SlateWhite,
+            color = SpektrumOnSurface,
             textAlign = TextAlign.Center
         )
 
@@ -1620,15 +1620,15 @@ private fun OzetEkrani(
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             if (uiState.mod != "ders" && uiState.mod != "pratik") {
-                StatItem(deger = "%$puan", baslik = "Puan", renk = if (gecti) GreenSuccess else RedError)
+                StatItem(deger = "%$puan", baslik = "Puan", renk = if (gecti) Success else Danger)
             }
-            StatItem(deger = "${oturum.dogruSayisi}", baslik = "Doğru", renk = GreenSuccess)
-            StatItem(deger = "${oturum.yanlisSayisi}", baslik = "Yanlış", renk = RedError)
+            StatItem(deger = "${oturum.dogruSayisi}", baslik = "Doğru", renk = Success)
+            StatItem(deger = "${oturum.yanlisSayisi}", baslik = "Yanlış", renk = Danger)
         }
 
         if (uiState.yeniRozetler.isNotEmpty()) {
             Spacer(Modifier.height(28.dp))
-            Text("🏆 Yeni Rozet!", style = MaterialTheme.typography.titleMedium, color = GoldXP)
+            Text("🏆 Yeni Rozet!", style = MaterialTheme.typography.titleMedium, color = SpektrumStreak)
             Spacer(Modifier.height(12.dp))
             uiState.yeniRozetler.forEach { rozetId ->
                 Row(
@@ -1639,7 +1639,7 @@ private fun OzetEkrani(
                     BadgeIcon(rozetId = rozetId, kazanildi = true, size = 44.dp)
                     Text(
                         text = GamificationEngine.getRozetIsim(rozetId),
-                        color = SlateWhite,
+                        color = SpektrumOnSurface,
                         style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold)
                     )
                 }
@@ -1653,10 +1653,10 @@ private fun OzetEkrani(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(56.dp),
-            colors = ButtonDefaults.buttonColors(containerColor = Blue60),
+            colors = ButtonDefaults.buttonColors(containerColor = SpektrumAccent),
             shape = RoundedCornerShape(16.dp)
         ) {
-            Text("Devam Et", fontWeight = FontWeight.Bold, fontSize = 17.sp, color = SlateWhite)
+            Text("Devam Et", fontWeight = FontWeight.Bold, fontSize = 17.sp, color = SpektrumOnSurface)
         }
 
         Spacer(Modifier.height(32.dp))
@@ -1671,6 +1671,6 @@ private fun StatItem(deger: String, baslik: String, renk: Color) {
             style = MaterialTheme.typography.displayMedium.copy(fontWeight = FontWeight.ExtraBold),
             color = renk
         )
-        Text(text = baslik, style = MaterialTheme.typography.labelLarge, color = Slate400)
+        Text(text = baslik, style = MaterialTheme.typography.labelLarge, color = SpektrumMuted)
     }
 }

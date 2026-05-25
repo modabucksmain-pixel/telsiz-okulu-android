@@ -1,0 +1,668 @@
+// Home screen — redesigned with chapter selector + inline showcase
+const { useState: hState, useMemo: hMemo, useEffect: hEffect } = React;
+
+// ──────────────────────────────────────────────────────────────
+// Main Home
+// ──────────────────────────────────────────────────────────────
+function Home({ t, state, dispatch, go }) {
+  const cur = window.CURRICULUM;
+
+  const activeChIdx = hMemo(() => {
+    for (let i = 0; i < cur.length; i++) {
+      if (window.chapterProgress(cur[i], state.ilerleme).done < cur[i].dersler.length) return i;
+    }
+    return cur.length - 1;
+  }, [state.ilerleme]);
+
+  const [selIdx, setSelIdx] = hState(activeChIdx);
+  const [flashColor, setFlashColor] = hState(null);
+  const [toast, setToast] = hState(null);
+  const [grillOpen, setGrillOpen] = hState(false);
+
+  hEffect(() => { setSelIdx(activeChIdx); }, [activeChIdx]);
+
+  const isChapterLocked = (idx) => {
+    if (idx === 0) return false;
+    return window.chapterProgress(cur[idx - 1], state.ilerleme).done < cur[idx - 1].dersler.length;
+  };
+
+  const selectChapter = (idx) => {
+    if (idx < 0 || idx >= cur.length) return;
+    if (isChapterLocked(idx)) {
+      setToast(`Önce "${cur[idx - 1].baslik}" bölümünü tamamla`);
+      clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(() => setToast(null), 2800);
+      return;
+    }
+    setFlashColor(cur[idx].renk);
+    setTimeout(() => setFlashColor(null), 400);
+    setSelIdx(idx);
+  };
+
+  const bolum = cur[selIdx];
+  const nextLesson = hMemo(() => {
+    for (const l of bolum.dersler) {
+      if ((state.ilerleme[l.id] || 'locked') !== 'done') return l;
+    }
+    return null;
+  }, [selIdx, state.ilerleme]);
+
+  return (
+    <div className="screen home" style={{ background: t.bg, position: 'relative', minHeight: '100%' }}>
+
+      {/* Flash overlay */}
+      <div style={{
+        position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 100,
+        background: flashColor || 'transparent',
+        opacity: flashColor ? 0.09 : 0,
+        transition: flashColor ? 'opacity 0s' : 'opacity 0.4s ease',
+      }} />
+
+      <TopBar t={t} streak={state.streak} xp={state.xp} lvl={level(state.xp)} />
+      <CompactStats t={t} xp={state.xp} lvl={level(state.xp)} examDays={state.examDays} examReady={state.examReady} zayif={state.zayifKonu} go={go} />
+      <ChapterSelector t={t} cur={cur} selIdx={selIdx} state={state} onSelect={selectChapter} isLocked={isChapterLocked} />
+
+      {nextLesson && (
+        <div style={{ padding: '0 16px 10px' }}>
+          <button onClick={() => go({ screen: 'lesson', bolumId: bolum.id, dersId: nextLesson.id })} style={{
+            width: '100%', display: 'flex', alignItems: 'center', gap: 12,
+            padding: '12px 16px', borderRadius: t.radius,
+            background: t.ink, border: 'none', cursor: 'pointer', textAlign: 'left',
+          }}>
+            <div style={{
+              width: 36, height: 36, borderRadius: 9, flexShrink: 0,
+              background: bolum.renk, display: 'grid', placeItems: 'center',
+            }}>
+              <svg width="12" height="12" viewBox="0 0 12 12"><path d="M3 2l7 4-7 4V2z" fill="#fff"/></svg>
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontFamily: t.monoFont, fontSize: 9.5, color: bolum.renk, letterSpacing: 1.4, fontWeight: 700 }}>
+                DEVAM ET · {nextLesson.sure} DK
+              </div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: t.surface || '#fff', marginTop: 1 }}>
+                {nextLesson.baslik}
+              </div>
+            </div>
+            <span style={{ color: bolum.renk, fontSize: 18, lineHeight: 1 }}>→</span>
+          </button>
+        </div>
+      )}
+
+      <div style={{ padding: '0 16px' }}>
+        {window.ChapterShowcase && (
+          <window.ChapterShowcase t={t} bolum={bolum} state={state} />
+        )}
+
+        <div style={{
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          padding: '2px 0 10px',
+        }}>
+          <window.Mono t={t}>DERSLER · {window.chapterProgress(bolum, state.ilerleme).done}/{bolum.dersler.length}</window.Mono>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+            <div style={{ width: 56, height: 4, borderRadius: 2, background: t.hairline, overflow: 'hidden' }}>
+              <div style={{ width: `${window.chapterProgress(bolum, state.ilerleme).pct * 100}%`, height: '100%', background: bolum.renk }} />
+            </div>
+            <span style={{ fontFamily: t.monoFont, fontSize: 10, color: t.muted }}>
+              {Math.round(window.chapterProgress(bolum, state.ilerleme).pct * 100)}%
+            </span>
+          </div>
+        </div>
+
+        {bolum.dersler.map((d, i) => {
+          const status = state.ilerleme[d.id] || 'locked';
+          const prevDone = i === 0 || state.ilerleme[bolum.dersler[i - 1].id] === 'done';
+          const chLocked = isChapterLocked(selIdx);
+          const accessible = !chLocked && (status === 'done' || prevDone);
+          return (
+            <HomeLessonRow key={d.id}
+              ders={d} status={status} accessible={accessible}
+              t={t} renk={bolum.renk} no={i + 1}
+              onClick={() => accessible && go({ screen: 'lesson', bolumId: bolum.id, dersId: d.id })}
+            />
+          );
+        })}
+
+        <DailyMorse t={t} />
+        <div style={{ height: 100 }} />
+      </div>
+
+      <GrillMeButton t={t} onClick={() => setGrillOpen(true)} />
+      {grillOpen && <GrillMeModal t={t} bolum={bolum} onClose={() => setGrillOpen(false)} />}
+      {toast && <Toast t={t} message={toast} />}
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────
+// Level helper
+// ──────────────────────────────────────────────────────────────
+function level(xp) {
+  const tbl = [
+    { min: 0,    next: 200,  no: 1, isim: 'Acemi Telsizci' },
+    { min: 200,  next: 500,  no: 2, isim: 'Çırak Operatör' },
+    { min: 500,  next: 1000, no: 3, isim: 'Junior Operatör' },
+    { min: 1000, next: 2000, no: 4, isim: 'Operatör' },
+    { min: 2000, next: 3500, no: 5, isim: 'Senior Operatör' },
+    { min: 3500, next: 5000, no: 6, isim: 'Usta Operatör' },
+    { min: 5000, next: 5000, no: 7, isim: 'TRAC Adayı' },
+  ];
+  for (let i = tbl.length - 1; i >= 0; i--) {
+    if (xp >= tbl[i].min) {
+      const o = tbl[i];
+      const span = (o.next - o.min) || 1;
+      const pct = Math.min(1, (xp - o.min) / span);
+      return { ...o, pct, current: xp - o.min, span };
+    }
+  }
+  return tbl[0];
+}
+window.level = level;
+
+// ──────────────────────────────────────────────────────────────
+// Top bar
+// ──────────────────────────────────────────────────────────────
+function TopBar({ t, streak, xp, lvl }) {
+  return (
+    <div style={{
+      padding: '16px 18px 8px',
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10,
+    }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <RadioLogo t={t} />
+        <div>
+          <div style={{ fontFamily: t.monoFont, fontSize: 10, color: t.muted, letterSpacing: 1.5 }}>TELSIZ.OKULU</div>
+          <div style={{ fontWeight: 700, fontSize: 13.5, color: t.ink, letterSpacing: -0.2 }}>
+            TA2/CALL · Lv.{lvl.no}
+          </div>
+        </div>
+      </div>
+      <div style={{ display: 'flex', gap: 8 }}>
+        <StatChip t={t} kind="streak" value={streak} />
+        <StatChip t={t} kind="xp" value={xp} />
+      </div>
+    </div>
+  );
+}
+
+function RadioLogo({ t }) {
+  return (
+    <div style={{
+      width: 36, height: 36, borderRadius: 10,
+      border: `1px solid ${t.hairline}`, background: t.surface,
+      display: 'grid', placeItems: 'center',
+    }}>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M2 14c2-4 6-7 10-7s8 3 10 7" stroke={t.accent} strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M5 16c1.5-3 4-5 7-5s5.5 2 7 5" stroke={t.accent} strokeWidth="1.5" strokeLinecap="round" opacity=".55"/>
+        <path d="M8 18c1-2 2.5-3 4-3s3 1 4 3" stroke={t.accent} strokeWidth="1.5" strokeLinecap="round" opacity=".3"/>
+        <circle cx="12" cy="20" r="1.5" fill={t.accent}/>
+      </svg>
+    </div>
+  );
+}
+
+function StatChip({ t, kind, value }) {
+  const isStreak = kind === 'streak';
+  const fg = isStreak ? t.streak : t.accent;
+  return (
+    <div style={{
+      display: 'flex', alignItems: 'center', gap: 5,
+      padding: '5px 9px', borderRadius: 999,
+      background: fg + '18', border: `1px solid ${fg}28`,
+    }}>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+        {isStreak
+          ? <path d="M12 3c1 3-2 4-2 7 0 2 1 4 3 4-1 0-2 2-1 4-3 0-6-3-6-7 0-3 2-5 3-6 1 1 2 1 3-2z" fill={fg}/>
+          : <path d="M12 2l2.6 6.4L21 9.3l-5 4.3 1.6 6.6L12 16.8 6.4 20.2 8 13.6 3 9.3l6.4-.9L12 2z" fill={fg}/>
+        }
+      </svg>
+      <span style={{ fontFamily: t.monoFont, fontSize: 11.5, fontWeight: 700, color: fg }}>{value}</span>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────
+// Compact stats strip
+// ──────────────────────────────────────────────────────────────
+function CompactStats({ t, xp, lvl, examDays, examReady, zayif, go }) {
+  return (
+    <div style={{ padding: '4px 16px 12px', display: 'flex', gap: 8 }}>
+      {/* XP bar */}
+      <div style={{
+        flex: 1, padding: '8px 10px', borderRadius: t.radiusSm,
+        background: t.surface, border: `1px solid ${t.hairline}`,
+        display: 'flex', alignItems: 'center', gap: 8,
+      }}>
+        <span style={{ fontFamily: t.monoFont, fontWeight: 800, fontSize: 14, color: t.accent, minWidth: 28 }}>
+          {lvl.no}
+        </span>
+        <div style={{ flex: 1, height: 4, borderRadius: 2, background: t.hairline, overflow: 'hidden' }}>
+          <div style={{ width: `${lvl.pct * 100}%`, height: '100%', background: t.accent }} />
+        </div>
+        <span style={{ fontFamily: t.monoFont, fontSize: 10, color: t.muted, minWidth: 46, textAlign: 'right' }}>
+          {xp} XP
+        </span>
+      </div>
+
+      {/* T-minus */}
+      <button onClick={() => go({ screen: 'sinav' })} style={{
+        padding: '8px 12px', borderRadius: t.radiusSm,
+        background: t.surface, border: `1px solid ${t.hairline}`,
+        display: 'flex', alignItems: 'center', gap: 7, cursor: 'pointer',
+        flexShrink: 0,
+      }}>
+        <span style={{ fontFamily: t.monoFont, fontWeight: 800, fontSize: 13, color: t.ink, letterSpacing: -0.5 }}>
+          T‑{String(examDays).padStart(2, '0')}
+        </span>
+        <div style={{ width: 24, height: 4, borderRadius: 2, background: t.hairline, overflow: 'hidden' }}>
+          <div style={{
+            width: `${examReady * 100}%`, height: '100%',
+            background: examReady > 0.7 ? t.success : examReady > 0.4 ? t.warn : t.danger,
+          }} />
+        </div>
+      </button>
+
+      {/* Zayıf konu */}
+      {zayif > 0 && (
+        <button onClick={() => go({ screen: 'pratik' })} style={{
+          padding: '8px 11px', borderRadius: t.radiusSm,
+          background: t.streakTint, border: `1px dashed ${t.streak}55`,
+          display: 'flex', alignItems: 'center', gap: 5, cursor: 'pointer',
+          flexShrink: 0,
+        }}>
+          <span style={{ fontFamily: t.monoFont, fontWeight: 700, fontSize: 12, color: t.streak }}>
+            ×{zayif}
+          </span>
+        </button>
+      )}
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────
+// Chapter selector — single wide card with ← → nav + dots
+// ──────────────────────────────────────────────────────────────
+function ChapterSelector({ t, cur, selIdx, state, onSelect, isLocked }) {
+  const bolum = cur[selIdx];
+  const prog = window.chapterProgress(bolum, state.ilerleme);
+
+  return (
+    <div style={{ padding: '0 16px 14px' }}>
+      <div style={{
+        background: t.surface, border: `1px solid ${t.hairline}`,
+        borderLeft: `3px solid ${bolum.renk}`,
+        borderRadius: t.radius, padding: '14px 14px 12px',
+        position: 'relative', overflow: 'hidden',
+      }}>
+        <SpectrumBg t={t} accent={bolum.renk} />
+        <div style={{ position: 'relative' }}>
+          {/* Arrow row */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <NavArrow t={t} dir="left" disabled={selIdx === 0}
+              onClick={() => onSelect(selIdx - 1)} />
+
+            <div style={{ flex: 1, textAlign: 'center' }}>
+              <div style={{ fontFamily: t.monoFont, fontSize: 10, color: bolum.renk, fontWeight: 700, letterSpacing: 1.6 }}>
+                BÖLÜM {String(bolum.no).padStart(2, '0')} / 06 · {bolum.kod}
+              </div>
+              <div style={{ fontSize: 18, fontWeight: 800, color: t.ink, letterSpacing: -0.3, marginTop: 3, lineHeight: 1.1 }}>
+                {bolum.baslik}
+              </div>
+            </div>
+
+            <NavArrow t={t} dir="right" disabled={selIdx === cur.length - 1}
+              onClick={() => onSelect(selIdx + 1)} />
+          </div>
+
+          {/* Progress bar */}
+          <div style={{ marginTop: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
+            <div style={{ flex: 1, height: 4, borderRadius: 2, background: t.hairline, overflow: 'hidden' }}>
+              <div style={{ width: `${prog.pct * 100}%`, height: '100%', background: bolum.renk }} />
+            </div>
+            <span style={{ fontFamily: t.monoFont, fontSize: 10, color: t.muted, minWidth: 32, textAlign: 'right' }}>
+              {prog.done}/{prog.total}
+            </span>
+          </div>
+
+          {/* Chapter dots */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: 5, marginTop: 12 }}>
+            {cur.map((b, i) => {
+              const locked = isLocked(i);
+              const p = window.chapterProgress(b, state.ilerleme);
+              const isActive = i === selIdx;
+              return (
+                <button key={b.id} onClick={() => onSelect(i)} style={{
+                  height: 8, borderRadius: 4,
+                  width: isActive ? 28 : (locked ? 8 : 10),
+                  background: isActive ? b.renk : locked ? t.hairline2 : (p.done > 0 ? b.renk + '66' : t.hairline),
+                  border: 'none', padding: 0, cursor: 'pointer',
+                  transition: 'width 0.2s, background 0.2s',
+                  flexShrink: 0,
+                }} />
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function NavArrow({ t, dir, disabled, onClick }) {
+  return (
+    <button onClick={onClick} disabled={disabled} style={{
+      width: 34, height: 34, borderRadius: 9, flexShrink: 0,
+      background: disabled ? 'transparent' : t.surface2,
+      border: `1px solid ${disabled ? 'transparent' : t.hairline2}`,
+      color: disabled ? t.hairline2 : t.ink2,
+      cursor: disabled ? 'default' : 'pointer',
+      display: 'grid', placeItems: 'center',
+      fontFamily: t.monoFont, fontWeight: 700, fontSize: 16,
+    }}>
+      {dir === 'left' ? '←' : '→'}
+    </button>
+  );
+}
+
+function SpectrumBg({ t, accent }) {
+  const bars = 60;
+  return (
+    <div style={{
+      position: 'absolute', inset: 0,
+      background: `linear-gradient(180deg, ${accent}10 0%, transparent 70%)`,
+      pointerEvents: 'none',
+    }}>
+      <svg width="100%" height="50" preserveAspectRatio="none" style={{ display: 'block' }}>
+        {Array.from({ length: bars }).map((_, i) => {
+          const h = 7 + Math.abs(Math.sin(i * 0.42) * 13) + (i % 7 === 0 ? 12 : 0);
+          return <rect key={i} x={`${(i / bars) * 100}%`} y={26 - h / 2}
+            width="1.4" height={h} fill={accent} opacity={0.16 + (i % 5) * 0.04} />;
+        })}
+      </svg>
+    </div>
+  );
+}
+window.SpectrumBg = SpectrumBg;
+
+// ──────────────────────────────────────────────────────────────
+// Inline lesson row (used on home)
+// ──────────────────────────────────────────────────────────────
+function HomeLessonRow({ ders, status, accessible, t, renk, no, onClick }) {
+  const isExam = !!ders.sinav;
+  const done = status === 'done';
+  return (
+    <div onClick={accessible ? onClick : undefined} style={{
+      display: 'flex', gap: 12, alignItems: 'center',
+      padding: '11px 13px', marginBottom: 7,
+      background: t.surface, border: `1px solid ${t.hairline}`,
+      borderLeft: `3px solid ${done ? renk : accessible ? renk + '88' : t.hairline2}`,
+      borderRadius: t.radiusSm,
+      cursor: accessible ? 'pointer' : 'not-allowed',
+      opacity: accessible ? 1 : 0.5,
+    }}>
+      <div style={{
+        width: 34, height: 34, borderRadius: isExam ? 7 : 17,
+        background: done ? renk : accessible ? renk + '16' : t.hairline,
+        border: `1.5px solid ${done ? renk : accessible ? renk + '44' : t.hairline2}`,
+        display: 'grid', placeItems: 'center', flexShrink: 0,
+        color: done ? '#fff' : accessible ? renk : t.mute2,
+        fontFamily: t.monoFont, fontWeight: 700, fontSize: 11.5,
+      }}>
+        {!accessible ? '🔒' : done ? '✓' : isExam ? 'Q' : String(no).padStart(2, '0')}
+      </div>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+          <span style={{ fontWeight: 700, fontSize: 14, color: t.ink, letterSpacing: -0.2 }}>{ders.baslik}</span>
+          {isExam && (
+            <span style={{
+              fontFamily: t.monoFont, fontSize: 9, fontWeight: 700, letterSpacing: 1,
+              padding: '2px 5px', borderRadius: 4,
+              background: t.streakTint, color: t.streak,
+            }}>SINAV</span>
+          )}
+        </div>
+        <div style={{ fontSize: 11.5, color: t.muted, marginTop: 2 }}>{ders.alt}</div>
+      </div>
+      <div style={{ fontFamily: t.monoFont, fontSize: 11, color: t.muted, flexShrink: 0 }}>{ders.sure} dk</div>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────
+// Grill Me FAB
+// ──────────────────────────────────────────────────────────────
+function GrillMeButton({ t, onClick }) {
+  return (
+    <div style={{
+      position: 'fixed', bottom: 88, right: 16, zIndex: 50,
+      display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4,
+    }}>
+      <button onClick={onClick} style={{
+        width: 52, height: 52, borderRadius: 26,
+        background: t.streak, border: 'none', cursor: 'pointer',
+        boxShadow: `0 4px 18px ${t.streak}50`,
+        display: 'grid', placeItems: 'center', fontSize: 22,
+        transition: 'transform 0.1s',
+      }}>⚡</button>
+      <div style={{
+        fontFamily: t.monoFont, fontSize: 9, color: t.muted, fontWeight: 700, letterSpacing: 0.6,
+      }}>DRILL</div>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────
+// Grill Me Modal — bottom sheet with one random question
+// ──────────────────────────────────────────────────────────────
+function GrillMeModal({ t, bolum, onClose }) {
+  const [q] = hState(() => randomGrillQuestion(bolum));
+  const [picked, setPicked] = hState(null);
+  const [reveal, setReveal] = hState(false);
+  const isCorrect = picked === q.correctIndex;
+
+  return (
+    <div style={{
+      position: 'fixed', inset: 0, zIndex: 200,
+      background: 'rgba(0,0,0,0.55)', display: 'flex', alignItems: 'flex-end',
+    }} onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div style={{
+        width: '100%', maxWidth: 440, margin: '0 auto',
+        background: t.surface, borderRadius: '20px 20px 0 0',
+        padding: '20px 18px 32px',
+        border: `1px solid ${t.hairline}`,
+      }}>
+        {/* handle */}
+        <div style={{ width: 36, height: 4, borderRadius: 2, background: t.hairline2, margin: '0 auto 18px' }} />
+
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 14 }}>
+          <div style={{ fontFamily: t.monoFont, fontSize: 10.5, color: t.streak, fontWeight: 700, letterSpacing: 1.6 }}>
+            ⚡ GRILL ME · {bolum.kod}
+          </div>
+          <button onClick={onClose} style={{
+            width: 28, height: 28, borderRadius: 7,
+            background: t.surface2, border: `1px solid ${t.hairline}`,
+            cursor: 'pointer', color: t.ink, fontSize: 15,
+            display: 'grid', placeItems: 'center',
+          }}>×</button>
+        </div>
+
+        <div style={{ fontSize: 18, fontWeight: 800, color: t.ink, letterSpacing: -0.3, lineHeight: 1.3, marginBottom: 12 }}>
+          {q.prompt}
+        </div>
+        {q.subtitle && (
+          <div style={{
+            padding: 12, borderRadius: 8, marginBottom: 14,
+            background: t.surface2, border: `1px solid ${t.hairline}`,
+            fontFamily: t.monoFont, fontSize: 28, fontWeight: 700,
+            color: bolum.renk, letterSpacing: 2, textAlign: 'center',
+          }}>{q.subtitle}</div>
+        )}
+
+        <div style={{ display: 'grid', gap: 7 }}>
+          {q.options.map((opt, i) => {
+            const isPicked = picked === i;
+            const showOk = reveal && i === q.correctIndex;
+            const showBad = reveal && isPicked && !isCorrect;
+            return (
+              <button key={i} disabled={reveal} onClick={() => setPicked(i)} style={{
+                display: 'flex', alignItems: 'center', gap: 10,
+                padding: '11px 13px', borderRadius: 10, textAlign: 'left',
+                background: showOk ? t.success + '14' : showBad ? t.danger + '14' : isPicked ? t.accentTint : t.surface2,
+                border: `1.5px solid ${showOk ? t.success : showBad ? t.danger : isPicked ? t.accent : t.hairline2}`,
+                cursor: reveal ? 'default' : 'pointer',
+              }}>
+                <span style={{
+                  fontFamily: t.monoFont, fontWeight: 700, fontSize: 11,
+                  color: showOk ? t.success : showBad ? t.danger : isPicked ? t.accent : t.muted,
+                  minWidth: 18,
+                }}>{String.fromCharCode(65 + i)}</span>
+                <span style={{ flex: 1, fontWeight: 600, fontSize: 13.5, color: t.ink }}>{opt}</span>
+                {showOk && <span style={{ color: t.success, fontWeight: 800 }}>✓</span>}
+                {showBad && <span style={{ color: t.danger, fontWeight: 800 }}>✕</span>}
+              </button>
+            );
+          })}
+        </div>
+
+        <div style={{ marginTop: 14 }}>
+          {reveal && (
+            <div style={{ marginBottom: 8, fontWeight: 700, fontSize: 13, color: isCorrect ? t.success : t.danger }}>
+              {isCorrect ? '✓ Doğru! Harika.' : `✕ Doğru cevap: ${q.options[q.correctIndex]}`}
+            </div>
+          )}
+          <button
+            disabled={picked === null}
+            onClick={() => { if (!reveal) setReveal(true); else onClose(); }}
+            style={{
+              width: '100%', padding: 13,
+              background: picked === null ? t.hairline : t.ink,
+              color: picked === null ? t.mute2 : t.surface,
+              border: 'none', borderRadius: 11,
+              fontWeight: 700, fontSize: 14, cursor: picked === null ? 'not-allowed' : 'pointer',
+            }}>
+            {reveal ? 'Kapat' : 'Kontrol et'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function randomGrillQuestion(bolum) {
+  if (bolum.id === 'b1') {
+    const N = window.NATO;
+    const idx = Math.floor(Math.random() * N.length);
+    const correct = N[idx];
+    const others = N.filter((_, i) => i !== idx).sort(() => Math.random() - 0.5).slice(0, 3);
+    const opts = [correct, ...others].sort(() => Math.random() - 0.5);
+    return { prompt: `"${correct[0]}" harfinin NATO karşılığı?`, subtitle: correct[0], options: opts.map(r => r[1]), correctIndex: opts.indexOf(correct) };
+  }
+  if (bolum.id === 'b2') {
+    const Q = window.QKODES;
+    const idx = Math.floor(Math.random() * Q.length);
+    const [kod, anlam] = Q[idx];
+    const others = Q.filter((_, i) => i !== idx).sort(() => Math.random() - 0.5).slice(0, 3).map(x => x[1]);
+    const opts = [anlam, ...others].sort(() => Math.random() - 0.5);
+    return { prompt: `${kod} ne anlama gelir?`, subtitle: kod, options: opts, correctIndex: opts.indexOf(anlam) };
+  }
+  const pools = {
+    b3: [
+      { p: 'Ohm kanunu formülü?', opts: ['V = I·R', 'V = I/R', 'P = V·I', 'R = V+I'], a: 0 },
+      { p: 'Güç formülü?', opts: ['P = V·I', 'P = V/I', 'P = I/V', 'P = V+I'], a: 0 },
+      { p: '12V / 4Ω = ?', opts: ['2A', '3A', '4A', '6A'], a: 1, s: 'V/R' },
+    ],
+    b4: [
+      { p: '20m bandı kaç MHz?', opts: ['7', '14', '21', '28'], a: 1, s: '20m' },
+      { p: '2m bandı kaç MHz?', opts: ['50', '144', '435', '1296'], a: 1, s: '2m' },
+      { p: 'Dalga boyu formülü?', opts: ['λ=c/f', 'λ=c·f', 'λ=f/c', 'λ=c²/f'], a: 0 },
+    ],
+    b5: [
+      { p: '"Anlaşıldı" kısaltması?', opts: ['Over', 'Roger', 'Wilco', 'Break'], a: 1 },
+      { p: 'Türkiye ön eki?', opts: ['DL', 'F', 'TA', 'G'], a: 2 },
+      { p: 'Acil durum çağrısı?', opts: ['CQ', 'QRZ', 'MAYDAY', '73'], a: 2 },
+    ],
+    b6: [
+      { p: 'TRAC neyin kısaltması?', opts: ['Türkiye Radyo Amatörleri Cemiyeti', 'Telsiz Radyo A.C.', 'Teknik Radyo A.C.', 'T.R.A.C.'], a: 0 },
+      { p: 'Sınav geçme eşiği?', opts: ['50%', '60%', '70%', '80%'], a: 1 },
+    ],
+  };
+  const pool = pools[bolum.id] || pools.b5;
+  const q = pool[Math.floor(Math.random() * pool.length)];
+  return { prompt: q.p, subtitle: q.s || null, options: q.opts, correctIndex: q.a };
+}
+
+// ──────────────────────────────────────────────────────────────
+// Toast
+// ──────────────────────────────────────────────────────────────
+function Toast({ t, message }) {
+  return (
+    <div style={{
+      position: 'fixed', bottom: 96, left: '50%', transform: 'translateX(-50%)',
+      zIndex: 300, whiteSpace: 'nowrap',
+      padding: '11px 18px', borderRadius: 20,
+      background: t.ink, color: t.surface,
+      fontWeight: 600, fontSize: 12.5,
+      boxShadow: '0 4px 18px rgba(0,0,0,0.25)',
+      border: `1px solid ${t.hairline}`,
+    }}>
+      {message}
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────
+// Günün Bilgisi / Morse
+// ──────────────────────────────────────────────────────────────
+function DailyMorse({ t }) {
+  const idx = new Date().getDate() % window.GUNUN_BILGISI.length;
+  const gun = window.GUNUN_BILGISI[idx];
+  return (
+    <div style={{ marginTop: 6, marginBottom: 0 }}>
+      <window.Card t={t} style={{ padding: 14 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <window.Mono t={t}>GÜNÜN BİLGİSİ</window.Mono>
+          <window.Mono t={t} style={{ fontWeight: 700, color: t.accent }}>{gun.kod}</window.Mono>
+        </div>
+        <div style={{
+          marginTop: 10, padding: '10px 12px',
+          background: t.surface2, borderRadius: 8,
+          border: `1px solid ${t.hairline}`,
+          fontFamily: t.monoFont, fontSize: 14, color: t.ink,
+          letterSpacing: 2, textAlign: 'center', fontWeight: 600,
+        }}>
+          {morseEncode(gun.kod)}
+        </div>
+        <div style={{ fontSize: 12.5, color: t.ink2, marginTop: 8, lineHeight: 1.45 }}>{gun.metin}</div>
+      </window.Card>
+    </div>
+  );
+}
+
+function morseEncode(text) {
+  const m = { A:'.-',B:'-...',C:'-.-.',D:'-..',E:'.',F:'..-.',G:'--.',H:'....',I:'..',J:'.---',K:'-.-',L:'.-..',M:'--',N:'-.',O:'---',P:'.--.',Q:'--.-',R:'.-.',S:'...',T:'-',U:'..-',V:'...-',W:'.--',X:'-..-',Y:'-.--',Z:'--..',0:'-----',1:'.----',2:'..---',3:'...--',4:'....-',5:'.....',6:'-....',7:'--...',8:'---..',9:'----.' };
+  return text.toUpperCase().split('').map(c => m[c] || ' ').join(' / ');
+}
+
+// Shared primitives exported to window
+function Mono({ t, children, style }) {
+  return <div style={{ fontFamily: t.monoFont, fontSize: 10, letterSpacing: 1.4, color: t.muted, fontWeight: 600, ...style }}>{children}</div>;
+}
+function Card({ t, children, style, onClick }) {
+  return <div onClick={onClick} style={{ background: t.surface, border: `1px solid ${t.hairline}`, borderRadius: t.radius, ...style }}>{children}</div>;
+}
+function Bar({ t, pct, color, style, height = 6 }) {
+  return (
+    <div style={{ height, borderRadius: height / 2, background: t.hairline, overflow: 'hidden', ...style }}>
+      <div style={{ width: `${Math.min(1, pct) * 100}%`, height: '100%', background: color, borderRadius: height / 2 }} />
+    </div>
+  );
+}
+
+function chapterProgress(bolum, ilerleme) {
+  const total = bolum.dersler.length;
+  let done = 0;
+  for (const l of bolum.dersler) if ((ilerleme[l.id] || 'locked') === 'done') done++;
+  return { done, total, pct: done / total };
+}
+
+Object.assign(window, { Home, Mono, Card, Bar, SpectrumBg, chapterProgress });

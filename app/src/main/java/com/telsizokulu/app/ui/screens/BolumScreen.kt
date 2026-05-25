@@ -41,15 +41,15 @@ fun BolumScreen(
     val ilerleme = uiState.ilerleme
 
     if (uiState.yukleniyor || bolum == null) {
-        Box(Modifier.fillMaxSize().background(Slate950), contentAlignment = Alignment.Center) {
-            CircularProgressIndicator(color = Blue60)
+        Box(Modifier.fillMaxSize().background(SpektrumBg), contentAlignment = Alignment.Center) {
+            CircularProgressIndicator(color = SpektrumAccent)
         }
         return
     }
 
     val renk = try {
         Color(android.graphics.Color.parseColor(bolum.renk))
-    } catch (e: Exception) { Blue60 }
+    } catch (e: Exception) { SpektrumAccent }
 
     val bolumDurum = ilerleme.bolumler[bolum.id]?.durum ?: "kilitli"
     val gecmeSinaviDurum = ilerleme.bolumler[bolum.id]?.gecmeSinavi?.durum ?: "kilitli"
@@ -64,13 +64,13 @@ fun BolumScreen(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Slate900,
-                    titleContentColor = SlateWhite,
-                    navigationIconContentColor = SlateWhite
+                    containerColor = SpektrumSurface,
+                    titleContentColor = SpektrumOnSurface,
+                    navigationIconContentColor = SpektrumOnSurface
                 )
             )
         },
-        containerColor = Slate950
+        containerColor = SpektrumBg
     ) { padding ->
         LazyColumn(
             modifier = Modifier.fillMaxSize().padding(padding),
@@ -80,7 +80,7 @@ fun BolumScreen(
             // Bölüm başlığı — left color bar + big icon
             item {
                 Card(
-                    colors = CardDefaults.cardColors(containerColor = Slate900),
+                    colors = CardDefaults.cardColors(containerColor = SpektrumSurface),
                     shape = RoundedCornerShape(20.dp),
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -117,7 +117,7 @@ fun BolumScreen(
                                     Text(
                                         text = bolum.baslik,
                                         style = MaterialTheme.typography.headlineSmall.copy(fontWeight = FontWeight.ExtraBold),
-                                        color = SlateWhite
+                                        color = SpektrumOnSurface
                                     )
                                 }
                             }
@@ -125,7 +125,7 @@ fun BolumScreen(
                             Text(
                                 text = bolum.aciklama,
                                 style = MaterialTheme.typography.bodyMedium,
-                                color = Slate400
+                                color = SpektrumMuted
                             )
                         }
                     }
@@ -171,8 +171,8 @@ fun BolumScreen(
                     modifier = Modifier.fillMaxWidth().height(62.dp),
                     enabled = sinavAcik,
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = if (sinavTamamlandi) GreenSuccess else renk,
-                        disabledContainerColor = Slate800
+                        containerColor = if (sinavTamamlandi) Success else renk,
+                        disabledContainerColor = SpektrumOutline2
                     ),
                     shape = RoundedCornerShape(18.dp)
                 ) {
@@ -185,7 +185,7 @@ fun BolumScreen(
                         fontWeight = FontWeight.ExtraBold,
                         fontSize = 16.sp,
                         letterSpacing = 0.5.sp,
-                        color = if (sinavAcik) SlateWhite else Slate700
+                        color = if (sinavAcik) SpektrumOnSurface else SpektrumOutline
                     )
                 }
 
@@ -193,7 +193,7 @@ fun BolumScreen(
                     Text(
                         text = "Tüm alt bölümleri tamamlayınca aktif olur • %${bolum.gecmeSinavi.gecmePuani} başarı gerekli",
                         style = MaterialTheme.typography.labelSmall,
-                        color = Slate400,
+                        color = SpektrumMuted,
                         modifier = Modifier.padding(top = 8.dp)
                     )
                 }
@@ -217,7 +217,7 @@ private fun AltBolumKart(
 
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = if (kilitli) Slate900.copy(alpha = 0.5f) else Slate900
+            containerColor = if (kilitli) SpektrumSurface.copy(alpha = 0.5f) else SpektrumSurface
         ),
         shape = RoundedCornerShape(18.dp),
         modifier = Modifier.fillMaxWidth().alpha(if (kilitli) 0.55f else 1f)
@@ -233,12 +233,12 @@ private fun AltBolumKart(
                     Text(
                         text = altBolum.baslik,
                         style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
-                        color = if (kilitli) Slate700 else SlateWhite
+                        color = if (kilitli) SpektrumOutline else SpektrumOnSurface
                     )
                     Text(
                         text = altBolum.aciklama,
                         style = MaterialTheme.typography.bodySmall,
-                        color = Slate400,
+                        color = SpektrumMuted,
                         modifier = Modifier.padding(top = 4.dp),
                         maxLines = 2,
                         overflow = TextOverflow.Ellipsis
@@ -248,8 +248,8 @@ private fun AltBolumKart(
                 Surface(
                     shape = RoundedCornerShape(20.dp),
                     color = when {
-                        tamamlandi -> GreenSuccess.copy(alpha = 0.2f)
-                        kilitli -> Slate800
+                        tamamlandi -> Success.copy(alpha = 0.2f)
+                        kilitli -> SpektrumOutline2
                         else -> renk.copy(alpha = 0.15f)
                     }
                 ) {
@@ -290,22 +290,22 @@ private fun AltBolumKart(
                             .clip(CircleShape)
                             .background(
                                 when {
-                                    dersTamamlandi -> GreenSuccess
+                                    dersTamamlandi -> Success
                                     dersAcik -> renk
-                                    else -> Slate800
+                                    else -> SpektrumOutline2
                                 }
                             ),
                         contentAlignment = Alignment.Center
                     ) {
                         if (dersTamamlandi) {
-                            Text("✓", fontSize = 18.sp, fontWeight = FontWeight.ExtraBold, color = SlateWhite)
+                            Text("✓", fontSize = 18.sp, fontWeight = FontWeight.ExtraBold, color = SpektrumOnSurface)
                         } else if (!dersAcik) {
-                            Icon(Icons.Filled.Lock, contentDescription = null, tint = Slate700, modifier = Modifier.size(18.dp))
+                            Icon(Icons.Filled.Lock, contentDescription = null, tint = SpektrumOutline, modifier = Modifier.size(18.dp))
                         } else {
                             Text(
                                 text = "${ders.no}",
                                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.ExtraBold),
-                                color = SlateWhite
+                                color = SpektrumOnSurface
                             )
                         }
                     }
@@ -315,15 +315,15 @@ private fun AltBolumKart(
                             text = ders.baslik,
                             style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.SemiBold),
                             color = when {
-                                dersTamamlandi -> GreenSuccess
-                                dersAcik -> SlateWhite
-                                else -> Slate700
+                                dersTamamlandi -> Success
+                                dersAcik -> SpektrumOnSurface
+                                else -> SpektrumOutline
                             }
                         )
                         if (dersTamamlandi) {
-                            Text("Tamamlandı", fontSize = 12.sp, color = GreenSuccess.copy(alpha = 0.7f))
+                            Text("Tamamlandı", fontSize = 12.sp, color = Success.copy(alpha = 0.7f))
                         } else if (dersAcik) {
-                            Text("Başlamak için dokun", fontSize = 12.sp, color = Slate400)
+                            Text("Başlamak için dokun", fontSize = 12.sp, color = SpektrumMuted)
                         }
                     }
                 }
@@ -331,7 +331,7 @@ private fun AltBolumKart(
                 if (ders != altBolum.dersler.last()) {
                     HorizontalDivider(
                         modifier = Modifier.padding(start = 58.dp),
-                        color = Slate800.copy(alpha = 0.5f)
+                        color = SpektrumOutline2.copy(alpha = 0.5f)
                     )
                 }
             }
@@ -345,11 +345,11 @@ private fun AltBolumKart(
                 enabled = sinavAcik,
                 modifier = Modifier.fillMaxWidth().height(52.dp),
                 shape = RoundedCornerShape(14.dp),
-                border = BorderStroke(1.5.dp, if (tamamlandi) GreenSuccess else if (sinavAcik) renk else Slate800)
+                border = BorderStroke(1.5.dp, if (tamamlandi) Success else if (sinavAcik) renk else SpektrumOutline2)
             ) {
                 Text(
                     text = if (tamamlandi) "✅ Sınav Geçildi" else "🧪 Alt Bölüm Sınavı",
-                    color = if (tamamlandi) GreenSuccess else if (sinavAcik) renk else Slate700,
+                    color = if (tamamlandi) Success else if (sinavAcik) renk else SpektrumOutline,
                     fontWeight = FontWeight.Bold,
                     fontSize = 15.sp
                 )

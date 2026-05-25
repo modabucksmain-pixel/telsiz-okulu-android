@@ -31,17 +31,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.telsizokulu.app.ui.theme.Blue60
-import com.telsizokulu.app.ui.theme.SlateWhite
-import com.telsizokulu.app.ui.theme.SpektrumBg
-import com.telsizokulu.app.ui.theme.SpektrumMuted
-import com.telsizokulu.app.ui.theme.SpektrumSurface
-import com.telsizokulu.app.ui.theme.neonGlow
+import com.telsizokulu.app.ui.theme.*
 
 private data class OnboardingAdim(val ikon: String, val baslik: String, val metin: String, val renk: Color)
 
 private val adimlar = listOf(
-    OnboardingAdim("🗺️", "Bölüm Haritası", "NATO alfabesinden TRAC sınavına kadar 6 bölüm. Sırayla aç, ilerle.", Blue60),
+    OnboardingAdim("🗺️", "Bölüm Haritası", "NATO alfabesinden TRAC sınavına kadar 6 bölüm. Sırayla aç, ilerle.", SpektrumAccent),
     OnboardingAdim("📇", "Dersler", "Önce bilgi kartlarını çevir, sonra alıştırmalarla pekiştir.", Color(0xFF14B8A6)),
     OnboardingAdim("🎯", "Sınavlar", "Alt bölüm, bölüm ve genel TRAC sınavıyla kendini test et.", Color(0xFF7C3AED)),
     OnboardingAdim("🔁", "Pratik", "Yanlış yaptığın kartlar öne çıkar, zayıf konuları kapat.", Color(0xFFFF6B00)),
@@ -92,7 +87,7 @@ fun OnboardingOverlay(onKapat: () -> Unit) {
 
             Text(
                 text = adim.baslik,
-                color = SlateWhite,
+                color = SpektrumOnSurface,
                 fontSize = 26.sp,
                 fontWeight = FontWeight.ExtraBold,
                 textAlign = TextAlign.Center,
@@ -132,7 +127,7 @@ fun OnboardingOverlay(onKapat: () -> Unit) {
             ) {
                 Text(
                     text = if (sonuncu) "Başla 🚀" else "İleri ›",
-                    color = SlateWhite,
+                    color = SpektrumOnSurface,
                     fontWeight = FontWeight.ExtraBold,
                     fontSize = 16.sp,
                 )

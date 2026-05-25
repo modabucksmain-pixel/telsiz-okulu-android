@@ -1,10 +1,12 @@
 package com.telsizokulu.app.ui.screens
 
-import androidx.compose.foundation.*
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -15,23 +17,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.telsizokulu.app.engine.GamificationEngine
-import com.telsizokulu.app.ui.components.BadgeIcon
-import com.telsizokulu.app.ui.components.rozetRenk
+import com.telsizokulu.app.ui.components.SpectrumBackground
 import com.telsizokulu.app.ui.theme.*
 import com.telsizokulu.app.ui.viewmodel.ProfileViewModel
-import androidx.activity.compose.rememberLauncherForActivityResult
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.ui.platform.LocalContext
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileScreen(
     viewModel: ProfileViewModel,
-    onGeri: () -> Unit
+    onGeri: () -> Unit,
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val context = LocalContext.current
@@ -42,12 +41,8 @@ fun ProfileScreen(
         if (uri != null) {
             viewModel.exportJson { json ->
                 try {
-                    context.contentResolver.openOutputStream(uri)?.use { output ->
-                        output.write(json.toByteArray())
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
+                    context.contentResolver.openOutputStream(uri)?.use { it.write(json.toByteArray()) }
+                } catch (e: Exception) { e.printStackTrace() }
             }
         }
     }
@@ -58,179 +53,307 @@ fun ProfileScreen(
         if (uri != null) {
             try {
                 context.contentResolver.openInputStream(uri)?.use { input ->
-                    val json = input.bufferedReader().use { it.readText() }
-                    viewModel.importJson(json)
+                    viewModel.importJson(input.bufferedReader().use { it.readText() })
                 }
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
+            } catch (e: Exception) { e.printStackTrace() }
         }
     }
 
-    val ilerleme = uiState.ilerleme
+    if (uiState.yukleniyor) {
+        Box(Modifier.fillMaxSize().background(SpektrumBg), contentAlignment = Alignment.Center) {
+            CircularProgressIndicator(color = SpektrumAccent)
+        }
+        return
+    }
+
+    val ilerleme  = uiState.ilerleme
     val kullanici = ilerleme.kullanici
+    val rozetTanimlari = uiState.rozetTanimlari
+    val kazanilanRozetler = kullanici.rozetler
 
     val seviye = when {
         kullanici.xp >= 5000 -> 7; kullanici.xp >= 3500 -> 6
         kullanici.xp >= 2000 -> 5; kullanici.xp >= 1000 -> 4
         kullanici.xp >= 500  -> 3; kullanici.xp >= 200  -> 2; else -> 1
     }
-    val seviyeIsim = GamificationEngine.SEVIYE_ISIMLERI[seviye] ?: "Acemi Telsizci"
-    val sonrakiXP = when(seviye) {
-        1->200; 2->500; 3->1000; 4->2000; 5->3500; 6->5000; else->5000
-    }
-    val mevcutSeviyeXP = when(seviye) {
-        1->0; 2->200; 3->500; 4->1000; 5->2000; 6->3500; else->5000
-    }
-    val xpYuzde = if (sonrakiXP == mevcutSeviyeXP) 1f
-    else (kullanici.xp - mevcutSeviyeXP).toFloat() / (sonrakiXP - mevcutSeviyeXP)
+    val seviyeIsim   = GamificationEngine.SEVIYE_ISIMLERI[seviye] ?: "Acemi Telsizci"
+    val sonrakiXP    = when (seviye) { 1->200; 2->500; 3->1000; 4->2000; 5->3500; 6->5000; else->5000 }
+    val mevcutTabanXP= when (seviye) { 1->0;   2->200; 3->500;  4->1000; 5->2000; 6->3500; else->5000 }
+    val xpYuzde      = if (sonrakiXP == mevcutTabanXP) 1f
+                       else (kullanici.xp - mevcutTabanXP).toFloat() / (sonrakiXP - mevcutTabanXP)
 
     Scaffold(
+        containerColor = SpektrumBg,
         topBar = {
             TopAppBar(
-                title = { Text("Profil") },
-                navigationIcon = {
-                    IconButton(onClick = onGeri) {
-                        Icon(Icons.Filled.ArrowBack, contentDescription = "Geri")
+                title = {
+                    Column {
+                        Text("OPERATÖR", style = EyebrowMono.copy(color = SpektrumAccent))
+                        Text("Profil", style = ScreenTitle, color = SpektrumOnSurface)
                     }
                 },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = Slate900,
-                    titleContentColor = SlateWhite,
-                    navigationIconContentColor = SlateWhite
-                )
+                navigationIcon = {
+                    IconButton(onClick = onGeri) {
+                        Icon(Icons.Filled.ArrowBack, contentDescription = "Geri", tint = SpektrumOnSurface)
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(containerColor = SpektrumBg),
             )
         },
-        containerColor = Slate950
     ) { padding ->
         LazyColumn(
             modifier = Modifier.fillMaxSize().padding(padding),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(14.dp)
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            // ── Profil Başlığı ──────────────────────────────────
+
+            // ── Hero card ────────────────────────────────────────────
             item {
-                Card(
-                    colors = CardDefaults.cardColors(containerColor = Slate900),
-                    shape = RoundedCornerShape(22.dp),
-                    modifier = Modifier.fillMaxWidth()
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(14.dp))
+                        .background(MaterialTheme.colorScheme.surface)
+                        .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(14.dp)),
                 ) {
-                    Column(
-                        modifier = Modifier.padding(28.dp).fillMaxWidth(),
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .size(96.dp)
-                                .clip(CircleShape)
-                                .background(Blue60.copy(alpha = 0.15f))
-                                .border(3.dp, Blue60.copy(alpha = 0.3f), CircleShape),
-                            contentAlignment = Alignment.Center
+                    SpectrumBackground(accent = SpektrumAccent, modifier = Modifier.matchParentSize())
+                    Column(modifier = Modifier.padding(18.dp)) {
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(14.dp),
                         ) {
-                            Text("📻", fontSize = 44.sp)
+                            Box(
+                                modifier = Modifier
+                                    .size(64.dp)
+                                    .clip(RoundedCornerShape(16.dp))
+                                    .background(SpektrumAccentTint)
+                                    .border(1.dp, SpektrumAccent.copy(alpha = 0.3f), RoundedCornerShape(16.dp)),
+                                contentAlignment = Alignment.Center,
+                            ) {
+                                Text(
+                                    text = "TA2",
+                                    fontFamily = MonoFamily,
+                                    fontWeight = FontWeight.ExtraBold,
+                                    fontSize = 18.sp,
+                                    color = SpektrumAccent,
+                                )
+                            }
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = "ÇAĞRI · TA2/CALL · A SINIFI ADAYI",
+                                    style = EyebrowMono,
+                                    color = SpektrumMuted,
+                                )
+                                Spacer(Modifier.height(3.dp))
+                                Text(
+                                    text = "Seviye $seviye · $seviyeIsim",
+                                    fontFamily = SansFamily,
+                                    fontWeight = FontWeight.ExtraBold,
+                                    fontSize = 18.sp,
+                                    letterSpacing = (-0.3).sp,
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                )
+                            }
                         }
                         Spacer(Modifier.height(14.dp))
-                        Text(
-                            text = seviyeIsim,
-                            style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.ExtraBold),
-                            color = SlateWhite
-                        )
-                        Surface(
-                            shape = RoundedCornerShape(20.dp),
-                            color = Blue60.copy(alpha = 0.15f),
-                            modifier = Modifier.padding(top = 6.dp)
-                        ) {
-                            Text(
-                                text = "Seviye $seviye",
-                                fontSize = 13.sp,
-                                fontWeight = FontWeight.Bold,
-                                color = Blue60,
-                                modifier = Modifier.padding(horizontal = 14.dp, vertical = 5.dp)
-                            )
-                        }
-
-                        Spacer(Modifier.height(24.dp))
-
-                        // XP progress bar — full width inside hero card
                         Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(10.dp),
                         ) {
-                            Text("Sv.$seviye", fontSize = 12.sp, fontWeight = FontWeight.Bold, color = Blue60)
-                            Spacer(Modifier.width(8.dp))
                             LinearProgressIndicator(
                                 progress = { xpYuzde.coerceIn(0f, 1f) },
-                                modifier = Modifier.weight(1f).height(12.dp).clip(RoundedCornerShape(6.dp)),
-                                color = Blue60,
-                                trackColor = Slate800
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .height(6.dp)
+                                    .clip(RoundedCornerShape(3.dp)),
+                                color = SpektrumAccent,
+                                trackColor = MaterialTheme.colorScheme.outline,
                             )
-                            Spacer(Modifier.width(8.dp))
-                            Text("Sv.${seviye + 1}", fontSize = 12.sp, color = Slate400)
-                        }
-                        Text(
-                            "${kullanici.xp} / $sonrakiXP XP",
-                            fontSize = 12.sp,
-                            color = Slate400,
-                            modifier = Modifier.padding(top = 6.dp)
-                        )
-
-                        Spacer(Modifier.height(20.dp))
-
-                        // Stat row — bigger
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.SpaceEvenly
-                        ) {
-                            ProfilStatItem("${kullanici.xp}", "XP", GoldXP)
-                            ProfilStatItem("${kullanici.streak}", "🔥 Gün", OrangeStreak)
-                            ProfilStatItem("${kullanici.tamamlananDersler}", "Ders", GreenSuccess)
-                            ProfilStatItem("${kullanici.rozetler.size}", "Rozet", Purple60)
+                            Text(
+                                text = "${kullanici.xp}/${sonrakiXP} XP",
+                                style = MutedMono,
+                                color = SpektrumMuted,
+                            )
                         }
                     }
                 }
             }
 
-            // ── Bölüm İlerlemeleri ──────────────────────────────
+            // ── 3 stat chips ─────────────────────────────────────────
             item {
-                Card(
-                    colors = CardDefaults.cardColors(containerColor = Slate900),
-                    shape = RoundedCornerShape(18.dp),
-                    modifier = Modifier.fillMaxWidth()
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    Column(modifier = Modifier.padding(20.dp)) {
-                        Text(
-                            "📊 Bölüm İlerlemeleri",
-                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                            color = SlateWhite
-                        )
-                        Spacer(Modifier.height(16.dp))
-                        uiState.curriculum.bolumler.forEach { bolum ->
-                            val yuzde = GamificationEngine.getBolumIlerlemeYuzdesi(ilerleme, bolum.id)
-                            val renk = try { Color(android.graphics.Color.parseColor(bolum.renk)) } catch (e: Exception) { Blue60 }
-                            Column(modifier = Modifier.padding(bottom = 14.dp)) {
-                                Row(
-                                    modifier = Modifier.fillMaxWidth().padding(bottom = 6.dp),
-                                    verticalAlignment = Alignment.CenterVertically
+                    ProfilStatKutu(
+                        etiket = "STREAK",
+                        deger  = "${kullanici.streak}",
+                        renk   = SpektrumStreak,
+                        modifier = Modifier.weight(1f),
+                    )
+                    ProfilStatKutu(
+                        etiket = "TAM. DERS",
+                        deger  = "${kullanici.tamamlananDersler}",
+                        renk   = Success,
+                        modifier = Modifier.weight(1f),
+                    )
+                    ProfilStatKutu(
+                        etiket = "ROZET",
+                        deger  = "${kazanilanRozetler.size}/${rozetTanimlari.size}",
+                        renk   = SpektrumAccent,
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+            }
+
+            // ── Rozetler ──────────────────────────────────────────────
+            item {
+                Text(
+                    text = "ROZETLER · ${kazanilanRozetler.size}/${rozetTanimlari.size}",
+                    style = MutedMono,
+                    color = SpektrumMuted,
+                    modifier = Modifier.padding(top = 6.dp, bottom = 2.dp),
+                )
+            }
+            item {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    rozetTanimlari.chunked(3).forEach { satir ->
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        ) {
+                            satir.forEach { rozet ->
+                                val kazanildi = rozet.id in kazanilanRozetler
+                                Column(
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .clip(RoundedCornerShape(12.dp))
+                                        .background(MaterialTheme.colorScheme.surface)
+                                        .border(
+                                            1.dp,
+                                            if (kazanildi) SpektrumAccent else MaterialTheme.colorScheme.outline,
+                                            RoundedCornerShape(12.dp),
+                                        )
+                                        .alpha(if (kazanildi) 1f else 0.55f)
+                                        .padding(horizontal = 8.dp, vertical = 12.dp),
+                                    horizontalAlignment = Alignment.CenterHorizontally,
                                 ) {
-                                    Text(bolum.ikon, fontSize = 18.sp)
-                                    Spacer(Modifier.width(8.dp))
+                                    Box(
+                                        modifier = Modifier
+                                            .size(44.dp)
+                                            .clip(RoundedCornerShape(12.dp))
+                                            .background(
+                                                if (kazanildi) SpektrumAccent
+                                                else MaterialTheme.colorScheme.outline
+                                            ),
+                                        contentAlignment = Alignment.Center,
+                                    ) {
+                                        Text(
+                                            text = rozet.ikon,
+                                            fontFamily = MonoFamily,
+                                            fontWeight = FontWeight.ExtraBold,
+                                            fontSize = 12.sp,
+                                            letterSpacing = 0.5.sp,
+                                            color = if (kazanildi) SpektrumBg
+                                                    else MaterialTheme.colorScheme.onSurfaceVariant,
+                                        )
+                                    }
+                                    Spacer(Modifier.height(6.dp))
                                     Text(
-                                        bolum.baslik,
-                                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold),
-                                        color = SlateWhite,
-                                        modifier = Modifier.weight(1f)
+                                        text = rozet.isim,
+                                        fontFamily = SansFamily,
+                                        fontWeight = FontWeight.SemiBold,
+                                        fontSize = 11.sp,
+                                        color = MaterialTheme.colorScheme.onSurface,
+                                        maxLines = 2,
                                     )
                                     Text(
-                                        "$yuzde%",
-                                        style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                                        color = renk
+                                        text = rozet.aciklama,
+                                        fontFamily = MonoFamily,
+                                        fontSize = 9.sp,
+                                        color = SpektrumMuted,
+                                        maxLines = 2,
+                                        lineHeight = 12.sp,
+                                        modifier = Modifier.padding(top = 2.dp),
                                     )
                                 }
+                            }
+                            // Fill empty spots in last row
+                            repeat(3 - satir.size) { Spacer(modifier = Modifier.weight(1f)) }
+                        }
+                    }
+                }
+            }
+
+            // ── Bölüm İlerlemesi ──────────────────────────────────────
+            item {
+                Text(
+                    text = "BÖLÜM İLERLEMESİ",
+                    style = MutedMono,
+                    color = SpektrumMuted,
+                    modifier = Modifier.padding(top = 6.dp, bottom = 2.dp),
+                )
+            }
+            item {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(14.dp))
+                        .background(MaterialTheme.colorScheme.surface)
+                        .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(14.dp))
+                        .padding(14.dp),
+                ) {
+                    Column {
+                        uiState.curriculum.bolumler.forEachIndexed { i, bolum ->
+                            val yuzde = GamificationEngine.getBolumIlerlemeYuzdesi(ilerleme, bolum.id)
+                            val renk  = BolumColors.fromId(bolum.id)
+                            val no    = bolum.siralama.toString().padStart(2, '0')
+                            Row(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(vertical = 8.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(10.dp),
+                            ) {
+                                Text(
+                                    text = "B$no",
+                                    fontFamily = MonoFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 11.sp,
+                                    color = renk,
+                                    modifier = Modifier.width(32.dp),
+                                )
+                                Text(
+                                    text = bolum.baslik,
+                                    fontFamily = SansFamily,
+                                    fontWeight = FontWeight.SemiBold,
+                                    fontSize = 13.sp,
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    modifier = Modifier.weight(1f),
+                                    maxLines = 1,
+                                )
                                 LinearProgressIndicator(
                                     progress = { yuzde / 100f },
-                                    modifier = Modifier.fillMaxWidth().height(10.dp).clip(RoundedCornerShape(5.dp)),
+                                    modifier = Modifier
+                                        .width(70.dp)
+                                        .height(4.dp)
+                                        .clip(RoundedCornerShape(2.dp)),
                                     color = renk,
-                                    trackColor = Slate800
+                                    trackColor = MaterialTheme.colorScheme.outline,
+                                )
+                                Text(
+                                    text = "$yuzde%",
+                                    fontFamily = MonoFamily,
+                                    fontWeight = FontWeight.Bold,
+                                    fontSize = 11.sp,
+                                    color = SpektrumMuted,
+                                    modifier = Modifier.width(32.dp),
+                                )
+                            }
+                            if (i < uiState.curriculum.bolumler.size - 1) {
+                                HorizontalDivider(
+                                    color = MaterialTheme.colorScheme.outline.copy(alpha = 0.5f),
+                                    thickness = 0.5.dp,
                                 )
                             }
                         }
@@ -238,257 +361,194 @@ fun ProfileScreen(
                 }
             }
 
-            // ── Öğrenme Durumu ──────────────────────────────────
+            // ── Öğrenme Durumu ──────────────────────────────────────
             item {
-                val kartlar = ilerleme.kartlar
-                val ogrendim = kartlar.count { it.value.durum == "ogrendim" }
-                val ogreniyor = kartlar.count { it.value.durum == "ogreniyor" }
+                val kartlar    = ilerleme.kartlar
+                val ogrendim   = kartlar.count { it.value.durum == "ogrendim" }
+                val ogreniyor  = kartlar.count { it.value.durum == "ogreniyor" }
                 val ogrenmedim = kartlar.count { it.value.durum == "ogrenmedim" }
 
-                Card(
-                    colors = CardDefaults.cardColors(containerColor = Slate900),
-                    shape = RoundedCornerShape(18.dp),
-                    modifier = Modifier.fillMaxWidth()
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(14.dp))
+                        .background(MaterialTheme.colorScheme.surface)
+                        .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(14.dp))
+                        .padding(14.dp),
                 ) {
-                    Column(modifier = Modifier.padding(20.dp)) {
-                        Text(
-                            "📚 Öğrenme Durumu",
-                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                            color = SlateWhite
-                        )
-                        Spacer(Modifier.height(16.dp))
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(10.dp)
-                        ) {
-                            OgrenmeStatKart("✅", "$ogrendim", "Öğrendim", GreenSuccess, Modifier.weight(1f))
-                            OgrenmeStatKart("📖", "$ogreniyor", "Öğreniyorum", AmberWarning, Modifier.weight(1f))
-                            OgrenmeStatKart("❓", "$ogrenmedim", "Öğrenemedim", Slate400, Modifier.weight(1f))
-                        }
+                    Text(
+                        text = "ÖĞRENME DURUMU",
+                        style = EyebrowMono.copy(color = SpektrumAccent),
+                        modifier = Modifier.padding(bottom = 12.dp),
+                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        OgrenmeKart("$ogrendim",   "Öğrendim",   Success,       Modifier.weight(1f))
+                        OgrenmeKart("$ogreniyor",  "Öğreniyorum", Warn,         Modifier.weight(1f))
+                        OgrenmeKart("$ogrenmedim", "Öğrenemedim", SpektrumMuted, Modifier.weight(1f))
                     }
                 }
             }
 
-            // ── Rozet Vitrini ───────────────────────────────────
+            // ── Veri Yönetimi ────────────────────────────────────────
             item {
-                Card(
-                    colors = CardDefaults.cardColors(containerColor = Slate900),
-                    shape = RoundedCornerShape(18.dp),
-                    modifier = Modifier.fillMaxWidth()
+                var resetDialogAcik by remember { mutableStateOf(false) }
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(14.dp))
+                        .background(MaterialTheme.colorScheme.surface)
+                        .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(14.dp))
+                        .padding(14.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    Column(modifier = Modifier.padding(20.dp)) {
-                        Text(
-                            "🏆 Rozet Vitrini",
-                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                            color = SlateWhite
-                        )
-                        Text(
-                            "${kullanici.rozetler.size} / ${GamificationEngine.ROZET_BILGILERI.size} kazanıldı",
-                            fontSize = 12.sp,
-                            color = Slate400,
-                            modifier = Modifier.padding(top = 4.dp, bottom = 16.dp)
-                        )
-                        GamificationEngine.ROZET_BILGILERI.entries.chunked(3).forEach { grup ->
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.spacedBy(10.dp)
-                            ) {
-                                grup.forEach { (rozetId, bilgi) ->
-                                    val kazanildi = rozetId in kullanici.rozetler
-                                    Column(
-                                        modifier = Modifier
-                                            .weight(1f)
-                                            .clip(RoundedCornerShape(14.dp))
-                                            .background(
-                                                if (kazanildi) GoldXP.copy(alpha = 0.12f) else Slate800.copy(alpha = 0.4f)
-                                            )
-                                            .border(
-                                                1.dp,
-                                                if (kazanildi) GoldXP.copy(alpha = 0.3f) else Slate700.copy(alpha = 0.3f),
-                                                RoundedCornerShape(14.dp)
-                                            )
-                                            .alpha(if (kazanildi) 1f else 0.4f)
-                                            .padding(12.dp),
-                                        horizontalAlignment = Alignment.CenterHorizontally
-                                    ) {
-                                        BadgeIcon(rozetId = rozetId, kazanildi = kazanildi, size = 52.dp)
-                                        Spacer(Modifier.height(6.dp))
-                                        Text(
-                                            GamificationEngine.getRozetIsim(rozetId),
-                                            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
-                                            color = if (kazanildi) rozetRenk(rozetId) else Slate700,
-                                            maxLines = 2
-                                        )
-                                    }
+                    Text("VERİ YÖNETİMİ", style = EyebrowMono.copy(color = SpektrumAccent))
+                    Spacer(Modifier.height(4.dp))
+                    Button(
+                        onClick = { exportLauncher.launch("telsiz_okulu_yedek.json") },
+                        modifier = Modifier.fillMaxWidth().height(48.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.outline),
+                        shape = RoundedCornerShape(10.dp),
+                    ) {
+                        Text("Veriyi Dışa Aktar", fontFamily = SansFamily, fontWeight = FontWeight.SemiBold, color = SpektrumOnSurface)
+                    }
+                    Button(
+                        onClick = { importLauncher.launch("application/json") },
+                        modifier = Modifier.fillMaxWidth().height(48.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.outline),
+                        shape = RoundedCornerShape(10.dp),
+                    ) {
+                        Text("Veriyi İçe Aktar", fontFamily = SansFamily, fontWeight = FontWeight.SemiBold, color = SpektrumOnSurface)
+                    }
+                    OutlinedButton(
+                        onClick = { resetDialogAcik = true },
+                        modifier = Modifier.fillMaxWidth().height(48.dp),
+                        colors = ButtonDefaults.outlinedButtonColors(contentColor = Danger),
+                        border = BorderStroke(1.dp, Danger),
+                        shape = RoundedCornerShape(10.dp),
+                    ) {
+                        Text("Tüm Veriyi Sıfırla", fontFamily = SansFamily, fontWeight = FontWeight.Bold)
+                    }
+
+                    if (resetDialogAcik) {
+                        AlertDialog(
+                            onDismissRequest = { resetDialogAcik = false },
+                            title = { Text("İlerlemeyi Sıfırla") },
+                            text = { Text("Bu işlem geri alınamaz. Tüm ilerlemeniz silinecek.") },
+                            confirmButton = {
+                                TextButton(onClick = { viewModel.veriSifirla(); resetDialogAcik = false }) {
+                                    Text("Sıfırla", color = Danger)
                                 }
-                                repeat(3 - grup.size) { Spacer(Modifier.weight(1f)) }
-                            }
-                            Spacer(Modifier.height(10.dp))
-                        }
+                            },
+                            dismissButton = {
+                                TextButton(onClick = { resetDialogAcik = false }) { Text("İptal") }
+                            },
+                            containerColor = MaterialTheme.colorScheme.surface,
+                        )
                     }
                 }
             }
 
-            // ── Veri Yönetimi ──────────────────────────────────
+            // ── Geliştirici Araçları ──────────────────────────────────
             item {
-                Card(
-                    colors = CardDefaults.cardColors(containerColor = Slate900),
-                    shape = RoundedCornerShape(18.dp),
-                    modifier = Modifier.fillMaxWidth()
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(14.dp))
+                        .background(MaterialTheme.colorScheme.surface)
+                        .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(14.dp))
+                        .padding(14.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    Column(modifier = Modifier.padding(20.dp)) {
-                        Text(
-                            "💾 Veri Yönetimi",
-                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                            color = SlateWhite
-                        )
-                        Spacer(Modifier.height(14.dp))
-                        var sifirlamaOnayDialogAcik by remember { mutableStateOf(false) }
-
-                        Button(
-                            onClick = { exportLauncher.launch("telsiz_okulu_yedek.json") },
-                            modifier = Modifier.fillMaxWidth().height(54.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = Slate800),
-                            shape = RoundedCornerShape(14.dp)
-                        ) {
-                            Text("📤 Veriyi Dışa Aktar", color = SlateWhite, fontWeight = FontWeight.SemiBold, fontSize = 15.sp)
-                        }
-
-                        Spacer(Modifier.height(10.dp))
-
-                        Button(
-                            onClick = { importLauncher.launch("application/json") },
-                            modifier = Modifier.fillMaxWidth().height(54.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = Slate800),
-                            shape = RoundedCornerShape(14.dp)
-                        ) {
-                            Text("📥 Veriyi İçe Aktar", color = SlateWhite, fontWeight = FontWeight.SemiBold, fontSize = 15.sp)
-                        }
-
-                        Spacer(Modifier.height(10.dp))
-
-                        OutlinedButton(
-                            onClick = { sifirlamaOnayDialogAcik = true },
-                            modifier = Modifier.fillMaxWidth().height(54.dp),
-                            colors = ButtonColors(
-                                containerColor = Color.Transparent,
-                                contentColor = RedError,
-                                disabledContainerColor = Color.Transparent,
-                                disabledContentColor = Slate700
-                            ),
-                            border = BorderStroke(1.5.dp, RedError),
-                            shape = RoundedCornerShape(14.dp)
-                        ) {
-                            Text("🗑️ Tüm Veriyi Sıfırla", fontWeight = FontWeight.Bold, fontSize = 15.sp)
-                        }
-
-                        if (sifirlamaOnayDialogAcik) {
-                            AlertDialog(
-                                onDismissRequest = { sifirlamaOnayDialogAcik = false },
-                                title = { Text("Tüm İlerlemeyi Sıfırla") },
-                                text = { Text("Bu işlem geri alınamaz! Tüm ilerlemeniz silinecek.") },
-                                confirmButton = {
-                                    TextButton(
-                                        onClick = {
-                                            viewModel.veriSifirla()
-                                            sifirlamaOnayDialogAcik = false
-                                        }
-                                    ) { Text("Sıfırla", color = RedError) }
-                                },
-                                dismissButton = {
-                                    TextButton(onClick = { sifirlamaOnayDialogAcik = false }) {
-                                        Text("İptal")
-                                    }
-                                },
-                                containerColor = Slate900
-                            )
-                        }
-
-                        // ── Geliştirici Araçları (test için) ──────────
-                        Spacer(Modifier.height(24.dp))
-                        Text(
-                            "🧪 Geliştirici Araçları",
-                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-                            color = SlateWhite
-                        )
-                        Text(
-                            "Test amaçlı — kilitleri açar, ilerlemeyi değiştirir.",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = Slate400
-                        )
-                        Spacer(Modifier.height(14.dp))
-
-                        Button(
-                            onClick = { viewModel.devTumKilitleriAc() },
-                            modifier = Modifier.fillMaxWidth().height(54.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = Slate800),
-                            shape = RoundedCornerShape(14.dp)
-                        ) {
-                            Text("🔓 Tüm Kilitleri Aç", color = SlateWhite, fontWeight = FontWeight.SemiBold, fontSize = 15.sp)
-                        }
-
-                        Spacer(Modifier.height(10.dp))
-
-                        Button(
-                            onClick = { viewModel.devXpEkle() },
-                            modifier = Modifier.fillMaxWidth().height(54.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = Slate800),
-                            shape = RoundedCornerShape(14.dp)
-                        ) {
-                            Text("⚡ +500 XP", color = SlateWhite, fontWeight = FontWeight.SemiBold, fontSize = 15.sp)
-                        }
-
-                        Spacer(Modifier.height(10.dp))
-
-                        Button(
-                            onClick = { viewModel.devOnboardingSifirla() },
-                            modifier = Modifier.fillMaxWidth().height(54.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = Slate800),
-                            shape = RoundedCornerShape(14.dp)
-                        ) {
-                            Text("👋 Öğreticiyi Tekrar Göster", color = SlateWhite, fontWeight = FontWeight.SemiBold, fontSize = 15.sp)
-                        }
+                    Text("GELİŞTİRİCİ ARAÇLARI", style = EyebrowMono.copy(color = Warn))
+                    Text(
+                        text = "Test amaçlı — kilitleri açar, ilerlemeyi değiştirir.",
+                        style = BodySmall,
+                        color = SpektrumMuted,
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Button(
+                        onClick = { viewModel.devTumKilitleriAc() },
+                        modifier = Modifier.fillMaxWidth().height(48.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.outline),
+                        shape = RoundedCornerShape(10.dp),
+                    ) {
+                        Text("Tüm Kilitleri Aç", fontFamily = SansFamily, fontWeight = FontWeight.SemiBold, color = SpektrumOnSurface)
+                    }
+                    Button(
+                        onClick = { viewModel.devXpEkle() },
+                        modifier = Modifier.fillMaxWidth().height(48.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.outline),
+                        shape = RoundedCornerShape(10.dp),
+                    ) {
+                        Text("+500 XP", fontFamily = SansFamily, fontWeight = FontWeight.SemiBold, color = SpektrumOnSurface)
+                    }
+                    Button(
+                        onClick = { viewModel.devOnboardingSifirla() },
+                        modifier = Modifier.fillMaxWidth().height(48.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.outline),
+                        shape = RoundedCornerShape(10.dp),
+                    ) {
+                        Text("Öğreticiyi Tekrar Göster", fontFamily = SansFamily, fontWeight = FontWeight.SemiBold, color = SpektrumOnSurface)
                     }
                 }
             }
+
+            item { Spacer(Modifier.height(24.dp)) }
         }
     }
 }
 
 @Composable
-private fun ProfilStatItem(deger: String, baslik: String, renk: Color) {
-    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+private fun ProfilStatKutu(etiket: String, deger: String, renk: Color, modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .clip(RoundedCornerShape(10.dp))
+            .background(renk.copy(alpha = 0.086f))
+            .border(1.dp, renk.copy(alpha = 0.25f), RoundedCornerShape(10.dp))
+            .padding(vertical = 12.dp, horizontal = 8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
         Text(
             text = deger,
-            style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.ExtraBold),
-            color = renk
+            fontFamily = MonoFamily,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 18.sp,
+            color = renk,
         )
-        Text(text = baslik, style = MaterialTheme.typography.labelSmall, color = Slate400)
+        Text(
+            text = etiket,
+            style = MutedMono.copy(fontSize = 9.sp),
+            color = SpektrumMuted,
+            modifier = Modifier.padding(top = 3.dp),
+        )
     }
 }
 
 @Composable
-private fun OgrenmeStatKart(ikon: String, deger: String, baslik: String, renk: Color, modifier: Modifier = Modifier) {
+private fun OgrenmeKart(deger: String, etiket: String, renk: Color, modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
-            .clip(RoundedCornerShape(14.dp))
-            .background(renk.copy(alpha = 0.1f))
-            .border(1.dp, renk.copy(alpha = 0.25f), RoundedCornerShape(14.dp))
-            .padding(vertical = 14.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .clip(RoundedCornerShape(10.dp))
+            .background(renk.copy(alpha = 0.086f))
+            .border(1.dp, renk.copy(alpha = 0.25f), RoundedCornerShape(10.dp))
+            .padding(vertical = 10.dp, horizontal = 6.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(ikon, fontSize = 24.sp)
-        Spacer(Modifier.height(4.dp))
         Text(
-            deger,
-            style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.ExtraBold),
-            color = renk
+            text = deger,
+            fontFamily = MonoFamily,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 16.sp,
+            color = renk,
         )
         Text(
-            baslik,
-            fontSize = 11.sp,
-            color = Slate400,
-            modifier = Modifier.padding(top = 2.dp)
+            text = etiket,
+            style = BodySmall,
+            color = SpektrumMuted,
+            modifier = Modifier.padding(top = 2.dp),
         )
     }
 }

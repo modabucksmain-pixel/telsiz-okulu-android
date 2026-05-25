@@ -17,28 +17,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.material3.Text
 import com.telsizokulu.app.engine.GamificationEngine
-import com.telsizokulu.app.ui.theme.AmberWarning
-import com.telsizokulu.app.ui.theme.Blue60
-import com.telsizokulu.app.ui.theme.GoldXP
-import com.telsizokulu.app.ui.theme.GreenSuccess
-import com.telsizokulu.app.ui.theme.OrangeStreak
-import com.telsizokulu.app.ui.theme.Purple60
-import com.telsizokulu.app.ui.theme.Slate700
-import com.telsizokulu.app.ui.theme.Slate950
-import com.telsizokulu.app.ui.theme.neonGlow
+import com.telsizokulu.app.ui.theme.*
 
 /** Rozet id'sine göre tematik accent renk. */
 fun rozetRenk(rozetId: String): Color = when (rozetId) {
-    "ilk_adim"          -> Blue60
-    "nato_caylagi", "nato_ustasi" -> Blue60
+    "ilk_adim"          -> SpektrumAccent
+    "nato_caylagi", "nato_ustasi" -> SpektrumAccent
     "q_kodu_bilgesi"    -> Color(0xFF14B8A6)
-    "elektronik_dehasi" -> AmberWarning
+    "elektronik_dehasi" -> Warn
     "frekans_avcisi"    -> Color(0xFF0EA5E9)
-    "prosedur_ustasi"   -> GreenSuccess
-    "7_gun_seri", "30_gun_seri" -> OrangeStreak
-    "mukemmeliyetci"    -> GoldXP
-    "trac_adayi"        -> Purple60
-    else                -> Blue60
+    "prosedur_ustasi"   -> Success
+    "7_gun_seri", "30_gun_seri" -> SpektrumStreak
+    "mukemmeliyetci"    -> SpektrumStreak
+    "trac_adayi"        -> SpektrumAccent
+    else                -> SpektrumAccent
 }
 
 /**
@@ -53,7 +45,7 @@ fun BadgeIcon(
     modifier: Modifier = Modifier,
 ) {
     val emoji = GamificationEngine.ROZET_BILGILERI[rozetId]?.first ?: "🏅"
-    val accent = if (kazanildi) rozetRenk(rozetId) else Slate700
+    val accent = if (kazanildi) rozetRenk(rozetId) else SpektrumOutline
 
     Box(
         modifier = modifier
@@ -65,7 +57,7 @@ fun BadgeIcon(
             .clip(CircleShape)
             .background(
                 Brush.verticalGradient(
-                    listOf(Slate950, accent.copy(alpha = if (kazanildi) 0.18f else 0.05f))
+                    listOf(SpektrumBg, accent.copy(alpha = if (kazanildi) 0.18f else 0.05f))
                 )
             )
             .alpha(if (kazanildi) 1f else 0.45f),
