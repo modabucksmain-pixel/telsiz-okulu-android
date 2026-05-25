@@ -43,6 +43,7 @@ class CurriculumRepository(private val context: Context) {
 
         // NATO + Q + Elektronik + Bant kartları için inandırıcı çoktan seçmeli üret.
         val uretilen = natoSecmeliUret(temizKartlar) +
+            cagriIsaretiUret(temizKartlar) +
             qKoduSecmeliUret(temizKartlar) +
             genelKartSecmeliUret(
                 temizKartlar, "el_",
@@ -106,6 +107,49 @@ class CurriculumRepository(private val context: Context) {
                     cevap = harf, secenekler = secenekler,
                     kartId = k.id, altBolum = ab, zorluk = "kolay",
                     aciklama = "$kod = $harf"
+                ))
+            }
+        }
+        return sonuc
+    }
+
+    /**
+     * Çağrı işareti okuma soruları üret: "TA2BC" → "Tango Alpha Two Bravo Charlie".
+     * NATO kartlarından harf/rakam→kod map kurar. Dağıtıcı: bir kelimesi değiştirilmiş varyant.
+     */
+    private fun cagriIsaretiUret(kartlar: List<Kart>): List<Egzersiz> {
+        val natoMap = kartlar
+            .filter { it.id.startsWith("nato_") && !it.on.isNullOrBlank() && !it.arka.isNullOrBlank() }
+            .associate { (it.on ?: "").uppercase() to (it.arka ?: "") }
+        if (natoMap.size < 10) return emptyList()
+        val kodlar = natoMap.values.distinct()
+
+        val cagrilar = listOf("TA2BC", "TA1XY", "TB3KM", "YM7LA", "TA5FG", "TA4QP", "TB2RS", "TA9DK")
+        val rnd = java.util.Random()
+        val sonuc = mutableListOf<Egzersiz>()
+
+        cagrilar.forEachIndexed { idx, cs ->
+            val kelimeler = cs.mapNotNull { ch -> natoMap[ch.toString().uppercase()] }
+            if (kelimeler.size != cs.length) return@forEachIndexed
+            val dogru = kelimeler.joinToString(" ")
+
+            val distractors = mutableSetOf<String>()
+            var guard = 0
+            while (distractors.size < 3 && guard < 40) {
+                guard++
+                val pos = rnd.nextInt(kelimeler.size)
+                val yeni = kodlar.filter { it != kelimeler[pos] }.shuffled().first()
+                val varyant = kelimeler.toMutableList().also { it[pos] = yeni }.joinToString(" ")
+                if (varyant != dogru) distractors.add(varyant)
+            }
+            if (distractors.size == 3) {
+                sonuc.add(Egzersiz(
+                    id = "cs_$idx", tip = "coktan_secmeli",
+                    soru = "\"$cs\" çağrı işaretini fonetik alfabeyle nasıl okursun?",
+                    cevap = dogru,
+                    secenekler = (listOf(dogru) + distractors).shuffled(),
+                    kartId = "", altBolum = "1_4", zorluk = "zor",
+                    aciklama = "$cs = $dogru"
                 ))
             }
         }
