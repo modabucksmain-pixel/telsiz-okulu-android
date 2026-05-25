@@ -33,13 +33,15 @@ fun SpectrumBackground(accent: Color, modifier: Modifier = Modifier) {
         ) {
             val bars = 60
             val barWidth = size.width / bars
+            val mid = size.height / 2f
             for (i in 0 until bars) {
                 val h = (7f + abs(sin(i * 0.42).toFloat() * 13f) + if (i % 7 == 0) 12f else 0f)
+                val hPx = h.dp.toPx()
                 val opacity = 0.16f + (i % 5) * 0.04f
                 drawRect(
                     color = accent.copy(alpha = opacity),
-                    topLeft = Offset(i * barWidth, size.height / 2f - h / 2f),
-                    size = Size(1.4.dp.toPx(), h),
+                    topLeft = Offset(i * barWidth, mid - hPx / 2f),
+                    size = Size(1.4.dp.toPx(), hPx),
                 )
             }
         }

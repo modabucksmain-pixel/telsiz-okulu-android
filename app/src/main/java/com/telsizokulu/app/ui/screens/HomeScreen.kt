@@ -2,6 +2,7 @@ package com.telsizokulu.app.ui.screens
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -38,7 +39,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -64,6 +69,7 @@ import com.telsizokulu.app.ui.theme.EyebrowMono
 import com.telsizokulu.app.ui.theme.LessonTitle
 import com.telsizokulu.app.ui.theme.MonoFamily
 import com.telsizokulu.app.ui.theme.MutedMono
+import com.telsizokulu.app.ui.theme.SpektrumAccent
 import com.telsizokulu.app.ui.theme.SpektrumBg
 import com.telsizokulu.app.ui.theme.SpektrumMuted
 import com.telsizokulu.app.ui.theme.neonGlow
@@ -345,7 +351,31 @@ private fun RadioLogo() {
             ),
         contentAlignment = Alignment.Center,
     ) {
-        Text("📻", fontSize = 18.sp)
+        // Radyatif anten dalgaları (handoff SVG'si 1:1)
+        Canvas(modifier = Modifier.size(20.dp)) {
+            val s = size.minDimension / 24f
+            val sw = 1.5f * s
+            val st = Stroke(width = sw, cap = StrokeCap.Round)
+            val wave1 = Path().apply {
+                moveTo(2 * s, 14 * s)
+                cubicTo(4 * s, 10 * s, 8 * s, 7 * s, 12 * s, 7 * s)
+                cubicTo(16 * s, 7 * s, 20 * s, 10 * s, 22 * s, 14 * s)
+            }
+            val wave2 = Path().apply {
+                moveTo(5 * s, 16 * s)
+                cubicTo(6.5f * s, 13 * s, 9 * s, 11 * s, 12 * s, 11 * s)
+                cubicTo(15 * s, 11 * s, 17.5f * s, 13 * s, 19 * s, 16 * s)
+            }
+            val wave3 = Path().apply {
+                moveTo(8 * s, 18 * s)
+                cubicTo(9 * s, 16 * s, 10.5f * s, 15 * s, 12 * s, 15 * s)
+                cubicTo(13.5f * s, 15 * s, 15 * s, 16 * s, 16 * s, 18 * s)
+            }
+            drawPath(wave1, SpektrumAccent, style = st)
+            drawPath(wave2, SpektrumAccent.copy(alpha = 0.55f), style = st)
+            drawPath(wave3, SpektrumAccent.copy(alpha = 0.30f), style = st)
+            drawCircle(SpektrumAccent, radius = 1.5f * s, center = Offset(12 * s, 20 * s))
+        }
     }
 }
 

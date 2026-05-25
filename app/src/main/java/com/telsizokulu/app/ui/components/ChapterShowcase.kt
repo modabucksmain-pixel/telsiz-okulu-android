@@ -75,11 +75,11 @@ private val freqBands = listOf(
 )
 
 private val prosedurTerms = listOf(
-    "OVER"   to "Dinliyorum",
-    "ROGER"  to "Anlaşıldı",
-    "WILCO"  to "Yapacağım",
-    "BREAK"  to "Ara veriyorum",
-    "OUT"    to "Bitti",
+    "OVER"    to "Sıra sende, dinliyorum",
+    "ROGER"   to "Mesaj alındı",
+    "WILCO"   to "Anlaşıldı, yapacağım",
+    "MAYDAY"  to "Acil yardım çağrısı (can tehlikesi)",
+    "PAN-PAN" to "Acil durum (can riski yok)",
 )
 
 @Composable
