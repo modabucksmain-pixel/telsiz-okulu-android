@@ -1,5 +1,8 @@
 package com.telsizokulu.app.ui.components
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.animateIntAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -16,6 +19,7 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,6 +36,7 @@ import com.telsizokulu.app.ui.theme.SpektrumStreakTint
 import com.telsizokulu.app.ui.theme.Danger
 import com.telsizokulu.app.ui.theme.Success
 import com.telsizokulu.app.ui.theme.Warn
+import com.telsizokulu.app.ui.theme.neonGlow
 
 @Composable
 fun CompactStatsStrip(
@@ -46,6 +51,11 @@ fun CompactStatsStrip(
     modifier: Modifier = Modifier,
 ) {
     val radius = RoundedCornerShape(8.dp)
+    val animXp by animateIntAsState(targetValue = xp, animationSpec = tween(800), label = "xp")
+    val animPct by animateFloatAsState(
+        targetValue = seviyePct.coerceIn(0f, 1f),
+        animationSpec = tween(800), label = "pct"
+    )
 
     Row(
         modifier = modifier
@@ -59,9 +69,9 @@ fun CompactStatsStrip(
         Row(
             modifier = Modifier
                 .weight(1f)
+                .neonGlow(SpektrumAccent, cornerRadius = 8.dp, elevation = 8.dp, glowAlpha = 0.3f, borderAlpha = 0.4f)
                 .clip(radius)
                 .background(MaterialTheme.colorScheme.surface)
-                .border(1.dp, MaterialTheme.colorScheme.outline, radius)
                 .padding(horizontal = 10.dp, vertical = 8.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -71,7 +81,7 @@ fun CompactStatsStrip(
             )
             Spacer(Modifier.width(8.dp))
             LinearProgressIndicator(
-                progress = { seviyePct.coerceIn(0f, 1f) },
+                progress = { animPct },
                 modifier = Modifier
                     .weight(1f)
                     .height(4.dp)
@@ -81,7 +91,7 @@ fun CompactStatsStrip(
             )
             Spacer(Modifier.width(8.dp))
             Text(
-                text = "$xp XP",
+                text = "$animXp XP",
                 style = MutedMono,
                 color = SpektrumMuted,
             )
