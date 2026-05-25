@@ -65,6 +65,7 @@ import com.telsizokulu.app.ui.theme.MonoFamily
 import com.telsizokulu.app.ui.theme.MutedMono
 import com.telsizokulu.app.ui.theme.SpektrumBg
 import com.telsizokulu.app.ui.theme.SpektrumMuted
+import com.telsizokulu.app.ui.theme.neonGlow
 import com.telsizokulu.app.ui.viewmodel.HomeViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -353,7 +354,8 @@ private fun ContinueButton(bolumRenk: Color, dersBaslik: String, onClick: () -> 
         modifier   = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
-            .padding(bottom = 10.dp),
+            .padding(bottom = 10.dp)
+            .neonGlow(bolumRenk, cornerRadius = 14.dp, elevation = 14.dp, glowAlpha = 0.45f, borderAlpha = 0.5f),
     ) {
         Row(
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
