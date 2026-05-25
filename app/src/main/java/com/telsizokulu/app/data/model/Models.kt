@@ -52,9 +52,11 @@ data class IcerikDosyasi(
 data class Kart(
     @SerializedName("id") val id: String,
     @SerializedName(value = "on", alternate = ["harf", "kavram", "terim", "soru", "baslik"]) val on: String?,
-    @SerializedName(value = "arka", alternate = ["kod", "aciklama", "anlam", "cevap", "metin"]) val arka: String?,
+    @SerializedName(value = "arka", alternate = ["kod", "anlam", "cevap", "metin"]) val arka: String?,
     @SerializedName("ikon") val ikon: String? = "",
     @SerializedName("ses") val ses: String? = "",
+    @SerializedName("telaffuz") val telaffuz: String? = "",
+    @SerializedName("aciklama") val aciklama: String? = "",
     @SerializedName("kategori") val kategori: String? = "",
     @SerializedName("alt_bolum") val altBolum: String? = "",
     @SerializedName("etiketler") val etiketler: List<String> = emptyList()

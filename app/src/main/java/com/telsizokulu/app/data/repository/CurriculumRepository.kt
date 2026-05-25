@@ -34,6 +34,8 @@ class CurriculumRepository(private val context: Context) {
                 arka      = k.arka,
                 ikon      = k.ikon,
                 ses       = normalizeSes(k.ses),
+                telaffuz  = (k.telaffuz as? String) ?: "",
+                aciklama  = (k.aciklama as? String) ?: "",
                 kategori  = k.kategori,
                 altBolum  = k.altBolum,
                 etiketler = (k.etiketler as? List<String>) ?: emptyList()

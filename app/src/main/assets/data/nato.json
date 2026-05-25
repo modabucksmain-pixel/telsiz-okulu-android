@@ -1,294 +1,1875 @@
 {
   "kartlar": [
-    { "id": "nato_alpha", "harf": "A", "kod": "Alpha", "telaffuz": "AL-FAH", "ses": "/static/audio/nato/alpha.mp3", "alt_bolum": "1_1" },
-    { "id": "nato_bravo", "harf": "B", "kod": "Bravo", "telaffuz": "BRAH-VOH", "ses": "/static/audio/nato/bravo.mp3", "alt_bolum": "1_1" },
-    { "id": "nato_charlie", "harf": "C", "kod": "Charlie", "telaffuz": "CHAR-LEE", "ses": "/static/audio/nato/charlie.mp3", "alt_bolum": "1_1" },
-    { "id": "nato_delta", "harf": "D", "kod": "Delta", "telaffuz": "DELL-TAH", "ses": "/static/audio/nato/delta.mp3", "alt_bolum": "1_1" },
-    { "id": "nato_echo", "harf": "E", "kod": "Echo", "telaffuz": "ECK-OH", "ses": "/static/audio/nato/echo.mp3", "alt_bolum": "1_1" },
-    { "id": "nato_foxtrot", "harf": "F", "kod": "Foxtrot", "telaffuz": "FOKS-TROT", "ses": "/static/audio/nato/foxtrot.mp3", "alt_bolum": "1_1" },
-    { "id": "nato_golf", "harf": "G", "kod": "Golf", "telaffuz": "GOLF", "ses": "/static/audio/nato/golf.mp3", "alt_bolum": "1_1" },
-    { "id": "nato_hotel", "harf": "H", "kod": "Hotel", "telaffuz": "HOH-TEL", "ses": "/static/audio/nato/hotel.mp3", "alt_bolum": "1_2" },
-    { "id": "nato_india", "harf": "I", "kod": "India", "telaffuz": "IN-DEE-AH", "ses": "/static/audio/nato/india.mp3", "alt_bolum": "1_2" },
-    { "id": "nato_juliet", "harf": "J", "kod": "Juliet", "telaffuz": "JEW-LEE-ETT", "ses": "/static/audio/nato/juliet.mp3", "alt_bolum": "1_2" },
-    { "id": "nato_kilo", "harf": "K", "kod": "Kilo", "telaffuz": "KEY-LOH", "ses": "/static/audio/nato/kilo.mp3", "alt_bolum": "1_2" },
-    { "id": "nato_lima", "harf": "L", "kod": "Lima", "telaffuz": "LEE-MAH", "ses": "/static/audio/nato/lima.mp3", "alt_bolum": "1_2" },
-    { "id": "nato_mike", "harf": "M", "kod": "Mike", "telaffuz": "MIKE", "ses": "/static/audio/nato/mike.mp3", "alt_bolum": "1_2" },
-    { "id": "nato_november", "harf": "N", "kod": "November", "telaffuz": "NO-VEM-BER", "ses": "/static/audio/nato/november.mp3", "alt_bolum": "1_2" },
-    { "id": "nato_oscar", "harf": "O", "kod": "Oscar", "telaffuz": "OSS-CAR", "ses": "/static/audio/nato/oscar.mp3", "alt_bolum": "1_3" },
-    { "id": "nato_papa", "harf": "P", "kod": "Papa", "telaffuz": "PAH-PAH", "ses": "/static/audio/nato/papa.mp3", "alt_bolum": "1_3" },
-    { "id": "nato_quebec", "harf": "Q", "kod": "Quebec", "telaffuz": "KEH-BECK", "ses": "/static/audio/nato/quebec.mp3", "alt_bolum": "1_3" },
-    { "id": "nato_romeo", "harf": "R", "kod": "Romeo", "telaffuz": "ROW-ME-OH", "ses": "/static/audio/nato/romeo.mp3", "alt_bolum": "1_3" },
-    { "id": "nato_sierra", "harf": "S", "kod": "Sierra", "telaffuz": "SEE-AIR-RAH", "ses": "/static/audio/nato/sierra.mp3", "alt_bolum": "1_3" },
-    { "id": "nato_tango", "harf": "T", "kod": "Tango", "telaffuz": "TANG-GO", "ses": "/static/audio/nato/tango.mp3", "alt_bolum": "1_3" },
-    { "id": "nato_uniform", "harf": "U", "kod": "Uniform", "telaffuz": "YOU-NEE-FORM", "ses": "/static/audio/nato/uniform.mp3", "alt_bolum": "1_3" },
-    { "id": "nato_victor", "harf": "V", "kod": "Victor", "telaffuz": "VIK-TAH", "ses": "/static/audio/nato/victor.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_whiskey", "harf": "W", "kod": "Whiskey", "telaffuz": "WISS-KEY", "ses": "/static/audio/nato/whiskey.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_xray", "harf": "X", "kod": "X-ray", "telaffuz": "ECKS-RAY", "ses": "/static/audio/nato/xray.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_yankee", "harf": "Y", "kod": "Yankee", "telaffuz": "YANG-KEY", "ses": "/static/audio/nato/yankee.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_zulu", "harf": "Z", "kod": "Zulu", "telaffuz": "ZOO-LOO", "ses": "/static/audio/nato/zulu.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_0", "harf": "0", "kod": "Zero", "telaffuz": "ZEE-RO", "ses": "/static/audio/rakamlar/sifir.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_1", "harf": "1", "kod": "One", "telaffuz": "WUN", "ses": "/static/audio/rakamlar/bir.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_2", "harf": "2", "kod": "Two", "telaffuz": "TOO", "ses": "/static/audio/rakamlar/iki.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_3", "harf": "3", "kod": "Three", "telaffuz": "TREE", "ses": "/static/audio/rakamlar/uc.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_4", "harf": "4", "kod": "Four", "telaffuz": "FOW-ER", "ses": "/static/audio/rakamlar/dort.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_5", "harf": "5", "kod": "Five", "telaffuz": "FIFE", "ses": "/static/audio/rakamlar/bes.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_6", "harf": "6", "kod": "Six", "telaffuz": "SIX", "ses": "/static/audio/rakamlar/alti.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_7", "harf": "7", "kod": "Seven", "telaffuz": "SEV-EN", "ses": "/static/audio/rakamlar/yedi.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_8", "harf": "8", "kod": "Eight", "telaffuz": "AIT", "ses": "/static/audio/rakamlar/sekiz.mp3", "alt_bolum": "1_4" },
-    { "id": "nato_9", "harf": "9", "kod": "Nine", "telaffuz": "NIN-ER", "ses": "/static/audio/rakamlar/dokuz.mp3", "alt_bolum": "1_4" }
+    {
+      "id": "nato_alpha",
+      "harf": "A",
+      "kod": "Alpha",
+      "telaffuz": "AL-FAH",
+      "ses": "/static/audio/nato/alpha.mp3",
+      "alt_bolum": "1_1",
+      "aciklama": "A harfi NATO fonetik alfabesinde Alpha olarak kodlanır, “AL-FAH” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen A harfini “Alpha” diye söylersin."
+    },
+    {
+      "id": "nato_bravo",
+      "harf": "B",
+      "kod": "Bravo",
+      "telaffuz": "BRAH-VOH",
+      "ses": "/static/audio/nato/bravo.mp3",
+      "alt_bolum": "1_1",
+      "aciklama": "B harfi NATO fonetik alfabesinde Bravo olarak kodlanır, “BRAH-VOH” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen B harfini “Bravo” diye söylersin."
+    },
+    {
+      "id": "nato_charlie",
+      "harf": "C",
+      "kod": "Charlie",
+      "telaffuz": "CHAR-LEE",
+      "ses": "/static/audio/nato/charlie.mp3",
+      "alt_bolum": "1_1",
+      "aciklama": "C harfi NATO fonetik alfabesinde Charlie olarak kodlanır, “CHAR-LEE” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen C harfini “Charlie” diye söylersin."
+    },
+    {
+      "id": "nato_delta",
+      "harf": "D",
+      "kod": "Delta",
+      "telaffuz": "DELL-TAH",
+      "ses": "/static/audio/nato/delta.mp3",
+      "alt_bolum": "1_1",
+      "aciklama": "D harfi NATO fonetik alfabesinde Delta olarak kodlanır, “DELL-TAH” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen D harfini “Delta” diye söylersin."
+    },
+    {
+      "id": "nato_echo",
+      "harf": "E",
+      "kod": "Echo",
+      "telaffuz": "ECK-OH",
+      "ses": "/static/audio/nato/echo.mp3",
+      "alt_bolum": "1_1",
+      "aciklama": "E harfi NATO fonetik alfabesinde Echo olarak kodlanır, “ECK-OH” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen E harfini “Echo” diye söylersin."
+    },
+    {
+      "id": "nato_foxtrot",
+      "harf": "F",
+      "kod": "Foxtrot",
+      "telaffuz": "FOKS-TROT",
+      "ses": "/static/audio/nato/foxtrot.mp3",
+      "alt_bolum": "1_1",
+      "aciklama": "F harfi NATO fonetik alfabesinde Foxtrot olarak kodlanır, “FOKS-TROT” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen F harfini “Foxtrot” diye söylersin."
+    },
+    {
+      "id": "nato_golf",
+      "harf": "G",
+      "kod": "Golf",
+      "telaffuz": "GOLF",
+      "ses": "/static/audio/nato/golf.mp3",
+      "alt_bolum": "1_1",
+      "aciklama": "G harfi NATO fonetik alfabesinde Golf olarak kodlanır, “GOLF” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen G harfini “Golf” diye söylersin."
+    },
+    {
+      "id": "nato_hotel",
+      "harf": "H",
+      "kod": "Hotel",
+      "telaffuz": "HOH-TEL",
+      "ses": "/static/audio/nato/hotel.mp3",
+      "alt_bolum": "1_2",
+      "aciklama": "H harfi NATO fonetik alfabesinde Hotel olarak kodlanır, “HOH-TEL” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen H harfini “Hotel” diye söylersin."
+    },
+    {
+      "id": "nato_india",
+      "harf": "I",
+      "kod": "India",
+      "telaffuz": "IN-DEE-AH",
+      "ses": "/static/audio/nato/india.mp3",
+      "alt_bolum": "1_2",
+      "aciklama": "I harfi NATO fonetik alfabesinde India olarak kodlanır, “IN-DEE-AH” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen I harfini “India” diye söylersin."
+    },
+    {
+      "id": "nato_juliet",
+      "harf": "J",
+      "kod": "Juliet",
+      "telaffuz": "JEW-LEE-ETT",
+      "ses": "/static/audio/nato/juliet.mp3",
+      "alt_bolum": "1_2",
+      "aciklama": "J harfi NATO fonetik alfabesinde Juliet olarak kodlanır, “JEW-LEE-ETT” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen J harfini “Juliet” diye söylersin."
+    },
+    {
+      "id": "nato_kilo",
+      "harf": "K",
+      "kod": "Kilo",
+      "telaffuz": "KEY-LOH",
+      "ses": "/static/audio/nato/kilo.mp3",
+      "alt_bolum": "1_2",
+      "aciklama": "K harfi NATO fonetik alfabesinde Kilo olarak kodlanır, “KEY-LOH” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen K harfini “Kilo” diye söylersin."
+    },
+    {
+      "id": "nato_lima",
+      "harf": "L",
+      "kod": "Lima",
+      "telaffuz": "LEE-MAH",
+      "ses": "/static/audio/nato/lima.mp3",
+      "alt_bolum": "1_2",
+      "aciklama": "L harfi NATO fonetik alfabesinde Lima olarak kodlanır, “LEE-MAH” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen L harfini “Lima” diye söylersin."
+    },
+    {
+      "id": "nato_mike",
+      "harf": "M",
+      "kod": "Mike",
+      "telaffuz": "MIKE",
+      "ses": "/static/audio/nato/mike.mp3",
+      "alt_bolum": "1_2",
+      "aciklama": "M harfi NATO fonetik alfabesinde Mike olarak kodlanır, “MIKE” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen M harfini “Mike” diye söylersin."
+    },
+    {
+      "id": "nato_november",
+      "harf": "N",
+      "kod": "November",
+      "telaffuz": "NO-VEM-BER",
+      "ses": "/static/audio/nato/november.mp3",
+      "alt_bolum": "1_2",
+      "aciklama": "N harfi NATO fonetik alfabesinde November olarak kodlanır, “NO-VEM-BER” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen N harfini “November” diye söylersin."
+    },
+    {
+      "id": "nato_oscar",
+      "harf": "O",
+      "kod": "Oscar",
+      "telaffuz": "OSS-CAR",
+      "ses": "/static/audio/nato/oscar.mp3",
+      "alt_bolum": "1_3",
+      "aciklama": "O harfi NATO fonetik alfabesinde Oscar olarak kodlanır, “OSS-CAR” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen O harfini “Oscar” diye söylersin."
+    },
+    {
+      "id": "nato_papa",
+      "harf": "P",
+      "kod": "Papa",
+      "telaffuz": "PAH-PAH",
+      "ses": "/static/audio/nato/papa.mp3",
+      "alt_bolum": "1_3",
+      "aciklama": "P harfi NATO fonetik alfabesinde Papa olarak kodlanır, “PAH-PAH” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen P harfini “Papa” diye söylersin."
+    },
+    {
+      "id": "nato_quebec",
+      "harf": "Q",
+      "kod": "Quebec",
+      "telaffuz": "KEH-BECK",
+      "ses": "/static/audio/nato/quebec.mp3",
+      "alt_bolum": "1_3",
+      "aciklama": "Q harfi NATO fonetik alfabesinde Quebec olarak kodlanır, “KEH-BECK” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen Q harfini “Quebec” diye söylersin."
+    },
+    {
+      "id": "nato_romeo",
+      "harf": "R",
+      "kod": "Romeo",
+      "telaffuz": "ROW-ME-OH",
+      "ses": "/static/audio/nato/romeo.mp3",
+      "alt_bolum": "1_3",
+      "aciklama": "R harfi NATO fonetik alfabesinde Romeo olarak kodlanır, “ROW-ME-OH” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen R harfini “Romeo” diye söylersin."
+    },
+    {
+      "id": "nato_sierra",
+      "harf": "S",
+      "kod": "Sierra",
+      "telaffuz": "SEE-AIR-RAH",
+      "ses": "/static/audio/nato/sierra.mp3",
+      "alt_bolum": "1_3",
+      "aciklama": "S harfi NATO fonetik alfabesinde Sierra olarak kodlanır, “SEE-AIR-RAH” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen S harfini “Sierra” diye söylersin."
+    },
+    {
+      "id": "nato_tango",
+      "harf": "T",
+      "kod": "Tango",
+      "telaffuz": "TANG-GO",
+      "ses": "/static/audio/nato/tango.mp3",
+      "alt_bolum": "1_3",
+      "aciklama": "T harfi NATO fonetik alfabesinde Tango olarak kodlanır, “TANG-GO” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen T harfini “Tango” diye söylersin."
+    },
+    {
+      "id": "nato_uniform",
+      "harf": "U",
+      "kod": "Uniform",
+      "telaffuz": "YOU-NEE-FORM",
+      "ses": "/static/audio/nato/uniform.mp3",
+      "alt_bolum": "1_3",
+      "aciklama": "U harfi NATO fonetik alfabesinde Uniform olarak kodlanır, “YOU-NEE-FORM” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen U harfini “Uniform” diye söylersin."
+    },
+    {
+      "id": "nato_victor",
+      "harf": "V",
+      "kod": "Victor",
+      "telaffuz": "VIK-TAH",
+      "ses": "/static/audio/nato/victor.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "V harfi NATO fonetik alfabesinde Victor olarak kodlanır, “VIK-TAH” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen V harfini “Victor” diye söylersin."
+    },
+    {
+      "id": "nato_whiskey",
+      "harf": "W",
+      "kod": "Whiskey",
+      "telaffuz": "WISS-KEY",
+      "ses": "/static/audio/nato/whiskey.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "W harfi NATO fonetik alfabesinde Whiskey olarak kodlanır, “WISS-KEY” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen W harfini “Whiskey” diye söylersin."
+    },
+    {
+      "id": "nato_xray",
+      "harf": "X",
+      "kod": "X-ray",
+      "telaffuz": "ECKS-RAY",
+      "ses": "/static/audio/nato/xray.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "X harfi NATO fonetik alfabesinde X-ray olarak kodlanır, “ECKS-RAY” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen X harfini “X-ray” diye söylersin."
+    },
+    {
+      "id": "nato_yankee",
+      "harf": "Y",
+      "kod": "Yankee",
+      "telaffuz": "YANG-KEY",
+      "ses": "/static/audio/nato/yankee.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "Y harfi NATO fonetik alfabesinde Yankee olarak kodlanır, “YANG-KEY” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen Y harfini “Yankee” diye söylersin."
+    },
+    {
+      "id": "nato_zulu",
+      "harf": "Z",
+      "kod": "Zulu",
+      "telaffuz": "ZOO-LOO",
+      "ses": "/static/audio/nato/zulu.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "Z harfi NATO fonetik alfabesinde Zulu olarak kodlanır, “ZOO-LOO” diye okunur. Telsizde harf karışıklığını önlemek için çağrı işaretleri ve zor kelimeler harf harf bu kodlarla hecelenir. Örnek: bir çağrı işaretinde geçen Z harfini “Zulu” diye söylersin."
+    },
+    {
+      "id": "nato_0",
+      "harf": "0",
+      "kod": "Zero",
+      "telaffuz": "ZEE-RO",
+      "ses": "/static/audio/rakamlar/sifir.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "0 rakamı NATO fonetik alfabesinde Zero olarak okunur (telaffuz: ZEE-RO). Frekans, sayı ve çağrı işaretlerindeki rakamlar telsizde karışıklık olmasın diye bu şekilde net söylenir."
+    },
+    {
+      "id": "nato_1",
+      "harf": "1",
+      "kod": "One",
+      "telaffuz": "WUN",
+      "ses": "/static/audio/rakamlar/bir.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "1 rakamı NATO fonetik alfabesinde One olarak okunur (telaffuz: WUN). Frekans, sayı ve çağrı işaretlerindeki rakamlar telsizde karışıklık olmasın diye bu şekilde net söylenir."
+    },
+    {
+      "id": "nato_2",
+      "harf": "2",
+      "kod": "Two",
+      "telaffuz": "TOO",
+      "ses": "/static/audio/rakamlar/iki.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "2 rakamı NATO fonetik alfabesinde Two olarak okunur (telaffuz: TOO). Frekans, sayı ve çağrı işaretlerindeki rakamlar telsizde karışıklık olmasın diye bu şekilde net söylenir."
+    },
+    {
+      "id": "nato_3",
+      "harf": "3",
+      "kod": "Three",
+      "telaffuz": "TREE",
+      "ses": "/static/audio/rakamlar/uc.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "3 rakamı NATO fonetik alfabesinde Three olarak okunur (telaffuz: TREE). Frekans, sayı ve çağrı işaretlerindeki rakamlar telsizde karışıklık olmasın diye bu şekilde net söylenir."
+    },
+    {
+      "id": "nato_4",
+      "harf": "4",
+      "kod": "Four",
+      "telaffuz": "FOW-ER",
+      "ses": "/static/audio/rakamlar/dort.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "4 rakamı NATO fonetik alfabesinde Four olarak okunur (telaffuz: FOW-ER). Frekans, sayı ve çağrı işaretlerindeki rakamlar telsizde karışıklık olmasın diye bu şekilde net söylenir."
+    },
+    {
+      "id": "nato_5",
+      "harf": "5",
+      "kod": "Five",
+      "telaffuz": "FIFE",
+      "ses": "/static/audio/rakamlar/bes.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "5 rakamı NATO fonetik alfabesinde Five olarak okunur (telaffuz: FIFE). Frekans, sayı ve çağrı işaretlerindeki rakamlar telsizde karışıklık olmasın diye bu şekilde net söylenir."
+    },
+    {
+      "id": "nato_6",
+      "harf": "6",
+      "kod": "Six",
+      "telaffuz": "SIX",
+      "ses": "/static/audio/rakamlar/alti.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "6 rakamı NATO fonetik alfabesinde Six olarak okunur (telaffuz: SIX). Frekans, sayı ve çağrı işaretlerindeki rakamlar telsizde karışıklık olmasın diye bu şekilde net söylenir."
+    },
+    {
+      "id": "nato_7",
+      "harf": "7",
+      "kod": "Seven",
+      "telaffuz": "SEV-EN",
+      "ses": "/static/audio/rakamlar/yedi.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "7 rakamı NATO fonetik alfabesinde Seven olarak okunur (telaffuz: SEV-EN). Frekans, sayı ve çağrı işaretlerindeki rakamlar telsizde karışıklık olmasın diye bu şekilde net söylenir."
+    },
+    {
+      "id": "nato_8",
+      "harf": "8",
+      "kod": "Eight",
+      "telaffuz": "AIT",
+      "ses": "/static/audio/rakamlar/sekiz.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "8 rakamı NATO fonetik alfabesinde Eight olarak okunur (telaffuz: AIT). Frekans, sayı ve çağrı işaretlerindeki rakamlar telsizde karışıklık olmasın diye bu şekilde net söylenir."
+    },
+    {
+      "id": "nato_9",
+      "harf": "9",
+      "kod": "Nine",
+      "telaffuz": "NIN-ER",
+      "ses": "/static/audio/rakamlar/dokuz.mp3",
+      "alt_bolum": "1_4",
+      "aciklama": "9 rakamı NATO fonetik alfabesinde Nine olarak okunur (telaffuz: NIN-ER). Frekans, sayı ve çağrı işaretlerindeki rakamlar telsizde karışıklık olmasın diye bu şekilde net söylenir."
+    }
   ],
   "egzersizler": {
     "dinle_sec": [
-      { "id": "ds_01", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_alpha", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "ds_02", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_bravo", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "ds_03", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_charlie", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "ds_04", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_delta", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "ds_05", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_echo", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "ds_06", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_foxtrot", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "ds_07", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_golf", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "ds_08", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_hotel", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "ds_09", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_india", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "ds_10", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_juliet", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "ds_11", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_kilo", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "ds_12", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_lima", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "ds_13", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_mike", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "ds_14", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_november", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "ds_15", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_oscar", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ds_16", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_papa", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ds_17", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_quebec", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ds_18", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_romeo", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ds_19", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_sierra", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ds_20", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_tango", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ds_21", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_uniform", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ds_22", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_victor", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "ds_23", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_whiskey", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "ds_24", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_xray", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "ds_25", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_yankee", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "ds_26", "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?", "dogru_kart": "nato_zulu", "zorluk": "orta", "alt_bolum": "1_4" }
+      {
+        "id": "ds_01",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_alpha",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ds_02",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_bravo",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ds_03",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_charlie",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ds_04",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_delta",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ds_05",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_echo",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ds_06",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_foxtrot",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ds_07",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_golf",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ds_08",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_hotel",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ds_09",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_india",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ds_10",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_juliet",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ds_11",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_kilo",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ds_12",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_lima",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ds_13",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_mike",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ds_14",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_november",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ds_15",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_oscar",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ds_16",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_papa",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ds_17",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_quebec",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ds_18",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_romeo",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ds_19",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_sierra",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ds_20",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_tango",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ds_21",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_uniform",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ds_22",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_victor",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "ds_23",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_whiskey",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "ds_24",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_xray",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "ds_25",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_yankee",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "ds_26",
+        "soru": "Bu sesi dinleyin. Hangi harfin NATO kodu?",
+        "dogru_kart": "nato_zulu",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      }
     ],
     "harfi_yaz": [
-      { "id": "hy_01", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_alpha", "gosterilen": "Alpha", "beklenen": "A", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "hy_02", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_bravo", "gosterilen": "Bravo", "beklenen": "B", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "hy_03", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_charlie", "gosterilen": "Charlie", "beklenen": "C", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "hy_04", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_delta", "gosterilen": "Delta", "beklenen": "D", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "hy_05", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_echo", "gosterilen": "Echo", "beklenen": "E", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "hy_06", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_foxtrot", "gosterilen": "Foxtrot", "beklenen": "F", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "hy_07", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_golf", "gosterilen": "Golf", "beklenen": "G", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "hy_08", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_hotel", "gosterilen": "Hotel", "beklenen": "H", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "hy_09", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_india", "gosterilen": "India", "beklenen": "I", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "hy_10", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_juliet", "gosterilen": "Juliet", "beklenen": "J", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "hy_11", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_kilo", "gosterilen": "Kilo", "beklenen": "K", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "hy_12", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_lima", "gosterilen": "Lima", "beklenen": "L", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "hy_13", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_mike", "gosterilen": "Mike", "beklenen": "M", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "hy_14", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_november", "gosterilen": "November", "beklenen": "N", "zorluk": "kolay", "alt_bolum": "1_2" },
-      { "id": "hy_15", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_oscar", "gosterilen": "Oscar", "beklenen": "O", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "hy_16", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_papa", "gosterilen": "Papa", "beklenen": "P", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "hy_17", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_quebec", "gosterilen": "Quebec", "beklenen": "Q", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "hy_18", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_romeo", "gosterilen": "Romeo", "beklenen": "R", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "hy_19", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_sierra", "gosterilen": "Sierra", "beklenen": "S", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "hy_20", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_tango", "gosterilen": "Tango", "beklenen": "T", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "hy_21", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_uniform", "gosterilen": "Uniform", "beklenen": "U", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "hy_22", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_victor", "gosterilen": "Victor", "beklenen": "V", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "hy_23", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_whiskey", "gosterilen": "Whiskey", "beklenen": "W", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "hy_24", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_xray", "gosterilen": "X-ray", "beklenen": "X", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "hy_25", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_yankee", "gosterilen": "Yankee", "beklenen": "Y", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "hy_26", "soru": "NATO kodunu gördüğünüzde harfi yazın", "kart": "nato_zulu", "gosterilen": "Zulu", "beklenen": "Z", "zorluk": "orta", "alt_bolum": "1_4" }
+      {
+        "id": "hy_01",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_alpha",
+        "gosterilen": "Alpha",
+        "beklenen": "A",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "hy_02",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_bravo",
+        "gosterilen": "Bravo",
+        "beklenen": "B",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "hy_03",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_charlie",
+        "gosterilen": "Charlie",
+        "beklenen": "C",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "hy_04",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_delta",
+        "gosterilen": "Delta",
+        "beklenen": "D",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "hy_05",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_echo",
+        "gosterilen": "Echo",
+        "beklenen": "E",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "hy_06",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_foxtrot",
+        "gosterilen": "Foxtrot",
+        "beklenen": "F",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "hy_07",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_golf",
+        "gosterilen": "Golf",
+        "beklenen": "G",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "hy_08",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_hotel",
+        "gosterilen": "Hotel",
+        "beklenen": "H",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "hy_09",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_india",
+        "gosterilen": "India",
+        "beklenen": "I",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "hy_10",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_juliet",
+        "gosterilen": "Juliet",
+        "beklenen": "J",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "hy_11",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_kilo",
+        "gosterilen": "Kilo",
+        "beklenen": "K",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "hy_12",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_lima",
+        "gosterilen": "Lima",
+        "beklenen": "L",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "hy_13",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_mike",
+        "gosterilen": "Mike",
+        "beklenen": "M",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "hy_14",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_november",
+        "gosterilen": "November",
+        "beklenen": "N",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "hy_15",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_oscar",
+        "gosterilen": "Oscar",
+        "beklenen": "O",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "hy_16",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_papa",
+        "gosterilen": "Papa",
+        "beklenen": "P",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "hy_17",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_quebec",
+        "gosterilen": "Quebec",
+        "beklenen": "Q",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "hy_18",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_romeo",
+        "gosterilen": "Romeo",
+        "beklenen": "R",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "hy_19",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_sierra",
+        "gosterilen": "Sierra",
+        "beklenen": "S",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "hy_20",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_tango",
+        "gosterilen": "Tango",
+        "beklenen": "T",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "hy_21",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_uniform",
+        "gosterilen": "Uniform",
+        "beklenen": "U",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "hy_22",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_victor",
+        "gosterilen": "Victor",
+        "beklenen": "V",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "hy_23",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_whiskey",
+        "gosterilen": "Whiskey",
+        "beklenen": "W",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "hy_24",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_xray",
+        "gosterilen": "X-ray",
+        "beklenen": "X",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "hy_25",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_yankee",
+        "gosterilen": "Yankee",
+        "beklenen": "Y",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "hy_26",
+        "soru": "NATO kodunu gördüğünüzde harfi yazın",
+        "kart": "nato_zulu",
+        "gosterilen": "Zulu",
+        "beklenen": "Z",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      }
     ],
     "kodu_yaz": [
-      { "id": "ky_01", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_alpha", "gosterilen": "A", "beklenen": "Alpha", "zorluk": "orta", "alt_bolum": "1_1" },
-      { "id": "ky_02", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_bravo", "gosterilen": "B", "beklenen": "Bravo", "zorluk": "orta", "alt_bolum": "1_1" },
-      { "id": "ky_03", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_charlie", "gosterilen": "C", "beklenen": "Charlie", "zorluk": "orta", "alt_bolum": "1_1" },
-      { "id": "ky_04", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_delta", "gosterilen": "D", "beklenen": "Delta", "zorluk": "orta", "alt_bolum": "1_1" },
-      { "id": "ky_05", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_echo", "gosterilen": "E", "beklenen": "Echo", "zorluk": "orta", "alt_bolum": "1_1" },
-      { "id": "ky_06", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_foxtrot", "gosterilen": "F", "beklenen": "Foxtrot", "zorluk": "orta", "alt_bolum": "1_1" },
-      { "id": "ky_07", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_golf", "gosterilen": "G", "beklenen": "Golf", "zorluk": "orta", "alt_bolum": "1_1" },
-      { "id": "ky_08", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_hotel", "gosterilen": "H", "beklenen": "Hotel", "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "ky_09", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_india", "gosterilen": "I", "beklenen": "India", "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "ky_10", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_juliet", "gosterilen": "J", "beklenen": "Juliet", "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "ky_11", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_kilo", "gosterilen": "K", "beklenen": "Kilo", "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "ky_12", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_lima", "gosterilen": "L", "beklenen": "Lima", "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "ky_13", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_mike", "gosterilen": "M", "beklenen": "Mike", "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "ky_14", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_november", "gosterilen": "N", "beklenen": "November", "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "ky_15", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_oscar", "gosterilen": "O", "beklenen": "Oscar", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ky_16", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_papa", "gosterilen": "P", "beklenen": "Papa", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ky_17", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_quebec", "gosterilen": "Q", "beklenen": "Quebec", "zorluk": "zor", "alt_bolum": "1_3" },
-      { "id": "ky_18", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_romeo", "gosterilen": "R", "beklenen": "Romeo", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ky_19", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_sierra", "gosterilen": "S", "beklenen": "Sierra", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ky_20", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_tango", "gosterilen": "T", "beklenen": "Tango", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ky_21", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_uniform", "gosterilen": "U", "beklenen": "Uniform", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "ky_22", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_victor", "gosterilen": "V", "beklenen": "Victor", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "ky_23", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_whiskey", "gosterilen": "W", "beklenen": "Whiskey", "zorluk": "zor", "alt_bolum": "1_4" },
-      { "id": "ky_24", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_xray", "gosterilen": "X", "beklenen": "X-ray", "zorluk": "zor", "alt_bolum": "1_4" },
-      { "id": "ky_25", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_yankee", "gosterilen": "Y", "beklenen": "Yankee", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "ky_26", "soru": "Bu harfin NATO kodunu yazın", "kart": "nato_zulu", "gosterilen": "Z", "beklenen": "Zulu", "zorluk": "orta", "alt_bolum": "1_4" }
+      {
+        "id": "ky_01",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_alpha",
+        "gosterilen": "A",
+        "beklenen": "Alpha",
+        "zorluk": "orta",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ky_02",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_bravo",
+        "gosterilen": "B",
+        "beklenen": "Bravo",
+        "zorluk": "orta",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ky_03",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_charlie",
+        "gosterilen": "C",
+        "beklenen": "Charlie",
+        "zorluk": "orta",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ky_04",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_delta",
+        "gosterilen": "D",
+        "beklenen": "Delta",
+        "zorluk": "orta",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ky_05",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_echo",
+        "gosterilen": "E",
+        "beklenen": "Echo",
+        "zorluk": "orta",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ky_06",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_foxtrot",
+        "gosterilen": "F",
+        "beklenen": "Foxtrot",
+        "zorluk": "orta",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ky_07",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_golf",
+        "gosterilen": "G",
+        "beklenen": "Golf",
+        "zorluk": "orta",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "ky_08",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_hotel",
+        "gosterilen": "H",
+        "beklenen": "Hotel",
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ky_09",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_india",
+        "gosterilen": "I",
+        "beklenen": "India",
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ky_10",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_juliet",
+        "gosterilen": "J",
+        "beklenen": "Juliet",
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ky_11",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_kilo",
+        "gosterilen": "K",
+        "beklenen": "Kilo",
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ky_12",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_lima",
+        "gosterilen": "L",
+        "beklenen": "Lima",
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ky_13",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_mike",
+        "gosterilen": "M",
+        "beklenen": "Mike",
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ky_14",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_november",
+        "gosterilen": "N",
+        "beklenen": "November",
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "ky_15",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_oscar",
+        "gosterilen": "O",
+        "beklenen": "Oscar",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ky_16",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_papa",
+        "gosterilen": "P",
+        "beklenen": "Papa",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ky_17",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_quebec",
+        "gosterilen": "Q",
+        "beklenen": "Quebec",
+        "zorluk": "zor",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ky_18",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_romeo",
+        "gosterilen": "R",
+        "beklenen": "Romeo",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ky_19",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_sierra",
+        "gosterilen": "S",
+        "beklenen": "Sierra",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ky_20",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_tango",
+        "gosterilen": "T",
+        "beklenen": "Tango",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ky_21",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_uniform",
+        "gosterilen": "U",
+        "beklenen": "Uniform",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "ky_22",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_victor",
+        "gosterilen": "V",
+        "beklenen": "Victor",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "ky_23",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_whiskey",
+        "gosterilen": "W",
+        "beklenen": "Whiskey",
+        "zorluk": "zor",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "ky_24",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_xray",
+        "gosterilen": "X",
+        "beklenen": "X-ray",
+        "zorluk": "zor",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "ky_25",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_yankee",
+        "gosterilen": "Y",
+        "beklenen": "Yankee",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "ky_26",
+        "soru": "Bu harfin NATO kodunu yazın",
+        "kart": "nato_zulu",
+        "gosterilen": "Z",
+        "beklenen": "Zulu",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      }
     ],
     "kelime_hece": [
-      { "id": "kh_01", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "SOS", "beklenen": "Sierra Oscar Sierra", "zorluk": "kolay", "alt_bolum": "1_1", "aciklama": "SOS, telsiz ve telgraf (Mors) iletişiminde uluslararası acil durum sinyalidir.<br><img src='/static/img/telegraph_key.png' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>" },
-      { "id": "kh_02", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "CQ", "beklenen": "Charlie Quebec", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "kh_03", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "ACE", "beklenen": "Alpha Charlie Echo", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "kh_04", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "BED", "beklenen": "Bravo Echo Delta", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "kh_05", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "CAB", "beklenen": "Charlie Alpha Bravo", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "kh_06", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "FACE", "beklenen": "Foxtrot Alpha Charlie Echo", "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "kh_07", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "CAFÉ", "beklenen": "Charlie Alpha Foxtrot Echo", "zorluk": "orta", "alt_bolum": "1_1" },
-      { "id": "kh_08", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "HELP", "beklenen": "Hotel Echo Lima Papa", "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "kh_09", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "MIKE", "beklenen": "Mike India Kilo Echo", "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "kh_10", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "LINK", "beklenen": "Lima India November Kilo", "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "kh_11", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "JOHN", "beklenen": "Juliet Oscar Hotel November", "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "kh_12", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "STOP", "beklenen": "Sierra Tango Oscar Papa", "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "kh_13", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "QUEST", "beklenen": "Quebec Uniform Echo Sierra Tango", "zorluk": "zor", "alt_bolum": "1_3" },
-      { "id": "kh_14", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "SPORT", "beklenen": "Sierra Papa Oscar Romeo Tango", "zorluk": "zor", "alt_bolum": "1_3" },
-      { "id": "kh_15", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "TOWER", "beklenen": "Tango Oscar Whiskey Echo Romeo", "zorluk": "zor", "alt_bolum": "1_3" },
-      { "id": "kh_16", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "VHF", "beklenen": "Victor Hotel Foxtrot", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "kh_17", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "WAVE", "beklenen": "Whiskey Alpha Victor Echo", "zorluk": "orta", "alt_bolum": "1_4" },
-      { "id": "kh_18", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "TA3AB", "beklenen": "Tango Alpha Three Alpha Bravo", "zorluk": "zor", "alt_bolum": "1_4" },
-      { "id": "kh_19", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "RADIO", "beklenen": "Romeo Alpha Delta India Oscar", "zorluk": "zor", "alt_bolum": "1_3" },
-      { "id": "kh_20", "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz", "kelime": "TRAC", "beklenen": "Tango Romeo Alpha Charlie", "zorluk": "orta", "alt_bolum": "1_3" }
+      {
+        "id": "kh_01",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "SOS",
+        "beklenen": "Sierra Oscar Sierra",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1",
+        "aciklama": "SOS, telsiz ve telgraf (Mors) iletişiminde uluslararası acil durum sinyalidir.<br><img src='/static/img/telegraph_key.png' style='width:100%; max-width:480px; display:block; margin:12px auto; border-radius:12px;'>"
+      },
+      {
+        "id": "kh_02",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "CQ",
+        "beklenen": "Charlie Quebec",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "kh_03",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "ACE",
+        "beklenen": "Alpha Charlie Echo",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "kh_04",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "BED",
+        "beklenen": "Bravo Echo Delta",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "kh_05",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "CAB",
+        "beklenen": "Charlie Alpha Bravo",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "kh_06",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "FACE",
+        "beklenen": "Foxtrot Alpha Charlie Echo",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "kh_07",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "CAFÉ",
+        "beklenen": "Charlie Alpha Foxtrot Echo",
+        "zorluk": "orta",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "kh_08",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "HELP",
+        "beklenen": "Hotel Echo Lima Papa",
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "kh_09",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "MIKE",
+        "beklenen": "Mike India Kilo Echo",
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "kh_10",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "LINK",
+        "beklenen": "Lima India November Kilo",
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "kh_11",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "JOHN",
+        "beklenen": "Juliet Oscar Hotel November",
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "kh_12",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "STOP",
+        "beklenen": "Sierra Tango Oscar Papa",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "kh_13",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "QUEST",
+        "beklenen": "Quebec Uniform Echo Sierra Tango",
+        "zorluk": "zor",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "kh_14",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "SPORT",
+        "beklenen": "Sierra Papa Oscar Romeo Tango",
+        "zorluk": "zor",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "kh_15",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "TOWER",
+        "beklenen": "Tango Oscar Whiskey Echo Romeo",
+        "zorluk": "zor",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "kh_16",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "VHF",
+        "beklenen": "Victor Hotel Foxtrot",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "kh_17",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "WAVE",
+        "beklenen": "Whiskey Alpha Victor Echo",
+        "zorluk": "orta",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "kh_18",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "TA3AB",
+        "beklenen": "Tango Alpha Three Alpha Bravo",
+        "zorluk": "zor",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "kh_19",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "RADIO",
+        "beklenen": "Romeo Alpha Delta India Oscar",
+        "zorluk": "zor",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "kh_20",
+        "soru": "Bu kelimeyi NATO alfabesiyle heceleyiniz",
+        "kelime": "TRAC",
+        "beklenen": "Tango Romeo Alpha Charlie",
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      }
     ],
     "eslestir": [
       {
-        "id": "es_01", "soru": "Harfleri NATO kodlarıyla eşleştirin", "zorluk": "kolay", "alt_bolum": "1_1",
+        "id": "es_01",
+        "soru": "Harfleri NATO kodlarıyla eşleştirin",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1",
         "cifler": [
-          { "sol": "A", "sag": "Alpha" },
-          { "sol": "B", "sag": "Bravo" },
-          { "sol": "C", "sag": "Charlie" },
-          { "sol": "D", "sag": "Delta" },
-          { "sol": "E", "sag": "Echo" }
+          {
+            "sol": "A",
+            "sag": "Alpha"
+          },
+          {
+            "sol": "B",
+            "sag": "Bravo"
+          },
+          {
+            "sol": "C",
+            "sag": "Charlie"
+          },
+          {
+            "sol": "D",
+            "sag": "Delta"
+          },
+          {
+            "sol": "E",
+            "sag": "Echo"
+          }
         ]
       },
       {
-        "id": "es_02", "soru": "Harfleri NATO kodlarıyla eşleştirin", "zorluk": "kolay", "alt_bolum": "1_1",
+        "id": "es_02",
+        "soru": "Harfleri NATO kodlarıyla eşleştirin",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1",
         "cifler": [
-          { "sol": "C", "sag": "Charlie" },
-          { "sol": "F", "sag": "Foxtrot" },
-          { "sol": "A", "sag": "Alpha" },
-          { "sol": "G", "sag": "Golf" },
-          { "sol": "E", "sag": "Echo" }
+          {
+            "sol": "C",
+            "sag": "Charlie"
+          },
+          {
+            "sol": "F",
+            "sag": "Foxtrot"
+          },
+          {
+            "sol": "A",
+            "sag": "Alpha"
+          },
+          {
+            "sol": "G",
+            "sag": "Golf"
+          },
+          {
+            "sol": "E",
+            "sag": "Echo"
+          }
         ]
       },
       {
-        "id": "es_03", "soru": "Harfleri NATO kodlarıyla eşleştirin", "zorluk": "kolay", "alt_bolum": "1_2",
+        "id": "es_03",
+        "soru": "Harfleri NATO kodlarıyla eşleştirin",
+        "zorluk": "kolay",
+        "alt_bolum": "1_2",
         "cifler": [
-          { "sol": "H", "sag": "Hotel" },
-          { "sol": "I", "sag": "India" },
-          { "sol": "J", "sag": "Juliet" },
-          { "sol": "K", "sag": "Kilo" },
-          { "sol": "L", "sag": "Lima" }
+          {
+            "sol": "H",
+            "sag": "Hotel"
+          },
+          {
+            "sol": "I",
+            "sag": "India"
+          },
+          {
+            "sol": "J",
+            "sag": "Juliet"
+          },
+          {
+            "sol": "K",
+            "sag": "Kilo"
+          },
+          {
+            "sol": "L",
+            "sag": "Lima"
+          }
         ]
       },
       {
-        "id": "es_04", "soru": "Harfleri NATO kodlarıyla eşleştirin", "zorluk": "orta", "alt_bolum": "1_2",
+        "id": "es_04",
+        "soru": "Harfleri NATO kodlarıyla eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "1_2",
         "cifler": [
-          { "sol": "M", "sag": "Mike" },
-          { "sol": "N", "sag": "November" },
-          { "sol": "K", "sag": "Kilo" },
-          { "sol": "L", "sag": "Lima" },
-          { "sol": "I", "sag": "India" }
+          {
+            "sol": "M",
+            "sag": "Mike"
+          },
+          {
+            "sol": "N",
+            "sag": "November"
+          },
+          {
+            "sol": "K",
+            "sag": "Kilo"
+          },
+          {
+            "sol": "L",
+            "sag": "Lima"
+          },
+          {
+            "sol": "I",
+            "sag": "India"
+          }
         ]
       },
       {
-        "id": "es_05", "soru": "Harfleri NATO kodlarıyla eşleştirin", "zorluk": "orta", "alt_bolum": "1_3",
+        "id": "es_05",
+        "soru": "Harfleri NATO kodlarıyla eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "1_3",
         "cifler": [
-          { "sol": "O", "sag": "Oscar" },
-          { "sol": "P", "sag": "Papa" },
-          { "sol": "Q", "sag": "Quebec" },
-          { "sol": "R", "sag": "Romeo" },
-          { "sol": "S", "sag": "Sierra" }
+          {
+            "sol": "O",
+            "sag": "Oscar"
+          },
+          {
+            "sol": "P",
+            "sag": "Papa"
+          },
+          {
+            "sol": "Q",
+            "sag": "Quebec"
+          },
+          {
+            "sol": "R",
+            "sag": "Romeo"
+          },
+          {
+            "sol": "S",
+            "sag": "Sierra"
+          }
         ]
       },
       {
-        "id": "es_06", "soru": "Harfleri NATO kodlarıyla eşleştirin", "zorluk": "orta", "alt_bolum": "1_3",
+        "id": "es_06",
+        "soru": "Harfleri NATO kodlarıyla eşleştirin",
+        "zorluk": "orta",
+        "alt_bolum": "1_3",
         "cifler": [
-          { "sol": "T", "sag": "Tango" },
-          { "sol": "U", "sag": "Uniform" },
-          { "sol": "S", "sag": "Sierra" },
-          { "sol": "R", "sag": "Romeo" },
-          { "sol": "P", "sag": "Papa" }
+          {
+            "sol": "T",
+            "sag": "Tango"
+          },
+          {
+            "sol": "U",
+            "sag": "Uniform"
+          },
+          {
+            "sol": "S",
+            "sag": "Sierra"
+          },
+          {
+            "sol": "R",
+            "sag": "Romeo"
+          },
+          {
+            "sol": "P",
+            "sag": "Papa"
+          }
         ]
       },
       {
-        "id": "es_07", "soru": "Harfleri NATO kodlarıyla eşleştirin", "zorluk": "zor", "alt_bolum": "1_4",
+        "id": "es_07",
+        "soru": "Harfleri NATO kodlarıyla eşleştirin",
+        "zorluk": "zor",
+        "alt_bolum": "1_4",
         "cifler": [
-          { "sol": "V", "sag": "Victor" },
-          { "sol": "W", "sag": "Whiskey" },
-          { "sol": "X", "sag": "X-ray" },
-          { "sol": "Y", "sag": "Yankee" },
-          { "sol": "Z", "sag": "Zulu" }
+          {
+            "sol": "V",
+            "sag": "Victor"
+          },
+          {
+            "sol": "W",
+            "sag": "Whiskey"
+          },
+          {
+            "sol": "X",
+            "sag": "X-ray"
+          },
+          {
+            "sol": "Y",
+            "sag": "Yankee"
+          },
+          {
+            "sol": "Z",
+            "sag": "Zulu"
+          }
         ]
       },
       {
-        "id": "es_08", "soru": "Harfleri NATO kodlarıyla eşleştirin (karışık)", "zorluk": "zor", "alt_bolum": "1_4",
+        "id": "es_08",
+        "soru": "Harfleri NATO kodlarıyla eşleştirin (karışık)",
+        "zorluk": "zor",
+        "alt_bolum": "1_4",
         "cifler": [
-          { "sol": "A", "sag": "Alpha" },
-          { "sol": "Z", "sag": "Zulu" },
-          { "sol": "M", "sag": "Mike" },
-          { "sol": "T", "sag": "Tango" },
-          { "sol": "Q", "sag": "Quebec" }
+          {
+            "sol": "A",
+            "sag": "Alpha"
+          },
+          {
+            "sol": "Z",
+            "sag": "Zulu"
+          },
+          {
+            "sol": "M",
+            "sag": "Mike"
+          },
+          {
+            "sol": "T",
+            "sag": "Tango"
+          },
+          {
+            "sol": "Q",
+            "sag": "Quebec"
+          }
         ]
       }
     ],
     "cumle_dinle": [
-      { "id": "cd_01", "soru": "NATO ile hecelenen kelimeyi bulun: Alpha Bravo Charlie", "dogru": "ABC", "secenekler": ["ABC", "ABD", "ACB", "BAC"], "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "cd_02", "soru": "NATO ile hecelenen kelimeyi bulun: Delta Echo Foxtrot", "dogru": "DEF", "secenekler": ["DEF", "DFE", "FED", "EFD"], "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "cd_03", "soru": "NATO ile hecelenen kelimeyi bulun: Bravo Alpha Golf", "dogru": "BAG", "secenekler": ["BAG", "BIG", "GAB", "DAG"], "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "cd_04", "soru": "NATO ile hecelenen kelimeyi bulun: Charlie Alpha Bravo", "dogru": "CAB", "secenekler": ["CAB", "BAC", "ABC", "ACB"], "zorluk": "kolay", "alt_bolum": "1_1" },
-      { "id": "cd_05", "soru": "NATO ile hecelenen kelimeyi bulun: Golf Alpha Foxtrot Echo", "dogru": "GAFE", "secenekler": ["GAFE", "CAFE", "FACE", "SAFE"], "zorluk": "orta", "alt_bolum": "1_1" },
-      { "id": "cd_06", "soru": "NATO ile hecelenen kelimeyi bulun: Hotel India Juliet Kilo", "dogru": "HIJK", "secenekler": ["HIJK", "HJIK", "HIKJ", "IJKH"], "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "cd_07", "soru": "NATO ile hecelenen kelimeyi bulun: Lima India Mike Echo", "dogru": "LIME", "secenekler": ["LIME", "MILE", "LINE", "LIKE"], "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "cd_08", "soru": "NATO ile hecelenen kelimeyi bulun: November India Lima", "dogru": "NIL", "secenekler": ["NIL", "NLI", "LIN", "INN"], "zorluk": "orta", "alt_bolum": "1_2" },
-      { "id": "cd_09", "soru": "NATO ile hecelenen kelimeyi bulun: Oscar Papa Echo November", "dogru": "OPEN", "secenekler": ["OPEN", "OVEN", "PEON", "NOPE"], "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "cd_10", "soru": "NATO ile hecelenen kelimeyi bulun: Sierra Tango Oscar Papa", "dogru": "STOP", "secenekler": ["STOP", "SPOT", "TOPS", "POST"], "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "cd_11", "soru": "NATO ile hecelenen kelimeyi bulun: Romeo Oscar Sierra Echo", "dogru": "ROSE", "secenekler": ["ROSE", "ROPES", "SORE", "EROS"], "zorluk": "orta", "alt_bolum": "1_3" },
-      { "id": "cd_12", "soru": "NATO ile hecelenen kelimeyi bulun: Victor India Echo Whiskey", "dogru": "VIEW", "secenekler": ["VIEW", "VINE", "VEIN", "WAVE"], "zorluk": "zor", "alt_bolum": "1_4" },
-      { "id": "cd_13", "soru": "NATO ile hecelenen kelimeyi bulun: Zulu Oscar November Echo", "dogru": "ZONE", "secenekler": ["ZONE", "BONE", "CONE", "LONE"], "zorluk": "zor", "alt_bolum": "1_4" },
-      { "id": "cd_14", "soru": "NATO ile hecelenen kelimeyi bulun: Whiskey Alpha X-ray", "dogru": "WAX", "secenekler": ["WAX", "AXE", "MAX", "TAX"], "zorluk": "zor", "alt_bolum": "1_4" }
+      {
+        "id": "cd_01",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Alpha Bravo Charlie",
+        "dogru": "ABC",
+        "secenekler": [
+          "ABC",
+          "ABD",
+          "ACB",
+          "BAC"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "cd_02",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Delta Echo Foxtrot",
+        "dogru": "DEF",
+        "secenekler": [
+          "DEF",
+          "DFE",
+          "FED",
+          "EFD"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "cd_03",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Bravo Alpha Golf",
+        "dogru": "BAG",
+        "secenekler": [
+          "BAG",
+          "BIG",
+          "GAB",
+          "DAG"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "cd_04",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Charlie Alpha Bravo",
+        "dogru": "CAB",
+        "secenekler": [
+          "CAB",
+          "BAC",
+          "ABC",
+          "ACB"
+        ],
+        "zorluk": "kolay",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "cd_05",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Golf Alpha Foxtrot Echo",
+        "dogru": "GAFE",
+        "secenekler": [
+          "GAFE",
+          "CAFE",
+          "FACE",
+          "SAFE"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "1_1"
+      },
+      {
+        "id": "cd_06",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Hotel India Juliet Kilo",
+        "dogru": "HIJK",
+        "secenekler": [
+          "HIJK",
+          "HJIK",
+          "HIKJ",
+          "IJKH"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "cd_07",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Lima India Mike Echo",
+        "dogru": "LIME",
+        "secenekler": [
+          "LIME",
+          "MILE",
+          "LINE",
+          "LIKE"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "cd_08",
+        "soru": "NATO ile hecelenen kelimeyi bulun: November India Lima",
+        "dogru": "NIL",
+        "secenekler": [
+          "NIL",
+          "NLI",
+          "LIN",
+          "INN"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "1_2"
+      },
+      {
+        "id": "cd_09",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Oscar Papa Echo November",
+        "dogru": "OPEN",
+        "secenekler": [
+          "OPEN",
+          "OVEN",
+          "PEON",
+          "NOPE"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "cd_10",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Sierra Tango Oscar Papa",
+        "dogru": "STOP",
+        "secenekler": [
+          "STOP",
+          "SPOT",
+          "TOPS",
+          "POST"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "cd_11",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Romeo Oscar Sierra Echo",
+        "dogru": "ROSE",
+        "secenekler": [
+          "ROSE",
+          "ROPES",
+          "SORE",
+          "EROS"
+        ],
+        "zorluk": "orta",
+        "alt_bolum": "1_3"
+      },
+      {
+        "id": "cd_12",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Victor India Echo Whiskey",
+        "dogru": "VIEW",
+        "secenekler": [
+          "VIEW",
+          "VINE",
+          "VEIN",
+          "WAVE"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "cd_13",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Zulu Oscar November Echo",
+        "dogru": "ZONE",
+        "secenekler": [
+          "ZONE",
+          "BONE",
+          "CONE",
+          "LONE"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "1_4"
+      },
+      {
+        "id": "cd_14",
+        "soru": "NATO ile hecelenen kelimeyi bulun: Whiskey Alpha X-ray",
+        "dogru": "WAX",
+        "secenekler": [
+          "WAX",
+          "AXE",
+          "MAX",
+          "TAX"
+        ],
+        "zorluk": "zor",
+        "alt_bolum": "1_4"
+      }
     ],
     "hizli_tur": [
       {
-        "id": "ht_01", "soru": "10 saniyede kaç harfin NATO kodunu bulabilirsiniz?", "zorluk": "kolay", "alt_bolum": "1_1", "sure": 10,
+        "id": "ht_01",
+        "soru": "10 saniyede kaç harfin NATO kodunu bulabilirsiniz?",
+        "zorluk": "kolay",
+        "alt_bolum": "1_1",
+        "sure": 10,
         "sorular": [
-          { "gosterilen": "A", "dogru": "Alpha", "secenekler": ["Alpha", "Alfa", "Able", "Adam"] },
-          { "gosterilen": "B", "dogru": "Bravo", "secenekler": ["Bravo", "Baker", "Beta", "Boy"] },
-          { "gosterilen": "C", "dogru": "Charlie", "secenekler": ["Charlie", "Cast", "Cherry", "Chris"] },
-          { "gosterilen": "D", "dogru": "Delta", "secenekler": ["Delta", "Dog", "David", "Dean"] },
-          { "gosterilen": "E", "dogru": "Echo", "secenekler": ["Echo", "Easy", "Edward", "Eagle"] },
-          { "gosterilen": "F", "dogru": "Foxtrot", "secenekler": ["Foxtrot", "Fox", "Frank", "Fred"] },
-          { "gosterilen": "G", "dogru": "Golf", "secenekler": ["Golf", "George", "Gamma", "Gate"] }
+          {
+            "gosterilen": "A",
+            "dogru": "Alpha",
+            "secenekler": [
+              "Alpha",
+              "Alfa",
+              "Able",
+              "Adam"
+            ]
+          },
+          {
+            "gosterilen": "B",
+            "dogru": "Bravo",
+            "secenekler": [
+              "Bravo",
+              "Baker",
+              "Beta",
+              "Boy"
+            ]
+          },
+          {
+            "gosterilen": "C",
+            "dogru": "Charlie",
+            "secenekler": [
+              "Charlie",
+              "Cast",
+              "Cherry",
+              "Chris"
+            ]
+          },
+          {
+            "gosterilen": "D",
+            "dogru": "Delta",
+            "secenekler": [
+              "Delta",
+              "Dog",
+              "David",
+              "Dean"
+            ]
+          },
+          {
+            "gosterilen": "E",
+            "dogru": "Echo",
+            "secenekler": [
+              "Echo",
+              "Easy",
+              "Edward",
+              "Eagle"
+            ]
+          },
+          {
+            "gosterilen": "F",
+            "dogru": "Foxtrot",
+            "secenekler": [
+              "Foxtrot",
+              "Fox",
+              "Frank",
+              "Fred"
+            ]
+          },
+          {
+            "gosterilen": "G",
+            "dogru": "Golf",
+            "secenekler": [
+              "Golf",
+              "George",
+              "Gamma",
+              "Gate"
+            ]
+          }
         ]
       },
       {
-        "id": "ht_02", "soru": "10 saniyede kaç harfin NATO kodunu bulabilirsiniz?", "zorluk": "orta", "alt_bolum": "1_2", "sure": 10,
+        "id": "ht_02",
+        "soru": "10 saniyede kaç harfin NATO kodunu bulabilirsiniz?",
+        "zorluk": "orta",
+        "alt_bolum": "1_2",
+        "sure": 10,
         "sorular": [
-          { "gosterilen": "H", "dogru": "Hotel", "secenekler": ["Hotel", "House", "Henry", "Hero"] },
-          { "gosterilen": "I", "dogru": "India", "secenekler": ["India", "Item", "Ivan", "Ice"] },
-          { "gosterilen": "J", "dogru": "Juliet", "secenekler": ["Juliet", "Jack", "Jane", "Julia"] },
-          { "gosterilen": "K", "dogru": "Kilo", "secenekler": ["Kilo", "King", "Kate", "Knife"] },
-          { "gosterilen": "L", "dogru": "Lima", "secenekler": ["Lima", "Love", "Lion", "Lake"] },
-          { "gosterilen": "M", "dogru": "Mike", "secenekler": ["Mike", "Mark", "Mars", "Moon"] },
-          { "gosterilen": "N", "dogru": "November", "secenekler": ["November", "Nancy", "Night", "Nine"] }
+          {
+            "gosterilen": "H",
+            "dogru": "Hotel",
+            "secenekler": [
+              "Hotel",
+              "House",
+              "Henry",
+              "Hero"
+            ]
+          },
+          {
+            "gosterilen": "I",
+            "dogru": "India",
+            "secenekler": [
+              "India",
+              "Item",
+              "Ivan",
+              "Ice"
+            ]
+          },
+          {
+            "gosterilen": "J",
+            "dogru": "Juliet",
+            "secenekler": [
+              "Juliet",
+              "Jack",
+              "Jane",
+              "Julia"
+            ]
+          },
+          {
+            "gosterilen": "K",
+            "dogru": "Kilo",
+            "secenekler": [
+              "Kilo",
+              "King",
+              "Kate",
+              "Knife"
+            ]
+          },
+          {
+            "gosterilen": "L",
+            "dogru": "Lima",
+            "secenekler": [
+              "Lima",
+              "Love",
+              "Lion",
+              "Lake"
+            ]
+          },
+          {
+            "gosterilen": "M",
+            "dogru": "Mike",
+            "secenekler": [
+              "Mike",
+              "Mark",
+              "Mars",
+              "Moon"
+            ]
+          },
+          {
+            "gosterilen": "N",
+            "dogru": "November",
+            "secenekler": [
+              "November",
+              "Nancy",
+              "Night",
+              "Nine"
+            ]
+          }
         ]
       },
       {
-        "id": "ht_03", "soru": "10 saniyede kaç harfin NATO kodunu bulabilirsiniz?", "zorluk": "orta", "alt_bolum": "1_3", "sure": 10,
+        "id": "ht_03",
+        "soru": "10 saniyede kaç harfin NATO kodunu bulabilirsiniz?",
+        "zorluk": "orta",
+        "alt_bolum": "1_3",
+        "sure": 10,
         "sorular": [
-          { "gosterilen": "O", "dogru": "Oscar", "secenekler": ["Oscar", "Omega", "Oliver", "Otto"] },
-          { "gosterilen": "P", "dogru": "Papa", "secenekler": ["Papa", "Peter", "Paul", "Pine"] },
-          { "gosterilen": "Q", "dogru": "Quebec", "secenekler": ["Quebec", "Queen", "Quest", "Quick"] },
-          { "gosterilen": "R", "dogru": "Romeo", "secenekler": ["Romeo", "Roger", "Rose", "Ring"] },
-          { "gosterilen": "S", "dogru": "Sierra", "secenekler": ["Sierra", "Sugar", "Sam", "Star"] },
-          { "gosterilen": "T", "dogru": "Tango", "secenekler": ["Tango", "Tiger", "Tom", "Time"] },
-          { "gosterilen": "U", "dogru": "Uniform", "secenekler": ["Uniform", "Uncle", "Ultra", "Unit"] }
+          {
+            "gosterilen": "O",
+            "dogru": "Oscar",
+            "secenekler": [
+              "Oscar",
+              "Omega",
+              "Oliver",
+              "Otto"
+            ]
+          },
+          {
+            "gosterilen": "P",
+            "dogru": "Papa",
+            "secenekler": [
+              "Papa",
+              "Peter",
+              "Paul",
+              "Pine"
+            ]
+          },
+          {
+            "gosterilen": "Q",
+            "dogru": "Quebec",
+            "secenekler": [
+              "Quebec",
+              "Queen",
+              "Quest",
+              "Quick"
+            ]
+          },
+          {
+            "gosterilen": "R",
+            "dogru": "Romeo",
+            "secenekler": [
+              "Romeo",
+              "Roger",
+              "Rose",
+              "Ring"
+            ]
+          },
+          {
+            "gosterilen": "S",
+            "dogru": "Sierra",
+            "secenekler": [
+              "Sierra",
+              "Sugar",
+              "Sam",
+              "Star"
+            ]
+          },
+          {
+            "gosterilen": "T",
+            "dogru": "Tango",
+            "secenekler": [
+              "Tango",
+              "Tiger",
+              "Tom",
+              "Time"
+            ]
+          },
+          {
+            "gosterilen": "U",
+            "dogru": "Uniform",
+            "secenekler": [
+              "Uniform",
+              "Uncle",
+              "Ultra",
+              "Unit"
+            ]
+          }
         ]
       },
       {
-        "id": "ht_04", "soru": "10 saniyede kaç harfin NATO kodunu bulabilirsiniz?", "zorluk": "zor", "alt_bolum": "1_4", "sure": 10,
+        "id": "ht_04",
+        "soru": "10 saniyede kaç harfin NATO kodunu bulabilirsiniz?",
+        "zorluk": "zor",
+        "alt_bolum": "1_4",
+        "sure": 10,
         "sorular": [
-          { "gosterilen": "V", "dogru": "Victor", "secenekler": ["Victor", "Venus", "Vine", "Voice"] },
-          { "gosterilen": "W", "dogru": "Whiskey", "secenekler": ["Whiskey", "William", "Wolf", "Wine"] },
-          { "gosterilen": "X", "dogru": "X-ray", "secenekler": ["X-ray", "Xenon", "Xylophone", "Extra"] },
-          { "gosterilen": "Y", "dogru": "Yankee", "secenekler": ["Yankee", "Yellow", "Yoke", "York"] },
-          { "gosterilen": "Z", "dogru": "Zulu", "secenekler": ["Zulu", "Zero", "Zebra", "Zone"] },
-          { "gosterilen": "A", "dogru": "Alpha", "secenekler": ["Alpha", "Able", "Alfa", "Angel"] },
-          { "gosterilen": "M", "dogru": "Mike", "secenekler": ["Mike", "Mars", "Moon", "Mark"] }
+          {
+            "gosterilen": "V",
+            "dogru": "Victor",
+            "secenekler": [
+              "Victor",
+              "Venus",
+              "Vine",
+              "Voice"
+            ]
+          },
+          {
+            "gosterilen": "W",
+            "dogru": "Whiskey",
+            "secenekler": [
+              "Whiskey",
+              "William",
+              "Wolf",
+              "Wine"
+            ]
+          },
+          {
+            "gosterilen": "X",
+            "dogru": "X-ray",
+            "secenekler": [
+              "X-ray",
+              "Xenon",
+              "Xylophone",
+              "Extra"
+            ]
+          },
+          {
+            "gosterilen": "Y",
+            "dogru": "Yankee",
+            "secenekler": [
+              "Yankee",
+              "Yellow",
+              "Yoke",
+              "York"
+            ]
+          },
+          {
+            "gosterilen": "Z",
+            "dogru": "Zulu",
+            "secenekler": [
+              "Zulu",
+              "Zero",
+              "Zebra",
+              "Zone"
+            ]
+          },
+          {
+            "gosterilen": "A",
+            "dogru": "Alpha",
+            "secenekler": [
+              "Alpha",
+              "Able",
+              "Alfa",
+              "Angel"
+            ]
+          },
+          {
+            "gosterilen": "M",
+            "dogru": "Mike",
+            "secenekler": [
+              "Mike",
+              "Mars",
+              "Moon",
+              "Mark"
+            ]
+          }
         ]
       }
     ]

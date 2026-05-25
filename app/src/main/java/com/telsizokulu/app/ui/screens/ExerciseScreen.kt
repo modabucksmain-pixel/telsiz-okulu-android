@@ -852,6 +852,20 @@ fun TeoriEkrani(
                             textAlign = TextAlign.Center
                         )
 
+                        // Telaffuz (varsa) — monospace okunuş
+                        if (!kart.telaffuz.isNullOrBlank()) {
+                            Spacer(Modifier.height(6.dp))
+                            Text(
+                                text = "[ ${kart.telaffuz} ]",
+                                fontFamily = MonoFamily,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 13.sp,
+                                letterSpacing = 1.sp,
+                                color = Blue60,
+                                textAlign = TextAlign.Center
+                            )
+                        }
+
                         Spacer(Modifier.height(24.dp))
                         Text(
                             text = "Detayları ve Notları Göster 🔄",
@@ -883,8 +897,9 @@ fun TeoriEkrani(
                             HorizontalDivider(color = Slate800, thickness = 2.dp)
                             Spacer(Modifier.height(16.dp))
 
-                            // Bullet points
-                            val maddeler = getTeoriKartDetaylari(kart.id, kart.on ?: "")
+                            // Bullet points — önce karta özel gerçek açıklama, sonra genel sınav notları
+                            val maddeler = (if (!kart.aciklama.isNullOrBlank()) listOf(kart.aciklama) else emptyList()) +
+                                getTeoriKartDetaylari(kart.id, kart.on ?: "")
                             LazyColumn(
                                 verticalArrangement = Arrangement.spacedBy(12.dp),
                                 modifier = Modifier.weight(1f)
