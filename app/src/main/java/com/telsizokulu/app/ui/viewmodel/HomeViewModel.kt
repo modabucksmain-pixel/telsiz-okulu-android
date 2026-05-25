@@ -95,10 +95,14 @@ class HomeViewModel(
         chapterIdx: Int,
     ): NextLesson? {
         val bolum = curriculum.bolumler.getOrNull(chapterIdx) ?: return null
-        for (altBolum in bolum.altBolumler) {
-            val altBolumIlerleme = ilerleme.bolumler[bolum.id]?.altBolumler?.get(altBolum.id)
-            // Kilitli alt bölüme atlama — sınav geçilmeden sonraki alt bölüme geçilemez.
-            if ((altBolumIlerleme?.durum ?: "kilitli") == "kilitli") continue
+        val bolumBilgi = ilerleme.bolumler[bolum.id]
+        bolum.altBolumler.forEachIndexed { idx, altBolum ->
+            val altBolumIlerleme = bolumBilgi?.altBolumler?.get(altBolum.id)
+            // Kilit türetilmiş: ilk alt bölüm açık; sonrakiler önceki sınav geçilince açılır.
+            val buTamam = altBolumIlerleme?.durum == "tamamlandi"
+            val oncekiId = bolum.altBolumler.getOrNull(idx - 1)?.id
+            val oncekiTamam = idx == 0 || bolumBilgi?.altBolumler?.get(oncekiId)?.durum == "tamamlandi"
+            if (!buTamam && !oncekiTamam) return@forEachIndexed  // kilitli alt bölüme atlama
             val tamamlananDersler = altBolumIlerleme?.tamamlananDersler ?: emptyList()
             val maxTamamlanan = tamamlananDersler.maxOrNull() ?: 0
             for (ders in altBolum.dersler) {
@@ -206,6 +210,11 @@ class ProfileViewModel(
     }
 
     fun veriSifirla() { viewModelScope.launch { progressRepo.sifirla() } }
+
+    // Geliştirici araçları
+    fun devTumKilitleriAc() { viewModelScope.launch { progressRepo.devTumKilitleriAc() } }
+    fun devXpEkle() { viewModelScope.launch { progressRepo.addXP(500) } }
+    fun devOnboardingSifirla() { viewModelScope.launch { progressRepo.devOnboardingSifirla() } }
 
     fun exportJson(onResult: (String) -> Unit) {
         viewModelScope.launch { onResult(progressRepo.exportJson()) }

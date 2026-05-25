@@ -403,6 +403,51 @@ fun ProfileScreen(
                                 containerColor = Slate900
                             )
                         }
+
+                        // ── Geliştirici Araçları (test için) ──────────
+                        Spacer(Modifier.height(24.dp))
+                        Text(
+                            "🧪 Geliştirici Araçları",
+                            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+                            color = SlateWhite
+                        )
+                        Text(
+                            "Test amaçlı — kilitleri açar, ilerlemeyi değiştirir.",
+                            style = MaterialTheme.typography.labelSmall,
+                            color = Slate400
+                        )
+                        Spacer(Modifier.height(14.dp))
+
+                        Button(
+                            onClick = { viewModel.devTumKilitleriAc() },
+                            modifier = Modifier.fillMaxWidth().height(54.dp),
+                            colors = ButtonDefaults.buttonColors(containerColor = Slate800),
+                            shape = RoundedCornerShape(14.dp)
+                        ) {
+                            Text("🔓 Tüm Kilitleri Aç", color = SlateWhite, fontWeight = FontWeight.SemiBold, fontSize = 15.sp)
+                        }
+
+                        Spacer(Modifier.height(10.dp))
+
+                        Button(
+                            onClick = { viewModel.devXpEkle() },
+                            modifier = Modifier.fillMaxWidth().height(54.dp),
+                            colors = ButtonDefaults.buttonColors(containerColor = Slate800),
+                            shape = RoundedCornerShape(14.dp)
+                        ) {
+                            Text("⚡ +500 XP", color = SlateWhite, fontWeight = FontWeight.SemiBold, fontSize = 15.sp)
+                        }
+
+                        Spacer(Modifier.height(10.dp))
+
+                        Button(
+                            onClick = { viewModel.devOnboardingSifirla() },
+                            modifier = Modifier.fillMaxWidth().height(54.dp),
+                            colors = ButtonDefaults.buttonColors(containerColor = Slate800),
+                            shape = RoundedCornerShape(14.dp)
+                        ) {
+                            Text("👋 Öğreticiyi Tekrar Göster", color = SlateWhite, fontWeight = FontWeight.SemiBold, fontSize = 15.sp)
+                        }
                     }
                 }
             }

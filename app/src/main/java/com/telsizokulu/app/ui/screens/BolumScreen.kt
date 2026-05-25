@@ -4,6 +4,7 @@ import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -132,15 +133,27 @@ fun BolumScreen(
             }
 
             // Alt bölümler
-            items(bolum.altBolumler) { altBolum ->
-                val altBolumIlerleme = ilerleme.bolumler[bolum.id]?.altBolumler?.get(altBolum.id)
-                val altBolumDurum = altBolumIlerleme?.durum ?: "kilitli"
+            itemsIndexed(bolum.altBolumler) { idx, altBolum ->
+                val bolumBilgi = ilerleme.bolumler[bolum.id]
+                val altBolumIlerleme = bolumBilgi?.altBolumler?.get(altBolum.id)
                 val tamamlananDersler = altBolumIlerleme?.tamamlananDersler ?: emptyList()
+
+                // Kilit, saklanan duruma değil türetilmiş kurala bağlı:
+                // ilk alt bölüm her zaman açık; sonrakiler ancak önceki alt bölüm sınavı geçilince açılır.
+                val buTamam = altBolumIlerleme?.durum == "tamamlandi"
+                val oncekiId = bolum.altBolumler.getOrNull(idx - 1)?.id
+                val oncekiTamam = idx == 0 ||
+                    bolumBilgi?.altBolumler?.get(oncekiId)?.durum == "tamamlandi"
+                val effektifDurum = when {
+                    buTamam      -> "tamamlandi"
+                    oncekiTamam  -> "devam_ediyor"
+                    else         -> "kilitli"
+                }
 
                 AltBolumKart(
                     bolum = bolum,
                     altBolum = altBolum,
-                    durum = altBolumDurum,
+                    durum = effektifDurum,
                     tamamlananDersler = tamamlananDersler,
                     renk = renk,
                     onDersClick = { dersNo -> onDersClick(altBolum.id, dersNo) },

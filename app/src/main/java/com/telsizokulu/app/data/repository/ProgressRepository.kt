@@ -258,6 +258,28 @@ class ProgressRepository(private val context: Context) {
         save(varsayilanOlustur())
     }
 
+    // ── Geliştirici Araçları (test için) ─────────────────────
+
+    /** Tüm bölüm/alt bölüm/sınav kilitlerini açar ve dersleri tamamlanmış işaretler. */
+    suspend fun devTumKilitleriAc() {
+        val ilerleme = getIlerleme()
+        val yeniBolumler = ilerleme.bolumler.mapValues { (_, b) ->
+            b.copy(
+                durum = "tamamlandi",
+                gecmeSinavi = b.gecmeSinavi.copy(durum = "tamamlandi"),
+                altBolumler = b.altBolumler.mapValues { (_, ab) ->
+                    ab.copy(durum = "tamamlandi", tamamlananDersler = (1..15).toList())
+                }
+            )
+        }
+        save(ilerleme.copy(bolumler = yeniBolumler))
+    }
+
+    /** İlk açılış öğreticisini yeniden göstermek için bayrağı sıfırlar. */
+    suspend fun devOnboardingSifirla() {
+        context.dataStore.edit { it[ONBOARDING_KEY] = false }
+    }
+
     suspend fun sifirlaAltBolum(bolumId: String, altBolumId: String) {
         val ilerleme = getIlerleme().toMutable()
         val bolum = ilerleme.bolumler[bolumId] ?: return
