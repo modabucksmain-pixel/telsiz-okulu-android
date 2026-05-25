@@ -3,6 +3,7 @@ package com.telsizokulu.app.data.repository
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -24,6 +25,16 @@ class ProgressRepository(private val context: Context) {
 
     private val gson = Gson()
     private val PROGRESS_KEY = stringPreferencesKey("ilerleme_json")
+    private val ONBOARDING_KEY = booleanPreferencesKey("onboarding_goruldu")
+
+    // ── Onboarding ─────────────────────────────────────────────
+
+    suspend fun getOnboardingGoruldu(): Boolean =
+        context.dataStore.data.map { it[ONBOARDING_KEY] ?: false }.first()
+
+    suspend fun setOnboardingGoruldu() {
+        context.dataStore.edit { it[ONBOARDING_KEY] = true }
+    }
 
     // ── Okuma ──────────────────────────────────────────────────
 

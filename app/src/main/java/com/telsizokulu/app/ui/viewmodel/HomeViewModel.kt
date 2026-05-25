@@ -32,6 +32,7 @@ data class HomeUiState(
     val zayifKonuSayisi: Int = 0,
     val seviye: Int = 1,
     val seviyePct: Float = 0f,
+    val onboardingGoster: Boolean = false,
 )
 
 class HomeViewModel(
@@ -45,6 +46,10 @@ class HomeViewModel(
     init {
         viewModelScope.launch {
             progressRepo.updateStreak()
+            val onboardingGorebilir = !progressRepo.getOnboardingGoruldu()
+            if (onboardingGorebilir) {
+                _uiState.value = _uiState.value.copy(onboardingGoster = true)
+            }
             val curriculum = curriculumRepo.loadCurriculum()
             progressRepo.ilerlemFlow.collectLatest { ilerleme ->
                 val bolumIlerlemeleri = curriculum.bolumler.associate { bolum ->
@@ -67,6 +72,11 @@ class HomeViewModel(
                 )
             }
         }
+    }
+
+    fun onboardingKapat() {
+        _uiState.value = _uiState.value.copy(onboardingGoster = false)
+        viewModelScope.launch { progressRepo.setOnboardingGoruldu() }
     }
 
     fun selectChapter(idx: Int) {

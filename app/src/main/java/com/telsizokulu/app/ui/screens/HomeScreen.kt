@@ -53,6 +53,7 @@ import com.telsizokulu.app.ui.components.GrillMeBottomSheet
 import com.telsizokulu.app.ui.components.GrillMeFab
 import com.telsizokulu.app.ui.components.HomeLessonRow
 import com.telsizokulu.app.ui.components.LessonStatus
+import com.telsizokulu.app.ui.components.OnboardingOverlay
 import com.telsizokulu.app.ui.components.NavTab
 import com.telsizokulu.app.ui.components.StatChip
 import com.telsizokulu.app.ui.components.StatChipKind
@@ -279,6 +280,11 @@ fun HomeScreen(
                 bolumRenk= BolumColors.fromId(bolumId),
                 onDismiss= { grillOpen = false },
             )
+        }
+
+        // ── İlk açılış öğretici ──────────────────────────────────────
+        if (uiState.onboardingGoster) {
+            OnboardingOverlay(onKapat = { viewModel.onboardingKapat() })
         }
     }
 }
