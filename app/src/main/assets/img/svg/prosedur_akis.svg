@@ -1,0 +1,12 @@
+<svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>İletişim Prosedürü</title>
+  <rect x="20" y="30" width="64" height="34" rx="8" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+  <text x="52" y="52" font-family="sans-serif" font-size="13" fill="#38BDF8" text-anchor="middle">Çağrı</text>
+  <rect x="88" y="96" width="64" height="34" rx="8" fill="none" stroke="#A78BFA" stroke-width="2.5"/>
+  <text x="120" y="118" font-family="sans-serif" font-size="13" fill="#A78BFA" text-anchor="middle">Cevap</text>
+  <rect x="156" y="30" width="64" height="34" rx="8" fill="none" stroke="#34D399" stroke-width="2.5"/>
+  <text x="188" y="52" font-family="sans-serif" font-size="13" fill="#34D399" text-anchor="middle">Mesaj</text>
+  <path d="M84 47 L120 47 L120 96" fill="none" stroke="#475569" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M120 96 L156 47" fill="none" stroke="#475569" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="120" y="152" font-family="sans-serif" font-size="13" fill="#94A3B8" text-anchor="middle">Telsiz konuşma akışı</text>
+</svg>

@@ -1,0 +1,13 @@
+<svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>NATO Fonetik</title>
+  <rect x="30" y="40" width="50" height="50" rx="10" fill="none" stroke="#38BDF8" stroke-width="3"/>
+  <text x="55" y="76" font-family="monospace" font-size="32" font-weight="bold" fill="#38BDF8" text-anchor="middle">A</text>
+  <path d="M92 65 L120 65" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+  <path d="M112 58 L122 65 L112 72" fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="130" y="40" width="80" height="50" rx="10" fill="none" stroke="#A78BFA" stroke-width="3"/>
+  <text x="170" y="74" font-family="sans-serif" font-size="22" font-weight="bold" fill="#A78BFA" text-anchor="middle">Alpha</text>
+  <g stroke="#34D399" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <path d="M60 108 q6 -12 12 0 t12 0 t12 0 t12 0 t12 0 t12 0 t12 0"/>
+  </g>
+  <text x="120" y="146" font-family="sans-serif" font-size="13" fill="#94A3B8" text-anchor="middle">Harf → Kod</text>
+</svg>

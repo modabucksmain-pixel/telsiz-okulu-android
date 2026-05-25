@@ -1,0 +1,14 @@
+<svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Dipol Anten</title>
+  <line x1="40" y1="120" x2="200" y2="120" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+  <line x1="116" y1="120" x2="116" y2="60" stroke="#475569" stroke-width="3"/>
+  <line x1="124" y1="120" x2="124" y2="60" stroke="#475569" stroke-width="3"/>
+  <circle cx="120" cy="120" r="6" fill="#FBBF24"/>
+  <g fill="none" stroke="#A78BFA" stroke-width="2.5" stroke-linecap="round">
+    <path d="M120 50 a30 30 0 0 1 30 30" opacity="0.8"/>
+    <path d="M120 38 a42 42 0 0 1 42 42" opacity="0.55"/>
+    <path d="M120 50 a30 30 0 0 0 -30 30" opacity="0.8"/>
+    <path d="M120 38 a42 42 0 0 0 -42 42" opacity="0.55"/>
+  </g>
+  <text x="120" y="150" font-family="sans-serif" font-size="14" fill="#94A3B8" text-anchor="middle">λ / 2 Dipol</text>
+</svg>

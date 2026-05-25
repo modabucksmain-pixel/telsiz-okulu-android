@@ -74,6 +74,12 @@ object RadioSfx {
             tone(784.0, 90, 0.5), tone(1047.0, 220, 0.6)
         )
     }
+    // Konuşma sonrası yükselen "du-du-dii" onay melodisi
+    private val stepUp by lazy {
+        concat(
+            tone(660.0, 75, 0.5), tone(880.0, 75, 0.5), tone(1245.0, 150, 0.6)
+        )
+    }
 
     // ── Çalma ─────────────────────────────────────────────────────
 
@@ -113,6 +119,7 @@ object RadioSfx {
     // ── Sürekli statik bed (TTS sırasında) ───────────────────────
 
     private var bedTrack: AudioTrack? = null
+    @Volatile private var bedAktif = false
 
     fun statikBaslat(vol: Float = 0.12f) {
         if (bedTrack != null) return
@@ -140,12 +147,27 @@ object RadioSfx {
             t.setVolume(vol)
             t.play()
             bedTrack = t
+            bedAktif = true
+            // Cızırtı rastgele dalgalansın: ses seviyesini periyodik random değiştir
+            Thread {
+                val rnd = Random()
+                while (bedAktif) {
+                    try {
+                        val tepe = vol * (1.4f + rnd.nextFloat() * 2.6f) // base..base*4 arası ani sıçrama
+                        bedTrack?.setVolume(tepe.coerceAtMost(1f))
+                        Thread.sleep((70 + rnd.nextInt(160)).toLong())
+                        bedTrack?.setVolume(vol)
+                        Thread.sleep((40 + rnd.nextInt(110)).toLong())
+                    } catch (e: Exception) { break }
+                }
+            }.start()
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
     fun statikDurdur() {
+        bedAktif = false
         try {
             bedTrack?.stop()
             bedTrack?.release()
@@ -158,6 +180,7 @@ object RadioSfx {
     fun squelchOpen(vol: Float = 0.6f) = play(squelchOpen, vol)
     fun squelchClose(vol: Float = 0.5f) = play(squelchClose, vol)
     fun rogerBeep(vol: Float = 0.45f) = play(rogerBeep, vol)
+    fun stepUp(vol: Float = 0.5f) = play(stepUp, vol)
     fun dogru(vol: Float = 0.7f) = play(dogru, vol)
     fun yanlis(vol: Float = 0.7f) = play(yanlis, vol)
     fun bolum(vol: Float = 0.7f) = play(bolum, vol)

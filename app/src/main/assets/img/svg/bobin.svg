@@ -1,0 +1,7 @@
+<svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Bobin</title>
+  <line x1="20" y1="80" x2="60" y2="80" stroke="#FBBF24" stroke-width="3"/>
+  <path d="M60 80 a14 14 0 1 1 28 0 a14 14 0 1 1 28 0 a14 14 0 1 1 28 0 a14 14 0 1 1 28 0" fill="none" stroke="#FBBF24" stroke-width="3"/>
+  <line x1="180" y1="80" x2="220" y2="80" stroke="#FBBF24" stroke-width="3"/>
+  <text x="120" y="130" font-family="monospace" font-size="18" font-weight="bold" fill="#94A3B8" text-anchor="middle">L  Henry (H)</text>
+</svg>

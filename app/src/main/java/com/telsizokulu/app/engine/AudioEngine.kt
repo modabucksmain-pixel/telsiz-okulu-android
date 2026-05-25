@@ -74,11 +74,29 @@ class AudioEngine(private val context: Context) {
         tts = TextToSpeech(context) { status ->
             if (status == TextToSpeech.SUCCESS) {
                 ttsHazir = true
-                // İngilizce erkek sesi tercih et (NATO kelimeler için)
+                // Kalın erkek telsiz sesi: pitch düşük, hız sabit
                 tts?.language = Locale.US
                 tts?.setSpeechRate(0.82f)
-                tts?.setPitch(0.88f)
+                tts?.setPitch(0.7f)
+                erkekSesSec(Locale.US)
             }
+        }
+    }
+
+    /** Locale için varsa erkek (male) TTS sesini seç. */
+    private fun erkekSesSec(locale: Locale) {
+        try {
+            val sesler = tts?.voices ?: return
+            val aday = sesler.firstOrNull {
+                it.locale.language == locale.language &&
+                    it.name.contains("male", ignoreCase = true) &&
+                    !it.name.contains("female", ignoreCase = true)
+            } ?: sesler.firstOrNull {
+                it.locale.language == locale.language && it.name.contains("#male", ignoreCase = true)
+            }
+            if (aday != null) tts?.voice = aday
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
@@ -95,11 +113,11 @@ class AudioEngine(private val context: Context) {
         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
             RadioSfx.statikBaslat()
             konus(kelime, onBitti = {
-                // TTS bitince: statik dur + squelch close + roger beep
+                // TTS bitince: statik dur + squelch close + yükselen du-du-dii melodi
                 RadioSfx.statikDurdur()
                 RadioSfx.squelchClose()
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                    RadioSfx.rogerBeep()
+                    RadioSfx.stepUp()
                 }, 90)
             })
         }, 160)
@@ -133,7 +151,7 @@ class AudioEngine(private val context: Context) {
                 RadioSfx.statikDurdur()
                 RadioSfx.squelchClose()
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
-                    RadioSfx.rogerBeep()
+                    RadioSfx.stepUp()
                 }, 90)
             })
         }, 160)
@@ -145,6 +163,7 @@ class AudioEngine(private val context: Context) {
     private fun konus(text: String, lang: Locale = Locale.US, onBitti: (() -> Unit)? = null) {
         if (!ttsHazir) return
         tts?.language = lang
+        erkekSesSec(lang)
         val utteranceId = "telsiz_${System.currentTimeMillis()}"
 
         tts?.setOnUtteranceProgressListener(object : UtteranceProgressListener() {

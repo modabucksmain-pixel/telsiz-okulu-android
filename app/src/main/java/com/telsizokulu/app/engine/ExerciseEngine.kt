@@ -45,20 +45,35 @@ class ExerciseEngine {
         }
 
         val rescoped = tumEgzersizler.map { e ->
-            if (e.tip == "dinle_sec" && kartIds.isNotEmpty()) {
-                val dogru = icerik.kartlar.find { it.id == e.kartId }?.on ?: e.cevap
-                var distractors = icerik.kartlar
-                    .filter { it.id != e.kartId && it.id in kartIds && !it.on.isNullOrEmpty() }
-                    .shuffled().mapNotNull { it.on }
-                if (distractors.size < 3) {
-                    distractors = icerik.kartlar
-                        .filter { it.id != e.kartId && !it.on.isNullOrEmpty() &&
-                            (e.altBolum.isEmpty() || it.altBolum == e.altBolum) }
+            when {
+                e.tip == "dinle_sec" && kartIds.isNotEmpty() -> {
+                    val dogru = icerik.kartlar.find { it.id == e.kartId }?.on ?: e.cevap
+                    var distractors = icerik.kartlar
+                        .filter { it.id != e.kartId && it.id in kartIds && !it.on.isNullOrEmpty() }
                         .shuffled().mapNotNull { it.on }
+                    if (distractors.size < 3) {
+                        distractors = icerik.kartlar
+                            .filter { it.id != e.kartId && !it.on.isNullOrEmpty() &&
+                                (e.altBolum.isEmpty() || it.altBolum == e.altBolum) }
+                            .shuffled().mapNotNull { it.on }
+                    }
+                    e.copy(secenekler = (listOf(dogru) + distractors.take(3)).shuffled())
                 }
-                e.copy(secenekler = (listOf(dogru) + distractors.take(3)).shuffled())
-            } else e
-        }
+                // Ters NATO sorusu ("Bravo hangi harf?") → şıkları yalnızca öğretilen kartların harfleriyle kur.
+                // Aksi halde henüz öğretilmemiş harfler (S, O, Q...) dağıtıcı olarak sızıyor.
+                e.tip == "coktan_secmeli" && e.id.startsWith("hs_") && kartIds.isNotEmpty() -> {
+                    val dogru = icerik.kartlar.find { it.id == e.kartId }?.on?.uppercase() ?: e.cevap
+                    val distractors = icerik.kartlar
+                        .filter { it.id != e.kartId && it.id in kartIds && !it.on.isNullOrEmpty() }
+                        .mapNotNull { it.on?.uppercase() }.distinct()
+                        .filter { it != dogru }.shuffled().take(3)
+                    if (distractors.size == 3)
+                        e.copy(cevap = dogru, secenekler = (listOf(dogru) + distractors).shuffled())
+                    else null  // 3 öğretilmiş harf yoksa bu soruyu derste gösterme
+                }
+                else -> e
+            }
+        }.filterNotNull()
         val sirali = if (kartDurumlari.isNotEmpty()) agirlikliKaristir(rescoped, kartDurumlari)
                      else rescoped.shuffled()
         return sirali.take(egzersizSayisi)

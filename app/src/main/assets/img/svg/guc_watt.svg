@@ -1,0 +1,9 @@
+<svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Çıkış Gücü</title>
+  <path d="M132 24 L96 90 L120 90 L108 136 L156 70 L128 70 Z" fill="none" stroke="#FBBF24" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M48 60 a44 44 0 0 0 0 40" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M36 48 a62 62 0 0 0 0 64" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <path d="M192 60 a44 44 0 0 1 0 40" fill="none" stroke="#A78BFA" stroke-width="3" stroke-linecap="round"/>
+  <path d="M204 48 a62 62 0 0 1 0 64" fill="none" stroke="#A78BFA" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+  <text x="120" y="152" font-family="monospace" font-size="16" font-weight="bold" fill="#94A3B8" text-anchor="middle">P = V × I  (Watt)</text>
+</svg>

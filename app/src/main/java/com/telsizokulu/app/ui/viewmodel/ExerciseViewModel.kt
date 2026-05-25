@@ -180,15 +180,26 @@ class ExerciseViewModel(
         )
     }
 
+    /** dinle_sec / cumle_dinle sorusunda hedef sesi (NATO kelimesi) telsiz efektiyle çalar. */
+    fun seslendirDinle(egzersiz: Egzersiz) {
+        val kartId = egzersiz.dogruKart.ifEmpty { egzersiz.kartId }
+        if (kartId.startsWith("nato_")) {
+            val kelime = kartId.removePrefix("nato_").replaceFirstChar { it.uppercase() }
+            audioEngine.oynatNATO(kelime)
+        } else {
+            val text = egzersiz.cevap.ifEmpty { egzersiz.soru }
+            audioEngine.seslendir(text, "en-US")
+        }
+    }
+
     fun seslendirMevcutTeori() {
         val kart = _uiState.value.teoriKartlari.getOrNull(_uiState.value.mevcutTeoriIndex) ?: return
-        if (!kart.ses.isNullOrEmpty()) {
-            audioEngine.oynatEfekt(kart.ses ?: "")
-        } else {
-            val lang = if (kart.id.startsWith("nato_")) "en-US" else "tr-TR"
-            val text = (kart.on ?: "").ifEmpty { kart.id }
-            audioEngine.seslendir(text, lang)
-        }
+        val nato = kart.id.startsWith("nato_")
+        val lang = if (nato) "en-US" else "tr-TR"
+        // NATO kartında okunacak şey kod kelimesi (Alpha), harf değil (A).
+        val text = if (nato) (kart.arka ?: "").ifEmpty { kart.on ?: "" }
+                   else (kart.on ?: "").ifEmpty { kart.arka ?: "" }
+        audioEngine.seslendir(text.ifEmpty { kart.id }, lang)
     }
 
     /**

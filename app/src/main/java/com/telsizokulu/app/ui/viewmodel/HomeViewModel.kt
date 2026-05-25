@@ -96,11 +96,17 @@ class HomeViewModel(
     ): NextLesson? {
         val bolum = curriculum.bolumler.getOrNull(chapterIdx) ?: return null
         for (altBolum in bolum.altBolumler) {
+            val altBolumIlerleme = ilerleme.bolumler[bolum.id]?.altBolumler?.get(altBolum.id)
+            // Kilitli alt bölüme atlama — sınav geçilmeden sonraki alt bölüme geçilemez.
+            if ((altBolumIlerleme?.durum ?: "kilitli") == "kilitli") continue
+            val tamamlananDersler = altBolumIlerleme?.tamamlananDersler ?: emptyList()
+            val maxTamamlanan = tamamlananDersler.maxOrNull() ?: 0
             for (ders in altBolum.dersler) {
-                val done = ilerleme.bolumler[bolum.id]
-                    ?.altBolumler?.get(altBolum.id)
-                    ?.tamamlananDersler?.contains(ders.no) == true
-                if (!done) return NextLesson(bolum.id, altBolum.id, ders.no, ders.baslik)
+                val done = ders.no in tamamlananDersler
+                // Yalnızca erişilebilir dersi öner (bir sonraki sıradaki).
+                if (!done && ders.no <= maxTamamlanan + 1) {
+                    return NextLesson(bolum.id, altBolum.id, ders.no, ders.baslik)
+                }
             }
         }
         return null

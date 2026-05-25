@@ -1,0 +1,8 @@
+<svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Çağrı İşareti</title>
+  <rect x="24" y="40" width="192" height="80" rx="14" fill="none" stroke="#A78BFA" stroke-width="3"/>
+  <text x="120" y="92" font-family="monospace" font-size="34" font-weight="bold" fill="#A78BFA" text-anchor="middle">TA2BC</text>
+  <path d="M40 30 a16 16 0 0 1 24 0" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+  <path d="M176 30 a16 16 0 0 1 24 0" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+  <text x="120" y="140" font-family="sans-serif" font-size="13" fill="#94A3B8" text-anchor="middle">Tango Alpha Two Bravo Charlie</text>
+</svg>

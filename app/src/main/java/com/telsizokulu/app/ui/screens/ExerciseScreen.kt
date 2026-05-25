@@ -16,6 +16,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
@@ -140,7 +141,19 @@ fun ExerciseScreen(
                 color = GreenSuccess,
                 trackColor = Slate800
             )
+            Spacer(Modifier.width(10.dp))
+            Text(
+                text = "✓ ${oturum.dogruSayisi}",
+                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.ExtraBold),
+                color = GreenSuccess
+            )
             Spacer(Modifier.width(8.dp))
+            Text(
+                text = "✗ ${oturum.yanlisSayisi}",
+                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.ExtraBold),
+                color = RedError
+            )
+            Spacer(Modifier.width(10.dp))
             Text(
                 text = "${oturum.mevcutIndex + 1}/${oturum.egzersizler.size}",
                 style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
@@ -185,7 +198,8 @@ fun ExerciseScreen(
                 geribildirımGoruntu = oturum.geribildirımGoruntu,
                 sonCevapDogru = oturum.sonCevapDogru,
                 onCevapVer = viewModel::cevapVer,
-                onDevamEt = viewModel::devamEt
+                onDevamEt = viewModel::devamEt,
+                onDinle = { viewModel.seslendirDinle(egzersiz) }
             )
         }
     }
@@ -197,7 +211,8 @@ private fun EgzersizKarti(
     geribildirımGoruntu: Boolean,
     sonCevapDogru: Boolean?,
     onCevapVer: (String) -> Unit,
-    onDevamEt: () -> Unit
+    onDevamEt: () -> Unit,
+    onDinle: () -> Unit = {}
 ) {
     var mevcutCevap by remember(egzersiz.id) { mutableStateOf("") }
     var cevapGonderildi by remember(egzersiz.id) { mutableStateOf(false) }
@@ -224,18 +239,23 @@ private fun EgzersizKarti(
     ) {
         Spacer(Modifier.height(16.dp))
 
-        // Tip Etiketi
-        Text(
-            text = getTipEtiketi(egzersiz.tip),
-            color = Blue60,
-            fontWeight = FontWeight.Bold,
-            fontSize = 13.sp,
-            letterSpacing = 1.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()
-        )
+        // Tip Etiketi — neon pill
+        Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+            Text(
+                text = "📻  ${getTipEtiketi(egzersiz.tip)}",
+                color = Blue60,
+                fontWeight = FontWeight.ExtraBold,
+                fontSize = 12.sp,
+                letterSpacing = 1.5.sp,
+                modifier = Modifier
+                    .clip(RoundedCornerShape(50))
+                    .background(Blue60.copy(alpha = 0.12f))
+                    .border(1.dp, Blue60.copy(alpha = 0.4f), RoundedCornerShape(50))
+                    .padding(horizontal = 16.dp, vertical = 7.dp)
+            )
+        }
 
-        Spacer(Modifier.height(12.dp))
+        Spacer(Modifier.height(16.dp))
 
         // Konuşma Balonları (Diyalog)
         if (egzersiz.diyalog != null && egzersiz.diyalog.isNotEmpty()) {
@@ -243,18 +263,80 @@ private fun EgzersizKarti(
             Spacer(Modifier.height(16.dp))
         }
 
-        // Soru Metni
-        Text(
-            text = egzersiz.soru.ifEmpty { egzersiz.metin },
-            fontSize = 22.sp,
-            fontWeight = FontWeight.Bold,
-            lineHeight = 30.sp,
-            color = SlateWhite,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.fillMaxWidth()
-        )
+        // Soru görseli (SVG) — yalnızca eşleşen sorularda
+        getSoruGorselYolu(egzersiz)?.let { gorsel ->
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(132.dp)
+                    .neonGlow(Purple60, cornerRadius = 18.dp, elevation = 10.dp, glowAlpha = 0.32f, borderAlpha = 0.4f)
+                    .clip(RoundedCornerShape(18.dp))
+                    .background(Brush.verticalGradient(listOf(Slate900, Slate950)))
+                    .padding(12.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                AsyncImage(
+                    model = gorsel,
+                    contentDescription = null,
+                    contentScale = ContentScale.Fit,
+                    modifier = Modifier.fillMaxSize()
+                )
+            }
+            Spacer(Modifier.height(16.dp))
+        }
+
+        // Soru Metni — neon gradient kart
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .neonGlow(Blue60, cornerRadius = 20.dp, elevation = 14.dp, glowAlpha = 0.4f, borderAlpha = 0.45f)
+                .clip(RoundedCornerShape(20.dp))
+                .background(
+                    Brush.verticalGradient(listOf(Slate900, Slate800.copy(alpha = 0.6f)))
+                )
+                .padding(horizontal = 22.dp, vertical = 26.dp),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = egzersiz.soru.ifEmpty { egzersiz.metin },
+                fontSize = 22.sp,
+                fontWeight = FontWeight.Bold,
+                lineHeight = 30.sp,
+                color = SlateWhite,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
 
         Spacer(Modifier.height(28.dp))
+
+        // Dinle-tipi sorularda sesi çalan buton (açılışta bir kez otomatik çalar)
+        if (egzersiz.tip == "dinle_sec" || egzersiz.tip == "cumle_dinle") {
+            LaunchedEffect(egzersiz.id) { onDinle() }
+            Button(
+                onClick = onDinle,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = 84.dp)
+                    .neonGlow(Blue60, cornerRadius = 18.dp, elevation = 12.dp, borderWidth = 2.dp),
+                colors = ButtonDefaults.buttonColors(containerColor = Blue60.copy(alpha = 0.18f)),
+                border = BorderStroke(2.dp, Blue60),
+                shape = RoundedCornerShape(18.dp)
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("🔊", fontSize = 34.sp)
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        "SESİ TEKRAR DİNLE",
+                        color = SlateWhite,
+                        fontWeight = FontWeight.ExtraBold,
+                        fontSize = 14.sp,
+                        letterSpacing = 1.sp
+                    )
+                }
+            }
+            Spacer(Modifier.height(20.dp))
+        }
 
         // Cevap seçenekleri veya özel soru tipleri
         when (egzersiz.tip) {
@@ -407,6 +489,27 @@ private fun EgzersizKarti(
 
             "bosluk_doldur", "sayisal", "kelime_hece", "cumle_tamamla", "formul_tamamla", "kodu_yaz", "harfi_yaz", "hesapla" -> {
                 val unitSuffix = if ((egzersiz.tip == "sayisal" || egzersiz.tip == "hesapla") && egzersiz.birim.isNotEmpty()) " (${egzersiz.birim})" else ""
+                getCevapIpucu(egzersiz)?.let { ipucu ->
+                    Row(
+                        verticalAlignment = Alignment.Top,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 12.dp)
+                            .clip(RoundedCornerShape(12.dp))
+                            .background(Blue60.copy(alpha = 0.1f))
+                            .border(1.dp, Blue60.copy(alpha = 0.3f), RoundedCornerShape(12.dp))
+                            .padding(horizontal = 14.dp, vertical = 10.dp)
+                    ) {
+                        Text("💡", fontSize = 15.sp)
+                        Spacer(Modifier.width(8.dp))
+                        Text(
+                            text = ipucu,
+                            color = Slate400,
+                            fontSize = 13.sp,
+                            lineHeight = 18.sp
+                        )
+                    }
+                }
                 OutlinedTextField(
                     value = mevcutCevap,
                     onValueChange = { mevcutCevap = it },
@@ -1137,6 +1240,52 @@ private fun getTipEtiketi(tip: String): String {
         "hizli_tur"       -> "HIZLI TUR"
         else             -> tip.uppercase()
     }
+}
+
+/** Yazılı cevap tipleri için ne yazılacağını gösteren örnek ipucu. */
+private fun getCevapIpucu(egzersiz: Egzersiz): String? = when (egzersiz.tip) {
+    "kodu_yaz"       -> "NATO kod kelimesini yaz. Örnek: A → Alpha, R → Romeo"
+    "harfi_yaz"      -> "Kodun karşılığı harfi yaz. Örnek: Bravo → B, Tango → T"
+    "kelime_hece"    -> "Kelimeyi NATO koduyla harf harf yaz. Örnek: VHF → Victor Hotel Foxtrot"
+    "sayisal", "hesapla" -> {
+        val b = if (egzersiz.birim.isNotEmpty()) " (${egzersiz.birim})" else ""
+        "Sadece sayıyı yaz$b. Örnek: 145.5  ·  ±%5 hata payı kabul edilir"
+    }
+    "bosluk_doldur"  -> "Boşluğa gelen tek kelime/değeri yaz."
+    "cumle_tamamla"  -> "Eksik kelimeyi yazarak cümleyi tamamla."
+    "formul_tamamla" -> "Eksik formül parçasını/değeri yaz."
+    else             -> null
+}
+
+/**
+ * Soru içeriğine göre uygun SVG görseli seç (bazı sorularda gösterilir).
+ * Önce egzersiz.gorsel, sonra id/kartId/anahtar kelime eşleşmesi. Eşleşme yoksa null.
+ */
+private fun getSoruGorselYolu(e: Egzersiz): String? {
+    if (e.gorsel.isNotEmpty()) {
+        return "file:///android_asset/img/${e.gorsel.substringAfterLast('/')}"
+    }
+    val s = "${e.soru} ${e.aciklama} ${e.kartId} ${e.id}".lowercase()
+    val name = when {
+        e.id.startsWith("cs_") || s.contains("çağrı işaret") || s.contains("cagri isaret") -> "cagri_isareti.svg"
+        e.kartId.startsWith("q_") || e.id.startsWith("qks_") || e.id.startsWith("qas_") ||
+            Regex("\\bq[a-z]{2,3}\\b").containsMatchIn(s) -> "q_kodu.svg"
+        e.kartId.startsWith("nato_") || e.id.startsWith("ks_") || e.id.startsWith("hs_") ||
+            s.contains("nato") || s.contains("fonetik") -> "nato_fonetik.svg"
+        s.contains("dipol") || s.contains("anten") -> "anten_dipol.svg"
+        s.contains("kondansat") -> "kondansator.svg"
+        s.contains("bobin") || s.contains("indükt") || s.contains("indukt") -> "bobin.svg"
+        s.contains("direnç") || s.contains("direnc") || s.contains("ohm") -> "direnc.svg"
+        s.contains("modülasyon") || s.contains("modulasyon") -> "modulasyon.svg"
+        s.contains("watt") || s.contains("güç") || s.contains("çıkış gücü") -> "guc_watt.svg"
+        s.contains("batarya") || s.contains("pil ") || s.contains("gerilim") || s.contains("volt") -> "batarya.svg"
+        s.contains("frekans") || s.contains("mhz") || s.contains("khz") -> "frekans_kadran.svg"
+        s.contains("vhf") || s.contains("uhf") || s.contains(" hf") || s.contains("bant") || s.contains("band") -> "band_spektrum.svg"
+        s.contains("ptt") || s.contains("bas konuş") -> "ptt_telsiz.svg"
+        s.contains("prosedür") || s.contains("prosedur") -> "prosedur_akis.svg"
+        else -> null
+    } ?: return null
+    return "file:///android_asset/img/svg/$name"
 }
 
 private fun getFeedbackImage(aciklama: String): String? {
