@@ -110,6 +110,51 @@ object RadioSfx {
         }.start()
     }
 
+    // ── Sürekli statik bed (TTS sırasında) ───────────────────────
+
+    private var bedTrack: AudioTrack? = null
+
+    fun statikBaslat(vol: Float = 0.12f) {
+        if (bedTrack != null) return
+        try {
+            val samples = noise(1000, 0.5, fadeOut = false)
+            val t = AudioTrack.Builder()
+                .setAudioAttributes(
+                    AudioAttributes.Builder()
+                        .setUsage(AudioAttributes.USAGE_GAME)
+                        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                        .build()
+                )
+                .setAudioFormat(
+                    AudioFormat.Builder()
+                        .setEncoding(AudioFormat.ENCODING_PCM_16BIT)
+                        .setSampleRate(SR)
+                        .setChannelMask(AudioFormat.CHANNEL_OUT_MONO)
+                        .build()
+                )
+                .setBufferSizeInBytes((samples.size * 2).coerceAtLeast(512))
+                .setTransferMode(AudioTrack.MODE_STATIC)
+                .build()
+            t.write(samples, 0, samples.size)
+            t.setLoopPoints(0, samples.size, -1)
+            t.setVolume(vol)
+            t.play()
+            bedTrack = t
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    fun statikDurdur() {
+        try {
+            bedTrack?.stop()
+            bedTrack?.release()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        bedTrack = null
+    }
+
     fun squelchOpen(vol: Float = 0.6f) = play(squelchOpen, vol)
     fun squelchClose(vol: Float = 0.5f) = play(squelchClose, vol)
     fun rogerBeep(vol: Float = 0.45f) = play(rogerBeep, vol)

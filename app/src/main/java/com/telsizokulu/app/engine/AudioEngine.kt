@@ -91,10 +91,12 @@ class AudioEngine(private val context: Context) {
         // Squelch open (PTT bas → cızırtı)
         RadioSfx.squelchOpen()
 
-        // ~150ms bekle sonra TTS'i başlat
+        // ~150ms bekle sonra TTS'i başlat (altta sürekli statik bed)
         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+            RadioSfx.statikBaslat()
             konus(kelime, onBitti = {
-                // TTS bitince: squelch close + roger beep
+                // TTS bitince: statik dur + squelch close + roger beep
+                RadioSfx.statikDurdur()
                 RadioSfx.squelchClose()
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                     RadioSfx.rogerBeep()
@@ -126,7 +128,9 @@ class AudioEngine(private val context: Context) {
         RadioSfx.squelchOpen()
 
         android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+            RadioSfx.statikBaslat()
             konus(text, locale, onBitti = {
+                RadioSfx.statikDurdur()
                 RadioSfx.squelchClose()
                 android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
                     RadioSfx.rogerBeep()
@@ -163,13 +167,17 @@ class AudioEngine(private val context: Context) {
 
     fun sesAcKapa(): Boolean {
         sesAcik = !sesAcik
-        if (!sesAcik) tts?.stop()
+        if (!sesAcik) {
+            tts?.stop()
+            RadioSfx.statikDurdur()
+        }
         return sesAcik
     }
 
     fun sesDurumu(): Boolean = sesAcik
 
     fun release() {
+        RadioSfx.statikDurdur()
         tts?.stop()
         tts?.shutdown()
         soundPool?.release()
