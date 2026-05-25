@@ -41,8 +41,19 @@ class CurriculumRepository(private val context: Context) {
         }
         val egzersizler = injectTipVeOnarim(raw).toMutableMap()
 
-        // NATO + Q kodu kartları için inandırıcı çoktan seçmeli sorular üret.
-        val uretilen = natoSecmeliUret(temizKartlar) + qKoduSecmeliUret(temizKartlar)
+        // NATO + Q + Elektronik + Bant kartları için inandırıcı çoktan seçmeli üret.
+        val uretilen = natoSecmeliUret(temizKartlar) +
+            qKoduSecmeliUret(temizKartlar) +
+            genelKartSecmeliUret(
+                temizKartlar, "el_",
+                ileriSoru = { on -> "Elektronikte \"$on\" sembolü hangi birimi gösterir?" },
+                tersSoru  = { arka -> "\"$arka\" biriminin sembolü hangisidir?" }
+            ) +
+            genelKartSecmeliUret(
+                temizKartlar, "bn_",
+                ileriSoru = { on -> "\"$on\" neye karşılık gelir?" },
+                tersSoru  = { arka -> "Hangisi \"$arka\" karşılığıdır?" }
+            )
         if (uretilen.isNotEmpty()) {
             egzersizler["coktan_secmeli"] = (egzersizler["coktan_secmeli"] ?: emptyList()) + uretilen
         }
@@ -145,6 +156,66 @@ class CurriculumRepository(private val context: Context) {
                     cevap = q.anlam, secenekler = secenekler,
                     kartId = q.id, altBolum = q.ab, zorluk = "orta",
                     aciklama = "${q.kod} = ${q.anlam}"
+                ))
+            }
+        }
+        return sonuc
+    }
+
+    /**
+     * Genel kart→çoktan seçmeli üretici (elektronik, bant vb.).
+     * on (kısa sembol/etiket) ↔ arka (kısa birim/karşılık) iki yönlü MC.
+     * Uzun aciklama metni gelirse atlanır (kısa alan filtresi). Dağıtıcılar önce aynı
+     * alt bölümden (anlamlı tuzak), yetmezse tüm setten.
+     */
+    private fun genelKartSecmeliUret(
+        kartlar: List<Kart>,
+        prefix: String,
+        ileriSoru: (on: String) -> String,
+        tersSoru: (arka: String) -> String,
+        zorluk: String = "orta"
+    ): List<Egzersiz> {
+        val secili = kartlar.filter {
+            it.id.startsWith(prefix) &&
+                !it.on.isNullOrBlank() && !it.arka.isNullOrBlank() &&
+                (it.on?.length ?: 99) <= 14 && (it.arka?.length ?: 99) <= 44
+        }
+        if (secili.size < 4) return emptyList()
+
+        val sonuc = mutableListOf<Egzersiz>()
+
+        fun dagitici(secenekKaynak: (Kart) -> String?, k: Kart, dogru: String): List<String> {
+            val ayniAb = secili.filter { it.altBolum == k.altBolum && it.id != k.id }
+                .mapNotNull(secenekKaynak).filter { it != dogru }.distinct()
+            val havuz = if (ayniAb.size >= 3) ayniAb
+            else (ayniAb + secili.filter { it.id != k.id }.mapNotNull(secenekKaynak)).filter { it != dogru }.distinct()
+            return havuz.shuffled().take(3)
+        }
+
+        secili.forEach { k ->
+            val on = k.on ?: ""
+            val arka = k.arka ?: ""
+            val ab = k.altBolum ?: ""
+
+            val yArka = dagitici({ it.arka }, k, arka)
+            if (yArka.size == 3) {
+                sonuc.add(Egzersiz(
+                    id = "${prefix}ks_${k.id}", tip = "coktan_secmeli",
+                    soru = ileriSoru(on), cevap = arka,
+                    secenekler = (listOf(arka) + yArka).shuffled(),
+                    kartId = k.id, altBolum = ab, zorluk = zorluk,
+                    aciklama = "$on = $arka"
+                ))
+            }
+
+            val yOn = dagitici({ it.on }, k, on)
+            if (yOn.size == 3) {
+                sonuc.add(Egzersiz(
+                    id = "${prefix}as_${k.id}", tip = "coktan_secmeli",
+                    soru = tersSoru(arka), cevap = on,
+                    secenekler = (listOf(on) + yOn).shuffled(),
+                    kartId = k.id, altBolum = ab, zorluk = zorluk,
+                    aciklama = "$arka = $on"
                 ))
             }
         }
