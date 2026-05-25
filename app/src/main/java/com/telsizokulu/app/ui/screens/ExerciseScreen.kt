@@ -29,6 +29,7 @@ import com.telsizokulu.app.data.model.Kart
 import com.telsizokulu.app.data.model.DiyalogSatiri
 import com.telsizokulu.app.data.model.HizliTurSoruTanim
 import com.telsizokulu.app.engine.GamificationEngine
+import com.telsizokulu.app.ui.components.BadgeIcon
 import com.telsizokulu.app.ui.components.NatoMonogram
 import com.telsizokulu.app.ui.theme.*
 import com.telsizokulu.app.ui.viewmodel.ExerciseViewModel
@@ -1464,13 +1465,20 @@ private fun OzetEkrani(
         if (uiState.yeniRozetler.isNotEmpty()) {
             Spacer(Modifier.height(28.dp))
             Text("🏆 Yeni Rozet!", style = MaterialTheme.typography.titleMedium, color = GoldXP)
+            Spacer(Modifier.height(12.dp))
             uiState.yeniRozetler.forEach { rozetId ->
-                val bilgi = GamificationEngine.ROZET_BILGILERI[rozetId]
-                Text(
-                    text = "${bilgi?.first ?: "🏅"} ${GamificationEngine.getRozetIsim(rozetId)}",
-                    color = SlateWhite,
-                    style = MaterialTheme.typography.bodyMedium
-                )
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    modifier = Modifier.padding(vertical = 4.dp)
+                ) {
+                    BadgeIcon(rozetId = rozetId, kazanildi = true, size = 44.dp)
+                    Text(
+                        text = GamificationEngine.getRozetIsim(rozetId),
+                        color = SlateWhite,
+                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.SemiBold)
+                    )
+                }
             }
         }
 

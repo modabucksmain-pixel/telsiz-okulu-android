@@ -19,6 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.telsizokulu.app.engine.GamificationEngine
+import com.telsizokulu.app.ui.components.BadgeIcon
+import com.telsizokulu.app.ui.components.rozetRenk
 import com.telsizokulu.app.ui.theme.*
 import com.telsizokulu.app.ui.viewmodel.ProfileViewModel
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -309,12 +311,12 @@ fun ProfileScreen(
                                             .padding(12.dp),
                                         horizontalAlignment = Alignment.CenterHorizontally
                                     ) {
-                                        Text(bilgi.first, fontSize = 28.sp)
+                                        BadgeIcon(rozetId = rozetId, kazanildi = kazanildi, size = 52.dp)
                                         Spacer(Modifier.height(6.dp))
                                         Text(
                                             GamificationEngine.getRozetIsim(rozetId),
                                             style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.SemiBold),
-                                            color = if (kazanildi) GoldXP else Slate700,
+                                            color = if (kazanildi) rozetRenk(rozetId) else Slate700,
                                             maxLines = 2
                                         )
                                     }
