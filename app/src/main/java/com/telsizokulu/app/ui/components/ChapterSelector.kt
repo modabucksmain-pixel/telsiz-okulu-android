@@ -34,7 +34,13 @@ import com.telsizokulu.app.ui.theme.ChapterName
 import com.telsizokulu.app.ui.theme.EyebrowMono
 import com.telsizokulu.app.ui.theme.MonoFamily
 import com.telsizokulu.app.ui.theme.MutedMono
+import com.telsizokulu.app.ui.theme.SpektrumMute2
 import com.telsizokulu.app.ui.theme.SpektrumMuted
+import com.telsizokulu.app.ui.theme.SpektrumSurface
+import com.telsizokulu.app.ui.theme.SpektrumSurface2
+import com.telsizokulu.app.ui.theme.SpektrumHairline
+import com.telsizokulu.app.ui.theme.SpektrumHairline2
+import com.telsizokulu.app.ui.theme.SpektrumInk
 
 @Composable
 fun ChapterSelectorCard(
@@ -61,8 +67,8 @@ fun ChapterSelectorCard(
             .padding(horizontal = 16.dp)
             .padding(bottom = 14.dp)
             .clip(RoundedCornerShape(14.dp))
-            .background(MaterialTheme.colorScheme.surface)
-            .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(14.dp))
+            .background(SpektrumSurface)
+            .border(1.dp, SpektrumHairline, RoundedCornerShape(14.dp))
             .drawBehind {
                 drawRect(
                     color = accent,
@@ -89,13 +95,13 @@ fun ChapterSelectorCard(
                 ) {
                     Text(
                         text = "BÖLÜM ${bolum.siralama.toString().padStart(2, '0')} / 06 · $kod",
-                        style = EyebrowMono.copy(color = accent),
+                        style = EyebrowMono.copy(color = SpektrumMuted),
                     )
                     Spacer(Modifier.height(3.dp))
                     Text(
                         text = bolum.baslik,
                         style = ChapterName,
-                        color = MaterialTheme.colorScheme.onSurface,
+                        color = SpektrumInk,
                     )
                 }
                 NavArrowButton(
@@ -116,7 +122,7 @@ fun ChapterSelectorCard(
                         .height(4.dp)
                         .clip(RoundedCornerShape(2.dp)),
                     color = accent,
-                    trackColor = MaterialTheme.colorScheme.outline,
+                    trackColor = SpektrumHairline,
                 )
                 Spacer(Modifier.width(8.dp))
                 Text(
@@ -152,9 +158,9 @@ fun ChapterSelectorCard(
                             .background(
                                 when {
                                     isActive -> bAccent
-                                    isLocked -> MaterialTheme.colorScheme.outlineVariant
+                                    isLocked -> SpektrumHairline
                                     bPct > 0 -> bAccent.copy(alpha = 0.4f)
-                                    else     -> MaterialTheme.colorScheme.outline
+                                    else     -> SpektrumHairline2
                                 }
                             )
                             .clickable { onSelect(i) },
@@ -178,12 +184,12 @@ private fun NavArrowButton(label: String, enabled: Boolean, onClick: () -> Unit)
             .size(34.dp)
             .clip(RoundedCornerShape(9.dp))
             .background(
-                if (enabled) MaterialTheme.colorScheme.surfaceVariant
+                if (enabled) SpektrumSurface2
                 else Color.Transparent
             )
             .border(
                 1.dp,
-                if (enabled) MaterialTheme.colorScheme.outlineVariant else Color.Transparent,
+                if (enabled) SpektrumHairline2 else Color.Transparent,
                 RoundedCornerShape(9.dp),
             )
             .then(if (enabled) Modifier.clickable(onClick = onClick) else Modifier),
@@ -194,8 +200,8 @@ private fun NavArrowButton(label: String, enabled: Boolean, onClick: () -> Unit)
             fontFamily = MonoFamily,
             fontWeight = FontWeight.Bold,
             fontSize = 16.sp,
-            color = if (enabled) MaterialTheme.colorScheme.onSurface
-                    else MaterialTheme.colorScheme.outlineVariant,
+            color = if (enabled) SpektrumInk
+                    else SpektrumMute2,
         )
     }
 }

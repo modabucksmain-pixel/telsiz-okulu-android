@@ -36,6 +36,12 @@ import com.telsizokulu.app.ui.theme.LessonTitle
 import com.telsizokulu.app.ui.theme.MonoFamily
 import com.telsizokulu.app.ui.theme.SpektrumStreak
 import com.telsizokulu.app.ui.theme.SpektrumStreakTint
+import com.telsizokulu.app.ui.theme.SpektrumSurface
+import com.telsizokulu.app.ui.theme.SpektrumHairline
+import com.telsizokulu.app.ui.theme.SpektrumHairline2
+import com.telsizokulu.app.ui.theme.SpektrumInk
+import com.telsizokulu.app.ui.theme.SpektrumMute2
+import com.telsizokulu.app.ui.theme.SpektrumMuted
 
 enum class LessonStatus { LOCKED, ACCESSIBLE, DONE }
 
@@ -53,8 +59,8 @@ fun HomeLessonRow(
     val done = status == LessonStatus.DONE
     val leftBorder = when {
         done       -> bolumRenk
-        accessible -> bolumRenk.copy(alpha = 0.53f)
-        else       -> MaterialTheme.colorScheme.outlineVariant
+        accessible -> bolumRenk.copy(alpha = 0.53f) // ~88 hex opacity
+        else       -> SpektrumHairline2
     }
 
     var gorunur by remember { mutableStateOf(false) }
@@ -73,12 +79,12 @@ fun HomeLessonRow(
             .fillMaxWidth()
             .graphicsLayer { alpha = girisAlpha; translationY = girisKayma }
             .padding(bottom = 7.dp)
-            .clip(RoundedCornerShape(10.dp))
-            .background(MaterialTheme.colorScheme.surface)
-            .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(10.dp))
+            .clip(RoundedCornerShape(14.dp))
+            .background(SpektrumSurface)
+            .border(1.dp, SpektrumHairline, RoundedCornerShape(14.dp))
             .then(
                 if (accessible) Modifier.clickable(onClick = onClick)
-                else Modifier.alpha(0.5f)
+                else Modifier.alpha(0.6f)
             )
             .padding(start = 0.dp)
             .then(Modifier),
@@ -89,7 +95,7 @@ fun HomeLessonRow(
             modifier = Modifier
                 .width(3.dp)
                 .height(54.dp)
-                .background(leftBorder, RoundedCornerShape(topStart = 10.dp, bottomStart = 10.dp))
+                .background(leftBorder, RoundedCornerShape(topStart = 14.dp, bottomStart = 14.dp))
         )
 
         Spacer(Modifier.width(10.dp))
@@ -103,7 +109,7 @@ fun HomeLessonRow(
                     when {
                         done       -> bolumRenk
                         accessible -> bolumRenk.copy(alpha = 0.086f)
-                        else       -> MaterialTheme.colorScheme.outlineVariant
+                        else       -> SpektrumHairline
                     }
                 )
                 .border(
@@ -111,7 +117,7 @@ fun HomeLessonRow(
                     when {
                         done       -> bolumRenk
                         accessible -> bolumRenk.copy(alpha = 0.267f)
-                        else       -> MaterialTheme.colorScheme.outlineVariant
+                        else       -> SpektrumHairline2
                     },
                     if (isSinav) RoundedCornerShape(7.dp) else RoundedCornerShape(17.dp)
                 ),
@@ -128,9 +134,9 @@ fun HomeLessonRow(
                 fontWeight = FontWeight.Bold,
                 fontSize = 11.5.sp,
                 color = when {
-                    done       -> Color.White
+                    done       -> SpektrumSurface
                     accessible -> bolumRenk
-                    else       -> MaterialTheme.colorScheme.onSurfaceVariant
+                    else       -> SpektrumMute2
                 },
             )
         }
@@ -142,7 +148,7 @@ fun HomeLessonRow(
                 Text(
                     text = baslik,
                     style = LessonTitle,
-                    color = MaterialTheme.colorScheme.onSurface,
+                    color = if (!accessible) SpektrumMuted else SpektrumInk,
                     maxLines = 1,
                 )
                 if (isSinav) {

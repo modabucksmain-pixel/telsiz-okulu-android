@@ -156,7 +156,9 @@ fun ExerciseScreen(
             Spacer(Modifier.width(10.dp))
             Text(
                 text = "${oturum.mevcutIndex + 1}/${oturum.egzersizler.size}",
-                style = MaterialTheme.typography.labelLarge.copy(fontWeight = FontWeight.Bold),
+                fontFamily = MonoFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = 14.sp,
                 color = SpektrumMuted
             )
         }
@@ -297,15 +299,40 @@ private fun EgzersizKarti(
                 .padding(horizontal = 22.dp, vertical = 26.dp),
             contentAlignment = Alignment.Center
         ) {
-            Text(
-                text = egzersiz.soru.ifEmpty { egzersiz.metin },
-                fontSize = 22.sp,
-                fontWeight = FontWeight.Bold,
-                lineHeight = 30.sp,
-                color = SpektrumOnSurface,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth()
-            )
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = egzersiz.soru.ifEmpty { egzersiz.metin },
+                    fontSize = 22.sp,
+                    fontWeight = FontWeight.Bold,
+                    lineHeight = 30.sp,
+                    color = SpektrumOnSurface,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+                val subtitle = egzersiz.gosterilen.ifEmpty { egzersiz.kelime }
+                if (subtitle.isNotEmpty()) {
+                    Spacer(Modifier.height(12.dp))
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .clip(RoundedCornerShape(8.dp))
+                            .background(MaterialTheme.colorScheme.surfaceVariant)
+                            .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(8.dp))
+                            .padding(12.dp),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Text(
+                            text = subtitle,
+                            fontFamily = MonoFamily,
+                            fontWeight = FontWeight.Bold,
+                            fontSize = 28.sp,
+                            letterSpacing = 2.sp,
+                            color = SpektrumAccent,
+                        )
+                    }
+                }
+            }
         }
 
         Spacer(Modifier.height(28.dp))
@@ -347,87 +374,26 @@ private fun EgzersizKarti(
                     val dogru = geribildirımGoruntu && secenek == egzersiz.cevap
                     val yanlis = geribildirımGoruntu && secildi && !dogru
 
-                    val vurguRenk = when {
-                        dogru -> Success
-                        yanlis -> Danger
-                        secildi && !geribildirımGoruntu -> SpektrumAccent
-                        else -> null
+                    val state = when {
+                        dogru -> com.telsizokulu.app.ui.components.OptionState.CORRECT
+                        yanlis -> com.telsizokulu.app.ui.components.OptionState.WRONG
+                        secildi && !geribildirımGoruntu -> com.telsizokulu.app.ui.components.OptionState.SELECTED
+                        else -> com.telsizokulu.app.ui.components.OptionState.DEFAULT
                     }
-                    Button(
+
+                    com.telsizokulu.app.ui.components.OptionButton(
+                        index = i,
+                        text = secenek,
+                        bolumRenk = SpektrumAccent,
+                        state = state,
                         onClick = {
                             if (!cevapGonderildi) {
                                 mevcutCevap = secenek
                                 cevapGonderildi = true
                                 onCevapVer(secenek)
                             }
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 5.dp)
-                            .then(
-                                if (vurguRenk != null)
-                                    Modifier.neonGlow(vurguRenk, cornerRadius = 18.dp, elevation = 10.dp, borderWidth = 2.dp)
-                                else Modifier
-                            )
-                            .heightIn(min = 72.dp),
-                        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 14.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = when {
-                                dogru -> Success.copy(alpha = 0.25f)
-                                yanlis -> Danger.copy(alpha = 0.25f)
-                                secildi && !geribildirımGoruntu -> SpektrumAccent.copy(alpha = 0.2f)
-                                else -> SpektrumSurface
-                            }
-                        ),
-                        border = if (vurguRenk == null) BorderStroke(2.dp, SpektrumOutline) else null,
-                        shape = RoundedCornerShape(18.dp)
-                    ) {
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Box(
-                                modifier = Modifier
-                                    .size(32.dp)
-                                    .clip(CircleShape)
-                                    .background(
-                                        when {
-                                            dogru -> Success.copy(alpha = 0.3f)
-                                            yanlis -> Danger.copy(alpha = 0.3f)
-                                            secildi && !geribildirımGoruntu -> SpektrumAccent.copy(alpha = 0.3f)
-                                            else -> SpektrumOutline2
-                                        }
-                                    ),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(
-                                    text = numLabels.getOrNull(i) ?: "•",
-                                    color = when {
-                                        dogru -> Success
-                                        yanlis -> Danger
-                                        secildi && !geribildirımGoruntu -> SpektrumAccent
-                                        else -> SpektrumMuted
-                                    },
-                                    fontWeight = FontWeight.ExtraBold,
-                                    fontSize = 13.sp
-                                )
-                            }
-                            Spacer(Modifier.width(14.dp))
-                            Text(
-                                text = secenek,
-                                color = when {
-                                    dogru -> Success
-                                    yanlis -> Danger
-                                    secildi && !geribildirımGoruntu -> SpektrumAccent
-                                    else -> SpektrumOnSurface
-                                },
-                                fontWeight = FontWeight.SemiBold,
-                                fontSize = 16.sp,
-                                lineHeight = 22.sp,
-                                textAlign = TextAlign.Start
-                            )
                         }
-                    }
+                    )
                 }
             }
 

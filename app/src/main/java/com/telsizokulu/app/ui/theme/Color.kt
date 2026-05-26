@@ -33,18 +33,24 @@ val OrangeStreak    = Color(0xFFFF6B00)
 // ── SPEKTRUM v2 ───────────────────────────────────────────────────────────
 val SpektrumBg           = Color(0xFF0B1020)
 val SpektrumSurface      = Color(0xFF11172A)
-val SpektrumSurfaceVar   = Color(0xFF0E1426)
-val SpektrumOnSurface    = Color(0xFFF5F2E9)
-val SpektrumOnSurfaceVar = Color(0xFFD6D2C5)
+val SpektrumSurface2     = Color(0xFF0E1426)
+val SpektrumInk          = Color(0xFFF5F2E9)
+val SpektrumInk2         = Color(0xFFD6D2C5)
 val SpektrumMuted        = Color(0xFF9CA3AF)
-val SpektrumMuted2       = Color(0xFF6B7280)
-val SpektrumOutline      = Color(0xFF1F2937)
-val SpektrumOutline2     = Color(0xFF2C3849)
+val SpektrumMute2        = Color(0xFF6B7280)
+val SpektrumHairline     = Color(0xFF1F2937)
+val SpektrumHairline2    = Color(0xFF2C3849)
 val SpektrumAccent       = Color(0xFF5BD9C8)
 val SpektrumAccentHi     = Color(0xFF7CEEDC)
 val SpektrumAccentTint   = Color(0x1F5BD9C8)
 val SpektrumStreak       = Color(0xFFFFB454)
 val SpektrumStreakTint   = Color(0x24FFB454)
+
+val SpektrumSurfaceVar = SpektrumSurface2
+val SpektrumOnSurfaceVar = SpektrumMute2
+val SpektrumOnSurface = SpektrumInk
+val SpektrumOutline = SpektrumHairline
+val SpektrumOutline2 = SpektrumHairline2
 
 val Success = Color(0xFF15803D)
 val Danger  = Color(0xFFB91C1C)
@@ -53,30 +59,48 @@ val Streak  = Color(0xFFDC6803)
 
 // ── CHAPTER COLORS ────────────────────────────────────────────────────────
 object BolumColors {
+    val Cihaz = Color(0xFF6366f1)
+    val Prosedur = Color(0xFFec4899)
+    val Trafik = Color(0xFF14b8a6)
+    val Kaza = Color(0xFFeab308)
+    val Tesis = Color(0xFFf97316)
+    val Mors = Color(0xFFa855f7)
+
     val Nato       = Color(0xFF1E3A8A)
     val QCode      = Color(0xFF0F766E)
     val Elektronik = Color(0xFFB45309)
     val Frekans    = Color(0xFF0369A1)
-    val Prosedur   = Color(0xFF15803D)
     val Trac       = Color(0xFF7C2D12)
 
-    fun fromId(id: String): Color = when (id) {
+    fun fromId(id: String) = when (id) {
+        "cihaz-bilgisi" -> Cihaz
+        "isletme-proseduru" -> Prosedur
+        "trafik-radyo" -> Trafik
+        "kaza-tehlike" -> Kaza
+        "tesis-kurulum" -> Tesis
+        "mors-alfabesi" -> Mors
         "bolum_1" -> Nato
         "bolum_2" -> QCode
         "bolum_3" -> Elektronik
         "bolum_4" -> Frekans
         "bolum_5" -> Prosedur
         "bolum_6" -> Trac
-        else      -> Color(0xFF2563EB)
+        else -> Color.Gray
     }
 
-    fun kodFromId(id: String): String = when (id) {
+    fun kodFromId(id: String) = when (id) {
+        "cihaz-bilgisi" -> "CHZ"
+        "isletme-proseduru" -> "PRS"
+        "trafik-radyo" -> "TRF"
+        "kaza-tehlike" -> "KZA"
+        "tesis-kurulum" -> "TSS"
+        "mors-alfabesi" -> "MRS"
         "bolum_1" -> "NATO"
         "bolum_2" -> "Q-KODU"
         "bolum_3" -> "ELEKTRONİK"
         "bolum_4" -> "FREKANS"
         "bolum_5" -> "PROSEDÜR"
         "bolum_6" -> "TRAC"
-        else      -> "???"
+        else -> "???"
     }
 }

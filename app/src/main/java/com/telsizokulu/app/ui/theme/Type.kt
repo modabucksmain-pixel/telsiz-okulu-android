@@ -6,8 +6,11 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-// Replace with FontFamily(Font(R.font.ibm_plex_mono_*)) when TTF files are added to res/font/
-val MonoFamily: FontFamily = FontFamily.Monospace
+val MonoFamily: FontFamily = FontFamily(
+    androidx.compose.ui.text.font.Font(com.telsizokulu.app.R.font.ibm_plex_mono_regular, FontWeight.Normal),
+    androidx.compose.ui.text.font.Font(com.telsizokulu.app.R.font.ibm_plex_mono_semibold, FontWeight.SemiBold),
+    androidx.compose.ui.text.font.Font(com.telsizokulu.app.R.font.ibm_plex_mono_bold, FontWeight.Bold)
+)
 val SansFamily: FontFamily = FontFamily.Default
 
 val AppTypography = Typography(
@@ -30,7 +33,7 @@ val AppTypography = Typography(
 
 val EyebrowMono = TextStyle(
     fontFamily = MonoFamily, fontWeight = FontWeight.Bold,
-    fontSize = 10.5.sp, letterSpacing = 1.6.sp,
+    fontSize = 10.sp, letterSpacing = 1.5.sp,
 )
 val MutedMono = TextStyle(
     fontFamily = MonoFamily, fontWeight = FontWeight.SemiBold,
@@ -44,9 +47,13 @@ val ScreenTitle = TextStyle(
     fontFamily = SansFamily, fontWeight = FontWeight.ExtraBold,
     fontSize = 22.sp, letterSpacing = (-0.4).sp,
 )
+val TopBarTitle = TextStyle(
+    fontFamily = SansFamily, fontWeight = FontWeight.Bold,
+    fontSize = 13.5.sp, letterSpacing = (-0.2).sp,
+)
 val ChapterName = TextStyle(
     fontFamily = SansFamily, fontWeight = FontWeight.ExtraBold,
-    fontSize = 18.sp, letterSpacing = (-0.3).sp,
+    fontSize = 18.sp, letterSpacing = (-0.4).sp,
 )
 val LessonTitle = TextStyle(
     fontFamily = SansFamily, fontWeight = FontWeight.Bold,

@@ -73,13 +73,16 @@ import com.telsizokulu.app.ui.theme.EyebrowMono
 import com.telsizokulu.app.ui.theme.LessonTitle
 import com.telsizokulu.app.ui.theme.MonoFamily
 import com.telsizokulu.app.ui.theme.BodySmall
+import com.telsizokulu.app.ui.theme.BodyDefault
 import com.telsizokulu.app.ui.theme.MutedMono
 import com.telsizokulu.app.ui.theme.SpektrumAccent
 import com.telsizokulu.app.ui.theme.SpektrumBg
 import com.telsizokulu.app.ui.theme.SpektrumMuted
-import com.telsizokulu.app.ui.theme.SpektrumOnSurface
+import com.telsizokulu.app.ui.theme.SpektrumMute2
+import com.telsizokulu.app.ui.theme.SpektrumInk
 import com.telsizokulu.app.ui.theme.SpektrumSurface
-import com.telsizokulu.app.ui.theme.neonGlow
+import com.telsizokulu.app.ui.theme.SpektrumSurface2
+import com.telsizokulu.app.ui.theme.SpektrumHairline
 import com.telsizokulu.app.ui.viewmodel.HomeViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -327,8 +330,8 @@ private fun TopBar(xp: Int, streak: Int, seviye: Int) {
                 )
                 Text(
                     text = "TA2/CALL · Lv.$seviye",
-                    style = LessonTitle,
-                    color = MaterialTheme.colorScheme.onSurface,
+                    style = com.telsizokulu.app.ui.theme.TopBarTitle,
+                    color = SpektrumInk,
                 )
             }
         }
@@ -353,7 +356,7 @@ private fun RadioLogo() {
                     // border
                     val stroke = androidx.compose.ui.graphics.drawscope.Stroke(1.dp.toPx())
                     drawRoundRect(
-                        color       = Color(0xFF1F2937),
+                        color       = SpektrumHairline,
                         cornerRadius= androidx.compose.ui.geometry.CornerRadius(10.dp.toPx()),
                         style       = stroke,
                     )
@@ -395,13 +398,12 @@ private fun RadioLogo() {
 private fun ContinueButton(bolumRenk: Color, dersBaslik: String, onClick: () -> Unit) {
     Surface(
         onClick    = onClick,
-        color      = MaterialTheme.colorScheme.onSurface,
+        color      = SpektrumInk,
         shape      = RoundedCornerShape(14.dp),
         modifier   = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
-            .padding(bottom = 10.dp)
-            .neonGlow(bolumRenk, cornerRadius = 14.dp, elevation = 14.dp, glowAlpha = 0.45f, borderAlpha = 0.5f),
+            .padding(bottom = 10.dp),
     ) {
         Row(
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
@@ -409,30 +411,29 @@ private fun ContinueButton(bolumRenk: Color, dersBaslik: String, onClick: () -> 
         ) {
             Box(
                 modifier = Modifier
-                    .size(36.dp)
-                    .background(bolumRenk, RoundedCornerShape(9.dp)),
+                    .size(32.dp)
+                    .background(SpektrumBg, RoundedCornerShape(8.dp)),
                 contentAlignment = Alignment.Center,
             ) {
                 Icon(
                     Icons.Filled.PlayArrow,
                     contentDescription = null,
-                    tint      = Color.White,
+                    tint      = SpektrumInk,
                     modifier  = Modifier.size(16.dp),
                 )
             }
             Spacer(Modifier.width(12.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text  = "DEVAM ET",
-                    style = EyebrowMono.copy(color = bolumRenk),
+                    text  = "SIRADAKİ DERS",
+                    style = EyebrowMono.copy(color = SpektrumBg.copy(alpha = 0.7f), letterSpacing = 1.sp),
                 )
                 Text(
                     text  = dersBaslik,
                     style = LessonTitle,
-                    color = MaterialTheme.colorScheme.surface,
+                    color = SpektrumBg,
                 )
             }
-            Text("→", color = bolumRenk, fontSize = 18.sp)
         }
     }
 }
@@ -601,8 +602,8 @@ private fun DailyMorseCard() {
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp)
-            .neonGlow(SpektrumAccent, cornerRadius = 14.dp, elevation = 8.dp, glowAlpha = 0.25f, borderAlpha = 0.4f)
             .clip(RoundedCornerShape(14.dp))
+            .border(1.dp, SpektrumHairline, RoundedCornerShape(14.dp))
             .background(SpektrumSurface)
             .padding(16.dp),
     ) {
@@ -611,8 +612,8 @@ private fun DailyMorseCard() {
             text  = "GÜNÜN BİLGİSİ · ${bilgi.kod}",
             style = EyebrowMono,
             color = SpektrumMuted,
+            modifier = Modifier.padding(bottom = 8.dp)
         )
-        Spacer(Modifier.height(8.dp))
         // Morse encoding box
         Box(
             modifier = Modifier
@@ -636,8 +637,8 @@ private fun DailyMorseCard() {
         // Description
         Text(
             text  = bilgi.metin,
-            style = BodySmall,
-            color = SpektrumOnSurface.copy(alpha = 0.75f),
+            style = BodyDefault.copy(fontSize = 13.sp, lineHeight = (13 * 1.4).sp),
+            color = SpektrumInk,
         )
     }
 }

@@ -29,14 +29,13 @@ import androidx.compose.ui.unit.sp
 import com.telsizokulu.app.ui.theme.MonoFamily
 import com.telsizokulu.app.ui.theme.MutedMono
 import com.telsizokulu.app.ui.theme.NumeralMono
-import com.telsizokulu.app.ui.theme.SpektrumAccent
-import com.telsizokulu.app.ui.theme.SpektrumMuted
-import com.telsizokulu.app.ui.theme.SpektrumStreak
-import com.telsizokulu.app.ui.theme.SpektrumStreakTint
+import com.telsizokulu.app.ui.theme.SpektrumHairline
+import com.telsizokulu.app.ui.theme.SpektrumSurface
+import com.telsizokulu.app.ui.theme.SpektrumInk
+import com.telsizokulu.app.ui.theme.SpektrumBg
 import com.telsizokulu.app.ui.theme.Danger
 import com.telsizokulu.app.ui.theme.Success
 import com.telsizokulu.app.ui.theme.Warn
-import com.telsizokulu.app.ui.theme.neonGlow
 
 @Composable
 fun CompactStatsStrip(
@@ -69,15 +68,18 @@ fun CompactStatsStrip(
         Row(
             modifier = Modifier
                 .weight(1f)
-                .neonGlow(SpektrumAccent, cornerRadius = 8.dp, elevation = 8.dp, glowAlpha = 0.3f, borderAlpha = 0.4f)
                 .clip(radius)
-                .background(MaterialTheme.colorScheme.surface)
-                .padding(horizontal = 10.dp, vertical = 8.dp),
+                .border(1.dp, SpektrumHairline, radius)
+                .background(SpektrumSurface)
+                .padding(horizontal = 10.dp, vertical = 4.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = seviye.toString(),
-                style = NumeralMono.copy(fontSize = 14.sp, color = SpektrumAccent),
+                text = "Lv.$seviye",
+                fontFamily = MonoFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = 11.sp,
+                color = com.telsizokulu.app.ui.theme.SpektrumAccent,
             )
             Spacer(Modifier.width(8.dp))
             LinearProgressIndicator(
@@ -86,14 +88,16 @@ fun CompactStatsStrip(
                     .weight(1f)
                     .height(4.dp)
                     .clip(RoundedCornerShape(2.dp)),
-                color = SpektrumAccent,
-                trackColor = MaterialTheme.colorScheme.outline,
+                color = com.telsizokulu.app.ui.theme.SpektrumAccent,
+                trackColor = SpektrumHairline,
             )
             Spacer(Modifier.width(8.dp))
             Text(
-                text = "$animXp XP",
-                style = MutedMono,
-                color = SpektrumMuted,
+                text = "${(animPct * 100).toInt()}%",
+                fontFamily = MonoFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = 9.sp,
+                color = SpektrumBg,
             )
         }
 
@@ -101,27 +105,26 @@ fun CompactStatsStrip(
         Row(
             modifier = Modifier
                 .clip(radius)
-                .background(MaterialTheme.colorScheme.surface)
-                .border(1.dp, MaterialTheme.colorScheme.outline, radius)
+                .background(SpektrumSurface)
+                .border(1.dp, SpektrumHairline, radius)
                 .clickable(onClick = onSinavClick)
-                .padding(horizontal = 12.dp, vertical = 8.dp),
+                .padding(horizontal = 10.dp, vertical = 4.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(7.dp),
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             Text(
-                text = "T-${examDays.toString().padStart(2, '0')}",
-                fontFamily = MonoFamily,
+                text = "T-${examDays}",
+                fontFamily = com.telsizokulu.app.ui.theme.SansFamily,
                 fontWeight = FontWeight.Bold,
                 fontSize = 13.sp,
-                letterSpacing = (-0.5).sp,
-                color = MaterialTheme.colorScheme.onSurface,
+                color = SpektrumInk,
             )
             Box(
                 modifier = Modifier
                     .width(24.dp)
                     .height(4.dp)
                     .clip(RoundedCornerShape(2.dp))
-                    .background(MaterialTheme.colorScheme.outline),
+                    .background(SpektrumHairline),
             ) {
                 Box(
                     modifier = Modifier
@@ -143,17 +146,18 @@ fun CompactStatsStrip(
             Box(
                 modifier = Modifier
                     .clip(radius)
-                    .background(SpektrumStreakTint)
-                    .border(1.dp, SpektrumStreak.copy(alpha = 0.33f), radius)
+                    .background(Warn.copy(alpha = 0.18f))
+                    .border(1.dp, Warn.copy(alpha = 0.4f), radius)
                     .clickable(onClick = onPratikClick)
-                    .padding(horizontal = 11.dp, vertical = 8.dp),
+                    .padding(horizontal = 10.dp, vertical = 6.dp),
             ) {
                 Text(
-                    text = "×$zayifKonu",
+                    text = "$zayifKonu ZAYIF KONU",
                     fontFamily = MonoFamily,
                     fontWeight = FontWeight.Bold,
-                    fontSize = 12.sp,
-                    color = SpektrumStreak,
+                    fontSize = 10.sp,
+                    letterSpacing = 0.5.sp,
+                    color = Warn,
                 )
             }
         }

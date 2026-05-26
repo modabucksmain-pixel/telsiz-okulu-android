@@ -44,9 +44,13 @@ import com.telsizokulu.app.ui.theme.ChapterName
 import com.telsizokulu.app.ui.theme.Danger
 import com.telsizokulu.app.ui.theme.EyebrowMono
 import com.telsizokulu.app.ui.theme.MonoFamily
-import com.telsizokulu.app.ui.theme.MutedMono
 import com.telsizokulu.app.ui.theme.SansFamily
+import com.telsizokulu.app.ui.theme.MutedMono
 import com.telsizokulu.app.ui.theme.SpektrumStreak
+import com.telsizokulu.app.ui.theme.SpektrumMuted
+import com.telsizokulu.app.ui.theme.SpektrumInk
+import com.telsizokulu.app.ui.theme.SpektrumSurface
+import com.telsizokulu.app.ui.theme.SpektrumHairline
 import com.telsizokulu.app.ui.theme.Success
 
 data class GrillQuestion(
@@ -68,7 +72,7 @@ fun GrillMeFab(onClick: () -> Unit, modifier: Modifier = Modifier) {
             contentColor = Color.White,
             shape = CircleShape,
             modifier = Modifier.size(52.dp),
-            elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 4.dp),
+            elevation = FloatingActionButtonDefaults.elevation(defaultElevation = 4.dp), // Shadow roughly matches box-shadow
         ) {
             Text("⚡", fontSize = 22.sp)
         }
@@ -76,7 +80,7 @@ fun GrillMeFab(onClick: () -> Unit, modifier: Modifier = Modifier) {
         Text(
             text = "DRILL",
             style = MutedMono.copy(fontSize = 9.sp, letterSpacing = 0.6.sp),
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = SpektrumMuted,
         )
     }
 }
@@ -98,7 +102,7 @@ fun GrillMeBottomSheet(
     ModalBottomSheet(
         onDismissRequest = onDismiss,
         sheetState = sheetState,
-        containerColor = MaterialTheme.colorScheme.surface,
+        containerColor = SpektrumSurface,
         shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp),
     ) {
         Column(
@@ -129,7 +133,7 @@ fun GrillMeBottomSheet(
             Text(
                 text = question.prompt,
                 style = ChapterName.copy(fontSize = 18.sp),
-                color = MaterialTheme.colorScheme.onSurface,
+                color = SpektrumInk,
                 lineHeight = 23.sp,
             )
 
@@ -140,8 +144,8 @@ fun GrillMeBottomSheet(
                     modifier = Modifier
                         .fillMaxWidth()
                         .clip(RoundedCornerShape(8.dp))
-                        .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .border(1.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(8.dp))
+                        .background(com.telsizokulu.app.ui.theme.SpektrumBg)
+                        .border(1.dp, SpektrumHairline, RoundedCornerShape(8.dp))
                         .padding(12.dp),
                     contentAlignment = Alignment.Center,
                 ) {
@@ -160,59 +164,25 @@ fun GrillMeBottomSheet(
 
             // Options
             question.options.forEachIndexed { i, opt ->
-                val isPicked = picked == i
-                val showOk   = reveal && i == question.correctIndex
-                val showBad  = reveal && isPicked && !isCorrect
-                val optBg    = when {
-                    showOk  -> Success.copy(alpha = 0.078f)
-                    showBad -> Danger.copy(alpha = 0.078f)
-                    isPicked -> bolumRenk.copy(alpha = 0.12f)
-                    else    -> MaterialTheme.colorScheme.surfaceVariant
-                }
-                val optBorder = when {
-                    showOk  -> Success
-                    showBad -> Danger
-                    isPicked -> bolumRenk
-                    else    -> MaterialTheme.colorScheme.outlineVariant
-                }
-                val letterColor = when {
-                    showOk  -> Success
-                    showBad -> Danger
-                    isPicked -> bolumRenk
-                    else    -> MaterialTheme.colorScheme.onSurfaceVariant
-                }
+                val isPicked = i == picked
+                val isCorrectAnswer = i == question.correctIndex
+                val showOk = reveal && isCorrectAnswer
+                val showBad = reveal && isPicked && !isCorrectAnswer
 
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(bottom = 7.dp)
-                        .clip(RoundedCornerShape(10.dp))
-                        .background(optBg)
-                        .border(1.5.dp, optBorder, RoundedCornerShape(10.dp))
-                        .then(if (!reveal) Modifier.clickable { picked = i } else Modifier)
-                        .padding(horizontal = 13.dp, vertical = 11.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(
-                        text = ('A' + i).toString(),
-                        fontFamily = MonoFamily,
-                        fontWeight = FontWeight.Bold,
-                        fontSize = 11.sp,
-                        color = letterColor,
-                        modifier = Modifier.width(18.dp),
-                    )
-                    Spacer(Modifier.width(8.dp))
-                    Text(
-                        text = opt,
-                        fontFamily = SansFamily,
-                        fontWeight = FontWeight.SemiBold,
-                        fontSize = 13.5.sp,
-                        color = MaterialTheme.colorScheme.onSurface,
-                        modifier = Modifier.weight(1f),
-                    )
-                    if (showOk)  Text("✓", color = Success, fontWeight = FontWeight.Bold)
-                    if (showBad) Text("✕", color = Danger,  fontWeight = FontWeight.Bold)
+                val state = when {
+                    showOk -> com.telsizokulu.app.ui.components.OptionState.CORRECT
+                    showBad -> com.telsizokulu.app.ui.components.OptionState.WRONG
+                    isPicked -> com.telsizokulu.app.ui.components.OptionState.SELECTED
+                    else -> com.telsizokulu.app.ui.components.OptionState.DEFAULT
                 }
+                
+                com.telsizokulu.app.ui.components.OptionButton(
+                    index = i,
+                    text = opt,
+                    bolumRenk = bolumRenk,
+                    state = state,
+                    onClick = { if (!reveal) picked = i }
+                )
             }
 
             Spacer(Modifier.height(8.dp))
@@ -234,10 +204,10 @@ fun GrillMeBottomSheet(
                 onClick = { if (!reveal) reveal = true else onDismiss() },
                 enabled = picked != null,
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.onSurface,
-                    contentColor   = MaterialTheme.colorScheme.surface,
-                    disabledContainerColor = MaterialTheme.colorScheme.outline,
-                    disabledContentColor   = MaterialTheme.colorScheme.onSurfaceVariant,
+                    containerColor = SpektrumInk,
+                    contentColor   = SpektrumSurface,
+                    disabledContainerColor = SpektrumHairline,
+                    disabledContentColor   = SpektrumMuted,
                 ),
                 modifier = Modifier.fillMaxWidth().height(48.dp),
                 shape = RoundedCornerShape(11.dp),
